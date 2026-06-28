@@ -3,7 +3,7 @@ import type { Region } from "../lib/types";
 export const TRIP = {
   title: "Alpine Summer",
   year: 2026,
-  subtitle: "Wilder Kaiser · Ötztal · South Tyrol · Munich",
+  subtitle: "Wilder Kaiser · Ötztal · South Tyrol",
   startDate: "2026-08-13",
   endDate: "2026-08-28",
   nights: 15,
@@ -45,13 +45,17 @@ export const REGIONS: Region[] = [
   },
   {
     id: "munich",
-    name: "Munich",
+    name: "Munich Airport",
     country: "Germany",
     flag: "🇩🇪",
     center: [48.3538, 11.7861],
-    wiki: "Marienplatz",
-    blurb: "A last Bavarian night by the airport before the flight home.",
+    // Not a sightseeing destination: we only land and depart here.
+    hidden: true,
+    blurb: "Just the airport: land on the way in, sleep nearby the last night, fly home.",
   },
 ];
+
+/** Regions shown as sightseeing destinations (excludes the land/depart airport). */
+export const DESTINATIONS: Region[] = REGIONS.filter((r) => !r.hidden);
 
 export const regionById = (id: string) => REGIONS.find((r) => r.id === id)!;

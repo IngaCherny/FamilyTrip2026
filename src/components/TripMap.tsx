@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
 import L from "leaflet";
-import { ExternalLink, Navigation } from "lucide-react";
 import Section from "./Section";
 import { ATTRACTIONS } from "../data/attractions";
 import { STAYS } from "../data/stays";
@@ -62,17 +61,16 @@ export default function TripMap() {
       <div className="no-scrollbar -mx-4 mb-4 flex gap-2 overflow-x-auto px-4 pb-1">
         {CATEGORIES.map((c) => {
           const on = active.has(c.id);
-          const Icon = POI_META[c.id].icon;
           return (
             <button
               key={c.id}
               onClick={() => toggle(c.id)}
-              className={`tap whitespace-nowrap gap-1.5 rounded-full px-3.5 text-sm font-medium ${
+              className={`tap whitespace-nowrap rounded-full px-3.5 text-sm font-medium ${
                 on ? "text-white" : "bg-white text-stone-600 ring-1 ring-stone-200"
               }`}
               style={on ? { background: POI_META[c.id].color } : undefined}
             >
-              <Icon size={14} /> {c.label}
+              {c.label}
             </button>
           );
         })}
@@ -130,10 +128,10 @@ function PopupLinks({ coords, label }: { coords: [number, number]; label: string
   return (
     <span style={{ display: "inline-flex", gap: 12, marginTop: 6 }}>
       <a href={links.google} target="_blank" rel="noreferrer" style={{ color: "#1f7f8d", fontWeight: 600 }}>
-        <ExternalLink size={12} style={{ display: "inline", marginRight: 2 }} /> Maps
+        Maps
       </a>
       <a href={links.waze} target="_blank" rel="noreferrer" style={{ color: "#1f7f8d", fontWeight: 600 }}>
-        <Navigation size={12} style={{ display: "inline", marginRight: 2 }} /> Waze
+        Waze
       </a>
     </span>
   );

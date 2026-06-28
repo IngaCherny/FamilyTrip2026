@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
-import { UtensilsCrossed, Cake, Wine } from "lucide-react";
 import Section from "./Section";
 import { DISHES } from "../data/food";
 import type { Dish } from "../lib/types";
 
-const KIND_META: Record<Dish["kind"], { icon: typeof UtensilsCrossed; className: string; label: string }> = {
-  savoury: { icon: UtensilsCrossed, className: "bg-sunset-200 text-sunset-600", label: "Savoury" },
-  sweet: { icon: Cake, className: "bg-meadow-100 text-meadow-700", label: "Sweet" },
-  drink: { icon: Wine, className: "bg-glacier-100 text-glacier-700", label: "Drink" },
+const KIND_META: Record<Dish["kind"], { className: string; label: string }> = {
+  savoury: { className: "bg-sunset-200 text-sunset-600", label: "Savoury" },
+  sweet: { className: "bg-meadow-100 text-meadow-700", label: "Sweet" },
+  drink: { className: "bg-glacier-100 text-glacier-700", label: "Drink" },
 };
 
 export default function Food() {
@@ -21,7 +20,6 @@ export default function Food() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {DISHES.map((d, i) => {
           const meta = KIND_META[d.kind];
-          const Icon = meta.icon;
           return (
             <motion.div
               key={d.name}
@@ -32,8 +30,8 @@ export default function Food() {
               className="card-paper p-4"
             >
               <div className="mb-2 flex items-center justify-between">
-                <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${meta.className}`}>
-                  <Icon size={12} /> {meta.label}
+                <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${meta.className}`}>
+                  {meta.label}
                 </span>
                 <span className="text-xs text-stone-400">{d.origin}</span>
               </div>

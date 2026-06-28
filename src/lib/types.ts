@@ -12,6 +12,8 @@ export interface Region {
   blurb: string;
   /** Wikipedia article title used to fetch a representative photo. */
   wiki?: string;
+  /** Hidden from destination lists (e.g. the arrival/departure airport). */
+  hidden?: boolean;
 }
 
 export interface Stay {
@@ -69,6 +71,9 @@ export interface DayOption extends Mappable {
   /** Kid-focused note: walk length, terrain, buggy/carrier, swimming, etc. */
   kidNote?: string;
   attractionId?: string;
+  /** External link, e.g. an official tourism-board route page. */
+  link?: string;
+  linkLabel?: string;
 }
 
 /** A worthwhile stop or sight to break up a long drive. */

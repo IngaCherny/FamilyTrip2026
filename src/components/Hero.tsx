@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, CalendarDays } from "lucide-react";
-import { TRIP, REGIONS } from "../data/trip";
+import { TRIP, DESTINATIONS } from "../data/trip";
 import { useCountdown } from "../lib/useCountdown";
 import { formatDate } from "../lib/format";
 import { useWikiImage } from "../lib/useWikiImage";
@@ -64,14 +63,10 @@ export default function Hero() {
           <p className="mt-4 max-w-xl text-lg text-white/85">{TRIP.tagline}</p>
 
           <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/80">
-            <span className="inline-flex items-center gap-1.5">
-              <CalendarDays size={16} />
+            <span>
               {formatDate(TRIP.startDate)} to {formatDate(TRIP.endDate, { day: "numeric", month: "long", year: "numeric" })}
             </span>
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin size={16} />
-              {REGIONS.map((r) => r.name).join(" · ")}
-            </span>
+            <span>{DESTINATIONS.map((r) => r.name).join(" · ")}</span>
           </div>
 
           {!cd.isAfter && (

@@ -9,17 +9,17 @@ import Tips from "./components/Tips";
 import Packing from "./components/Packing";
 import Emergency from "./components/Emergency";
 import SmartImage from "./components/SmartImage";
-import { REGIONS, TRIP } from "./data/trip";
+import { DESTINATIONS, TRIP } from "./data/trip";
 
 function RegionsStrip() {
   return (
     <section className="px-4 pt-10">
       <div className="mx-auto mb-5 max-w-5xl">
-        <p className="kicker mb-1">Four bases, three countries</p>
+        <p className="kicker mb-1">Three alpine bases</p>
         <h2 className="section-title">The Route</h2>
       </div>
-      <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {REGIONS.map((r) => (
+      <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-3">
+        {DESTINATIONS.map((r) => (
           <article key={r.id} className="card-paper group overflow-hidden">
             <SmartImage wiki={r.wiki} alt={r.name} overlay className="h-36 w-full">
               <div className="absolute bottom-0 left-0 p-3">

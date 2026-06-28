@@ -1,13 +1,38 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Route, Lightbulb, Baby, UtensilsCrossed, Blocks } from "lucide-react";
 import Section from "./Section";
 import { ITINERARY } from "../data/itinerary";
-import { REGIONS, regionById } from "../data/trip";
+import { DESTINATIONS, regionById } from "../data/trip";
 import { TAG_META } from "../lib/tags";
 import { formatShort } from "../lib/format";
 import { MapWithDirections, placeQuery } from "./MapEmbed";
 import type { Day, DayOption, RouteStop } from "../lib/types";
+
+/** A small CSS caret used as the open/close affordance (no icon library). */
+function Caret({ open }: { open: boolean }) {
+  return (
+    <span
+      aria-hidden
+      className="shrink-0 transition-transform duration-200"
+      style={{
+        width: 0,
+        height: 0,
+        borderLeft: "5px solid transparent",
+        borderRight: "5px solid transparent",
+        borderTop: "6px solid #a8a29e",
+        transform: open ? "rotate(180deg)" : "none",
+      }}
+    />
+  );
+}
+
+function TagChip({ tag }: { tag?: DayOption["tag"] }) {
+  if (!tag) return null;
+  const meta = TAG_META[tag];
+  return (
+    <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${meta.className}`}>{meta.label}</span>
+  );
+}
 
 /** An expandable card for a day option or a drive stop; reveals a map on open. */
 function PlaceCard({
@@ -18,6 +43,8 @@ function PlaceCard({
   destination,
   origin,
   coords,
+  link,
+  linkLabel,
   accent,
 }: {
   title: string;
@@ -27,28 +54,23 @@ function PlaceCard({
   destination: string;
   origin?: string;
   coords?: [number, number];
+  link?: string;
+  linkLabel?: string;
   accent: "option" | "stop";
 }) {
   const [open, setOpen] = useState(false);
-  const meta = tag ? TAG_META[tag] : null;
-  const Icon = meta?.icon;
   return (
     <div
       className={`overflow-hidden rounded-xl ring-1 ${
         accent === "option" ? "bg-meadow-50/60 ring-meadow-100" : "bg-stone-50 ring-stone-200"
       }`}
     >
-      <button onClick={() => setOpen((o) => !o)} className="flex w-full items-center gap-2.5 p-3 text-left">
-        {meta && Icon && (
-          <span className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${meta.className}`}>
-            <Icon size={16} />
-          </span>
-        )}
+      <button onClick={() => setOpen((o) => !o)} className="flex w-full items-center gap-3 p-3 text-left">
         <span className="min-w-0 flex-1">
           <span className="block font-semibold leading-snug text-stone-900">{title}</span>
-          {meta && <span className="text-xs text-stone-500">{meta.label}</span>}
+          {tag && <span className="mt-0.5 inline-block text-xs text-stone-500">{TAG_META[tag].label}</span>}
         </span>
-        <ChevronDown size={18} className={`shrink-0 text-stone-400 transition-transform ${open ? "rotate-180" : ""}`} />
+        <Caret open={open} />
       </button>
 
       <AnimatePresence initial={false}>
@@ -61,11 +83,25 @@ function PlaceCard({
             className="overflow-hidden"
           >
             <div className="space-y-3 px-3 pb-3">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <TagChip tag={tag} />
+              </div>
               <p className="text-sm text-stone-600">{description}</p>
               {kidNote && (
-                <p className="flex gap-2 rounded-lg bg-white/70 p-2 text-sm text-meadow-700 ring-1 ring-meadow-100">
-                  <Baby size={16} className="mt-0.5 shrink-0" /> {kidNote}
+                <p className="rounded-lg bg-white/70 p-2 text-sm text-meadow-700 ring-1 ring-meadow-100">
+                  <span className="font-semibold">For the kids: </span>
+                  {kidNote}
                 </p>
+              )}
+              {link && (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block text-sm font-semibold text-glacier-600 underline underline-offset-2"
+                >
+                  {linkLabel ?? "Official route"}
+                </a>
               )}
               <MapWithDirections destination={destination} origin={origin} coords={coords} height={180} />
             </div>
@@ -97,14 +133,14 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
               {day.weekday}, {formatShort(day.date)}
             </span>
             <span>·</span>
-            <span className="inline-flex items-center gap-1">
+            <span>
               {region.flag} {region.name}
             </span>
           </div>
           <h3 className="truncate font-serif text-lg font-bold text-stone-900">{day.title}</h3>
           {day.subtitle && <p className="truncate text-sm text-stone-500">{day.subtitle}</p>}
         </div>
-        <ChevronDown size={20} className={`shrink-0 text-stone-400 transition-transform ${open ? "rotate-180" : ""}`} />
+        <Caret open={open} />
       </button>
 
       <AnimatePresence initial={false}>
@@ -120,25 +156,18 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
               {/* Travel leg, with route map and stops along the way */}
               {day.drive && (
                 <div className="rounded-xl bg-stone-100 p-3">
-                  <div className="flex gap-3 text-sm">
-                    <Route size={18} className="mt-0.5 shrink-0 text-stone-500" />
-                    <div className="flex-1">
-                      <p className="font-semibold text-stone-800">
-                        {day.drive.from} to {day.drive.to}
-                      </p>
-                      <p className="text-stone-600">
-                        {day.drive.duration} · {day.drive.distance}
-                      </p>
-                      {day.drive.note && <p className="mt-1 text-stone-500">{day.drive.note}</p>}
-                    </div>
+                  <div className="text-sm">
+                    <p className="font-semibold text-stone-800">
+                      {day.drive.from} to {day.drive.to}
+                    </p>
+                    <p className="text-stone-600">
+                      {day.drive.duration} · {day.drive.distance}
+                    </p>
+                    {day.drive.note && <p className="mt-1 text-stone-500">{day.drive.note}</p>}
                   </div>
                   {day.drive.toQuery && (
                     <div className="mt-3">
-                      <MapWithDirections
-                        destination={day.drive.toQuery}
-                        origin={day.drive.fromQuery}
-                        height={180}
-                      />
+                      <MapWithDirections destination={day.drive.toQuery} origin={day.drive.fromQuery} height={180} />
                     </div>
                   )}
                   {day.drive.stops && day.drive.stops.length > 0 && (
@@ -162,7 +191,9 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
 
               {/* The day's choices */}
               <div className="space-y-2">
-                <p className="kicker">Choose your day ({day.options.length} options)</p>
+                <p className="kicker">
+                  {day.options.length > 1 ? `Choose your day (${day.options.length} options)` : "Today's plan"}
+                </p>
                 {day.options.map((o) => (
                   <PlaceCard
                     key={o.title}
@@ -173,6 +204,8 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
                     destination={placeQuery(o)}
                     origin={day.baseQuery}
                     coords={o.coords}
+                    link={o.link}
+                    linkLabel={o.linkLabel}
                     accent="option"
                   />
                 ))}
@@ -188,20 +221,17 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
                       href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(placeQuery(f))}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-start gap-2.5 rounded-xl bg-sunset-200/40 p-3 ring-1 ring-sunset-200 transition-colors hover:bg-sunset-200/60"
+                      className="block rounded-xl bg-sunset-200/40 p-3 ring-1 ring-sunset-200 transition-colors hover:bg-sunset-200/60"
                     >
-                      <UtensilsCrossed size={16} className="mt-0.5 shrink-0 text-sunset-600" />
-                      <span className="min-w-0 flex-1">
-                        <span className="flex flex-wrap items-center gap-2">
-                          <span className="font-semibold text-stone-900">{f.name}</span>
-                          {f.playground && (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-meadow-100 px-2 py-0.5 text-[10px] font-semibold text-meadow-700">
-                              <Blocks size={11} /> Playground
-                            </span>
-                          )}
-                        </span>
-                        <span className="mt-0.5 block text-sm text-stone-600">{f.description}</span>
+                      <span className="flex flex-wrap items-center gap-2">
+                        <span className="font-semibold text-stone-900">{f.name}</span>
+                        {f.playground && (
+                          <span className="rounded-full bg-meadow-100 px-2 py-0.5 text-[10px] font-semibold text-meadow-700">
+                            Playground
+                          </span>
+                        )}
                       </span>
+                      <span className="mt-0.5 block text-sm text-stone-600">{f.description}</span>
                     </a>
                   ))}
                 </div>
@@ -209,10 +239,11 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
 
               {/* Tips */}
               {day.tips && day.tips.length > 0 && (
-                <div className="rounded-xl bg-meadow-50 p-3">
+                <div className="rounded-xl border-l-4 border-meadow-400 bg-meadow-50 p-3">
                   {day.tips.map((t) => (
-                    <p key={t} className="flex gap-2 text-sm text-meadow-700">
-                      <Lightbulb size={16} className="mt-0.5 shrink-0" /> {t}
+                    <p key={t} className="text-sm text-meadow-700">
+                      <span className="font-semibold">Tip: </span>
+                      {t}
                     </p>
                   ))}
                 </div>
@@ -250,7 +281,7 @@ export default function Itinerary() {
         >
           Whole trip
         </button>
-        {REGIONS.map((r) => (
+        {DESTINATIONS.map((r) => (
           <button
             key={r.id}
             onClick={() => setFilter(r.id)}

@@ -193,30 +193,6 @@ export const ATTRACTIONS: Attraction[] = [
       "A postcard South Tyrolean village with a landmark bell tower, gateway to the Seiser Alm. Good for an easy afternoon and dinner.",
     good_for: ["Village stroll", "Dinner", "Photos"],
   },
-
-  // ---------- Munich ----------
-  {
-    id: "marienplatz",
-    wiki: "Marienplatz",
-    name: "Marienplatz & Old Town",
-    region: "munich",
-    category: "town",
-    coords: [48.1374, 11.5755],
-    description:
-      "Munich's central square with the New Town Hall and its Glockenspiel, an easy last stop if you have time before the flight, ~40 min by S-Bahn from the airport.",
-    good_for: ["City centre", "Glockenspiel", "Last meal"],
-  },
-  {
-    id: "muc-visitorpark",
-    wiki: "Munich Airport",
-    name: "Munich Airport Visitors Park",
-    region: "munich",
-    category: "kids",
-    coords: [48.3667, 11.7836],
-    description:
-      "Right by the terminals: historic aircraft, a mini-golf course and plane-spotting mounds. A relaxed way to burn off energy before departure.",
-    good_for: ["Kids", "Plane spotting", "Near terminal"],
-  },
 ];
 
 export const attractionById = (id: string) => ATTRACTIONS.find((a) => a.id === id);

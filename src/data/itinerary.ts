@@ -300,6 +300,17 @@ export const ITINERARY: Day[] = [
         coords: [47.0711, 10.9756],
         mapQuery: "Aqua Dome, Längenfeld, Austria",
       },
+      {
+        title: "9 Treasures of Piburger See loop (official Ötztal trail)",
+        tag: "walk",
+        description:
+          "The official Ötztal family route: a loop of the warm nature-reserve lake passing nine viewing platforms and 'places of strength'. The wider western shore is stroller-friendly; the eastern shore is a rootier adventure path.",
+        kidNote: "About 1.5 to 2 hours; west shore is buggy-friendly, swimming at the lake. Take the Elsinger Weg up from Oetz.",
+        coords: [47.1986, 10.8806],
+        mapQuery: "Piburger See, Oetz, Austria",
+        link: "https://www.oetztal.com/en/activities/summer/hiking-mountaineering/hiking-regions/oetz-region/the-9-treasures-of-lake-piburgersee",
+        linkLabel: "Official route on oetztal.com",
+      },
     ],
     food: [
       {
@@ -339,6 +350,17 @@ export const ITINERARY: Day[] = [
         kidNote: "Short out-and-back; secure footing needed, carrier for the 2 year old.",
         coords: [47.2125, 10.9],
         mapQuery: "Auer Klamm, Oetz, Austria",
+      },
+      {
+        title: "Andreas-Hofer-Weg river walk (official Oetz route)",
+        tag: "walk",
+        description:
+          "An easy official Oetz valley walk along the Ötztaler Ache from the village to the Weller Bridge near Habichen, on toward Piburger See and back. Flat and right on the doorstep.",
+        kidNote: "About 2 hours, mostly flat riverside paths, buggy-friendly. Shorten any time.",
+        coords: [47.2017, 10.8975],
+        mapQuery: "Andreas-Hofer-Weg, Oetz, Austria",
+        link: "https://www.oetztal.com/en/activities/summer/hiking-mountaineering/hiking-regions/oetz-region",
+        linkLabel: "Oetz hiking region on oetztal.com",
       },
     ],
     tips: ["Decide heights versus shade by the morning weather and how tired everyone is."],
@@ -615,24 +637,21 @@ export const ITINERARY: Day[] = [
     },
     options: [
       {
-        title: "Munich airport Visitors Park",
-        tag: "playground",
-        attractionId: "muc-visitorpark",
+        title: "Settle in near the airport and return the car",
+        tag: "free",
         description:
-          "Right by the terminals: historic aircraft to climb near, a mini-golf course and plane-spotting mounds. Perfect to burn off energy before the flight.",
-        kidNote: "Flat, buggy-friendly, planes and playground. Minutes from the hotel.",
-        coords: [48.3667, 11.7836],
-        mapQuery: "Besucherpark München Flughafen, Germany",
+          "Check into the airport hotel, drop the rental car, and repack for the flight so the morning is calm. The drive stops above break up the journey.",
+        kidNote: "No extra outing needed after a long drive; early dinner and bed.",
+        mapQuery: BASE_MUC,
       },
       {
-        title: "Munich old town and English Garden",
-        tag: "town",
-        attractionId: "marienplatz",
+        title: "One last alpine swim on the way (Chiemsee)",
+        tag: "swim",
         description:
-          "If you arrive with time, hop the S-Bahn to Marienplatz for the Glockenspiel, then let the kids run in the huge English Garden.",
-        kidNote: "Train ride is part of the fun; big park to run around. Buggy-friendly.",
-        coords: [48.1374, 11.5755],
-        mapQuery: "Marienplatz, Munich, Germany",
+          "If the weather is warm and you have time, the Chiemsee lido and playground about 45 minutes before the airport is a lovely final dip.",
+        kidNote: "Lake swimming and a playground; flat and buggy-friendly.",
+        coords: [47.8662, 12.3492],
+        mapQuery: "Prienavera Erlebnisbad, Prien am Chiemsee, Germany",
       },
     ],
     tips: ["Refuel and clean out the rental car before returning it to avoid extra fees."],
@@ -647,22 +666,12 @@ export const ITINERARY: Day[] = [
     subtitle: "Departure day",
     options: [
       {
-        title: "Easy morning and to the terminal",
+        title: "Check out and fly home from Munich (MUC)",
         tag: "flight",
         description:
-          "A short shuttle or walk to departures. Allow extra time with kids and for an international flight.",
+          "A short shuttle or walk to departures, then home. Allow extra time with kids and for an international flight.",
         kidNote: "Be at the terminal about 3 hours before an intercontinental departure.",
         mapQuery: BASE_MUC,
-      },
-      {
-        title: "Last play at the Visitors Park",
-        tag: "playground",
-        attractionId: "muc-visitorpark",
-        description:
-          "If your flight is later, one more run-around by the planes before security keeps everyone happy.",
-        kidNote: "Only if time allows; it is right by the terminal.",
-        coords: [48.3667, 11.7836],
-        mapQuery: "Besucherpark München Flughafen, Germany",
       },
     ],
     tips: ["Auf Wiedersehen, Alps. Safe travels home!"],

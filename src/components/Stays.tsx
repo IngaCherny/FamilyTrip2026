@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { BedDouble, CalendarCheck, ExternalLink, Navigation, MapPin, Plane } from "lucide-react";
 import Section from "./Section";
 import { STAYS } from "../data/stays";
 import { regionById } from "../data/trip";
@@ -28,28 +27,24 @@ export default function Stays() {
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <span className="kicker">{region.flag} {region.name}</span>
+                  <span className="kicker">
+                    {region.flag} {region.name}
+                  </span>
                   <h3 className="mt-1 font-serif text-2xl font-bold text-stone-900">{s.name}</h3>
-                  <p className="flex items-center gap-1 text-sm text-stone-500">
-                    <MapPin size={14} /> {s.town}, {s.country}
+                  <p className="text-sm text-stone-500">
+                    {s.town}, {s.country}
                   </p>
                   {s.address && <p className="mt-0.5 text-xs text-stone-400">{s.address}</p>}
-                  {s.approxLocation && (
-                    <p className="mt-0.5 text-xs italic text-sunset-600">
-                      Approx. location, update from your booking
-                    </p>
-                  )}
                 </div>
-                <span className="inline-flex items-center gap-1 rounded-full bg-glacier-50 px-3 py-1 text-sm font-semibold text-glacier-700">
-                  <BedDouble size={15} /> {s.nights}n
+                <span className="shrink-0 rounded-full bg-glacier-50 px-3 py-1 text-sm font-semibold text-glacier-700">
+                  {s.nights} nights
                 </span>
               </div>
 
               <p className="mt-3 text-sm text-stone-600">{s.description}</p>
 
-              <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-stone-700">
-                <CalendarCheck size={15} className="text-meadow-500" />
-                {formatShort(s.checkIn)} → {formatShort(s.checkOut)}
+              <p className="mt-3 text-sm font-medium text-stone-700">
+                {formatShort(s.checkIn)} to {formatShort(s.checkOut)}
               </p>
 
               {s.driveFromAirport && (
@@ -59,14 +54,9 @@ export default function Stays() {
                   rel="noreferrer"
                   className="mt-2 flex items-center gap-2 rounded-xl bg-glacier-50 px-3 py-2 text-sm text-glacier-700 transition-colors hover:bg-glacier-100"
                 >
-                  <Plane size={15} className="shrink-0" />
-                  <span className="font-medium">
-                    {s.driveFromAirport.duration} from Munich Airport
-                  </span>
+                  <span className="font-medium">{s.driveFromAirport.duration} from Munich Airport</span>
                   <span className="text-glacier-600/70">· {s.driveFromAirport.distance}</span>
-                  <span className="ms-auto inline-flex items-center gap-1 font-semibold">
-                    Directions <ExternalLink size={13} />
-                  </span>
+                  <span className="ms-auto font-semibold underline underline-offset-2">Directions</span>
                 </a>
               )}
 
@@ -79,11 +69,11 @@ export default function Stays() {
               </ul>
 
               <div className="mt-4 flex gap-4 border-t border-stone-100 pt-3 text-sm font-medium text-glacier-600">
-                <a href={links.google} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1">
-                  <ExternalLink size={14} /> Maps
+                <a href={links.google} target="_blank" rel="noreferrer">
+                  Maps
                 </a>
-                <a href={links.waze} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1">
-                  <Navigation size={14} /> Waze
+                <a href={links.waze} target="_blank" rel="noreferrer">
+                  Waze
                 </a>
               </div>
             </motion.article>

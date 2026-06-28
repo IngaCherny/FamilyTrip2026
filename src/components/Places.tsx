@@ -1,10 +1,9 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Navigation } from "lucide-react";
 import Section from "./Section";
 import SmartImage from "./SmartImage";
 import { ATTRACTIONS } from "../data/attractions";
-import { REGIONS } from "../data/trip";
+import { DESTINATIONS } from "../data/trip";
 import { POI_META } from "../lib/tags";
 import { mapLinks } from "../lib/format";
 
@@ -32,7 +31,7 @@ export default function Places() {
         >
           All regions
         </button>
-        {REGIONS.map((r) => (
+        {DESTINATIONS.map((r) => (
           <button
             key={r.id}
             onClick={() => setRegion(r.id)}
@@ -48,7 +47,6 @@ export default function Places() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {places.map((a, i) => {
           const meta = POI_META[a.category];
-          const Icon = meta.icon;
           const links = mapLinks(a.coords, a.name);
           return (
             <motion.article
@@ -61,10 +59,10 @@ export default function Places() {
             >
               <SmartImage wiki={a.wiki} alt={a.name} overlay className="h-40 w-full">
                 <span
-                  className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold text-white"
+                  className="absolute left-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-semibold text-white"
                   style={{ background: meta.color }}
                 >
-                  <Icon size={12} /> {meta.label}
+                  {meta.label}
                 </span>
               </SmartImage>
               <div className="flex flex-1 flex-col p-4">
@@ -78,11 +76,11 @@ export default function Places() {
                 ))}
               </div>
               <div className="mt-3 flex gap-4 border-t border-stone-100 pt-3 text-sm font-medium text-glacier-600">
-                <a href={links.google} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1">
-                  <ExternalLink size={14} /> Maps
+                <a href={links.google} target="_blank" rel="noreferrer">
+                  Maps
                 </a>
-                <a href={links.waze} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1">
-                  <Navigation size={14} /> Waze
+                <a href={links.waze} target="_blank" rel="noreferrer">
+                  Waze
                 </a>
               </div>
               </div>

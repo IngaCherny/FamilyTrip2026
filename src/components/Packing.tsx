@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import { CheckCircle2, Circle, RotateCcw } from "lucide-react";
 import Section from "./Section";
 import { PACKING } from "../data/packing";
 
@@ -50,8 +49,8 @@ export default function Packing() {
         <span className="text-sm font-semibold text-stone-600">
           {done}/{total}
         </span>
-        <button onClick={reset} className="tap gap-1 rounded-full px-3 text-sm font-medium text-stone-500 ring-1 ring-stone-200">
-          <RotateCcw size={14} /> Reset
+        <button onClick={reset} className="tap rounded-full px-3 text-sm font-medium text-stone-500 ring-1 ring-stone-200">
+          Reset
         </button>
       </div>
 
@@ -68,11 +67,13 @@ export default function Packing() {
                       onClick={() => toggle(item)}
                       className="flex w-full items-center gap-2.5 rounded-lg py-1.5 text-left text-sm"
                     >
-                      {on ? (
-                        <CheckCircle2 size={18} className="shrink-0 text-meadow-500" />
-                      ) : (
-                        <Circle size={18} className="shrink-0 text-stone-300" />
-                      )}
+                      <span
+                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border text-xs font-bold ${
+                          on ? "border-meadow-500 bg-meadow-500 text-white" : "border-stone-300 bg-white text-transparent"
+                        }`}
+                      >
+                        ✓
+                      </span>
                       <span className={on ? "text-stone-400 line-through" : "text-stone-700"}>{item}</span>
                     </button>
                   </li>

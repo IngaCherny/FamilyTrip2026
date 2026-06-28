@@ -1,4 +1,3 @@
-import { ExternalLink, Navigation, Map as MapIcon } from "lucide-react";
 import { directionsUrl, mapLinks } from "../lib/format";
 import type { Mappable } from "../lib/types";
 
@@ -59,25 +58,25 @@ export function MapWithDirections({
           href={gDir}
           target="_blank"
           rel="noreferrer"
-          className="tap flex-1 gap-1.5 rounded-xl bg-glacier-600 px-3 text-sm font-semibold text-white hover:bg-glacier-700"
+          className="tap flex-1 rounded-xl bg-glacier-600 px-3 text-sm font-semibold text-white hover:bg-glacier-700"
         >
-          <Navigation size={15} /> {origin ? "Drive here" : "Open in Maps"}
+          {origin ? "Drive here" : "Open in Maps"}
         </a>
         <a
           href={waze}
           target="_blank"
           rel="noreferrer"
-          className="tap gap-1.5 rounded-xl bg-white px-3 text-sm font-medium text-glacier-700 ring-1 ring-stone-200 hover:bg-stone-50"
+          className="tap rounded-xl bg-white px-3 text-sm font-medium text-glacier-700 ring-1 ring-stone-200 hover:bg-stone-50"
         >
-          <MapIcon size={15} /> Waze
+          Waze
         </a>
         <a
           href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`}
           target="_blank"
           rel="noreferrer"
-          className="tap gap-1.5 rounded-xl bg-white px-3 text-sm font-medium text-stone-600 ring-1 ring-stone-200 hover:bg-stone-50"
+          className="tap rounded-xl bg-white px-3 text-sm font-medium text-stone-600 ring-1 ring-stone-200 hover:bg-stone-50"
         >
-          <ExternalLink size={15} /> Place
+          Place
         </a>
       </div>
     </div>
