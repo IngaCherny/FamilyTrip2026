@@ -23,7 +23,6 @@ function RegionsStrip() {
           <article key={r.id} className="card-paper group overflow-hidden">
             <SmartImage wiki={r.wiki} alt={r.name} overlay className="h-36 w-full">
               <div className="absolute bottom-0 left-0 p-3">
-                <span className="text-lg">{r.flag}</span>
                 <h3 className="font-serif text-xl font-bold leading-tight text-white drop-shadow">{r.name}</h3>
                 <p className="text-xs text-white/80">{r.country}</p>
               </div>
@@ -58,7 +57,7 @@ export default function App() {
         </p>
         <p className="mt-1">{TRIP.subtitle}</p>
         <p className="mt-3 text-xs text-stone-400">
-          Made with love for the family. Safe travels & guten Appetit! 🏔️
+          Made with love for the family. Safe travels and guten Appetit!
         </p>
         <p className="mt-1 text-xs text-stone-400">Photos via Wikipedia / Wikimedia Commons.</p>
       </footer>

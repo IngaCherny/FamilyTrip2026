@@ -4,6 +4,7 @@ export const ATTRACTIONS: Attraction[] = [
   // ---------- Wilder Kaiser ----------
   {
     id: "hintersteiner-see",
+    price: "Free (parking ~€5/day)",
     wiki: "Hintersteiner See",
     name: "Hintersteiner See",
     region: "wilderkaiser",
@@ -15,6 +16,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "hexenwasser",
+    price: "~€34 adult / €17 child (incl. Söll gondola)",
     wiki: "Hohe Salve",
     name: "Hexenwasser Söll",
     region: "wilderkaiser",
@@ -26,6 +28,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "hartkaiser-ellmi",
+    price: "~€27 adult / €13 child (Hartkaiser funicular); playground free",
     wiki: "Ellmau",
     name: "Hartkaiser & Ellmi's Zauberwelt",
     region: "wilderkaiser",
@@ -37,6 +40,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kitzbuehel",
+    price: "Free (town); Hahnenkamm cable car ~€32 adult",
     wiki: "Kitzbühel",
     name: "Kitzbühel",
     region: "wilderkaiser",
@@ -48,6 +52,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "gaudeamushuette",
+    price: "Free (hut food extra)",
     wiki: "Wilder Kaiser",
     name: "Wilder Kaiser hike (Gaudeamushütte)",
     region: "wilderkaiser",
@@ -61,6 +66,7 @@ export const ATTRACTIONS: Attraction[] = [
   // ---------- Ötztal ----------
   {
     id: "area47",
+    price: "~€35 adult / €29 child (day ticket)",
     wiki: "Ötztal",
     name: "Area 47",
     region: "oetz",
@@ -72,6 +78,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "stuibenfall",
+    price: "Free",
     wiki: "Stuibenfall",
     name: "Stuibenfall Waterfall",
     region: "oetz",
@@ -83,6 +90,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "aquadome",
+    price: "~€27 adult / €16 child (3-hour ticket)",
     wiki: "Längenfeld",
     name: "Aqua Dome (Längenfeld)",
     region: "oetz",
@@ -94,6 +102,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "piburger-see",
+    price: "Free (rowing boat ~€10/hr)",
     wiki: "Piburger See",
     name: "Piburger See",
     region: "oetz",
@@ -105,6 +114,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "soelden-007",
+    price: "~€42 adult / €25 child (Gaislachkogl cable car); 007 Elements ~€23",
     wiki: "Gaislachkogl",
     name: "Gaislachkogl & 007 Elements (Sölden)",
     region: "oetz",
@@ -116,6 +126,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "timmelsjoch",
+    price: "~€19 per car (toll road)",
     wiki: "Timmelsjoch",
     name: "Timmelsjoch High Alpine Road",
     region: "oetz",
@@ -129,6 +140,7 @@ export const ATTRACTIONS: Attraction[] = [
   // ---------- South Tyrol ----------
   {
     id: "pragser-wildsee",
+    price: "Free (parking from ~€7; rowing boat ~€30/30min)",
     wiki: "Pragser Wildsee",
     name: "Lago di Braies (Pragser Wildsee)",
     region: "southtyrol",
@@ -140,6 +152,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "seiser-alm",
+    price: "~€26 adult / €13 child (cable car return)",
     wiki: "Seiser Alm",
     name: "Seiser Alm / Alpe di Siusi",
     region: "southtyrol",
@@ -151,6 +164,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "tre-cime",
+    price: "~€30 per car (Auronzo toll road)",
     wiki: "Tre Cime di Lavaredo",
     name: "Tre Cime di Lavaredo",
     region: "southtyrol",
@@ -162,6 +176,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "bolzano-otzi",
+    price: "~€13 adult / €8 child (family ticket available)",
     wiki: "South Tyrol Museum of Archaeology",
     name: "Bolzano & Ötzi Museum",
     region: "southtyrol",
@@ -173,6 +188,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "merano-gardens",
+    price: "~€16 adult / €10 child",
     wiki: "Gardens of Trauttmansdorff Castle",
     name: "Merano & Trauttmansdorff Gardens",
     region: "southtyrol",
@@ -184,6 +200,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kastelruth",
+    price: "Free (village)",
     wiki: "Kastelruth",
     name: "Kastelruth / Castelrotto",
     region: "southtyrol",

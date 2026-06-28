@@ -17,7 +17,6 @@ export const REGIONS: Region[] = [
     id: "wilderkaiser",
     name: "Wilder Kaiser",
     country: "Austria",
-    flag: "🇦🇹",
     center: [47.5106, 12.2939],
     wiki: "Wilder Kaiser",
     blurb:
@@ -27,7 +26,6 @@ export const REGIONS: Region[] = [
     id: "oetz",
     name: "Ötz / Ötztal",
     country: "Austria",
-    flag: "🇦🇹",
     center: [47.2017, 10.8975],
     wiki: "Ötztal",
     blurb:
@@ -37,7 +35,6 @@ export const REGIONS: Region[] = [
     id: "southtyrol",
     name: "South Tyrol",
     country: "Italy",
-    flag: "🇮🇹",
     center: [46.78, 11.85],
     wiki: "Pragser Wildsee",
     blurb:
@@ -47,7 +44,6 @@ export const REGIONS: Region[] = [
     id: "munich",
     name: "Munich Airport",
     country: "Germany",
-    flag: "🇩🇪",
     center: [48.3538, 11.7861],
     // Not a sightseeing destination: we only land and depart here.
     hidden: true,

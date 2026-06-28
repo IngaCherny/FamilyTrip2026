@@ -133,9 +133,7 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
               {day.weekday}, {formatShort(day.date)}
             </span>
             <span>·</span>
-            <span>
-              {region.flag} {region.name}
-            </span>
+            <span>{region.name}</span>
           </div>
           <h3 className="truncate font-serif text-lg font-bold text-stone-900">{day.title}</h3>
           {day.subtitle && <p className="truncate text-sm text-stone-500">{day.subtitle}</p>}
@@ -289,7 +287,7 @@ export default function Itinerary() {
               filter === r.id ? "bg-glacier-600 text-white" : "bg-white text-stone-600 ring-1 ring-stone-200"
             }`}
           >
-            {r.flag} {r.name}
+            {r.name}
           </button>
         ))}
       </div>

@@ -27,9 +27,7 @@ export default function Stays() {
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <span className="kicker">
-                    {region.flag} {region.name}
-                  </span>
+                  <span className="kicker">{region.name}</span>
                   <h3 className="mt-1 font-serif text-2xl font-bold text-stone-900">{s.name}</h3>
                   <p className="text-sm text-stone-500">
                     {s.town}, {s.country}

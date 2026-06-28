@@ -6,7 +6,7 @@ export interface Region {
   id: RegionId;
   name: string;
   country: string;
-  flag: string;
+  flag?: string;
   /** Approximate map centre for the region. */
   center: LatLng;
   blurb: string;
@@ -134,6 +134,8 @@ export interface Attraction {
   link?: string;
   /** Wikipedia article title used to fetch a representative photo. */
   wiki?: string;
+  /** Approximate 2026 admission, e.g. "Free" or "~€34 adult / €17 child". */
+  price?: string;
 }
 
 export interface Dish {

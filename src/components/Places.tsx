@@ -39,10 +39,24 @@ export default function Places() {
               region === r.id ? "bg-glacier-600 text-white" : "bg-white text-stone-600 ring-1 ring-stone-200"
             }`}
           >
-            {r.flag} {r.name}
+            {r.name}
           </button>
         ))}
       </div>
+
+      <a
+        href="https://maps.app.goo.gl/TQQ1AyL7c7uLkp1t9?g_st=ic"
+        target="_blank"
+        rel="noreferrer"
+        className="mb-6 block rounded-2xl bg-meadow-50 p-4 ring-1 ring-meadow-200 transition-colors hover:bg-meadow-100"
+      >
+        <p className="kicker mb-1">Saved by you</p>
+        <p className="font-semibold text-stone-900">Pinned place (tap to open in Google Maps)</p>
+        <p className="mt-0.5 text-sm text-stone-600">
+          Your saved Google Maps location. Tell me its name and which area it belongs to and I will add it
+          properly with a photo and price.
+        </p>
+      </a>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {places.map((a, i) => {
@@ -75,6 +89,12 @@ export default function Places() {
                   </span>
                 ))}
               </div>
+              {a.price && (
+                <p className="mt-3 text-sm text-stone-700">
+                  <span className="font-semibold text-meadow-700">Price: </span>
+                  {a.price}
+                </p>
+              )}
               <div className="mt-3 flex gap-4 border-t border-stone-100 pt-3 text-sm font-medium text-glacier-600">
                 <a href={links.google} target="_blank" rel="noreferrer">
                   Maps
