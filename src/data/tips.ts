@@ -4,12 +4,12 @@ export const TIPS: Tip[] = [
   {
     title: "Austrian motorway vignette",
     body:
-      "To drive on Austrian motorways you need a vignette (digital or sticker). Buy the digital one online a few days before you travel — it activates after a short delay. Some alpine roads and tunnels (and the Timmelsjoch) charge a separate toll on top.",
+      "To drive on Austrian motorways you need a vignette (digital or sticker). Buy the digital one online a few days before you travel, it activates after a short delay. Some alpine roads and tunnels (and the Timmelsjoch) charge a separate toll on top.",
   },
   {
     title: "Italian tolls, not vignettes",
     body:
-      "Italy charges per-trip motorway tolls instead of a vignette — take a ticket entering and pay leaving. Keep a card and some euro coins handy for the booths.",
+      "Italy charges per-trip motorway tolls instead of a vignette, take a ticket entering and pay leaving. Keep a card and some euro coins handy for the booths.",
   },
   {
     title: "Timmelsjoch pass",
@@ -39,6 +39,6 @@ export const TIPS: Tip[] = [
   {
     title: "Mountain huts (Hütten)",
     body:
-      "Huts serve hearty food at fair prices and are the soul of an alpine day. Many close mid-afternoon and don't take reservations for lunch — go a bit early to grab a table.",
+      "Huts serve hearty food at fair prices and are the soul of an alpine day. Many close mid-afternoon and don't take reservations for lunch, go a bit early to grab a table.",
   },
 ];

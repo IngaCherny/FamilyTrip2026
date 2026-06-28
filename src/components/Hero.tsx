@@ -3,6 +3,7 @@ import { MapPin, CalendarDays } from "lucide-react";
 import { TRIP, REGIONS } from "../data/trip";
 import { useCountdown } from "../lib/useCountdown";
 import { formatDate } from "../lib/format";
+import { useWikiImage } from "../lib/useWikiImage";
 
 function Unit({ value, label }: { value: number; label: string }) {
   return (
@@ -17,6 +18,7 @@ function Unit({ value, label }: { value: number; label: string }) {
 
 export default function Hero() {
   const cd = useCountdown(TRIP.startDate, TRIP.endDate);
+  const heroImg = useWikiImage(TRIP.heroWiki, { big: true });
 
   const status = cd.isBefore
     ? "Counting down to"
@@ -25,9 +27,17 @@ export default function Hero() {
     : "We made it home";
 
   return (
-    <header className="relative overflow-hidden">
-      {/* Layered alpine gradient backdrop with a simple ridge silhouette. */}
+    <header className="relative min-h-[88vh] overflow-hidden sm:min-h-[80vh]">
+      {/* Full-bleed alpine photo with a gradient fallback underneath. */}
       <div className="absolute inset-0 bg-gradient-to-b from-glacier-700 via-glacier-600 to-meadow-600" />
+      {heroImg && (
+        <img
+          src={heroImg.src}
+          alt="The Alps"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      )}
+      <div className="absolute inset-0 bg-gradient-to-b from-stone-900/55 via-stone-900/35 to-stone-900/65" />
       <svg
         className="absolute bottom-0 left-0 w-full text-stone-50"
         viewBox="0 0 1200 160"
@@ -38,7 +48,7 @@ export default function Hero() {
         <path d="M0 160 L160 110 L340 140 L520 90 L700 140 L880 100 L1060 145 L1200 105 L1200 160 Z" fill="currentColor" />
       </svg>
 
-      <div className="relative mx-auto max-w-5xl px-4 pb-24 pt-16 sm:pt-24">
+      <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-5xl flex-col justify-center px-4 pb-28 pt-20 sm:min-h-[80vh]">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,7 +66,7 @@ export default function Hero() {
           <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/80">
             <span className="inline-flex items-center gap-1.5">
               <CalendarDays size={16} />
-              {formatDate(TRIP.startDate)} – {formatDate(TRIP.endDate, { day: "numeric", month: "long", year: "numeric" })}
+              {formatDate(TRIP.startDate)} to {formatDate(TRIP.endDate, { day: "numeric", month: "long", year: "numeric" })}
             </span>
             <span className="inline-flex items-center gap-1.5">
               <MapPin size={16} />

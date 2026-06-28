@@ -38,7 +38,7 @@ export default function Packing() {
       id="packing"
       kicker="Don't Forget"
       title="Packing & Checklist"
-      intro="Tap to tick things off — your progress saves on this device."
+      intro="Tap to tick things off, your progress saves on this device."
     >
       <div className="mb-5 flex items-center gap-4">
         <div className="h-2 flex-1 overflow-hidden rounded-full bg-stone-200">

@@ -16,7 +16,7 @@ export function useCountdown(startISO: string, endISO: string): Countdown {
   const compute = (): Countdown => {
     const now = Date.now();
     const start = new Date(startISO + "T00:00:00").getTime();
-    // End date is the departure day — treat the trip as running through its end.
+    // End date is the departure day, treat the trip as running through its end.
     const end = new Date(endISO + "T23:59:59").getTime();
 
     const isBefore = now < start;

@@ -38,7 +38,7 @@ export const PACKING: PackingGroup[] = [
       "Snacks for drive days",
       "Travel games / tablet + headphones",
       "Comfort items for the apartment",
-      "Spare layers — mountains get cold fast",
+      "Spare layers, mountains get cold fast",
     ],
   },
   {

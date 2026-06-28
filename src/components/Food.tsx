@@ -16,7 +16,7 @@ export default function Food() {
       id="food"
       kicker="Eat & Drink"
       title="Food & Drink"
-      intro="The flavours of Tyrol and South Tyrol — what to order at the hut, the table and the bar."
+      intro="The flavours of Tyrol and South Tyrol, what to order at the hut, the table and the bar."
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {DISHES.map((d, i) => {

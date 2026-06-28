@@ -8,23 +8,28 @@ import Food from "./components/Food";
 import Tips from "./components/Tips";
 import Packing from "./components/Packing";
 import Emergency from "./components/Emergency";
+import SmartImage from "./components/SmartImage";
 import { REGIONS, TRIP } from "./data/trip";
 
 function RegionsStrip() {
   return (
     <section className="px-4 pt-10">
-      <div className="mx-auto grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto mb-5 max-w-5xl">
+        <p className="kicker mb-1">Four bases, three countries</p>
+        <h2 className="section-title">The Route</h2>
+      </div>
+      <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {REGIONS.map((r) => (
-          <div key={r.id} className="card-paper p-4">
-            <div className="mb-1 flex items-center gap-2">
-              <span className="text-2xl">{r.flag}</span>
-              <div>
-                <h3 className="font-serif text-lg font-bold leading-tight text-stone-900">{r.name}</h3>
-                <p className="text-xs text-stone-400">{r.country}</p>
+          <article key={r.id} className="card-paper group overflow-hidden">
+            <SmartImage wiki={r.wiki} alt={r.name} overlay className="h-36 w-full">
+              <div className="absolute bottom-0 left-0 p-3">
+                <span className="text-lg">{r.flag}</span>
+                <h3 className="font-serif text-xl font-bold leading-tight text-white drop-shadow">{r.name}</h3>
+                <p className="text-xs text-white/80">{r.country}</p>
               </div>
-            </div>
-            <p className="text-sm text-stone-600">{r.blurb}</p>
-          </div>
+            </SmartImage>
+            <p className="p-4 text-sm text-stone-600">{r.blurb}</p>
+          </article>
         ))}
       </div>
     </section>
@@ -55,6 +60,7 @@ export default function App() {
         <p className="mt-3 text-xs text-stone-400">
           Made with love for the family. Safe travels & guten Appetit! 🏔️
         </p>
+        <p className="mt-1 text-xs text-stone-400">Photos via Wikipedia / Wikimedia Commons.</p>
       </footer>
     </div>
   );

@@ -19,13 +19,13 @@ export const DISHES: Dish[] = [
     name: "Kasspatzln (Käsespätzle)",
     origin: "Tyrol / Austria",
     kind: "savoury",
-    description: "Soft egg noodles baked with mountain cheese and crispy onions — the Alpine mac & cheese.",
+    description: "Soft egg noodles baked with mountain cheese and crispy onions, the Alpine mac & cheese.",
   },
   {
     name: "Apfelstrudel",
     origin: "Austria & South Tyrol",
     kind: "sweet",
-    description: "Warm apple strudel with vanilla sauce — best with apples from the South Tyrolean orchards.",
+    description: "Warm apple strudel with vanilla sauce, best with apples from the South Tyrolean orchards.",
   },
   {
     name: "Knödel / Canederli",
@@ -52,14 +52,14 @@ export const DISHES: Dish[] = [
     origin: "South Tyrol (invented here!)",
     kind: "drink",
     description:
-      "Prosecco, elderflower syrup, soda and mint — the refreshing aperitivo that was born in South Tyrol. (Adults only.)",
+      "Prosecco, elderflower syrup, soda and mint, the refreshing aperitivo that was born in South Tyrol. (Adults only.)",
   },
   {
     name: "Lagrein & Gewürztraminer",
     origin: "South Tyrol",
     kind: "drink",
     description:
-      "Lagrein — a deep local red; Gewürztraminer — an aromatic white from the village of Tramin. A bottle makes a fine souvenir.",
+      "Lagrein, a deep local red; Gewürztraminer, an aromatic white from the village of Tramin. A bottle makes a fine souvenir.",
   },
   {
     name: "Almdudler & Radler",

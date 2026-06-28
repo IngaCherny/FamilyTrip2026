@@ -10,6 +10,8 @@ export interface Region {
   /** Approximate map centre for the region. */
   center: LatLng;
   blurb: string;
+  /** Wikipedia article title used to fetch a representative photo. */
+  wiki?: string;
 }
 
 export interface Stay {
@@ -37,23 +39,63 @@ export interface Stay {
 export type ActivityTag =
   | "drive"
   | "hike"
+  | "walk"
   | "swim"
   | "sights"
   | "town"
   | "lake"
+  | "waterfall"
+  | "cablecar"
+  | "animals"
+  | "playground"
   | "food"
   | "kids"
   | "spa"
   | "flight"
   | "free";
 
-export interface Activity {
-  time?: string;
+/** A place that can be shown on a Google map and routed to. */
+export interface Mappable {
+  coords?: LatLng;
+  /** Address or place name used for the Google Maps query (overrides coords). */
+  mapQuery?: string;
+}
+
+/** One of the day's choices. Each can be opened to reveal a map + directions. */
+export interface DayOption extends Mappable {
   title: string;
   description: string;
   tag?: ActivityTag;
+  /** Kid-focused note: walk length, terrain, buggy/carrier, swimming, etc. */
+  kidNote?: string;
   attractionId?: string;
-  optional?: boolean;
+}
+
+/** A worthwhile stop or sight to break up a long drive. */
+export interface RouteStop extends Mappable {
+  name: string;
+  description: string;
+  tag?: ActivityTag;
+}
+
+/** A family-friendly place to eat, flagged if it has a playground. */
+export interface FoodStop extends Mappable {
+  name: string;
+  description: string;
+  playground?: boolean;
+}
+
+export interface Drive {
+  from: string;
+  to: string;
+  duration: string;
+  distance: string;
+  note?: string;
+  /** Origin / destination strings for Google Maps directions. */
+  fromQuery?: string;
+  toQuery?: string;
+  /** Worthwhile stops along the way. */
+  stops?: RouteStop[];
 }
 
 export interface Day {
@@ -61,11 +103,16 @@ export interface Day {
   weekday: string;
   region: RegionId;
   base: string;
+  /** Address/place of the base, used as the origin for option directions. */
+  baseQuery?: string;
   title: string;
   subtitle?: string;
   /** Set on travel days. */
-  drive?: { from: string; to: string; duration: string; distance: string; note?: string };
-  activities: Activity[];
+  drive?: Drive;
+  /** The day's choices (we always offer a few). */
+  options: DayOption[];
+  /** Family restaurants / snack stops, ideally with a playground. */
+  food?: FoodStop[];
   tips?: string[];
 }
 
@@ -80,6 +127,8 @@ export interface Attraction {
   description: string;
   good_for: string[];
   link?: string;
+  /** Wikipedia article title used to fetch a representative photo. */
+  wiki?: string;
 }
 
 export interface Dish {

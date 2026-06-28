@@ -24,7 +24,7 @@ export const STAYS: Stay[] = [
       ),
     },
     description:
-      "Our base for the first four nights, in the Gasteig hamlet at the foot of the Wilder Kaiser near St. Johann in Tirol (~14 km from Kitzbühel). Self-catering apartment with a wellness area — ideal for cooking and unwinding after big mountain days.",
+      "Our base for the first four nights, in the Gasteig hamlet at the foot of the Wilder Kaiser near St. Johann in Tirol (~14 km from Kitzbühel). Self-catering apartment with a wellness area, ideal for cooking and unwinding after big mountain days.",
     highlights: [
       "At the foot of the Wilder Kaiser, near St. Johann",
       "Wellness area: sauna, whirlpool, sun terrace",
@@ -64,9 +64,9 @@ export const STAYS: Stay[] = [
     address: "Sonnenstraße 11, 39030 Hofern/Kiens, South Tyrol, Italy",
     link: "https://www.entdecker-hotel.com/en",
     description:
-      "Six nights — the heart of the trip — in a sunny panoramic spot in Val Pusteria near Kronplatz. A family hotel for slower mornings; ideally placed for the eastern Dolomites (Lago di Braies and Tre Cime are close), with Bolzano and Merano an easy drive west.",
+      "Six nights, the heart of the trip, in a sunny panoramic spot in Val Pusteria near Kronplatz. A family hotel for slower mornings; ideally placed for the eastern Dolomites (Lago di Braies and Tre Cime are close), with Bolzano and Merano an easy drive west.",
     highlights: [
-      "Longest stay — unpack and settle in",
+      "Longest stay, unpack and settle in",
       "Family hotel near Kronplatz / Bruneck",
       "Short hops to Lago di Braies & Tre Cime",
     ],

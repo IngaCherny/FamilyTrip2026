@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Navigation } from "lucide-react";
 import Section from "./Section";
+import SmartImage from "./SmartImage";
 import { ATTRACTIONS } from "../data/attractions";
 import { REGIONS } from "../data/trip";
 import { POI_META } from "../lib/tags";
@@ -56,19 +57,17 @@ export default function Places() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: (i % 3) * 0.05 }}
-              className="card-paper flex flex-col p-4"
+              className="card-paper flex flex-col overflow-hidden"
             >
-              <div className="mb-2 flex items-center gap-2">
+              <SmartImage wiki={a.wiki} alt={a.name} overlay className="h-40 w-full">
                 <span
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-white"
+                  className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold text-white"
                   style={{ background: meta.color }}
                 >
-                  <Icon size={16} />
+                  <Icon size={12} /> {meta.label}
                 </span>
-                <span className="text-xs font-semibold uppercase tracking-wide text-stone-400">
-                  {meta.label}
-                </span>
-              </div>
+              </SmartImage>
+              <div className="flex flex-1 flex-col p-4">
               <h3 className="font-serif text-xl font-bold text-stone-900">{a.name}</h3>
               <p className="mt-1 flex-1 text-sm text-stone-600">{a.description}</p>
               <div className="mt-3 flex flex-wrap gap-1.5">
@@ -85,6 +84,7 @@ export default function Places() {
                 <a href={links.waze} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1">
                   <Navigation size={14} /> Waze
                 </a>
+              </div>
               </div>
             </motion.article>
           );

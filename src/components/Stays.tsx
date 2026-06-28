@@ -36,7 +36,7 @@ export default function Stays() {
                   {s.address && <p className="mt-0.5 text-xs text-stone-400">{s.address}</p>}
                   {s.approxLocation && (
                     <p className="mt-0.5 text-xs italic text-sunset-600">
-                      Approx. location — update from your booking
+                      Approx. location, update from your booking
                     </p>
                   )}
                 </div>

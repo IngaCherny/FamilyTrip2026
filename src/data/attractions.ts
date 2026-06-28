@@ -4,6 +4,7 @@ export const ATTRACTIONS: Attraction[] = [
   // ---------- Wilder Kaiser ----------
   {
     id: "hintersteiner-see",
+    wiki: "Hintersteiner See",
     name: "Hintersteiner See",
     region: "wilderkaiser",
     category: "lake",
@@ -14,16 +15,18 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "hexenwasser",
+    wiki: "Hohe Salve",
     name: "Hexenwasser Söll",
     region: "wilderkaiser",
     category: "kids",
     coords: [47.4836, 12.1869],
     description:
-      "A 'witch's water' adventure world at the Hohe Salve — barefoot trails, water channels and forest play. Reached by the Söll gondola.",
+      "A 'witch's water' adventure world at the Hohe Salve, barefoot trails, water channels and forest play. Reached by the Söll gondola.",
     good_for: ["Kids", "Barefoot trail", "Cable car views"],
   },
   {
     id: "hartkaiser-ellmi",
+    wiki: "Ellmau",
     name: "Hartkaiser & Ellmi's Zauberwelt",
     region: "wilderkaiser",
     category: "kids",
@@ -34,16 +37,18 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kitzbuehel",
+    wiki: "Kitzbühel",
     name: "Kitzbühel",
     region: "wilderkaiser",
     category: "town",
     coords: [47.4467, 12.3917],
     description:
-      "The famous medieval ski town, pretty in summer too — painted houses, cafés and the Hahnenkamm cable car for a high alpine stroll.",
+      "The famous medieval ski town, pretty in summer too, painted houses, cafés and the Hahnenkamm cable car for a high alpine stroll.",
     good_for: ["Town stroll", "Cafés", "Cable car"],
   },
   {
     id: "gaudeamushuette",
+    wiki: "Wilder Kaiser",
     name: "Wilder Kaiser hike (Gaudeamushütte)",
     region: "wilderkaiser",
     category: "hike",
@@ -56,16 +61,18 @@ export const ATTRACTIONS: Attraction[] = [
   // ---------- Ötztal ----------
   {
     id: "area47",
+    wiki: "Ötztal",
     name: "Area 47",
     region: "oetz",
     category: "kids",
     coords: [47.2406, 10.8589],
     description:
-      "The Alps' biggest outdoor adventure park at the mouth of the Ötztal — lake with slides and blobs, water obstacle courses, climbing and rafting.",
+      "The Alps' biggest outdoor adventure park at the mouth of the Ötztal, lake with slides and blobs, water obstacle courses, climbing and rafting.",
     good_for: ["Kids & teens", "Water park", "Adventure"],
   },
   {
     id: "stuibenfall",
+    wiki: "Stuibenfall",
     name: "Stuibenfall Waterfall",
     region: "oetz",
     category: "hike",
@@ -76,6 +83,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "aquadome",
+    wiki: "Längenfeld",
     name: "Aqua Dome (Längenfeld)",
     region: "oetz",
     category: "spa",
@@ -86,16 +94,18 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "piburger-see",
+    wiki: "Piburger See",
     name: "Piburger See",
     region: "oetz",
     category: "lake",
     coords: [47.1986, 10.8806],
     description:
-      "A small, warm, protected nature-reserve lake above Oetz with a flat loop trail and a little rowing-boat rental — swimmable in summer.",
+      "A small, warm, protected nature-reserve lake above Oetz with a flat loop trail and a little rowing-boat rental, swimmable in summer.",
     good_for: ["Swimming", "Easy loop", "Rowing boats"],
   },
   {
     id: "soelden-007",
+    wiki: "Gaislachkogl",
     name: "Gaislachkogl & 007 Elements (Sölden)",
     region: "oetz",
     category: "sight",
@@ -106,6 +116,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "timmelsjoch",
+    wiki: "Timmelsjoch",
     name: "Timmelsjoch High Alpine Road",
     region: "oetz",
     category: "sight",
@@ -118,16 +129,18 @@ export const ATTRACTIONS: Attraction[] = [
   // ---------- South Tyrol ----------
   {
     id: "pragser-wildsee",
+    wiki: "Pragser Wildsee",
     name: "Lago di Braies (Pragser Wildsee)",
     region: "southtyrol",
     category: "lake",
     coords: [46.6947, 12.0855],
     description:
-      "The emerald jewel of the Dolomites, ringed by peaks. Walk the 3.5 km shore loop or hire a wooden rowing boat. Go early — it gets busy and needs a booked slot in summer.",
+      "The emerald jewel of the Dolomites, ringed by peaks. Walk the 3.5 km shore loop or hire a wooden rowing boat. Go early, it gets busy and needs a booked slot in summer.",
     good_for: ["Iconic photos", "Shore walk", "Rowing boats"],
   },
   {
     id: "seiser-alm",
+    wiki: "Seiser Alm",
     name: "Seiser Alm / Alpe di Siusi",
     region: "southtyrol",
     category: "hike",
@@ -138,6 +151,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "tre-cime",
+    wiki: "Tre Cime di Lavaredo",
     name: "Tre Cime di Lavaredo",
     region: "southtyrol",
     category: "hike",
@@ -148,16 +162,18 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "bolzano-otzi",
+    wiki: "South Tyrol Museum of Archaeology",
     name: "Bolzano & Ötzi Museum",
     region: "southtyrol",
     category: "town",
     coords: [46.4983, 11.3548],
     description:
-      "The capital's South Tyrol Museum of Archaeology houses Ötzi the 5,300-year-old Iceman — the mummy found above the Ötztal. Arcaded streets and piazzas outside.",
+      "The capital's South Tyrol Museum of Archaeology houses Ötzi the 5,300-year-old Iceman, the mummy found above the Ötztal. Arcaded streets and piazzas outside.",
     good_for: ["Museum", "Town & piazzas", "Rainy day"],
   },
   {
     id: "merano-gardens",
+    wiki: "Gardens of Trauttmansdorff Castle",
     name: "Merano & Trauttmansdorff Gardens",
     region: "southtyrol",
     category: "town",
@@ -168,6 +184,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kastelruth",
+    wiki: "Kastelruth",
     name: "Kastelruth / Castelrotto",
     region: "southtyrol",
     category: "town",
@@ -180,16 +197,18 @@ export const ATTRACTIONS: Attraction[] = [
   // ---------- Munich ----------
   {
     id: "marienplatz",
+    wiki: "Marienplatz",
     name: "Marienplatz & Old Town",
     region: "munich",
     category: "town",
     coords: [48.1374, 11.5755],
     description:
-      "Munich's central square with the New Town Hall and its Glockenspiel — an easy last stop if you have time before the flight, ~40 min by S-Bahn from the airport.",
+      "Munich's central square with the New Town Hall and its Glockenspiel, an easy last stop if you have time before the flight, ~40 min by S-Bahn from the airport.",
     good_for: ["City centre", "Glockenspiel", "Last meal"],
   },
   {
     id: "muc-visitorpark",
+    wiki: "Munich Airport",
     name: "Munich Airport Visitors Park",
     region: "munich",
     category: "kids",

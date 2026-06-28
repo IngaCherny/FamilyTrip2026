@@ -1,11 +1,20 @@
 import type { Day } from "../lib/types";
 
+// Bases used as the origin for "drive there" directions on each option.
+const BASE_STREIF = "Apartment Streif LXL, Vorderjägerweg 4, 6382 Kirchdorf in Tirol, Austria";
+const BASE_FALKNER = "Falkners Five, Habichen 65a, 6433 Oetz, Austria";
+const BASE_ENTDECKER = "Entdecker Hotel Panorama, Sonnenstraße 11, 39030 Hofern Kiens, Italy";
+const BASE_MUC = "Munich Airport (MUC), Germany";
+
+// Travelling with three children (ages 2, 6 and 8): options favour short
+// nature walks, lakes, animals, playgrounds and cable cars over long hikes.
 export const ITINERARY: Day[] = [
   {
     date: "2026-08-13",
     weekday: "Thursday",
     region: "wilderkaiser",
-    base: "Apartment Streif",
+    base: "Apartment Streif LXL",
+    baseQuery: BASE_STREIF,
     title: "Land in Munich, drive to the Wilder Kaiser",
     subtitle: "Arrival day",
     drive: {
@@ -13,105 +22,293 @@ export const ITINERARY: Day[] = [
       to: "Apartment Streif, Kirchdorf in Tirol",
       duration: "~1h 45m",
       distance: "~145 km",
-      note: "Pick up the rental car at MUC, then head for Kufstein and St. Johann in Tirol. Austria needs a motorway vignette — buy the digital Vignette online before you drive.",
+      fromQuery: BASE_MUC,
+      toQuery: BASE_STREIF,
+      note: "Pick up the rental car at MUC, then head for Kufstein and St. Johann in Tirol. Austria needs a motorway vignette, so buy the digital Vignette online before you drive.",
+      stops: [
+        {
+          name: "Chiemsee (Prien am Chiemsee)",
+          description:
+            "Bavaria's biggest lake, right off the A8 about 45 minutes from the airport. A lakeside playground, gentle shallows and a grassy lido make a perfect leg-stretch and swim for jet-lagged kids.",
+          tag: "swim",
+          coords: [47.8662, 12.3492],
+          mapQuery: "Prienavera Erlebnisbad, Prien am Chiemsee, Germany",
+        },
+        {
+          name: "Kufstein Fortress",
+          description:
+            "A storybook clifftop castle just over the border with a panorama lift up. A short, easy visit if you have energy left before the last 40 minutes to the apartment.",
+          tag: "sights",
+          coords: [47.5836, 12.1758],
+          mapQuery: "Festung Kufstein, Austria",
+        },
+      ],
     },
-    activities: [
-      { time: "Midday", title: "Land at MUC & collect rental car", description: "Clear customs, pick up the car, grab water and snacks for the drive.", tag: "flight" },
-      { title: "Drive south into Tyrol", description: "Autobahn to Austria, then into the Kaiser valley. Stop for a first Austrian lunch en route.", tag: "drive" },
-      { title: "Check in at Apartment Streif", description: "Settle in, unpack, and do a first grocery run for breakfast supplies.", tag: "free" },
-      { title: "Easy evening stroll", description: "A short walk into the meadows to shake off the flight and meet the mountains.", tag: "free", optional: true },
+    options: [
+      {
+        title: "Settle in and meadow stroll",
+        tag: "walk",
+        description:
+          "Unpack, do a first grocery run, then wander the flat field paths around Gasteig with the Wilder Kaiser straight ahead.",
+        kidNote: "Flat, buggy-friendly, 20 to 40 minutes at toddler pace.",
+        mapQuery: BASE_STREIF,
+      },
+      {
+        title: "Quiet swim at the apartment wellness area",
+        tag: "spa",
+        description:
+          "If everyone is wiped out from travel, the in-house sauna and whirlpool plus an early dinner is a gentle way to start.",
+        kidNote: "Zero driving, good for an early bedtime.",
+        mapQuery: BASE_STREIF,
+      },
     ],
     tips: [
       "Buy the Austrian digital motorway vignette online before crossing the border.",
-      "Jet-lagged kids: keep day 1 gentle and aim for an early dinner.",
+      "Keep day one short; a Chiemsee swim on the way breaks up the drive nicely.",
     ],
   },
   {
     date: "2026-08-14",
     weekday: "Friday",
     region: "wilderkaiser",
-    base: "Apartment Streif",
-    title: "Hintersteiner See & the Kaiser meadows",
+    base: "Apartment Streif LXL",
+    baseQuery: BASE_STREIF,
+    title: "Lakes and meadows",
     subtitle: "Ease into the mountains",
-    activities: [
-      { time: "Morning", title: "Hintersteiner See", description: "Drive up to the turquoise lake under the Wilder Kaiser. Walk part of the shore loop and swim if it's warm.", tag: "swim", attractionId: "hintersteiner-see" },
-      { time: "Afternoon", title: "Lakeside picnic & play", description: "Relax by the water; the clear shallows are good for younger swimmers.", tag: "free" },
-      { title: "Dinner at the apartment", description: "Easy first home-cooked night after the lake.", tag: "food", optional: true },
+    options: [
+      {
+        title: "Hintersteiner See lake walk and swim",
+        tag: "lake",
+        attractionId: "hintersteiner-see",
+        description:
+          "A turquoise lake under the Kaiser walls. Walk as much of the flat shore path as little legs allow, then swim in the clear shallows.",
+        kidNote: "Mostly flat shore loop (~3.5 km, shorten freely). Carrier for the 2 year old. Swimming.",
+        coords: [47.5631, 12.2522],
+        mapQuery: "Hintersteiner See, Scheffau am Wilden Kaiser, Austria",
+      },
+      {
+        title: "Koasa Trail kids loop, St. Johann",
+        tag: "walk",
+        description:
+          "Easy valley nature trails and a Kneipp water-treading pool just minutes from the apartment. Good if you want a relaxed half day.",
+        kidNote: "Flat gravel paths, buggy-friendly, water play.",
+        coords: [47.5226, 12.4239],
+        mapQuery: "St. Johann in Tirol, Austria",
+      },
     ],
-    tips: ["Mornings are quietest at the lake; parking fills up by midday in August."],
+    food: [
+      {
+        name: "Cafe Bärnstatt, Hintersteiner See",
+        description:
+          "A lakeside farm cafe famous with families: a big adventure playground plus goats, ponies and rabbits to visit, and Kaiserschmarrn on the terrace.",
+        playground: true,
+        coords: [47.5613, 12.2556],
+        mapQuery: "Cafe Bärnstatt, Hintersteiner See, Scheffau, Austria",
+      },
+    ],
+    tips: ["Mornings are quietest and easiest for parking at Hintersteiner See."],
   },
   {
     date: "2026-08-15",
     weekday: "Saturday",
     region: "wilderkaiser",
-    base: "Apartment Streif",
-    title: "Hexenwasser & cable-car day",
-    subtitle: "Family adventure",
-    activities: [
-      { time: "Morning", title: "Söll gondola up to Hexenwasser", description: "Ride the cable car and spend the morning on the barefoot trails and water games at the 'witch's water'.", tag: "kids", attractionId: "hexenwasser" },
-      { time: "Lunch", title: "Hütte lunch on the mountain", description: "Kaiserschmarrn and Tiroler Gröstl with a panorama.", tag: "food" },
-      { time: "Afternoon", title: "Hohe Salve summit & walk down", description: "Take in the 360° view, then a gentle walk or gondola back down.", tag: "hike", optional: true },
+    base: "Apartment Streif LXL",
+    baseQuery: BASE_STREIF,
+    title: "Water world or magic mountain",
+    subtitle: "Big family fun",
+    options: [
+      {
+        title: "Hexenwasser Söll (witch's water)",
+        tag: "playground",
+        attractionId: "hexenwasser",
+        description:
+          "Ride the Söll gondola up to a whole mountain of water channels, barefoot trails, mills and play stations. One of the best kid days in the region.",
+        kidNote: "Cable car up, then easy walking between play stations. Bring a towel and spare clothes.",
+        coords: [47.4836, 12.1869],
+        mapQuery: "Hexenwasser Söll, Austria",
+      },
+      {
+        title: "Ellmi's Zauberwelt at Hartkaiser, Ellmau",
+        tag: "cablecar",
+        attractionId: "hartkaiser-ellmi",
+        description:
+          "Funicular from Ellmau to a mountain playground and a gentle themed walking trail with the Wilder Kaiser as the backdrop.",
+        kidNote: "Funicular up, big playground, short flat trail. Buggy-friendly at the top.",
+        coords: [47.5045, 12.3085],
+        mapQuery: "Hartkaiser Funicular, Ellmau, Austria",
+      },
     ],
-    tips: ["Check the cable-car operating hours and last descent before you go up."],
+    food: [
+      {
+        name: "Stanglwirt, Going",
+        description:
+          "A famous Tyrolean estate with a petting area, ponies and a play barn. A fun (if pricier) lunch stop on the way back.",
+        playground: true,
+        coords: [47.5145, 12.2607],
+        mapQuery: "Bio-Hotel Stanglwirt, Going am Wilden Kaiser, Austria",
+      },
+    ],
+    tips: ["Check the cable-car operating hours and last descent before heading up."],
   },
   {
     date: "2026-08-16",
     weekday: "Sunday",
     region: "wilderkaiser",
-    base: "Apartment Streif",
-    title: "Wilder Kaiser hike or Kitzbühel",
+    base: "Apartment Streif LXL",
+    baseQuery: BASE_STREIF,
+    title: "Valley hike or pretty Kitzbühel",
     subtitle: "Choose your pace",
-    activities: [
-      { time: "Morning", title: "Hike toward Gaudeamushütte", description: "A classic Kaiser foothill hike to a mountain hut — pick a distance that suits the group and reward it with strudel.", tag: "hike", attractionId: "gaudeamushuette" },
-      { title: "Alternative: Kitzbühel", description: "Prefer something gentler? Wander Kitzbühel's painted old town and ride the Hahnenkamm.", tag: "town", attractionId: "kitzbuehel", optional: true },
-      { title: "Last Tyrol dinner", description: "Celebrate the first base before tomorrow's move west.", tag: "food" },
+    options: [
+      {
+        title: "Kaiserbachtal valley walk to Griesner Alm",
+        tag: "hike",
+        attractionId: "gaudeamushuette",
+        description:
+          "A gentle, scenic valley track deep into the Wilder Kaiser ending at mountain huts for strudel. Turn back whenever the kids have had enough.",
+        kidNote: "Wide, mostly flat track. Buggy possible to Griesner Alm; carrier beyond. Hut food at the end.",
+        coords: [47.5783, 12.3983],
+        mapQuery: "Griesner Alm, Kirchdorf in Tirol, Austria",
+      },
+      {
+        title: "Kitzbühel old town and Schwarzsee",
+        tag: "town",
+        attractionId: "kitzbuehel",
+        description:
+          "Wander the painted medieval town, then cool off at the warm, shallow Schwarzsee lake with a lido and playground just outside town.",
+        kidNote: "Easy town stroll plus a warm swimming lake. Buggy-friendly.",
+        coords: [47.4467, 12.3917],
+        mapQuery: "Schwarzsee, Kitzbühel, Austria",
+      },
     ],
-    tips: ["Pack a layer and rain shell — alpine weather turns fast even in August."],
+    tips: ["Pack a layer and rain shell; alpine weather turns fast even in August."],
   },
   {
     date: "2026-08-17",
     weekday: "Monday",
     region: "oetz",
     base: "Falkners Five",
+    baseQuery: BASE_FALKNER,
     title: "Travel to the Ötztal",
     subtitle: "Moving day",
     drive: {
       from: "Wilder Kaiser",
-      to: "Oetz, Ötztal",
+      to: "Falkners Five, Oetz",
       duration: "~1h 45m",
       distance: "~130 km",
+      fromQuery: BASE_STREIF,
+      toQuery: BASE_FALKNER,
       note: "West along the Inn valley past Innsbruck, then south into the mouth of the Ötztal.",
+      stops: [
+        {
+          name: "Swarovski Kristallwelten, Wattens",
+          description:
+            "A magical crystal world with a huge, brilliant outdoor playground (a climbing tower and a play cloud) and the Giant garden. A superb mid-drive break for all three ages.",
+          tag: "playground",
+          coords: [47.2966, 11.6011],
+          mapQuery: "Swarovski Kristallwelten, Wattens, Austria",
+        },
+        {
+          name: "Alpenzoo Innsbruck",
+          description:
+            "Europe's highest zoo, home to alpine animals like ibex, bears, otters and wolves, on a hillside above Innsbruck. Easy paths and lots to see.",
+          tag: "animals",
+          coords: [47.2847, 11.3986],
+          mapQuery: "Alpenzoo Innsbruck, Austria",
+        },
+      ],
     },
-    activities: [
-      { time: "Morning", title: "Check out & drive west", description: "Pack up Apartment Streif and head toward Innsbruck and the Ötztal.", tag: "drive" },
-      { time: "Afternoon", title: "Check in at Falkners Five", description: "Drop bags, restock groceries and get the lie of the valley.", tag: "free" },
-      { title: "Piburger See sunset walk", description: "Short loop around the warm little nature-reserve lake above Oetz.", tag: "swim", attractionId: "piburger-see", optional: true },
+    options: [
+      {
+        title: "Check in and Piburger See sunset loop",
+        tag: "lake",
+        attractionId: "piburger-see",
+        description:
+          "Drop bags, then drive up to the warm little nature-reserve lake above Oetz for an easy loop and a paddle.",
+        kidNote: "Short, mostly flat loop. Warm, shallow swimming. Rowing boats to rent.",
+        coords: [47.1986, 10.8806],
+        mapQuery: "Piburger See, Oetz, Austria",
+      },
+      {
+        title: "Easy evening in Oetz village",
+        tag: "town",
+        description:
+          "If the drive was enough, restock groceries and stroll Oetz's pretty painted old town for dinner.",
+        kidNote: "Flat village streets, buggy-friendly.",
+        coords: [47.2017, 10.8975],
+        mapQuery: "Oetz, Austria",
+      },
     ],
-    tips: ["Stretch the drive with a coffee stop in Innsbruck's old town if timing allows."],
+    tips: ["Swarovski Kristallwelten is right on the route and makes the drive fly by for kids."],
   },
   {
     date: "2026-08-18",
     weekday: "Tuesday",
     region: "oetz",
     base: "Falkners Five",
-    title: "Area 47 adventure day",
+    baseQuery: BASE_FALKNER,
+    title: "Adventure park or iceman village",
     subtitle: "Big fun day",
-    activities: [
-      { time: "All day", title: "Area 47", description: "The Alps' biggest outdoor adventure park, minutes from the apartment — lake slides, blobs, water courses and climbing.", tag: "kids", attractionId: "area47" },
-      { title: "Optional rafting / canyoning", description: "For the older / braver members of the family.", tag: "swim", optional: true },
+    options: [
+      {
+        title: "Area 47 water playground",
+        tag: "swim",
+        attractionId: "area47",
+        description:
+          "The Alps' biggest outdoor adventure park at the mouth of the valley: a lake with slides and a shallow kids' zone, water playgrounds and climbing.",
+        kidNote: "Dedicated shallow kids' area for the 2 year old; slides and obstacles for the 6 and 8 year olds.",
+        coords: [47.2406, 10.8589],
+        mapQuery: "AREA 47, Ötztal, Austria",
+      },
+      {
+        title: "Ötzi-Dorf and Greifvogelpark, Umhausen",
+        tag: "animals",
+        description:
+          "An open-air stone-age village with animals (aurochs, sheep, pigs) and a daily birds-of-prey flight show next door. Brilliant, gentle and educational.",
+        kidNote: "Flat, buggy-friendly. Animals and a flight show hold all ages.",
+        coords: [47.1369, 10.9303],
+        mapQuery: "Ötzi-Dorf Umhausen, Austria",
+      },
     ],
-    tips: ["Bring swimwear, towels, water shoes and sunscreen; lockers are available on site."],
+    tips: ["For Area 47 bring swimwear, towels, water shoes and sunscreen; lockers are on site."],
   },
   {
     date: "2026-08-19",
     weekday: "Wednesday",
     region: "oetz",
     base: "Falkners Five",
-    title: "Stuibenfall Waterfall & Piburger See",
-    subtitle: "Water & woods",
-    activities: [
-      { time: "Morning", title: "Stuibenfall Waterfall", description: "Walk the stairs and suspension bridge beside Tyrol's highest waterfall above Umhausen.", tag: "hike", attractionId: "stuibenfall" },
-      { time: "Afternoon", title: "Swim at Piburger See", description: "Cool off in the warm protected lake; rent a rowing boat for a lap.", tag: "swim", attractionId: "piburger-see" },
+    baseQuery: BASE_FALKNER,
+    title: "Waterfall or warm thermal pools",
+    subtitle: "Water and woods",
+    options: [
+      {
+        title: "Stuibenfall waterfall walk, Umhausen",
+        tag: "waterfall",
+        attractionId: "stuibenfall",
+        description:
+          "Tyrol's highest waterfall with viewing platforms and a suspension bridge in the spray. Walk only the lower section with smaller kids.",
+        kidNote: "Lower viewpoints are an easy walk; the full stairway is for the 6 and 8 year olds. Carrier for the 2 year old.",
+        coords: [47.1361, 10.9286],
+        mapQuery: "Stuibenfall Wasserfall, Umhausen, Austria",
+      },
+      {
+        title: "Aqua Dome thermal spa, Längenfeld",
+        tag: "spa",
+        attractionId: "aquadome",
+        description:
+          "Striking outdoor thermal bowls steaming under the mountains, with an indoor children's water world and slides. Perfect for a cloudy day or tired legs.",
+        kidNote: "Separate children's water world with shallow pools and slides; all ages welcome.",
+        coords: [47.0711, 10.9756],
+        mapQuery: "Aqua Dome, Längenfeld, Austria",
+      },
+    ],
+    food: [
+      {
+        name: "Piburger See lakeside",
+        description:
+          "Pack a picnic, or grab a snack near the lake after the morning, with a flat shore to run around on.",
+        coords: [47.1986, 10.8806],
+        mapQuery: "Piburger See, Oetz, Austria",
+      },
     ],
     tips: ["Trainers with grip help on the damp waterfall steps."],
   },
@@ -120,141 +317,354 @@ export const ITINERARY: Day[] = [
     weekday: "Thursday",
     region: "oetz",
     base: "Falkners Five",
-    title: "Sölden heights or Aqua Dome",
-    subtitle: "High up or warm water",
-    activities: [
-      { time: "Option A", title: "Gaislachkogl & 007 Elements", description: "Drive up the valley to Sölden, ride to 3,058 m and explore the James Bond museum with glacier views.", tag: "sights", attractionId: "soelden-007" },
-      { time: "Option B", title: "Aqua Dome thermal spa", description: "Float in the steaming outdoor bowls at Längenfeld — perfect for tired legs or a cloudy day.", tag: "spa", attractionId: "aquadome" },
-      { title: "Last Ötztal dinner", description: "Wrap up the valley before crossing into Italy.", tag: "food" },
+    baseQuery: BASE_FALKNER,
+    title: "High cable car or gentle gorge",
+    subtitle: "Heights or shade",
+    options: [
+      {
+        title: "Gaislachkogl cable car, Sölden",
+        tag: "cablecar",
+        attractionId: "soelden-007",
+        description:
+          "Ride to 3,058 m for glacier views and the 007 Elements film world on the summit. A thrilling, low-effort way to reach the high mountains.",
+        kidNote: "All the height with no climbing. Bring warm layers; it is cold at the top even in August.",
+        coords: [46.9636, 11.0072],
+        mapQuery: "Gaislachkoglbahn, Sölden, Austria",
+      },
+      {
+        title: "Auer Klamm gorge walk, Oetz",
+        tag: "walk",
+        description:
+          "A shady, dramatic little gorge walk along rushing water close to the apartment. Cool and atmospheric on a hot afternoon.",
+        kidNote: "Short out-and-back; secure footing needed, carrier for the 2 year old.",
+        coords: [47.2125, 10.9],
+        mapQuery: "Auer Klamm, Oetz, Austria",
+      },
     ],
-    tips: ["Decide A vs B by the morning weather: heights for sun, spa for cloud."],
+    tips: ["Decide heights versus shade by the morning weather and how tired everyone is."],
   },
   {
     date: "2026-08-21",
     weekday: "Friday",
     region: "southtyrol",
-    base: "Entdecker Hotel",
+    base: "Entdecker Hotel Panorama",
+    baseQuery: BASE_ENTDECKER,
     title: "Cross into South Tyrol, Italy",
-    subtitle: "Moving day — into Italy",
+    subtitle: "Moving day into Italy",
     drive: {
       from: "Oetz, Ötztal",
-      to: "South Tyrol",
-      duration: "~2h–2h 30m",
-      distance: "~120–160 km",
-      note: "Via the Brenner motorway, or — for a spectacular alternative — the Timmelsjoch High Alpine Road toll pass directly over the mountains.",
+      to: "Entdecker Hotel, Hofern / Kiens",
+      duration: "~2h 30m",
+      distance: "~160 km",
+      fromQuery: BASE_FALKNER,
+      toQuery: BASE_ENTDECKER,
+      note: "Back to the Inn valley, then south over the Brenner motorway into Italy and east into the Val Pusteria. Italy uses per-trip motorway tolls, not a vignette.",
+      stops: [
+        {
+          name: "Sterzing / Vipiteno old town",
+          description:
+            "One of South Tyrol's prettiest little towns just past the Brenner, with a pedestrian main street, the Zwölferturm tower and gelato. An easy, flat lunch stop.",
+          tag: "town",
+          coords: [46.8966, 11.43],
+          mapQuery: "Sterzing Vipiteno, Italy",
+        },
+        {
+          name: "Franzensfeste Fortress",
+          description:
+            "A vast, atmospheric 19th-century fortress with family trails and a hidden underground passage. A quick, different stop right by the motorway.",
+          tag: "sights",
+          coords: [46.7905, 11.609],
+          mapQuery: "Franzensfeste Fortress, Italy",
+        },
+      ],
     },
-    activities: [
-      { time: "Morning", title: "Drive south over the Alps", description: "Cross from Austria into Italy. Consider the scenic Timmelsjoch pass if the weather is clear.", tag: "drive", attractionId: "timmelsjoch" },
-      { time: "Afternoon", title: "Check in at Entdecker Hotel", description: "Settle into the longest stay of the trip — six nights in South Tyrol.", tag: "free" },
-      { title: "First Italian dinner", description: "Toast with a Hugo spritz — invented right here in South Tyrol.", tag: "food" },
+    options: [
+      {
+        title: "Check in and Toblacher See loop",
+        tag: "lake",
+        description:
+          "Settle into the longest stay, then drive to the flat, easy loop around Lake Toblach with mountain views and a kiosk.",
+        kidNote: "Flat, buggy-friendly shore loop (~3.5 km). Snack kiosk on site.",
+        coords: [46.715, 12.223],
+        mapQuery: "Toblacher See, Toblach, Italy",
+      },
+      {
+        title: "Easy evening near the hotel",
+        tag: "free",
+        description:
+          "Toast the arrival with a Hugo spritz (invented here in South Tyrol) and let the kids settle into the new base.",
+        kidNote: "No driving; relax after the longest transfer.",
+        mapQuery: BASE_ENTDECKER,
+      },
     ],
     tips: [
-      "Italy uses motorway tolls (no vignette). Keep some euro coins / a card for booths.",
-      "Timmelsjoch is a paid toll road and closes overnight — check it's open before routing over it.",
+      "Italy charges per-trip motorway tolls; keep a card or euro coins for the booths.",
+      "Sterzing is the nicest leg-stretch on this drive and very buggy-friendly.",
     ],
   },
   {
     date: "2026-08-22",
     weekday: "Saturday",
     region: "southtyrol",
-    base: "Entdecker Hotel",
-    title: "Seiser Alm — Europe's biggest alpine meadow",
+    base: "Entdecker Hotel Panorama",
+    baseQuery: BASE_ENTDECKER,
+    title: "Kronplatz playground or meadow plateau",
     subtitle: "Dolomites day one",
-    activities: [
-      { time: "Morning", title: "Cable car to the Seiser Alm", description: "Ride up to the vast rolling plateau under the Schlern and Sassolungo spires.", tag: "hike", attractionId: "seiser-alm" },
-      { time: "Lunch", title: "Mountain hut lunch", description: "Canederli (Knödel) and apple strudel at a Hütte on the meadow.", tag: "food" },
-      { time: "Afternoon", title: "Gentle meadow trails", description: "Flat, family-friendly paths with constant Dolomite views.", tag: "hike" },
+    options: [
+      {
+        title: "Kronplatz summit by cable car",
+        tag: "cablecar",
+        description:
+          "The local mountain right above the hotel. Ride up to summit viewpoints, the Messner mountain museum and easy ridge paths with huge Dolomite panoramas.",
+        kidNote: "Gondola up, gentle wide paths at the top, plenty of huts. Carrier for the 2 year old.",
+        coords: [46.7378, 11.954],
+        mapQuery: "Kronplatz / Plan de Corones, Italy",
+      },
+      {
+        title: "Seiser Alm meadow walk",
+        tag: "walk",
+        attractionId: "seiser-alm",
+        description:
+          "Cable car up to Europe's largest high-alpine meadow, then flat, pram-friendly trails under the Sassolungo spires with huts for lunch.",
+        kidNote: "Cable car up, very gentle wide meadow paths. Some trails are buggy-friendly.",
+        coords: [46.5447, 11.6075],
+        mapQuery: "Seiser Alm Aerial Cableway, Italy",
+      },
     ],
-    tips: ["Cars are restricted on the Seiser Alm by day — the cable car is the easy way up."],
+    food: [
+      {
+        name: "Mountain huts on the Seiser Alm",
+        description:
+          "Family-run Schwaige huts dot the meadow with sunny terraces, Knödel, strudel and often a small playground or animals nearby.",
+        playground: true,
+        coords: [46.5447, 11.6075],
+        mapQuery: "Gostner Schwaige, Seiser Alm, Italy",
+      },
+    ],
+    tips: ["Cars are restricted on the Seiser Alm by day, so the cable car is the easy way up."],
   },
   {
     date: "2026-08-23",
     weekday: "Sunday",
     region: "southtyrol",
-    base: "Entdecker Hotel",
+    base: "Entdecker Hotel Panorama",
+    baseQuery: BASE_ENTDECKER,
     title: "Lago di Braies, the Dolomite jewel",
     subtitle: "Postcard lake",
-    activities: [
-      { time: "Early", title: "Lago di Braies (Pragser Wildsee)", description: "Arrive early to beat crowds. Walk the 3.5 km shore loop and hire a wooden rowing boat on the emerald water.", tag: "lake", attractionId: "pragser-wildsee" },
-      { time: "Afternoon", title: "Picnic & easy exploring", description: "Relax lakeside or explore the nearby Prags valley.", tag: "free" },
+    options: [
+      {
+        title: "Lago di Braies shore loop and rowing boats",
+        tag: "lake",
+        attractionId: "pragser-wildsee",
+        description:
+          "The emerald jewel of the Dolomites, only ~30 minutes away. Walk the flat shore loop and hire a wooden rowing boat on the still water.",
+        kidNote: "Mostly flat shore path (~3.5 km), buggy-friendly on the near side. Rowing boats are a hit.",
+        coords: [46.6947, 12.0855],
+        mapQuery: "Lago di Braies, Italy",
+      },
+      {
+        title: "Reinbach Waterfalls, Sand in Taufers",
+        tag: "waterfall",
+        description:
+          "A lovely forest walk past three thundering waterfalls with bridges and a Franciscan friary, plus the 'Bad Winkel' barefoot area for the kids.",
+        kidNote: "Well-made forest path with some steps; carrier for the 2 year old. About 1 to 1.5 hours.",
+        coords: [46.8855, 11.954],
+        mapQuery: "Reinbach Waterfalls, Sand in Taufers, Italy",
+      },
     ],
-    tips: ["In peak summer access is timed/booked — check whether a slot or shuttle is required and go early."],
+    tips: [
+      "Go to Lago di Braies early; in peak summer access is timed or by shuttle, so check before you set off.",
+    ],
   },
   {
     date: "2026-08-24",
     weekday: "Monday",
     region: "southtyrol",
-    base: "Entdecker Hotel",
-    title: "Bolzano, Ötzi & the orchards",
-    subtitle: "Culture & a slower day",
-    activities: [
-      { time: "Morning", title: "Ötzi Museum, Bolzano", description: "Meet the 5,300-year-old Iceman found above the Ötztal — a brilliant link back to last week's valley.", tag: "sights", attractionId: "bolzano-otzi" },
-      { time: "Lunch", title: "Lunch in the arcades", description: "Eat under Bolzano's medieval porticoes; try Speck and local cheese.", tag: "food" },
-      { time: "Afternoon", title: "Apple-orchard drive", description: "Wander the valley's famous apple country on the way back to the hotel.", tag: "free", optional: true },
+    base: "Entdecker Hotel Panorama",
+    baseQuery: BASE_ENTDECKER,
+    title: "Iceman museum or mountain coaster",
+    subtitle: "Culture or thrills",
+    options: [
+      {
+        title: "Ötzi Museum, Bolzano",
+        tag: "sights",
+        attractionId: "bolzano-otzi",
+        description:
+          "Meet Ötzi, the 5,300-year-old iceman found above the Ötztal you just visited, then eat under Bolzano's medieval arcades. A great rainy-day plan.",
+        kidNote: "Indoor and stroller-friendly; the 6 and 8 year olds will love the iceman story.",
+        coords: [46.4983, 11.3548],
+        mapQuery: "South Tyrol Museum of Archaeology, Bolzano, Italy",
+      },
+      {
+        title: "Klausberg family park, Ahrntal",
+        tag: "playground",
+        description:
+          "A summit fun park reached by gondola with a downhill alpine coaster (the Klausberg Flitzer), a water playground and farm animals.",
+        kidNote: "Gondola up; coaster has age and height rules, but there is plenty for the 2 year old too.",
+        coords: [46.9889, 11.9686],
+        mapQuery: "Klausberg, Steinhaus Ahrntal, Italy",
+      },
     ],
-    tips: ["A good rainy-day option — most of it is indoors and in town."],
+    tips: ["The Bolzano museum is a perfect option if the forecast turns wet."],
   },
   {
     date: "2026-08-25",
     weekday: "Tuesday",
     region: "southtyrol",
-    base: "Entdecker Hotel",
-    title: "Tre Cime di Lavaredo",
-    subtitle: "The big Dolomite hike",
-    activities: [
-      { time: "Morning", title: "Drive to the Auronzo hut", description: "Take the toll road up to the trailhead beneath the three iconic towers.", tag: "drive", attractionId: "tre-cime" },
-      { time: "Day", title: "Tre Cime loop", description: "The ~10 km loop around the towers, with refuges for refreshments. Shorten to an out-and-back to the Lavaredo hut for younger walkers.", tag: "hike" },
-      { title: "Easy evening", description: "Back to the hotel for a well-earned rest.", tag: "free" },
+    base: "Entdecker Hotel Panorama",
+    baseQuery: BASE_ENTDECKER,
+    title: "Three Peaks views or a gentle lake day",
+    subtitle: "Dolomite icons",
+    options: [
+      {
+        title: "Tre Cime, easy section to Rifugio Lavaredo",
+        tag: "hike",
+        attractionId: "tre-cime",
+        description:
+          "Drive the toll road up to the Auronzo hut beneath the three famous towers, then walk the gentle, wide path to Rifugio Lavaredo for the classic view.",
+        kidNote: "Start at 2,300 m, so the famous view needs only a short, gentle walk. Carrier for the 2 year old; skip the full loop with kids.",
+        coords: [46.6186, 12.3055],
+        mapQuery: "Rifugio Auronzo, Tre Cime di Lavaredo, Italy",
+      },
+      {
+        title: "Pragser or Toblach lake and bike path",
+        tag: "walk",
+        description:
+          "A calmer alternative: the flat Toblach-to-Cortina valley path, ideal for a stroller or rented kids' bikes, with picnic spots along the river.",
+        kidNote: "Flat, paved, buggy and balance-bike friendly. Go as far as you like and turn back.",
+        coords: [46.715, 12.223],
+        mapQuery: "Toblacher See, Toblach, Italy",
+      },
     ],
-    tips: ["Start early for parking; carry layers, water and snacks — there's little shade up high."],
+    tips: ["Start the Tre Cime drive early for parking; carry layers, water and snacks up high."],
   },
   {
     date: "2026-08-26",
     weekday: "Wednesday",
     region: "southtyrol",
-    base: "Entdecker Hotel",
-    title: "Merano gardens or a free day",
+    base: "Entdecker Hotel Panorama",
+    baseQuery: BASE_ENTDECKER,
+    title: "Gardens of Merano or a slow Bruneck day",
     subtitle: "Last full day in Italy",
-    activities: [
-      { time: "Option A", title: "Merano & Trauttmansdorff Gardens", description: "Elegant spa town and the terraced botanical gardens cascading down the hillside.", tag: "town", attractionId: "merano-gardens" },
-      { time: "Option B", title: "Kastelruth & a slow day", description: "Stroll the postcard village, shop for Speck and souvenirs, and pack at an easy pace.", tag: "town", attractionId: "kastelruth" },
-      { title: "Farewell dinner", description: "Last South Tyrolean meal — Schlutzkrapfen, Lagrein wine, and a final Hugo.", tag: "food" },
+    options: [
+      {
+        title: "Trauttmansdorff Gardens, Merano",
+        tag: "walk",
+        attractionId: "merano-gardens",
+        description:
+          "Terraced botanical gardens tumbling down a hillside, with themed worlds, ponds, a play area and an adventure trail for children.",
+        kidNote: "Lots of flat paths and a dedicated kids' play world; buggy-friendly.",
+        coords: [46.6628, 11.1869],
+        mapQuery: "Gardens of Trauttmansdorff Castle, Merano, Italy",
+      },
+      {
+        title: "Bruneck old town and play day",
+        tag: "town",
+        description:
+          "Stroll Bruneck's pretty pedestrian street for gelato and souvenirs, with a riverside playground, and pack at an easy pace for tomorrow.",
+        kidNote: "Flat town centre, playground, very buggy-friendly.",
+        coords: [46.7959, 11.9369],
+        mapQuery: "Bruneck Brunico old town, Italy",
+      },
     ],
-    tips: ["Pick up vacuum-packed Speck and a bottle of Lagrein or Gewürztraminer to bring home."],
+    food: [
+      {
+        name: "Bring home some Speck and Lagrein",
+        description:
+          "Pick up vacuum-packed Speck and a bottle of Lagrein or Gewürztraminer in Bruneck as edible souvenirs.",
+        coords: [46.7959, 11.9369],
+        mapQuery: "Bruneck Brunico, Italy",
+      },
+    ],
+    tips: ["Pick up vacuum-packed Speck and local wine as easy souvenirs to bring home."],
   },
   {
     date: "2026-08-27",
     weekday: "Thursday",
     region: "munich",
     base: "Airport Hotel (Munich)",
+    baseQuery: BASE_MUC,
     title: "Drive to Munich",
-    subtitle: "Moving day — toward home",
+    subtitle: "Moving day toward home",
     drive: {
       from: "South Tyrol",
       to: "Munich Airport area",
-      duration: "~3h–3h 30m",
+      duration: "~3h 30m",
       distance: "~280 km",
-      note: "North over the Brenner Pass and the Austrian Inn valley back into Bavaria. Return the rental car this evening if possible.",
+      fromQuery: BASE_ENTDECKER,
+      toQuery: BASE_MUC,
+      note: "West through the Val Pusteria, then north over the Brenner and the Inn valley back into Bavaria. Return the rental car this evening if you can.",
+      stops: [
+        {
+          name: "Innsbruck: Alpenzoo or Swarovski (again)",
+          description:
+            "Roughly the midpoint of the drive. Break it up with the alpine zoo or the crystal world playground, both right by the motorway.",
+          tag: "animals",
+          coords: [47.2847, 11.3986],
+          mapQuery: "Alpenzoo Innsbruck, Austria",
+        },
+        {
+          name: "Chiemsee swim stop",
+          description:
+            "If the weather is warm, a final lake swim and playground at the Chiemsee about 45 minutes before the airport.",
+          tag: "swim",
+          coords: [47.8662, 12.3492],
+          mapQuery: "Prien am Chiemsee, Germany",
+        },
+      ],
     },
-    activities: [
-      { time: "Morning", title: "Check out & drive north", description: "Leave South Tyrol, back over the Brenner into Germany.", tag: "drive" },
-      { time: "Optional", title: "Munich old town", description: "If you arrive with time, hop the S-Bahn to Marienplatz for a last city wander and meal.", tag: "town", attractionId: "marienplatz", optional: true },
-      { time: "Evening", title: "Check in near MUC & return car", description: "Settle into the airport hotel, drop the rental car, and pre-pack for the flight.", tag: "free" },
+    options: [
+      {
+        title: "Munich airport Visitors Park",
+        tag: "playground",
+        attractionId: "muc-visitorpark",
+        description:
+          "Right by the terminals: historic aircraft to climb near, a mini-golf course and plane-spotting mounds. Perfect to burn off energy before the flight.",
+        kidNote: "Flat, buggy-friendly, planes and playground. Minutes from the hotel.",
+        coords: [48.3667, 11.7836],
+        mapQuery: "Besucherpark München Flughafen, Germany",
+      },
+      {
+        title: "Munich old town and English Garden",
+        tag: "town",
+        attractionId: "marienplatz",
+        description:
+          "If you arrive with time, hop the S-Bahn to Marienplatz for the Glockenspiel, then let the kids run in the huge English Garden.",
+        kidNote: "Train ride is part of the fun; big park to run around. Buggy-friendly.",
+        coords: [48.1374, 11.5755],
+        mapQuery: "Marienplatz, Munich, Germany",
+      },
     ],
-    tips: ["Refuel and clean out the rental car before returning it to avoid fees."],
+    tips: ["Refuel and clean out the rental car before returning it to avoid extra fees."],
   },
   {
     date: "2026-08-28",
     weekday: "Friday",
     region: "munich",
     base: "Airport Hotel (Munich)",
+    baseQuery: BASE_MUC,
     title: "Fly home from Munich",
     subtitle: "Departure day",
-    activities: [
-      { time: "Morning", title: "Check out & to the terminal", description: "Short shuttle / walk to departures. Allow extra time for an international flight.", tag: "flight" },
-      { title: "If time: Visitors Park", description: "Burn off energy by the planes before security.", tag: "kids", attractionId: "muc-visitorpark", optional: true },
-      { title: "Depart MUC", description: "Auf Wiedersehen, Alps — until next time.", tag: "flight" },
+    options: [
+      {
+        title: "Easy morning and to the terminal",
+        tag: "flight",
+        description:
+          "A short shuttle or walk to departures. Allow extra time with kids and for an international flight.",
+        kidNote: "Be at the terminal about 3 hours before an intercontinental departure.",
+        mapQuery: BASE_MUC,
+      },
+      {
+        title: "Last play at the Visitors Park",
+        tag: "playground",
+        attractionId: "muc-visitorpark",
+        description:
+          "If your flight is later, one more run-around by the planes before security keeps everyone happy.",
+        kidNote: "Only if time allows; it is right by the terminal.",
+        coords: [48.3667, 11.7836],
+        mapQuery: "Besucherpark München Flughafen, Germany",
+      },
     ],
-    tips: ["Be at the terminal ~3 hours before an intercontinental departure."],
+    tips: ["Auf Wiedersehen, Alps. Safe travels home!"],
   },
 ];
