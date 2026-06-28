@@ -22,6 +22,10 @@ export interface Stay {
   checkIn: string; // ISO date
   checkOut: string; // ISO date
   coords: LatLng;
+  /** Full street address, if confirmed. */
+  address?: string;
+  /** True when the location is a best guess, not a confirmed booking. */
+  approxLocation?: boolean;
   description: string;
   highlights: string[];
   /** Optional booking / website link. */

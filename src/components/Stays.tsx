@@ -11,7 +11,7 @@ export default function Stays() {
       id="stays"
       kicker="Home Base"
       title="Where We Stay"
-      intro="Four bases over fifteen nights. Coordinates are approximate town centres — swap in the exact addresses once your bookings confirm."
+      intro="Four bases over fifteen nights. Falkners Five and the Entdecker Hotel are pinned to their real addresses; Apartment Streif's exact spot is still a guess — update it from your booking."
     >
       <div className="grid gap-4 md:grid-cols-2">
         {STAYS.map((s, i) => {
@@ -33,6 +33,12 @@ export default function Stays() {
                   <p className="flex items-center gap-1 text-sm text-stone-500">
                     <MapPin size={14} /> {s.town}, {s.country}
                   </p>
+                  {s.address && <p className="mt-0.5 text-xs text-stone-400">{s.address}</p>}
+                  {s.approxLocation && (
+                    <p className="mt-0.5 text-xs italic text-sunset-600">
+                      Approx. location — update from your booking
+                    </p>
+                  )}
                 </div>
                 <span className="inline-flex items-center gap-1 rounded-full bg-glacier-50 px-3 py-1 text-sm font-semibold text-glacier-700">
                   <BedDouble size={15} /> {s.nights}n

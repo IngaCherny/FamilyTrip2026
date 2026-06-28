@@ -97,7 +97,7 @@ export default function TripMap() {
               <Popup>
                 <strong>{s.name}</strong>
                 <br />
-                {s.town}, {s.country}
+                {s.address ?? `${s.town}, ${s.country}`}
                 <br />
                 <span style={{ color: "#6b6253" }}>{s.nights} nights</span>
                 <br />

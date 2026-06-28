@@ -34,9 +34,9 @@ export const REGIONS: Region[] = [
     name: "South Tyrol",
     country: "Italy",
     flag: "🇮🇹",
-    center: [46.6, 11.45],
+    center: [46.78, 11.85],
     blurb:
-      "Where the Alps speak German and eat Italian. Apple orchards, Dolomite spires and the famous Hugo spritz.",
+      "Where the Alps speak German and eat Italian. Based in Val Pusteria near Kronplatz — apple orchards, Dolomite spires and the famous Hugo spritz.",
   },
   {
     id: "munich",
