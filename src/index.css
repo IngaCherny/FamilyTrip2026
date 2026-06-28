@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-stone-50 text-stone-900 font-sans antialiased;
+  /* Slightly larger base text for legibility in bright sunlight on a phone. */
+  font-size: 17px;
+}
+
+@layer components {
+  /* One shared card surface unifies the whole visual language. */
+  .card-paper {
+    @apply rounded-2xl bg-white shadow-paper ring-1 ring-stone-100;
+  }
+
+  .kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-glacier-600;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl font-bold leading-tight text-stone-900 sm:text-4xl;
+  }
+
+  /* All tap targets respect the 44px minimum. */
+  .tap {
+    @apply min-h-11 min-w-11 inline-flex items-center justify-center;
+  }
+}
+
+/* Leaflet tiles should sit under our own UI chrome. */
+.leaflet-container {
+  font-family: inherit;
+  background: #eafafb;
+}
+
+/* Hide horizontal scrollbars on chip rows while keeping them swipeable. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
