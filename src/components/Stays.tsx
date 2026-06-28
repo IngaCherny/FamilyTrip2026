@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BedDouble, CalendarCheck, ExternalLink, Navigation, MapPin } from "lucide-react";
+import { BedDouble, CalendarCheck, ExternalLink, Navigation, MapPin, Plane } from "lucide-react";
 import Section from "./Section";
 import { STAYS } from "../data/stays";
 import { regionById } from "../data/trip";
@@ -11,7 +11,7 @@ export default function Stays() {
       id="stays"
       kicker="Home Base"
       title="Where We Stay"
-      intro="Four bases over fifteen nights. Falkners Five and the Entdecker Hotel are pinned to their real addresses; Apartment Streif's exact spot is still a guess — update it from your booking."
+      intro="Four bases over fifteen nights, each pinned to its real address. Tap Maps or Waze to navigate, or the airport chip for driving directions from Munich."
     >
       <div className="grid gap-4 md:grid-cols-2">
         {STAYS.map((s, i) => {
@@ -51,6 +51,24 @@ export default function Stays() {
                 <CalendarCheck size={15} className="text-meadow-500" />
                 {formatShort(s.checkIn)} → {formatShort(s.checkOut)}
               </p>
+
+              {s.driveFromAirport && (
+                <a
+                  href={s.driveFromAirport.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-2 flex items-center gap-2 rounded-xl bg-glacier-50 px-3 py-2 text-sm text-glacier-700 transition-colors hover:bg-glacier-100"
+                >
+                  <Plane size={15} className="shrink-0" />
+                  <span className="font-medium">
+                    {s.driveFromAirport.duration} from Munich Airport
+                  </span>
+                  <span className="text-glacier-600/70">· {s.driveFromAirport.distance}</span>
+                  <span className="ms-auto inline-flex items-center gap-1 font-semibold">
+                    Directions <ExternalLink size={13} />
+                  </span>
+                </a>
+              )}
 
               <ul className="mt-3 space-y-1">
                 {s.highlights.map((h) => (

@@ -26,6 +26,8 @@ export interface Stay {
   address?: string;
   /** True when the location is a best guess, not a confirmed booking. */
   approxLocation?: boolean;
+  /** Driving info from the arrival airport (Munich), with a directions link. */
+  driveFromAirport?: { duration: string; distance: string; url: string };
   description: string;
   highlights: string[];
   /** Optional booking / website link. */

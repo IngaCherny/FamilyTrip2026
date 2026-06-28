@@ -10,10 +10,10 @@ export const ITINERARY: Day[] = [
     subtitle: "Arrival day",
     drive: {
       from: "Munich Airport (MUC)",
-      to: "Wilder Kaiser, Austria",
-      duration: "~1h 30m",
-      distance: "~130 km",
-      note: "Pick up the rental car at MUC. Austria needs a motorway vignette — buy the digital Vignette online before you drive, plus a separate toll for the Tyrol valleys if used.",
+      to: "Apartment Streif, Kirchdorf in Tirol",
+      duration: "~1h 45m",
+      distance: "~145 km",
+      note: "Pick up the rental car at MUC, then head for Kufstein and St. Johann in Tirol. Austria needs a motorway vignette — buy the digital Vignette online before you drive.",
     },
     activities: [
       { time: "Midday", title: "Land at MUC & collect rental car", description: "Clear customs, pick up the car, grab water and snacks for the drive.", tag: "flight" },

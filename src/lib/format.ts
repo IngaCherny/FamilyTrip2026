@@ -8,6 +8,16 @@ export function formatShort(iso: string): string {
   return d.toLocaleDateString("en-GB", { day: "numeric", month: "short" });
 }
 
+/** Build a Google Maps driving-directions deep link between two places. */
+export function directionsUrl(origin: string, destination: string): string {
+  return (
+    "https://www.google.com/maps/dir/?api=1" +
+    `&origin=${encodeURIComponent(origin)}` +
+    `&destination=${encodeURIComponent(destination)}` +
+    "&travelmode=driving"
+  );
+}
+
 /** Build Google Maps + Waze deep links for a coordinate. */
 export function mapLinks([lat, lng]: [number, number], label?: string) {
   const q = label ? encodeURIComponent(label) : `${lat},${lng}`;

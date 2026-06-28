@@ -1,26 +1,34 @@
 import type { Stay } from "../lib/types";
+import { directionsUrl } from "../lib/format";
 
-// Falkners Five and the Entdecker Hotel addresses are confirmed from their
-// official listings. Apartment Streif could not be found publicly — its
-// location is still a best guess; update it from your booking confirmation.
+// All three accommodation addresses are confirmed from their official listings.
 export const STAYS: Stay[] = [
   {
     id: "streif",
-    name: "Apartment Streif",
+    name: "Apartment Streif LXL",
     region: "wilderkaiser",
-    town: "Wilder Kaiser",
+    town: "Gasteig, Kirchdorf in Tirol",
     country: "Austria",
     nights: 4,
     checkIn: "2026-08-13",
     checkOut: "2026-08-17",
-    coords: [47.5106, 12.2939],
-    approxLocation: true,
+    coords: [47.536, 12.397],
+    address: "Vorderjägerweg 4, 6382 Kirchdorf in Tirol, Austria",
+    link: "https://www.apartment-streif.at/",
+    driveFromAirport: {
+      duration: "~1 h 45 m",
+      distance: "~145 km",
+      url: directionsUrl(
+        "Munich Airport (MUC)",
+        "Apartment Streif LXL, Vorderjägerweg 4, 6382 Kirchdorf in Tirol, Austria"
+      ),
+    },
     description:
-      "Our base for the first four nights, tucked under the Wilder Kaiser massif. Self-catering apartment — ideal for cooking after big mountain days.",
+      "Our base for the first four nights, in the Gasteig hamlet at the foot of the Wilder Kaiser near St. Johann in Tirol (~14 km from Kitzbühel). Self-catering apartment with a wellness area — ideal for cooking and unwinding after big mountain days.",
     highlights: [
-      "Walk straight out into Kaiser meadows and trails",
-      "Close to Ellmau / Söll cable cars",
-      "Kitchen for easy family dinners",
+      "At the foot of the Wilder Kaiser, near St. Johann",
+      "Wellness area: sauna, whirlpool, sun terrace",
+      "Spacious terrace/balcony and full kitchen",
     ],
   },
   {
