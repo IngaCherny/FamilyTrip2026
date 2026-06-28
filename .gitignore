@@ -8,3 +8,5 @@ dist-ssr
 *.log
 .vite
 *.tsbuildinfo
+vite.config.js
+vite.config.d.ts
