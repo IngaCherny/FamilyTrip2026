@@ -44,20 +44,6 @@ export default function Places() {
         ))}
       </div>
 
-      <a
-        href="https://maps.app.goo.gl/TQQ1AyL7c7uLkp1t9?g_st=ic"
-        target="_blank"
-        rel="noreferrer"
-        className="mb-6 block rounded-2xl bg-meadow-50 p-4 ring-1 ring-meadow-200 transition-colors hover:bg-meadow-100"
-      >
-        <p className="kicker mb-1">Saved by you</p>
-        <p className="font-semibold text-stone-900">Pinned place (tap to open in Google Maps)</p>
-        <p className="mt-0.5 text-sm text-stone-600">
-          Your saved Google Maps location. Tell me its name and which area it belongs to and I will add it
-          properly with a photo and price.
-        </p>
-      </a>
-
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {places.map((a, i) => {
           const meta = POI_META[a.category];

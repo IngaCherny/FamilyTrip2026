@@ -199,6 +199,19 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["Botanical gardens", "Promenade", "Town stroll"],
   },
   {
+    id: "rodelbahn-haunold",
+    price: "~€6 per ride (family fun park; combo tickets available)",
+    wiki: "San Candido",
+    name: "Rodelbahn Haunold (summer toboggan)",
+    region: "southtyrol",
+    category: "kids",
+    coords: [46.7183, 12.2556],
+    link: "https://maps.app.goo.gl/TQQ1AyL7c7uLkp1t9?g_st=ic",
+    description:
+      "A summer toboggan run and family fun park at the foot of the Haunold (Baranci) mountain right by San Candido, about a 45 minute drive east of the hotel. The spot you stumbled on while driving back.",
+    good_for: ["Summer toboggan", "Kids fun park", "Near San Candido"],
+  },
+  {
     id: "val-fiscalina",
     price: "Free (paid parking at Fischleinboden)",
     wiki: "Sesto Dolomites",

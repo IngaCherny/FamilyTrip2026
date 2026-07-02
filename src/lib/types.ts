@@ -71,6 +71,8 @@ export interface DayOption extends Mappable {
   /** Kid-focused note: walk length, terrain, buggy/carrier, swimming, etc. */
   kidNote?: string;
   attractionId?: string;
+  /** Wikipedia title used for the card's thumbnail photo. */
+  wiki?: string;
   /** External link, e.g. an official tourism-board route page. */
   link?: string;
   linkLabel?: string;
@@ -81,6 +83,8 @@ export interface RouteStop extends Mappable {
   name: string;
   description: string;
   tag?: ActivityTag;
+  /** Wikipedia title used for the card's thumbnail photo. */
+  wiki?: string;
 }
 
 /** A family-friendly place to eat, flagged if it has a playground. */

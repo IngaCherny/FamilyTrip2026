@@ -28,6 +28,7 @@ export const ITINERARY: Day[] = [
       stops: [
         {
           name: "Chiemsee (Prien am Chiemsee)",
+          wiki: "Chiemsee",
           description:
             "Bavaria's biggest lake, right off the A8 about 45 minutes from the airport. A lakeside playground, gentle shallows and a grassy lido make a perfect leg-stretch and swim for jet-lagged kids.",
           tag: "swim",
@@ -36,6 +37,7 @@ export const ITINERARY: Day[] = [
         },
         {
           name: "Kufstein Fortress",
+          wiki: "Kufstein",
           description:
             "A storybook clifftop castle just over the border with a panorama lift up. A short, easy visit if you have energy left before the last 40 minutes to the apartment.",
           tag: "sights",
@@ -47,6 +49,7 @@ export const ITINERARY: Day[] = [
     options: [
       {
         title: "Settle in and meadow stroll",
+        wiki: "Wilder Kaiser",
         tag: "walk",
         description:
           "Unpack, do a first grocery run, then wander the flat field paths around Gasteig with the Wilder Kaiser straight ahead.",
@@ -55,6 +58,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Quiet swim at the apartment wellness area",
+        wiki: "Wilder Kaiser",
         tag: "spa",
         description:
           "If everyone is wiped out from travel, the in-house sauna and whirlpool plus an early dinner is a gentle way to start.",
@@ -88,6 +92,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Koasa Trail kids loop, St. Johann",
+        wiki: "St. Johann in Tirol",
         tag: "walk",
         description:
           "Easy valley nature trails and a Kneipp water-treading pool just minutes from the apartment. Good if you want a relaxed half day.",
@@ -201,6 +206,7 @@ export const ITINERARY: Day[] = [
       stops: [
         {
           name: "Swarovski Kristallwelten, Wattens",
+          wiki: "Swarovski Kristallwelten",
           description:
             "A magical crystal world with a huge, brilliant outdoor playground (a climbing tower and a play cloud) and the Giant garden. A superb mid-drive break for all three ages.",
           tag: "playground",
@@ -209,6 +215,7 @@ export const ITINERARY: Day[] = [
         },
         {
           name: "Alpenzoo Innsbruck",
+          wiki: "Alpenzoo",
           description:
             "Europe's highest zoo, home to alpine animals like ibex, bears, otters and wolves, on a hillside above Innsbruck. Easy paths and lots to see.",
           tag: "animals",
@@ -230,6 +237,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Easy evening in Oetz village",
+        wiki: "Oetz",
         tag: "town",
         description:
           "If the drive was enough, restock groceries and stroll Oetz's pretty painted old town for dinner.",
@@ -261,6 +269,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Ötzi-Dorf and Greifvogelpark, Umhausen",
+        wiki: "Umhausen",
         tag: "animals",
         description:
           "An open-air stone-age village with animals (aurochs, sheep, pigs) and a daily birds-of-prey flight show next door. Brilliant, gentle and educational.",
@@ -302,6 +311,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "9 Treasures of Piburger See loop (official Ötztal trail)",
+        wiki: "Piburger See",
         tag: "walk",
         description:
           "The official Ötztal family route: a loop of the warm nature-reserve lake passing nine viewing platforms and 'places of strength'. The wider western shore is stroller-friendly; the eastern shore is a rootier adventure path.",
@@ -344,6 +354,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Auer Klamm gorge walk, Oetz",
+        wiki: "Oetz",
         tag: "walk",
         description:
           "A shady, dramatic little gorge walk along rushing water close to the apartment. Cool and atmospheric on a hot afternoon.",
@@ -353,6 +364,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Andreas-Hofer-Weg river walk (official Oetz route)",
+        wiki: "Ötztal",
         tag: "walk",
         description:
           "An easy official Oetz valley walk along the Ötztaler Ache from the village to the Weller Bridge near Habichen, on toward Piburger See and back. Flat and right on the doorstep.",
@@ -384,6 +396,7 @@ export const ITINERARY: Day[] = [
       stops: [
         {
           name: "Sterzing / Vipiteno old town",
+          wiki: "Vipiteno",
           description:
             "One of South Tyrol's prettiest little towns just past the Brenner, with a pedestrian main street, the Zwölferturm tower and gelato. An easy, flat lunch stop.",
           tag: "town",
@@ -392,6 +405,7 @@ export const ITINERARY: Day[] = [
         },
         {
           name: "Franzensfeste Fortress",
+          wiki: "Franzensfeste",
           description:
             "A vast, atmospheric 19th-century fortress with family trails and a hidden underground passage. A quick, different stop right by the motorway.",
           tag: "sights",
@@ -403,6 +417,7 @@ export const ITINERARY: Day[] = [
     options: [
       {
         title: "Check in and Toblacher See loop",
+        wiki: "Lake Dobbiaco",
         tag: "lake",
         description:
           "Settle into the longest stay, then drive to the flat, easy loop around Lake Toblach with mountain views and a kiosk.",
@@ -412,6 +427,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Easy evening near the hotel",
+        wiki: "Puster Valley",
         tag: "free",
         description:
           "Toast the arrival with a Hugo spritz (invented here in South Tyrol) and let the kids settle into the new base.",
@@ -435,6 +451,7 @@ export const ITINERARY: Day[] = [
     options: [
       {
         title: "Kronplatz summit by cable car",
+        wiki: "Kronplatz",
         tag: "cablecar",
         description:
           "The local mountain right above the hotel. Ride up to summit viewpoints, the Messner mountain museum and easy ridge paths with huge Dolomite panoramas.",
@@ -486,6 +503,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Reinbach Waterfalls, Sand in Taufers",
+        wiki: "Sand in Taufers",
         tag: "waterfall",
         description:
           "A lovely forest walk past three thundering waterfalls with bridges and a Franciscan friary, plus the 'Bad Winkel' barefoot area for the kids.",
@@ -519,12 +537,24 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Klausberg family park, Ahrntal",
+        wiki: "Ahrntal",
         tag: "playground",
         description:
           "A summit fun park reached by gondola with a downhill alpine coaster (the Klausberg Flitzer), a water playground and farm animals.",
         kidNote: "Gondola up; coaster has age and height rules, but there is plenty for the 2 year old too.",
         coords: [46.9889, 11.9686],
         mapQuery: "Klausberg, Steinhaus Ahrntal, Italy",
+      },
+      {
+        title: "Rodelbahn Haunold summer toboggan (near San Candido)",
+        wiki: "San Candido",
+        tag: "playground",
+        attractionId: "rodelbahn-haunold",
+        description:
+          "A summer toboggan run and family fun park at the foot of the Haunold near San Candido, about 45 minutes east. The fun spot you found while driving back last time.",
+        kidNote: "The toboggan has height rules for solo riders, but little ones ride with a parent; fun park alongside.",
+        coords: [46.7183, 12.2556],
+        mapQuery: "Rodelbahn Haunold, San Candido, Italy",
       },
     ],
     tips: ["The Bolzano museum is a perfect option if the forecast turns wet."],
@@ -550,6 +580,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Val Fiscalina family valley walk (near San Candido)",
+        wiki: "Sesto Dolomites",
         tag: "walk",
         description:
           "A flat, stroller-friendly valley in the Three Peaks Nature Park next to San Candido, with the Sundial peaks towering ahead. The gentle, scenic back-door approach to the Tre Cime, and one of the prettiest easy walks in the Dolomites.",
@@ -559,6 +590,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Pragser or Toblach lake and bike path",
+        wiki: "Lake Dobbiaco",
         tag: "walk",
         description:
           "A calmer alternative: the flat Toblach-to-Cortina valley path, ideal for a stroller or rented kids' bikes, with picnic spots along the river.",
@@ -593,6 +625,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Bruneck old town and play day",
+        wiki: "Bruneck",
         tag: "town",
         description:
           "Stroll Bruneck's pretty pedestrian street for gelato and souvenirs, with a riverside playground, and pack at an easy pace for tomorrow.",
@@ -631,6 +664,7 @@ export const ITINERARY: Day[] = [
       stops: [
         {
           name: "Innsbruck: Alpenzoo or Swarovski (again)",
+          wiki: "Innsbruck",
           description:
             "Roughly the midpoint of the drive. Break it up with the alpine zoo or the crystal world playground, both right by the motorway.",
           tag: "animals",
@@ -639,6 +673,7 @@ export const ITINERARY: Day[] = [
         },
         {
           name: "Chiemsee swim stop",
+          wiki: "Chiemsee",
           description:
             "If the weather is warm, a final lake swim and playground at the Chiemsee about 45 minutes before the airport.",
           tag: "swim",
@@ -650,6 +685,7 @@ export const ITINERARY: Day[] = [
     options: [
       {
         title: "Settle in near the airport and return the car",
+        wiki: "Munich Airport",
         tag: "free",
         description:
           "Check into the airport hotel, drop the rental car, and repack for the flight so the morning is calm. The drive stops above break up the journey.",
@@ -658,6 +694,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "One last alpine swim on the way (Chiemsee)",
+        wiki: "Chiemsee",
         tag: "swim",
         description:
           "If the weather is warm and you have time, the Chiemsee lido and playground about 45 minutes before the airport is a lovely final dip.",
@@ -679,6 +716,7 @@ export const ITINERARY: Day[] = [
     options: [
       {
         title: "Check out and fly home from Munich (MUC)",
+        wiki: "Munich Airport",
         tag: "flight",
         description:
           "A short shuttle or walk to departures, then home. Allow extra time with kids and for an international flight.",

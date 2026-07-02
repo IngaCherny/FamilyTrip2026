@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Section from "./Section";
+import SmartImage from "./SmartImage";
 import { ITINERARY } from "../data/itinerary";
 import { DESTINATIONS, regionById } from "../data/trip";
+import { attractionById } from "../data/attractions";
 import { TAG_META } from "../lib/tags";
 import { formatShort } from "../lib/format";
 import { MapWithDirections, placeQuery } from "./MapEmbed";
@@ -45,6 +47,7 @@ function PlaceCard({
   coords,
   link,
   linkLabel,
+  imageWiki,
   accent,
 }: {
   title: string;
@@ -56,6 +59,7 @@ function PlaceCard({
   coords?: [number, number];
   link?: string;
   linkLabel?: string;
+  imageWiki?: string;
   accent: "option" | "stop";
 }) {
   const [open, setOpen] = useState(false);
@@ -65,7 +69,8 @@ function PlaceCard({
         accent === "option" ? "bg-meadow-50/60 ring-meadow-100" : "bg-stone-50 ring-stone-200"
       }`}
     >
-      <button onClick={() => setOpen((o) => !o)} className="flex w-full items-center gap-3 p-3 text-left">
+      <button onClick={() => setOpen((o) => !o)} className="flex w-full items-center gap-3 p-2.5 text-left">
+        <SmartImage wiki={imageWiki} alt={title} className="h-14 w-14 shrink-0 rounded-lg" />
         <span className="min-w-0 flex-1">
           <span className="block font-semibold leading-snug text-stone-900">{title}</span>
           {tag && <span className="mt-0.5 inline-block text-xs text-stone-500">{TAG_META[tag].label}</span>}
@@ -114,6 +119,7 @@ function PlaceCard({
 
 function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open: boolean; onToggle: () => void }) {
   const region = regionById(day.region);
+  const regionWiki = region.wiki ?? "Munich";
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -179,6 +185,7 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
                           tag={s.tag}
                           destination={placeQuery(s)}
                           coords={s.coords}
+                          imageWiki={s.wiki ?? regionWiki}
                           accent="stop"
                         />
                       ))}
@@ -204,6 +211,7 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
                     coords={o.coords}
                     link={o.link}
                     linkLabel={o.linkLabel}
+                    imageWiki={o.wiki ?? (o.attractionId ? attractionById(o.attractionId)?.wiki : undefined) ?? regionWiki}
                     accent="option"
                   />
                 ))}
