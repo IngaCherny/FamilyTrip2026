@@ -549,6 +549,15 @@ export const ITINERARY: Day[] = [
         mapQuery: "Rifugio Auronzo, Tre Cime di Lavaredo, Italy",
       },
       {
+        title: "Val Fiscalina family valley walk (near San Candido)",
+        tag: "walk",
+        description:
+          "A flat, stroller-friendly valley in the Three Peaks Nature Park next to San Candido, with the Sundial peaks towering ahead. The gentle, scenic back-door approach to the Tre Cime, and one of the prettiest easy walks in the Dolomites.",
+        kidNote: "Flat gravel valley path, buggy-friendly, mountain huts along the way. Turn back at the Talschluss hut.",
+        coords: [46.6773, 12.363],
+        mapQuery: "Val Fiscalina Fischleintal, Sexten, Italy",
+      },
+      {
         title: "Pragser or Toblach lake and bike path",
         tag: "walk",
         description:
@@ -558,7 +567,10 @@ export const ITINERARY: Day[] = [
         mapQuery: "Toblacher See, Toblach, Italy",
       },
     ],
-    tips: ["Start the Tre Cime drive early for parking; carry layers, water and snacks up high."],
+    tips: [
+      "Val Fiscalina near San Candido is about a 45 minute drive and a gentle family alternative to the Tre Cime toll road.",
+      "Start the Tre Cime drive early for parking; carry layers, water and snacks up high.",
+    ],
   },
   {
     date: "2026-08-26",

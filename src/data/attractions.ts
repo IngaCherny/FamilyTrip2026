@@ -199,6 +199,18 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["Botanical gardens", "Promenade", "Town stroll"],
   },
   {
+    id: "val-fiscalina",
+    price: "Free (paid parking at Fischleinboden)",
+    wiki: "Sesto Dolomites",
+    name: "Val Fiscalina (Fischleintal)",
+    region: "southtyrol",
+    category: "hike",
+    coords: [46.6773, 12.363],
+    description:
+      "A flat, family-friendly valley in the Three Peaks Nature Park next to San Candido and Sexten, with the Sundial (Meridiana) peaks towering at the head of the valley. One of the loveliest gentle Dolomite walks, about a 45 minute drive from the Entdecker hotel.",
+    good_for: ["Family valley walk", "Buggy-friendly", "Dolomite views"],
+  },
+  {
     id: "kastelruth",
     price: "Free (village)",
     wiki: "Kastelruth",
