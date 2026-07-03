@@ -1,46 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
   <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#bfeaf0"/>
-      <stop offset="1" stop-color="#eafaf6"/>
+    <linearGradient id="skyA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2ba0ae"/><stop offset="1" stop-color="#bfe9df"/>
     </linearGradient>
-    <clipPath id="round">
-      <rect width="128" height="128" rx="28"/>
-    </clipPath>
+    <clipPath id="rA"><rect width="128" height="128" rx="30"/></clipPath>
   </defs>
-
-  <g clip-path="url(#round)">
-    <!-- sky -->
-    <rect width="128" height="128" fill="url(#sky)"/>
-
-    <!-- sun -->
-    <circle cx="95" cy="34" r="14" fill="#f7c873"/>
-    <circle cx="95" cy="34" r="14" fill="#ef9f5f" opacity="0.35"/>
-
-    <!-- back peaks with snow caps -->
-    <path d="M-6 78 L30 30 L66 78 Z" fill="#8aa0b4"/>
-    <path d="M62 82 L96 38 L130 82 Z" fill="#9fb3c4"/>
-    <path d="M30 30 L41 45 L34 49 L24 47 Z" fill="#ffffff"/>
-    <path d="M96 38 L106 52 L99 55 L89 52 Z" fill="#ffffff"/>
-
-    <!-- green meadow -->
-    <path d="M-6 84 C 26 72, 50 92, 74 84 C 98 76, 116 90, 134 84 L134 134 L-6 134 Z" fill="#7aa84e"/>
-    <path d="M-6 98 C 30 88, 60 104, 92 96 C 110 92, 124 98, 134 96 L134 134 L-6 134 Z" fill="#5f9039"/>
-
-    <!-- little turquoise lake -->
-    <ellipse cx="52" cy="112" rx="26" ry="7" fill="#56c0cf"/>
-    <ellipse cx="52" cy="111" rx="20" ry="4" fill="#8fd9e3" opacity="0.7"/>
-
-    <!-- pine trees -->
-    <g>
-      <rect x="24.2" y="86" width="3.6" height="10" rx="1" fill="#6b4a2b"/>
-      <path d="M26 66 L36 84 L16 84 Z" fill="#3f6b2c"/>
-      <path d="M26 72 L34 88 L18 88 Z" fill="#4d7e34"/>
-    </g>
-    <g>
-      <rect x="100.2" y="92" width="3.6" height="10" rx="1" fill="#6b4a2b"/>
-      <path d="M102 74 L111 90 L93 90 Z" fill="#3f6b2c"/>
-      <path d="M102 80 L109 94 L95 94 Z" fill="#4d7e34"/>
-    </g>
+  <g clip-path="url(#rA)">
+    <rect width="128" height="128" fill="url(#skyA)"/>
+    <circle cx="96" cy="40" r="17" fill="#ffd27a"/>
+    <path d="M-8 128 L34 52 L70 110 L94 74 L136 128 Z" fill="#3f5d74"/>
+    <path d="M-8 128 L46 74 L86 118 L112 92 L136 118 L136 128 Z" fill="#59788f"/>
+    <path d="M34 52 L46 70 L38 74 L26 71 Z" fill="#ffffff"/>
+    <path d="M94 74 L103 88 L96 91 L86 88 Z" fill="#ffffff"/>
   </g>
 </svg>
