@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.svg", "icon-192.png", "icon-512.png"],
+      includeAssets: ["icon-192.png", "icon-512.png"],
       manifest: {
         name: "Alpine Summer 2026 — Family Trip",
         short_name: "Alpine 2026",
@@ -21,7 +21,6 @@ export default defineConfig(({ mode }) => ({
         background_color: "#f7f6f3",
         theme_color: "#1f7f8d",
         icons: [
-          { src: "favicon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
           { src: "icon-192.png", sizes: "192x192", type: "image/png", purpose: "any maskable" },
           { src: "icon-512.png", sizes: "512x512", type: "image/png", purpose: "any maskable" },
         ],
