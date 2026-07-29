@@ -76,7 +76,46 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["Hiking", "Mountain hut lunch", "Big scenery"],
   },
 
+  {
+    id: "griessbachklamm",
+    price: "Free (small parking fee at Erpfendorf)",
+    wiki: "Erpfendorf",
+    name: "Grießbachklamm gorge, Erpfendorf",
+    region: "wilderkaiser",
+    category: "hike",
+    coords: [47.5545, 12.4295],
+    link: "https://www.kitzbueheler-alpen.com/en/st-johann/summer/hiking/griessbach-gorge-erpfendorf-tirol.html",
+    description:
+      "A cool, wild little gorge just up the road from the base, where the Grießbach tumbles down through the rock. Walkways, wooden jetties and small suspension bridges carry the path over the water, so the kids get a proper adventure without a long climb. The short loop takes about 1¼ hours; a longer 2½ hour round continues above the gorge.",
+    good_for: ["Shady hot-day walk", "Bridges & walkways", "Short loop option"],
+  },
+
   // ---------- Ötztal ----------
+  {
+    id: "habicher-see",
+    price: "Free",
+    wiki: "Oetz",
+    name: "Habicher See",
+    region: "oetz",
+    category: "lake",
+    coords: [47.2145, 10.8985],
+    description:
+      "A small, quiet lake in the woods at Habichen, effectively on the doorstep of the Ötztal apartment. A short, level circuit runs round the water with benches and a picnic spot, and it warms up enough to paddle. The easiest possible outing on a tired day, with no drive at all.",
+    good_for: ["At the doorstep", "Short level loop", "Paddling"],
+  },
+  {
+    id: "widiversum",
+    price: "~€30 adult / ~€18 child (Acherkogelbahn return); play world free",
+    wiki: "Oetz",
+    name: "WIDIVERSUM Hochoetz",
+    region: "oetz",
+    category: "kids",
+    coords: [47.2075, 10.9375],
+    link: "https://www.oetztal.com/en/activities/excursion-destinations/widiversum",
+    description:
+      "The Ötztal's most popular family destination: 36 play and puzzle stations spread over 3,000 m² of mountainside at Hochoetz, reached by the Acherkogelbahn gondola straight up from Oetz. A themed trail follows WIDI the dragon between the stations, with wide, mostly level paths around the mountain station.",
+    good_for: ["Themed play trail", "Gondola up", "All three ages"],
+  },
   {
     id: "area47",
     price: "~€35 adult / €29 child (day ticket)",
@@ -260,6 +299,32 @@ export const ATTRACTIONS: Attraction[] = [
     description:
       "A magical themed family walk above Vandoies di Sopra, a short run down the valley road from the hotel. Eleven storytelling stations (animal tracks, bees, deer, dry-stone walls, lizards) lead past a deer enclosure to the thundering 43 m waterfall on the Rio di Terento and a stone viewing balcony. About 4 km with 150 m of climbing, roughly an hour of gentle walking.",
     good_for: ["Themed family walk", "Waterfall", "Story stations"],
+  },
+  {
+    id: "concordia-360",
+    price: "~€26 adult / €13 child (Kronplatz cable car return)",
+    wiki: "Kronplatz",
+    name: "Concordia 360° panoramic loop, Kronplatz",
+    region: "southtyrol",
+    category: "hike",
+    coords: [46.7378, 11.954],
+    link: "https://www.bruneck.com/en/activity/panoramic-path-concordia-360-_5163",
+    description:
+      "The gentlest big-view walk of the trip and the best buggy option in the area. A level circular path runs right around the flat Kronplatz summit plateau at 2,275 m, taking in the Peace Bell Concordia 2000, the Messner and LUMEN museums and staged viewpoints, with the Dolomites on one side and the Zillertal Alps on the other. Cable car up from Reischach, just above Bruneck.",
+    good_for: ["Buggy-friendly", "360° Dolomite views", "Cable car up"],
+  },
+  {
+    id: "antholzer-see",
+    price: "Free (paid parking at the lake)",
+    wiki: "Antholzer See",
+    name: "Antholzer See (Lago di Anterselva)",
+    region: "southtyrol",
+    category: "lake",
+    coords: [46.8697, 12.1719],
+    link: "https://www.pustertal.org/en/highlights/nature-and-landscape/lakes/lake-anterselva/",
+    description:
+      "A deep green mountain lake at 1,642 m at the head of the Antholz valley, ringed by forest and peaks. A 2.7 km nature trail circles the shore, with a playground and a restaurant at the eastern end. The near shore is flat and easy; the far side gets rougher, so with a buggy walk out and back rather than the full loop.",
+    good_for: ["Lakeside playground", "Flat near shore", "Cool valley air"],
   },
   {
     id: "kiens-farmtrail",

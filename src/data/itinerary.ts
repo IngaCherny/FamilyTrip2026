@@ -194,8 +194,21 @@ export const ITINERARY: Day[] = [
         coords: [47.4467, 12.3917],
         mapQuery: "Schwarzsee, Kitzbühel, Austria",
       },
+      {
+        title: "Grießbachklamm gorge, Erpfendorf",
+        tag: "walk",
+        attractionId: "griessbachklamm",
+        description:
+          "A cool, wild little gorge just up the road, where walkways and small suspension bridges carry the path over the tumbling Grießbach. A proper adventure for short legs without a long climb, and shady on a hot day.",
+        kidNote: "Short loop ~1¼ hours. Bridges and steps mean a carrier for the 2 year old, no buggy. The 6 and 8 year olds will love the bridges.",
+        coords: [47.5545, 12.4295],
+        mapQuery: "Grießbachklamm, Erpfendorf, Austria",
+      },
     ],
-    tips: ["Pack a layer and rain shell; alpine weather turns fast even in August."],
+    tips: [
+      "Pack a layer and rain shell; alpine weather turns fast even in August.",
+      "The Grießbachklamm is the best hot-day option here: shaded, cool and close.",
+    ],
   },
   {
     date: "2026-08-17",
@@ -287,8 +300,21 @@ export const ITINERARY: Day[] = [
         coords: [47.1369, 10.9303],
         mapQuery: "Ötzi-Dorf Umhausen, Austria",
       },
+      {
+        title: "Habicher See, the lake at the doorstep",
+        tag: "lake",
+        attractionId: "habicher-see",
+        description:
+          "A quiet little woodland lake right at Habichen, effectively next to the apartment. A short level circuit runs round the water with benches and a picnic spot, and it warms up enough to paddle.",
+        kidNote: "The easiest outing of the whole trip: no drive, short and flat, buggy-friendly. Ideal for a late afternoon.",
+        coords: [47.2145, 10.8985],
+        mapQuery: "Habicher See, Oetz, Austria",
+      },
     ],
-    tips: ["For Area 47 bring swimwear, towels, water shoes and sunscreen; lockers are on site."],
+    tips: [
+      "For Area 47 bring swimwear, towels, water shoes and sunscreen; lockers are on site.",
+      "Habicher See is a two-minute hop from the apartment, perfect if a big day is too much.",
+    ],
   },
   {
     date: "2026-08-19",
@@ -361,6 +387,16 @@ export const ITINERARY: Day[] = [
         kidNote: "All the height with no climbing. Bring warm layers; it is cold at the top even in August.",
         coords: [46.9636, 11.0072],
         mapQuery: "Gaislachkoglbahn, Sölden, Austria",
+      },
+      {
+        title: "WIDIVERSUM Hochoetz play trail",
+        tag: "kids",
+        attractionId: "widiversum",
+        description:
+          "The kid-focused alternative to the Gaislachkogl: the Acherkogelbahn lifts you straight from Oetz to Hochoetz, where a themed trail follows WIDI the dragon between 36 play and puzzle stations across the mountainside.",
+        kidNote: "Gondola up, wide mostly level paths near the top station, so a buggy works around the main area. Stations suit all three ages.",
+        coords: [47.2075, 10.9375],
+        mapQuery: "WIDIVERSUM Hochoetz, Oetz, Austria",
       },
       {
         title: "Auer Klamm gorge walk, Oetz",
@@ -481,12 +517,12 @@ export const ITINERARY: Day[] = [
     subtitle: "Dolomites day one",
     options: [
       {
-        title: "Kronplatz summit by cable car",
-        wiki: "Kronplatz",
+        title: "Kronplatz summit & Concordia 360° loop",
         tag: "cablecar",
+        attractionId: "concordia-360",
         description:
-          "The local mountain right above the hotel. Ride up to summit viewpoints, the Messner mountain museum and easy ridge paths with huge Dolomite panoramas.",
-        kidNote: "Gondola up, gentle wide paths at the top, plenty of huts. Carrier for the 2 year old.",
+          "The local mountain right above the hotel. Ride the cable car from Reischach, then walk the level Concordia 360° circuit around the flat summit plateau past the Peace Bell, the Messner and LUMEN museums and staged viewpoints, with the Dolomites on one side and the Zillertal Alps on the other.",
+        kidNote: "The best buggy walk of the trip: gondola up, then a flat loop at 2,275 m. Huts and museums along the way if the weather turns.",
         coords: [46.7378, 11.954],
         mapQuery: "Kronplatz / Plan de Corones, Italy",
       },
@@ -648,6 +684,16 @@ export const ITINERARY: Day[] = [
         kidNote: "Flat, paved, buggy and balance-bike friendly. Go as far as you like and turn back.",
         coords: [46.715, 12.223],
         mapQuery: "Toblacher See, Toblach, Italy",
+      },
+      {
+        title: "Antholzer See lakeside walk & playground",
+        tag: "lake",
+        attractionId: "antholzer-see",
+        description:
+          "A deep green lake at 1,642 m at the head of the Antholz valley, ringed by forest and peaks, with a playground and a restaurant at the near end. Cooler valley air and far quieter than Braies.",
+        kidNote: "Flat, easy near shore, ideal with a buggy; the far side of the 2.7 km loop gets rougher, so turn back rather than circle it.",
+        coords: [46.8697, 12.1719],
+        mapQuery: "Antholzer See, Rasen-Antholz, Italy",
       },
     ],
     tips: [
