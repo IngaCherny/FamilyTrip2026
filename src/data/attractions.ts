@@ -168,8 +168,27 @@ export const ATTRACTIONS: Attraction[] = [
     coords: [47.2145, 10.8985],
     link: "https://www.oetztal.com/en/activities/excursion-destinations",
     description:
-      "A small, quiet lake in the woods at Habichen, effectively on the doorstep of the Ötztal apartment. A short, level circuit runs round the water with benches and a picnic spot, and it warms up enough to paddle. The easiest possible outing on a tired day, with no drive at all.",
-    good_for: ["At the doorstep", "Short level loop", "Paddling"],
+      "A small, quiet lake in the woods at Habichen, effectively on the doorstep of the Ötztal apartment. A short, level circuit runs round the water with benches and a picnic spot, and it warms up enough to paddle. There is also an easy signposted Rundweg from the centre of Oetz that follows the Ötztaler Ache to the lake and back, flat the whole way, which you can extend towards Piburger See if legs allow. The gentlest walk in the valley.",
+    good_for: ["At the doorstep", "Flat riverside Rundweg", "Paddling"],
+  },
+  {
+    id: "alpine-coaster-imst",
+    price: {
+      adult: 15,
+      child: 11,
+      covers: "coaster ride including the lift",
+      freeUnder: 3,
+      note: "Seasonal rates, check imst.at. Albin's play park at the valley station is free.",
+    },
+    wiki: "Imst",
+    name: "Alpine Coaster Hoch-Imst",
+    region: "oetz",
+    category: "kids",
+    coords: [47.2231, 10.7256],
+    link: "https://www.imst.at/en/hoch-imst/alpine-coaster-hoch-imst.html",
+    description:
+      "The closest thing to the Fiss Funpark without the long drive: the world's longest alpine coaster, 3,535 m of track dropping 500 m down the mountain, about 20 minutes from Oetz. At the valley station Albin's play park adds slides, swings, trampolines, a bungee trampoline and a quad track, so there is plenty for anyone too small to ride.",
+    good_for: ["Longest alpine coaster", "Play park at the base", "Close to Oetz"],
   },
   {
     id: "widiversum",
@@ -242,7 +261,7 @@ export const ATTRACTIONS: Attraction[] = [
     coords: [47.1986, 10.8806],
     link: "https://www.oetztal.com/en/activities/excursion-destinations",
     description:
-      "A small, warm, protected nature-reserve lake above Oetz, swimmable in summer, with a little rowing-boat rental. Drive up to Piburg and the shore circuit is a gentle hour, though it is rooty and rocky in places rather than truly buggy-flat. Do not confuse it with the 'große Runde' from the valley floor: that one climbs 271 m over 6.3 km with stairs and a steep pull to the Seejöchl, and is a real hike.",
+      "A small, warm, protected nature-reserve lake above Oetz, swimmable in summer, with a little rowing-boat rental. Drive up to Piburg and the circuit round the water is 2.3 km, about 45 minutes, of which only roughly half takes a pram. Do not confuse it with the 'große Runde' from the valley floor: that one climbs 271 m over 6.3 km with stairs and a steep pull to the Seejöchl, and is a proper hike.",
     good_for: ["Swimming", "Lakeside circuit", "Rowing boats"],
   },
   {

@@ -329,12 +329,24 @@ export const ITINERARY: Day[] = [
         mapQuery: "Ötzi-Dorf Umhausen, Austria",
       },
       {
+        title: "Alpine Coaster Hoch-Imst (longest in the world)",
+        tag: "kids",
+        attractionId: "alpine-coaster-imst",
+        description:
+          "The nearest equivalent to the Fiss Funpark, about 20 minutes away: 3,535 m of alpine coaster dropping 500 m down the mountain, plus Albin's play park at the valley station with slides, trampolines and a quad track.",
+        kidNote:
+          "Minimum age 3 to ride even with an adult, so the 2 year old cannot go on the coaster; Albin's play park at the base covers her instead. From 8 and 1.25 m they may ride alone, so the 8 year old probably can.",
+        coords: [47.2231, 10.7256],
+        mapQuery: "Alpine Coaster Imst, Hoch-Imst, Austria",
+      },
+      {
         title: "Habicher See, the lake at the doorstep",
         tag: "lake",
         attractionId: "habicher-see",
         description:
           "A quiet little woodland lake right at Habichen, effectively next to the apartment. A short level circuit runs round the water with benches and a picnic spot, and it warms up enough to paddle.",
-        kidNote: "The easiest outing of the whole trip: no drive, short and flat, buggy-friendly. Ideal for a late afternoon.",
+        kidNote:
+          "The easiest outing of the whole trip: no drive, short and flat, buggy-friendly. There is also a flat signposted Rundweg along the river from Oetz centre if you want to make more of it.",
         coords: [47.2145, 10.8985],
         mapQuery: "Habicher See, Oetz, Austria",
       },
