@@ -19,6 +19,11 @@ export function formatShort(iso: string): string {
 export function imageUrl(image?: string, width = 1200): string | undefined {
   if (!image) return undefined;
   if (/^https?:\/\//i.test(image)) return image;
+  // A bundled photo dropped into public/img/ (loads offline, no external host).
+  if (image.startsWith("img/") || image.startsWith("/")) {
+    return `${import.meta.env.BASE_URL}${image.replace(/^\//, "")}`;
+  }
+  // Otherwise a Wikimedia Commons file name.
   const file = image.replace(/^File:/i, "");
   return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
 }
