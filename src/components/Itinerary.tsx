@@ -327,42 +327,66 @@ function DayCard({
                     </div>
                   )}
                   {day.drive.stops && day.drive.stops.length > 0 && (
-                    <div className="mt-3">
-                      <button
-                        onClick={() => setShowStops((v) => !v)}
-                        className="tap flex w-full items-center justify-between rounded-lg bg-white/70 px-3 py-2 text-left ring-1 ring-stone-200"
-                      >
-                        <span className="kicker">Stops along the way ({day.drive.stops.length})</span>
-                        <Caret open={showStops} />
-                      </button>
-                      <AnimatePresence initial={false}>
-                        {showStops && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.22 }}
-                            className="overflow-hidden"
+                    <div className="mt-3 space-y-2">
+                      <p className="kicker">Stops along the way</p>
+                      {/* The first stop is the planned one, so keep it in view. */}
+                      <PlaceCard
+                        key={day.drive.stops[0].name}
+                        title={day.drive.stops[0].name}
+                        description={day.drive.stops[0].description}
+                        tag={day.drive.stops[0].tag}
+                        destination={placeQuery(day.drive.stops[0])}
+                        coords={day.drive.stops[0].coords}
+                        imageWiki={day.drive.stops[0].wiki ?? regionWiki}
+                        accent="stop"
+                        attraction={
+                          day.drive.stops[0].attractionId
+                            ? attractionById(day.drive.stops[0].attractionId)
+                            : undefined
+                        }
+                        date={day.date}
+                      />
+                      {day.drive.stops.length > 1 && (
+                        <>
+                          <button
+                            onClick={() => setShowStops((v) => !v)}
+                            className="tap flex w-full items-center justify-between rounded-lg bg-white/70 px-3 py-2 text-left ring-1 ring-stone-200"
                           >
-                            <div className="space-y-2 pt-2">
-                              {day.drive.stops.map((s: RouteStop) => (
-                                <PlaceCard
-                                  key={s.name}
-                                  title={s.name}
-                                  description={s.description}
-                                  tag={s.tag}
-                                  destination={placeQuery(s)}
-                                  coords={s.coords}
-                                  imageWiki={s.wiki ?? regionWiki}
-                                  accent="stop"
-                                  attraction={s.attractionId ? attractionById(s.attractionId) : undefined}
-                                  date={day.date}
-                                />
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                            <span className="text-sm font-medium text-stone-600">
+                              {showStops ? "Hide extra stops" : `${day.drive.stops.length - 1} more stop${day.drive.stops.length - 1 > 1 ? "s" : ""}`}
+                            </span>
+                            <Caret open={showStops} />
+                          </button>
+                          <AnimatePresence initial={false}>
+                            {showStops && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.22 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="space-y-2 pt-1">
+                                  {day.drive.stops.slice(1).map((s: RouteStop) => (
+                                    <PlaceCard
+                                      key={s.name}
+                                      title={s.name}
+                                      description={s.description}
+                                      tag={s.tag}
+                                      destination={placeQuery(s)}
+                                      coords={s.coords}
+                                      imageWiki={s.wiki ?? regionWiki}
+                                      accent="stop"
+                                      attraction={s.attractionId ? attractionById(s.attractionId) : undefined}
+                                      date={day.date}
+                                    />
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </>
+                      )}
                     </div>
                   )}
                 </div>
