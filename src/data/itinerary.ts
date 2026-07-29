@@ -36,6 +36,30 @@ export const ITINERARY: Day[] = [
           mapQuery: "Prienavera Erlebnisbad, Prien am Chiemsee, Germany",
         },
         {
+          name: "SPAR, St. Johann in Tirol (grocery stop)",
+          description:
+            "Speckbacherstraße 10, about 5 km before the apartment. Open 07:15 to 19:30 on the Thursday you arrive, the one set of hours confirmed for the day.",
+          tag: "food",
+          coords: [47.5222, 12.4244],
+          mapQuery: "SPAR, Speckbacherstraße 10, 6380 St. Johann in Tirol, Austria",
+        },
+        {
+          name: "BILLA, St. Johann in Tirol (grocery stop)",
+          description:
+            "Speckbacherstraße 13, across the road from the SPAR. Weekday hours are roughly 07:00 to 19:15, so it closes a little earlier than its neighbour.",
+          tag: "food",
+          coords: [47.5223, 12.4249],
+          mapQuery: "BILLA, Speckbacherstraße 13, 6380 St. Johann in Tirol, Austria",
+        },
+        {
+          name: "MPREIS, Kirchdorf in Tirol (nearest shop)",
+          description:
+            "Innsbrucker Straße 66, the closest supermarket to the apartment and the one to use for top-ups. Hours not confirmed for the day, so treat St. Johann as the reliable stop.",
+          tag: "food",
+          coords: [47.5464, 12.4083],
+          mapQuery: "MPREIS, Innsbrucker Straße 66, 6382 Kirchdorf in Tirol, Austria",
+        },
+        {
           name: "Kufstein Fortress",
           wiki: "Kufstein",
           description:
@@ -68,6 +92,8 @@ export const ITINERARY: Day[] = [
     ],
     tips: [
       "Buy the Austrian digital motorway vignette online before crossing the border.",
+      "Shop on the way in, not tomorrow morning. Austrian supermarkets shut around 19:30 and all day Sunday, and the 15th is a public holiday, so the fridge has to carry you to Monday.",
+      "If the flight lands late, buy in Germany before Kufstein instead, where shops usually run to 20:00.",
       "Keep day one short; a Chiemsee swim on the way breaks up the drive nicely.",
     ],
   },
@@ -308,6 +334,24 @@ export const ITINERARY: Day[] = [
         mapQuery: "Oetz, Austria",
       },
     ],
+    food: [
+      {
+        name: "Alpbachtaler Kinderpark, Reith im Alpbachtal",
+        description:
+          "Five minutes from the Juppi gondola: minigolf, a park train, trampolines, electric cars and a petting zoo with goats, rabbits and donkeys, with refreshments on site. Open 15 May to 31 October.",
+        playground: true,
+        coords: [47.4247, 11.8792],
+        mapQuery: "Alpbachtaler Kinderpark, Reith im Alpbachtal, Austria",
+      },
+      {
+        name: "Reither See, Reith im Alpbachtal",
+        description:
+          "The village bathing lake, with a separate shallow children's water area and a playground beside it. A good swap if the day turns hot rather than hungry.",
+        playground: true,
+        coords: [47.4267, 11.8756],
+        mapQuery: "Reither See, Reith im Alpbachtal, Austria",
+      },
+    ],
     tips: [
       "Swarovski Kristallwelten is right on the route and makes the drive fly by for kids.",
       "Juppi Zauberwald comes first on the drive and its loop is buggy-friendly throughout. The Reitherkogelbahn is closed on Wednesdays, but today is a Monday.",
@@ -461,11 +505,20 @@ export const ITINERARY: Day[] = [
     ],
     food: [
       {
-        name: "Piburger See lakeside",
+        name: "Gasthaus Seehäusl, Piburger See",
         description:
-          "Pack a picnic, or grab a snack near the lake after the morning, with a flat shore to run around on.",
+          "Lakeside inn with an outdoor sandbox and an indoor play box with books, open daily 11:00 to 18:00 from mid-May to early October. About 30 minutes from the Piburg car park along the right bank, on a trail that takes a pram.",
+        playground: true,
         coords: [47.1986, 10.8806],
-        mapQuery: "Piburger See, Oetz, Austria",
+        mapQuery: "Gasthaus Seehäusl, Piburger See, Oetz, Austria",
+      },
+      {
+        name: "Restaurant am Piburger See",
+        description:
+          "Runs the bathing area at the south-east end of the lake, with a children's pool, a children's slide and rowing-boat hire, and a sun terrace straight above the water. The pick if you want lunch and a swim in one stop.",
+        playground: true,
+        coords: [47.1986, 10.8806],
+        mapQuery: "Restaurant am Piburger See, Oetz, Austria",
       },
     ],
     tips: [
