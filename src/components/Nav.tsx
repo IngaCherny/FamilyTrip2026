@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const PRIMARY = [
+  { id: "today", label: "Today" },
   { id: "itinerary", label: "Plan" },
   { id: "map", label: "Map" },
   { id: "places", label: "Places" },

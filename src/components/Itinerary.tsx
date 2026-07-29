@@ -18,6 +18,7 @@ import {
   isOutOfSeason,
 } from "../lib/format";
 import { MapWithDirections, placeQuery } from "./MapEmbed";
+import { loadPicks, savePick } from "../lib/picks";
 import type { Attraction, Day, DayOption, RouteStop } from "../lib/types";
 
 /** A small CSS caret used as the open/close affordance (no icon library). */
@@ -405,32 +406,13 @@ function initialOpenDate(): string | null {
   return ITINERARY.some((d) => d.date === today) ? today : ITINERARY[0]?.date ?? null;
 }
 
-const PICKS_KEY = "alpine2026.picks.v1";
-
-function loadPicks(): Record<string, string> {
-  try {
-    return JSON.parse(localStorage.getItem(PICKS_KEY) || "{}");
-  } catch {
-    return {};
-  }
-}
-
 export default function Itinerary() {
   const [filter, setFilter] = useState<string>("all");
   const [openDate, setOpenDate] = useState<string | null>(initialOpenDate);
   const [picks, setPicks] = useState<Record<string, string>>(loadPicks);
   const today = todayIso();
 
-  const pickOption = (date: string, title: string) =>
-    setPicks((prev) => {
-      const next = { ...prev, [date]: title };
-      try {
-        localStorage.setItem(PICKS_KEY, JSON.stringify(next));
-      } catch {
-        /* ignore */
-      }
-      return next;
-    });
+  const pickOption = (date: string, title: string) => setPicks(savePick(date, title));
 
   const days = useMemo(
     () => (filter === "all" ? ITINERARY : ITINERARY.filter((d) => d.region === filter)),
