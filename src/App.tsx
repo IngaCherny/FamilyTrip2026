@@ -9,33 +9,7 @@ import Food from "./components/Food";
 import Tips from "./components/Tips";
 import Packing from "./components/Packing";
 import Emergency from "./components/Emergency";
-import SmartImage from "./components/SmartImage";
-import { DESTINATIONS, TRIP } from "./data/trip";
-import { imageUrl } from "./lib/format";
-
-function RegionsStrip() {
-  return (
-    <section className="px-4 pt-10">
-      <div className="mx-auto mb-5 max-w-5xl">
-        <p className="kicker mb-1">Three alpine bases</p>
-        <h2 className="section-title">The Route</h2>
-      </div>
-      <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-3">
-        {DESTINATIONS.map((r) => (
-          <article key={r.id} className="card-paper group overflow-hidden">
-            <SmartImage src={imageUrl(r.image, 800)} wiki={r.wiki} alt={r.name} overlay className="h-36 w-full">
-              <div className="absolute bottom-0 left-0 p-3">
-                <h3 className="font-serif text-xl font-bold leading-tight text-white drop-shadow">{r.name}</h3>
-                <p className="text-xs text-white/80">{r.country}</p>
-              </div>
-            </SmartImage>
-            <p className="p-4 text-sm text-stone-600">{r.blurb}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
+import { TRIP } from "./data/trip";
 
 export default function App() {
   return (
@@ -43,7 +17,6 @@ export default function App() {
       <Hero />
       <Nav />
       <main>
-        <RegionsStrip />
         <Itinerary />
         <TripMap />
         <Places />
