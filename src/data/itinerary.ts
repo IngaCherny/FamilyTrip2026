@@ -143,6 +143,16 @@ export const ITINERARY: Day[] = [
         mapQuery: "Hartkaiser Funicular, Ellmau, Austria",
       },
       {
+        title: "KaiserWelt Scheffau on the Brandstadl",
+        tag: "playground",
+        attractionId: "kaiserwelt",
+        description:
+          "Ride the Brandstadlbahn up to a play realm at 1,650 m: through a castle gate into the KaiserWald, with castle walls, treehouses, a climbing wall, a sporting course and the Little People's forest, all linked by easy family trails.",
+        kidNote: "The gondola takes pushchairs, and the park is free once you have a lift ticket. Easy trails between stations suit all three ages.",
+        coords: [47.5028, 12.2547],
+        mapQuery: "Brandstadlbahn, Scheffau am Wilden Kaiser, Austria",
+      },
+      {
         title: "Triassic Park on the Steinplatte, Waidring",
         tag: "kids",
         attractionId: "triassic-park",
@@ -163,7 +173,10 @@ export const ITINERARY: Day[] = [
         mapQuery: "Bio-Hotel Stanglwirt, Going am Wilden Kaiser, Austria",
       },
     ],
-    tips: ["Check the cable-car operating hours and last descent before heading up."],
+    tips: [
+      "Three gondola-served kids' worlds are in reach today: Hexenwasser, Ellmi's and KaiserWelt. Pick one, each is a full day.",
+      "Check the cable-car operating hours and last descent before heading up.",
+    ],
   },
   {
     date: "2026-08-16",
@@ -228,6 +241,15 @@ export const ITINERARY: Day[] = [
       note: "West along the Inn valley past Innsbruck, then south into the mouth of the Ötztal.",
       stops: [
         {
+          name: "Juppi Zauberwald, Reith im Alpbachtal",
+          wiki: "Reith im Alpbachtal",
+          description:
+            "An enchanted forest on the Reitherkogel, the first good break of the drive and just off the motorway. A 2.5 km buggy-friendly loop from the gondola winds past a magic village with a witch's kitchen, a ghost moor with a wooden wizard, a wobbly bridge, a viewing tower and water games.",
+          tag: "kids",
+          coords: [47.4247, 11.8792],
+          mapQuery: "Reitherkogelbahn, Reith im Alpbachtal, Austria",
+        },
+        {
           name: "Swarovski Kristallwelten, Wattens",
           wiki: "Swarovski Kristallwelten",
           description:
@@ -269,7 +291,11 @@ export const ITINERARY: Day[] = [
         mapQuery: "Oetz, Austria",
       },
     ],
-    tips: ["Swarovski Kristallwelten is right on the route and makes the drive fly by for kids."],
+    tips: [
+      "Swarovski Kristallwelten is right on the route and makes the drive fly by for kids.",
+      "Juppi Zauberwald comes first on the drive and its loop is buggy-friendly throughout. The Reitherkogelbahn is closed on Wednesdays, but today is a Monday.",
+      "Three good stops on one transfer is too many; pick one and keep the drive short.",
+    ],
   },
   {
     date: "2026-08-18",

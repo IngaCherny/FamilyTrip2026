@@ -77,6 +77,32 @@ export const ATTRACTIONS: Attraction[] = [
   },
 
   {
+    id: "kaiserwelt",
+    price: "Park free with a Brandstadlbahn gondola ticket (SkiWelt summer rates)",
+    wiki: "Scheffau am Wilden Kaiser",
+    name: "KaiserWelt Scheffau (Brandstadl)",
+    region: "wilderkaiser",
+    category: "kids",
+    coords: [47.5028, 12.2547],
+    link: "https://www.kaiserwelt.at/en/herzlich-willkommen-in-der-kaiserwelt-scheffau-1.html",
+    description:
+      "A mountain play realm at 1,650 m on the Brandstadl above Scheffau. You step through a castle gate into the KaiserWald to find castle walls, treehouses, a climbing wall, a sporting course, the Little People's forest and a handicraft workshop, all linked by easy family trails. Entry is free once you have a gondola ticket, and the 8-seater Brandstadlbahn takes pushchairs. Open mid-May to mid-October.",
+    good_for: ["Castle & treehouses", "Pushchair-friendly gondola", "Free with the lift"],
+  },
+  {
+    id: "juppi-zauberwald",
+    price: "Forest free; Reitherkogelbahn gondola ticket extra",
+    wiki: "Reith im Alpbachtal",
+    name: "Juppi Zauberwald, Reith im Alpbachtal",
+    region: "wilderkaiser",
+    category: "kids",
+    coords: [47.4247, 11.8792],
+    link: "https://www.alpbachtal.at/en/search-and-book/tours/Juppi-Magic-Forest-family-circular-hike_tour_10629",
+    description:
+      "An enchanted-forest circuit on the Reitherkogel, right beside the Inn valley motorway on the way from the Wilder Kaiser to the Ötztal. The 2.5 km loop from the gondola station is buggy-friendly the whole way round, past a magic village with a witch's kitchen, a ghost moor with a wooden wizard, a wobbly bridge, a viewing tower, a bird's-nest swing, a barefoot path, water games and a petting zoo. Note the Reitherkogelbahn is closed on Wednesdays.",
+    good_for: ["Buggy-friendly loop", "Magic-forest stations", "Perfect drive break"],
+  },
+  {
     id: "griessbachklamm",
     price: "Free (small parking fee at Erpfendorf)",
     wiki: "Erpfendorf",
