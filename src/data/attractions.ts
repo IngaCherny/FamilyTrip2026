@@ -156,6 +156,22 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["Shady hot-day walk", "Bridges & walkways", "Short loop option"],
   },
 
+  {
+    id: "kundlerklamm",
+    price: { free: true },
+    season: { from: "04-01", to: "11-15" },
+    buggy: true,
+    wiki: "Kundl",
+    name: "Kundler Klamm gorge, Kundl",
+    region: "wilderkaiser",
+    category: "hike",
+    coords: [47.4585, 12.0836],
+    link: "https://www.wildschoenau.com/en/activities/hiking/kundl-gorge",
+    description:
+      "An easy, wide gorge trail along the water between Kundl and Mühltal, right by the A12 near Wörgl and roughly the midpoint of the drive to Munich. Free, stroller-friendly and about 3.5 km of level walking under 200 m rock walls, more a leisurely stream walk than a hike, with places to splash, skip stones and paddle. A little shuttle train saves the legs to the gorge entrance.",
+    good_for: ["Stroller-friendly gorge", "Splashing & stones", "Free"],
+  },
+
   // ---------- Ötztal ----------
   {
     id: "habicher-see",

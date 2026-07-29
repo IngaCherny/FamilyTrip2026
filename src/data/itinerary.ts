@@ -845,8 +845,8 @@ export const ITINERARY: Day[] = [
     region: "munich",
     base: "Airport Hotel (Munich)",
     baseQuery: BASE_MUC,
-    title: "Gilfenklamm, then drive to Munich",
-    subtitle: "A gorge on the way home",
+    title: "Kundlerklamm, then drive to Munich",
+    subtitle: "An easy gorge on the way home",
     drive: {
       from: "South Tyrol",
       to: "Munich Airport area",
@@ -854,17 +854,8 @@ export const ITINERARY: Day[] = [
       distance: "~280 km",
       fromQuery: BASE_ENTDECKER,
       toQuery: BASE_MUC,
-      note: "Do the Gilfenklamm near Sterzing first thing, then north over the Brenner and the Inn valley back into Bavaria. Return the rental car this evening if you can.",
+      note: "North over the Brenner and down into the Inn valley, stopping at the Kundler Klamm near Wörgl, roughly halfway. Return the rental car this evening if you can.",
       stops: [
-        {
-          name: "Kundlerklamm gorge, Kundl",
-          wiki: "Kundl",
-          description:
-            "An easy, kid-friendly gorge walk right by the A12 near Wörgl, about an hour of level path along the water. A second gentle gorge if there is time and energy after Gilfenklamm.",
-          tag: "walk",
-          coords: [47.4644, 12.0906],
-          mapQuery: "Kundlerklamm, Kundl, Austria",
-        },
         {
           name: "Swarovski Kristallwelten, Wattens",
           wiki: "Swarovski Kristallwelten",
@@ -887,12 +878,22 @@ export const ITINERARY: Day[] = [
     },
     options: [
       {
+        title: "Kundler Klamm gorge near Wörgl",
+        tag: "walk",
+        attractionId: "kundlerklamm",
+        description:
+          "Break the drive home with an easy, free gorge right by the A12 near Wörgl, roughly halfway. A wide, stroller-friendly path runs about 3.5 km along the water under 200 m rock walls, more a leisurely stream walk than a hike, with places to splash, skip stones and paddle. A little shuttle train saves the legs to the entrance.",
+        kidNote: "The easiest gorge of the trip: flat and buggy-friendly, and the kids can play in the stream. Free.",
+        coords: [47.4585, 12.0836],
+        mapQuery: "Kundler Klamm, Kundl, Austria",
+      },
+      {
         title: "Gilfenklamm marble gorge, near Sterzing",
         tag: "hike",
         attractionId: "gilfenklamm",
         description:
-          "The last South Tyrol highlight, done on the way out: the only gorge in the world carved through pure white marble, near Sterzing and right on the Brenner route. Wooden walkways and bridges climb past a 15 m waterfall and glowing white rock, cool and shaded. About an hour up, then back down to the car and on toward Munich.",
-        kidNote: "Bridges and 175 m of climb, so a carrier for the 2 year old and best for ages 4+. Do it in the morning, then drive.",
+          "The alternative gorge, taken early instead: the only gorge in the world carved through pure white marble, 2 km off the Sterzing motorway exit at the start of the drive. Wooden walkways climb past a 15 m waterfall and glowing white rock. Swap to this if you would rather do the gorge first thing and drive straight through afterwards.",
+        kidNote: "Bridges and 175 m of climb, so a carrier for the 2 year old and best for ages 4+.",
         coords: [46.875, 11.3583],
         mapQuery: "Gilfenklamm, Stange, Racines, Italy",
       },
@@ -907,7 +908,7 @@ export const ITINERARY: Day[] = [
       },
     ],
     tips: [
-      "Gilfenklamm sits just off the Brenner route near Sterzing, so it costs barely a detour. It opens at 09:00 in summer; go early, then drive.",
+      "The Kundler Klamm is free, flat and stroller-friendly, roughly halfway home. If you would rather do the marble gorge instead, the Gilfenklamm is 2 km off the Sterzing exit at the start of the drive; switch with Change plan.",
       "Refuel and clean out the rental car before returning it to avoid extra fees.",
     ],
   },
