@@ -362,8 +362,8 @@ export const ITINERARY: Day[] = [
     region: "oetz",
     base: "Falkners Five",
     baseQuery: BASE_FALKNER,
-    title: "Waterfall or warm thermal pools",
-    subtitle: "Water and woods",
+    title: "Treasure trails or thermal pools",
+    subtitle: "A day on the doorstep",
     options: [
       {
         title: "Stuibenfall waterfall walk, Umhausen",
@@ -386,9 +386,22 @@ export const ITINERARY: Day[] = [
         mapQuery: "Aqua Dome, Längenfeld, Austria",
       },
       {
-        title: "9 Treasures of Piburger See loop (official Ötztal trail)",
-        wiki: "Piburger See",
+        title: "9 Schätze Habicher See from Oetz (morning)",
         tag: "walk",
+        attractionId: "habicher-see",
+        description:
+          "The doorstep treasure route. Out from Oetz along the Ötztaler Ache to the Wellerbrücke, where a viewpoint overlooks the grade-5 rapids used for the extreme kayak world championship, then a gentle forest climb to Habichen past the Grassmayr bell-founders' house, branching to the ice cellar and the treasure chest at the lake.",
+        kidNote:
+          "Easy but not flat, so carrier for the 2 year old. The ice cellar sits at 0–2 °C year round, which is a shock in August. Find the treasure chest and stamp the book.",
+        coords: [47.2145, 10.8985],
+        mapQuery: "Habicher See, Oetz, Austria",
+        link: "https://www.oetztal.com/de/aktivitaeten/alle-routen-touren/9-schaetze-habicher-see.r-19878715",
+        linkLabel: "Official route on oetztal.com",
+      },
+      {
+        title: "9 Treasures of Piburger See loop (afternoon)",
+        tag: "walk",
+        attractionId: "piburger-see",
         description:
           "The official Ötztal family route: a loop of the warm nature-reserve lake passing nine viewing platforms and 'places of strength'. The wider western shore is stroller-friendly; the eastern shore is a rootier adventure path.",
         kidNote:
@@ -408,7 +421,10 @@ export const ITINERARY: Day[] = [
         mapQuery: "Piburger See, Oetz, Austria",
       },
     ],
-    tips: ["Trainers with grip help on the damp waterfall steps."],
+    tips: [
+      "Both treasure routes fit into one day with almost no driving: Habicher See on foot from Oetz in the morning, then ten minutes up to Piburg for the lake and a swim after lunch. Two of the nine treasures, and the car barely moves.",
+      "Trainers with grip help on the damp waterfall steps.",
+    ],
   },
   {
     date: "2026-08-20",
