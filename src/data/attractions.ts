@@ -78,7 +78,8 @@ export const ATTRACTIONS: Attraction[] = [
 
   {
     id: "kaiserwelt",
-    price: "Park free with a Brandstadlbahn gondola ticket (SkiWelt summer rates)",
+    price:
+      "Park free; you pay only the Brandstadlbahn (SkiWelt summer rate, check skiwelt.at). Children born 2022 or later ride free. Covered by the Kitzbühel Alps Summer Card.",
     wiki: "Scheffau am Wilden Kaiser",
     name: "KaiserWelt Scheffau (Brandstadl)",
     region: "wilderkaiser",
@@ -91,7 +92,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "juppi-zauberwald",
-    price: "Forest free; Reitherkogelbahn gondola ticket extra",
+    price:
+      "Forest free; Reitherkogelbahn ~€12 adult / €6 child return (~€9.50 / €5 one way). Closed Wednesdays.",
     wiki: "Reith im Alpbachtal",
     name: "Juppi Zauberwald, Reith im Alpbachtal",
     region: "wilderkaiser",
