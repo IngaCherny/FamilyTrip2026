@@ -37,6 +37,21 @@ body {
   }
 }
 
+/* Stop a fast double-tap from zooming/jumping the page: taps on our own
+   controls should just fire, not trigger the browser's double-tap zoom. */
+button,
+a,
+[role="button"],
+.tap {
+  touch-action: manipulation;
+}
+
+/* Double-clicking a toggle should open it, not select its label text. */
+button {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 /* Leaflet tiles should sit under our own UI chrome. */
 .leaflet-container {
   font-family: inherit;
