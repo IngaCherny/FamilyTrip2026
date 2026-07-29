@@ -49,6 +49,18 @@ export default defineConfig(({ mode }) => ({
             },
           },
           {
+            // Live weather: prefer the network, but keep the last reading so the
+            // card still shows something in a valley with no signal.
+            urlPattern: ({ url }) => url.hostname.endsWith("open-meteo.com"),
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "weather",
+              networkTimeoutSeconds: 5,
+              expiration: { maxEntries: 8, maxAgeSeconds: 60 * 60 * 6 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+          {
             // Photos pinned via `image` can live on any host (a tourist board,
             // for instance), so cache cross-origin images by request type
             // rather than by hostname. Without this a pinned photo would be

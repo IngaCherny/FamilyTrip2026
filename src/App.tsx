@@ -1,6 +1,7 @@
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
 import Today from "./components/Today";
+import Weather from "./components/Weather";
 import Itinerary from "./components/Itinerary";
 import TripMap from "./components/TripMap";
 import Places from "./components/Places";
@@ -18,6 +19,7 @@ export default function App() {
       <Hero />
       <Nav />
       <main>
+        <Weather />
         <Today />
         <Itinerary />
         <TripMap />
