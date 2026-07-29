@@ -426,6 +426,16 @@ export const ITINERARY: Day[] = [
         mapQuery: "Toblacher See, Toblach, Italy",
       },
       {
+        title: "Sentiero degli Elfi (Elves' Path), Vandoies",
+        tag: "walk",
+        attractionId: "elfenweg",
+        description:
+          "A magical themed walk barely 15 minutes from the hotel, with eleven storytelling stations through the woods to the 43 m Vandoies waterfall. A gentle, enchanting way to end the arrival day.",
+        kidNote: "About 4 km / ~1 hour, some climbing; carrier for the 2 year old. The story stations keep little ones going.",
+        coords: [46.9005, 11.6595],
+        mapQuery: "Sentiero degli Elfi, Vandoies di Sopra, Italy",
+      },
+      {
         title: "Easy evening near the hotel",
         wiki: "Puster Valley",
         tag: "free",
@@ -438,6 +448,7 @@ export const ITINERARY: Day[] = [
     tips: [
       "Italy charges per-trip motorway tolls; keep a card or euro coins for the booths.",
       "Sterzing is the nicest leg-stretch on this drive and very buggy-friendly.",
+      "The Elves' Path at Vandoies is the closest themed family walk to the hotel, an easy first taste of the valley.",
     ],
   },
   {
@@ -468,6 +479,16 @@ export const ITINERARY: Day[] = [
         kidNote: "Cable car up, very gentle wide meadow paths. Some trails are buggy-friendly.",
         coords: [46.5447, 11.6075],
         mapQuery: "Seiser Alm Aerial Cableway, Italy",
+      },
+      {
+        title: "WoodyWalk on the Plose (near Brixen)",
+        tag: "walk",
+        attractionId: "woodywalk-plose",
+        description:
+          "A themed family adventure trail ~40 minutes west: ride the Plose gondola up, then a wide, stroller-friendly path to the Rossalm past wooden play stations, a Kneipp water walk and a viking ship, under the Geisler spires.",
+        kidNote: "Gondola up, then ~5 km of easy walking with play stops. Buggy-friendly; the play stations pace the little ones.",
+        coords: [46.6975, 11.7405],
+        mapQuery: "Plose cable car mountain station, Brixen, Italy",
       },
     ],
     food: [
@@ -622,6 +643,16 @@ export const ITINERARY: Day[] = [
         kidNote: "Lots of flat paths and a dedicated kids' play world; buggy-friendly.",
         coords: [46.6628, 11.1869],
         mapQuery: "Gardens of Trauttmansdorff Castle, Merano, Italy",
+      },
+      {
+        title: "Mill Path & Earth Pyramids, Terento",
+        tag: "walk",
+        attractionId: "terento-mills",
+        description:
+          "A gentle themed loop from Terento, the sunny village right above the hotel: seven historic water mills along the stream, then on to the earth pyramids, clay spires the locals call the 'mountain gnomes'. A lovely local half-day like the Elves' Path.",
+        kidNote: "About 4.5 km with some climbing; carrier for the 2 year old. The mills and 'gnomes' are a hit with kids.",
+        coords: [46.8728, 11.7594],
+        mapQuery: "Sentiero dei Mulini, Terento Terenten, Italy",
       },
       {
         title: "Bruneck old town and play day",

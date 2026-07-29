@@ -235,6 +235,45 @@ export const ATTRACTIONS: Attraction[] = [
       "A postcard South Tyrolean village with a landmark bell tower, gateway to the Seiser Alm. Good for an easy afternoon and dinner.",
     good_for: ["Village stroll", "Dinner", "Photos"],
   },
+  {
+    id: "elfenweg",
+    price: "Free (parking at the San Nicolò church)",
+    wiki: "Vandoies",
+    name: "Sentiero degli Elfi (Elves' Path), Vandoies",
+    region: "southtyrol",
+    category: "hike",
+    coords: [46.9005, 11.6595],
+    link: "https://www.suedtirol.info/en/experiences/sentiero-degli-elfi_activity_11317526",
+    description:
+      "A magical themed family walk above Vandoies di Sopra, only ~15 minutes from the hotel. Eleven storytelling stations (animal tracks, bees, deer, dry-stone walls, lizards) lead through the woods to the thundering 43 m Vandoies waterfall and a stone viewing balcony. About 4 km with 150 m of climbing, roughly an hour of gentle walking.",
+    good_for: ["Themed family walk", "Waterfall", "Story stations"],
+  },
+  {
+    id: "terento-mills",
+    price: "Free",
+    wiki: "Terento",
+    name: "Mill Path & Earth Pyramids, Terento",
+    region: "southtyrol",
+    category: "hike",
+    coords: [46.8728, 11.7594],
+    link: "https://www.suedtirol.info/en/experiences-and-events/plp-experiences/experiences-south-tyrol/pdp-experience.smgpoif49540ba52c904c9b1d49dd2d0b55f34.mills-trail---earth-pyramids.terento-terenten",
+    description:
+      "A gentle themed loop from the sunny village of Terento, directly above the hotel. The path passes seven historic water mills along the Terento stream (some 500 years old) and continues to the earth pyramids, natural spires of clay that locals call the 'mountain gnomes' in their pointed caps. About 4.5 km, 225 m of climb, ~1.5 hours.",
+    good_for: ["Historic mills", "Earth pyramids", "Family themed walk"],
+  },
+  {
+    id: "woodywalk-plose",
+    price: "Cable car ~€27 adult / reduced child (Plose gondola from St. Andrä)",
+    wiki: "Plose",
+    name: "WoodyWalk on the Plose (near Brixen)",
+    region: "southtyrol",
+    category: "hike",
+    coords: [46.6975, 11.7405],
+    link: "https://www.plose.org/en/woodywalk/",
+    description:
+      "A playful family adventure trail on the Plose above Brixen (~40 min west). From the gondola top station a wide, stroller-friendly path runs to the Rossalm past wooden play stations, a Kneipp water walk, giant loungers and a viking ship, all under the Peitlerkofel and Geisler spires. About 5 km, ~100 m of climb.",
+    good_for: ["Wooden play stations", "Cable car", "Stroller-friendly"],
+  },
 ];
 
 export const attractionById = (id: string) => ATTRACTIONS.find((a) => a.id === id);
