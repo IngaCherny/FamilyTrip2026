@@ -446,6 +446,19 @@ export const ITINERARY: Day[] = [
     subtitle: "A day on the doorstep",
     options: [
       {
+        title: "9 Schätze Habicher See from Oetz (morning)",
+        tag: "walk",
+        attractionId: "habicher-see",
+        description:
+          "The doorstep treasure route. Out from Oetz along the Ötztaler Ache to the Wellerbrücke, where a viewpoint overlooks the grade-5 rapids used for the extreme kayak world championship, then a gentle forest climb to Habichen past the Grassmayr bell-founders' house, branching to the ice cellar and the treasure chest at the lake.",
+        kidNote:
+          "Easy but not flat, so carrier for the 2 year old. The ice cellar sits at 0–2 °C year round, which is a shock in August. Find the treasure chest and stamp the book.",
+        coords: [47.2145, 10.8985],
+        mapQuery: "Habicher See, Oetz, Austria",
+        link: "https://www.oetztal.com/de/aktivitaeten/alle-routen-touren/9-schaetze-habicher-see.r-19878715",
+        linkLabel: "Official route on oetztal.com",
+      },
+      {
         title: "Stuibenfall waterfall walk, Umhausen",
         tag: "waterfall",
         attractionId: "stuibenfall",
@@ -475,19 +488,6 @@ export const ITINERARY: Day[] = [
           "An hour indoors rather than a whole outing, and it is an exhibition, not a play centre. Today is the one Wednesday here, and Wednesday afternoons run nature activity stations from 14:00 to 16:30 with no booking.",
         coords: [47.0703, 10.9714],
         mapQuery: "Naturpark Haus, Oberlängenfeld 142, Längenfeld, Austria",
-      },
-      {
-        title: "9 Schätze Habicher See from Oetz (morning)",
-        tag: "walk",
-        attractionId: "habicher-see",
-        description:
-          "The doorstep treasure route. Out from Oetz along the Ötztaler Ache to the Wellerbrücke, where a viewpoint overlooks the grade-5 rapids used for the extreme kayak world championship, then a gentle forest climb to Habichen past the Grassmayr bell-founders' house, branching to the ice cellar and the treasure chest at the lake.",
-        kidNote:
-          "Easy but not flat, so carrier for the 2 year old. The ice cellar sits at 0–2 °C year round, which is a shock in August. Find the treasure chest and stamp the book.",
-        coords: [47.2145, 10.8985],
-        mapQuery: "Habicher See, Oetz, Austria",
-        link: "https://www.oetztal.com/de/aktivitaeten/alle-routen-touren/9-schaetze-habicher-see.r-19878715",
-        linkLabel: "Official route on oetztal.com",
       },
       {
         title: "9 Treasures of Piburger See loop (afternoon)",

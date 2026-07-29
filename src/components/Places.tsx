@@ -7,7 +7,9 @@ import { DESTINATIONS, PARTY, PRICES_CHECKED } from "../data/trip";
 import { POI_META } from "../lib/tags";
 import {
   closedLabel,
+  distanceKm,
   familyCost,
+  formatDistance,
   formatFamilyCost,
   formatPrice,
   freeChildrenNote,
@@ -28,17 +30,47 @@ type FlagId = (typeof FLAGS)[number]["id"];
 export default function Places() {
   const [region, setRegion] = useState<string>("all");
   const [active, setActive] = useState<FlagId[]>([]);
+  const [here, setHere] = useState<[number, number] | null>(null);
+  const [locating, setLocating] = useState(false);
+  const [geoError, setGeoError] = useState<string | null>(null);
 
   const toggle = (id: FlagId) =>
     setActive((cur) => (cur.includes(id) ? cur.filter((f) => f !== id) : [...cur, id]));
 
-  const places = useMemo(() => {
-    const byRegion = region === "all" ? ATTRACTIONS : ATTRACTIONS.filter((a) => a.region === region);
-    if (!active.length) return byRegion;
-    return byRegion.filter((a) =>
-      active.every((id) => FLAGS.find((f) => f.id === id)!.test(a))
+  const findMe = () => {
+    if (!("geolocation" in navigator)) {
+      setGeoError("Location isn't available on this device.");
+      return;
+    }
+    setLocating(true);
+    setGeoError(null);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setHere([pos.coords.latitude, pos.coords.longitude]);
+        setRegion("all"); // distance beats region once we know where you are
+        setLocating(false);
+      },
+      () => {
+        setGeoError("Couldn't get your location. Check location permission.");
+        setLocating(false);
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
     );
-  }, [region, active]);
+  };
+
+  const places = useMemo(() => {
+    const byRegion = here || region === "all" ? ATTRACTIONS : ATTRACTIONS.filter((a) => a.region === region);
+    const filtered = active.length
+      ? byRegion.filter((a) => active.every((id) => FLAGS.find((f) => f.id === id)!.test(a)))
+      : byRegion.slice();
+    if (here) {
+      return filtered
+        .map((a) => ({ a, d: distanceKm(here, a.coords) }))
+        .sort((x, y) => x.d - y.d)
+        .map((x) => x.a);
+    }
+    return filtered;
+  }, [region, active, here]);
 
   return (
     <Section
@@ -69,7 +101,16 @@ export default function Places() {
         ))}
       </div>
 
-      <div className="no-scrollbar -mx-4 mb-6 flex items-center gap-2 overflow-x-auto px-4 pb-1">
+      <div className="no-scrollbar -mx-4 mb-3 flex items-center gap-2 overflow-x-auto px-4 pb-1">
+        <button
+          onClick={here ? () => setHere(null) : findMe}
+          aria-pressed={!!here}
+          className={`tap whitespace-nowrap rounded-full px-3.5 text-sm font-semibold ${
+            here ? "bg-glacier-600 text-white" : "bg-white text-glacier-700 ring-1 ring-glacier-200"
+          }`}
+        >
+          {locating ? "Locating…" : here ? "✓ Nearest first" : "📍 Near me"}
+        </button>
         {FLAGS.map((f) => (
           <button
             key={f.id}
@@ -90,6 +131,13 @@ export default function Places() {
           </button>
         )}
       </div>
+
+      {geoError && <p className="mb-4 text-sm text-sunset-700">{geoError}</p>}
+      {here && (
+        <p className="mb-4 text-sm text-stone-500">
+          Sorted by distance from you, across all regions. Tap “Nearest first” again to switch back.
+        </p>
+      )}
 
       {places.length === 0 ? (
         <p className="rounded-xl bg-stone-50 p-6 text-center text-sm text-stone-500">
@@ -121,6 +169,11 @@ export default function Places() {
                   >
                     {meta.label}
                   </span>
+                  {here && (
+                    <span className="absolute right-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[11px] font-semibold text-white">
+                      {formatDistance(distanceKm(here, a.coords))} away
+                    </span>
+                  )}
                 </SmartImage>
                 <div className="flex flex-1 flex-col p-4">
                   <h3 className="font-serif text-xl font-bold text-stone-900">{a.name}</h3>

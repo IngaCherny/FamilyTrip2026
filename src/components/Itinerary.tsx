@@ -61,6 +61,7 @@ function PlaceCard({
   accent,
   attraction,
   date,
+  defaultOpen,
 }: {
   title: string;
   description: string;
@@ -77,8 +78,10 @@ function PlaceCard({
   attraction?: Attraction;
   /** The day this option sits on, used to warn about closures. */
   date?: string;
+  /** Start expanded (used for the day's chosen plan). */
+  defaultOpen?: boolean;
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen ?? false);
   const priceText = formatPrice(attraction?.price);
   const cost = familyCost(attraction?.price, PARTY);
   const total = formatFamilyCost(cost);
@@ -180,15 +183,24 @@ function DayCard({
   isToday,
   open,
   onToggle,
+  pick,
+  onPick,
 }: {
   day: Day;
   index: number;
   isToday: boolean;
   open: boolean;
   onToggle: () => void;
+  /** The chosen option title for this day, if the user picked one. */
+  pick?: string;
+  onPick: (title: string) => void;
 }) {
   const region = regionById(day.region);
   const regionWiki = region.wiki ?? "Munich";
+  const [showChange, setShowChange] = useState(false);
+  // The plan is the picked option, or the first as a sensible default.
+  const chosen = day.options.find((o) => o.title === pick) ?? day.options[0];
+  const others = day.options.filter((o) => o.title !== chosen?.title);
   return (
     <motion.div
       id={`day-${day.date}`}
@@ -275,30 +287,63 @@ function DayCard({
                 </div>
               )}
 
-              {/* The day's choices */}
-              <div className="space-y-2">
-                <p className="kicker">
-                  {day.options.length > 1 ? `Choose your day (${day.options.length} options)` : "Today's plan"}
-                </p>
-                {day.options.map((o) => (
+              {/* The day's plan: just the one chosen option, cleanly. */}
+              {chosen && (
+                <div className="space-y-2">
+                  <p className="kicker">Your plan</p>
                   <PlaceCard
-                    key={o.title}
-                    title={o.title}
-                    description={o.description}
-                    tag={o.tag}
-                    kidNote={o.kidNote}
-                    destination={placeQuery(o)}
+                    key={chosen.title}
+                    title={chosen.title}
+                    description={chosen.description}
+                    tag={chosen.tag}
+                    kidNote={chosen.kidNote}
+                    destination={placeQuery(chosen)}
                     origin={day.baseQuery}
-                    coords={o.coords}
-                    link={o.link}
-                    linkLabel={o.linkLabel}
-                    imageWiki={o.wiki ?? (o.attractionId ? attractionById(o.attractionId)?.wiki : undefined) ?? regionWiki}
+                    coords={chosen.coords}
+                    link={chosen.link}
+                    linkLabel={chosen.linkLabel}
+                    imageWiki={
+                      chosen.wiki ??
+                      (chosen.attractionId ? attractionById(chosen.attractionId)?.wiki : undefined) ??
+                      regionWiki
+                    }
                     accent="option"
-                    attraction={o.attractionId ? attractionById(o.attractionId) : undefined}
+                    attraction={chosen.attractionId ? attractionById(chosen.attractionId) : undefined}
                     date={day.date}
+                    defaultOpen
                   />
-                ))}
-              </div>
+
+                  {others.length > 0 && (
+                    <div className="pt-1">
+                      <button
+                        onClick={() => setShowChange((v) => !v)}
+                        className="tap text-sm font-medium text-glacier-600"
+                      >
+                        {showChange ? "Hide alternatives" : `Change plan (${others.length} other${others.length > 1 ? "s" : ""})`}
+                      </button>
+                      {showChange && (
+                        <div className="mt-2 space-y-1.5">
+                          {others.map((o) => (
+                            <button
+                              key={o.title}
+                              onClick={() => {
+                                onPick(o.title);
+                                setShowChange(false);
+                              }}
+                              className="tap block w-full rounded-lg bg-stone-50 px-3 py-2 text-left text-sm text-stone-700 ring-1 ring-stone-200 hover:bg-stone-100"
+                            >
+                              {o.title}
+                            </button>
+                          ))}
+                          <p className="pt-1 text-xs text-stone-400">
+                            Every option also lives under Places, with its own map and “near me”.
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Family food stops */}
               {day.food && day.food.length > 0 && (
@@ -360,10 +405,32 @@ function initialOpenDate(): string | null {
   return ITINERARY.some((d) => d.date === today) ? today : ITINERARY[0]?.date ?? null;
 }
 
+const PICKS_KEY = "alpine2026.picks.v1";
+
+function loadPicks(): Record<string, string> {
+  try {
+    return JSON.parse(localStorage.getItem(PICKS_KEY) || "{}");
+  } catch {
+    return {};
+  }
+}
+
 export default function Itinerary() {
   const [filter, setFilter] = useState<string>("all");
   const [openDate, setOpenDate] = useState<string | null>(initialOpenDate);
+  const [picks, setPicks] = useState<Record<string, string>>(loadPicks);
   const today = todayIso();
+
+  const pickOption = (date: string, title: string) =>
+    setPicks((prev) => {
+      const next = { ...prev, [date]: title };
+      try {
+        localStorage.setItem(PICKS_KEY, JSON.stringify(next));
+      } catch {
+        /* ignore */
+      }
+      return next;
+    });
 
   const days = useMemo(
     () => (filter === "all" ? ITINERARY : ITINERARY.filter((d) => d.region === filter)),
@@ -382,7 +449,7 @@ export default function Itinerary() {
       id="itinerary"
       kicker="The Plan"
       title="Day by Day"
-      intro="Sixteen days across the Tyrolean and Dolomite Alps. Each day offers a few kid-friendly choices. Tap a day to open it, then tap an option to see a map and one-tap driving directions."
+      intro="Sixteen days across the Tyrolean and Dolomite Alps. Each day shows one plan; tap 'Change plan' to swap it for an alternative. Every other idea lives under Places, where 'Near me' shows what is closest right now."
     >
       <div className="no-scrollbar -mx-4 mb-6 flex gap-2 overflow-x-auto px-4 pb-1">
         <button
@@ -417,6 +484,8 @@ export default function Itinerary() {
               isToday={day.date === today}
               open={openDate === day.date}
               onToggle={() => setOpenDate(openDate === day.date ? null : day.date)}
+              pick={picks[day.date]}
+              onPick={(title) => pickOption(day.date, title)}
             />
           );
         })}
