@@ -436,6 +436,16 @@ export const ITINERARY: Day[] = [
         mapQuery: "Sentiero degli Elfi, Vandoies di Sopra, Italy",
       },
       {
+        title: "Farm trail Kiens – St. Sigmund (at the doorstep)",
+        tag: "walk",
+        attractionId: "kiens-farmtrail",
+        description:
+          "The closest walk of all, straight from the hotel: a gentle valley path between Kiens and the hamlet of St. Sigmund, past working farms and grazing animals with the Dolomites ahead. No driving needed.",
+        kidNote: "Flat and short as you like; buggy-friendly on the valley sections. Animals to spot along the way.",
+        coords: [46.8075, 11.872],
+        mapQuery: "St. Sigmund, Kiens, Italy",
+      },
+      {
         title: "Easy evening near the hotel",
         wiki: "Puster Valley",
         tag: "free",
@@ -531,6 +541,16 @@ export const ITINERARY: Day[] = [
         kidNote: "Well-made forest path with some steps; carrier for the 2 year old. About 1 to 1.5 hours.",
         coords: [46.8855, 11.954],
         mapQuery: "Reinbach Waterfalls, Sand in Taufers, Italy",
+      },
+      {
+        title: "Issinger Weiher swim & forest loop (very close)",
+        tag: "swim",
+        attractionId: "issinger-weiher",
+        description:
+          "A warm little swimming lake near Pfalzen, only ~10 minutes from the hotel, with a lawn, playground and small water slide. An easy loop circles the water and returns through shady forest along the stream, an easy walk that ends in a swim.",
+        kidNote: "Short, flat loop and safe shallow swimming; playground and slide on site. A great hot-day fallback close to base.",
+        coords: [46.7967, 11.893],
+        mapQuery: "Issinger Weiher, Pfalzen, Italy",
       },
     ],
     tips: [
@@ -645,14 +665,14 @@ export const ITINERARY: Day[] = [
         mapQuery: "Gardens of Trauttmansdorff Castle, Merano, Italy",
       },
       {
-        title: "Mill Path & Earth Pyramids, Terento",
+        title: "Rienz Gorge & Sternwaldele walk, Bruneck",
         tag: "walk",
-        attractionId: "terento-mills",
+        attractionId: "rienz-gorge",
         description:
-          "A gentle themed loop from Terento, the sunny village right above the hotel: seven historic water mills along the stream, then on to the earth pyramids, clay spires the locals call the 'mountain gnomes'. A lovely local half-day like the Elves' Path.",
-        kidNote: "About 4.5 km with some climbing; carrier for the 2 year old. The mills and 'gnomes' are a hit with kids.",
-        coords: [46.8728, 11.7594],
-        mapQuery: "Sentiero dei Mulini, Terento Terenten, Italy",
+          "A shady, flat family walk barely ~12 minutes away: from the old Bruneck ice rink, follow the Rienz river into its gorge or take the Sternwaldele nature trail through cool forest, ending in Bruneck's old town for gelato.",
+        kidNote: "Level and buggy-friendly; a good hot-day option. Go as far as you like and turn back.",
+        coords: [46.7928, 11.927],
+        mapQuery: "Rienzschlucht, Bruneck, Italy",
       },
       {
         title: "Bruneck old town and play day",
