@@ -346,7 +346,7 @@ export const ITINERARY: Day[] = [
         description:
           "A quiet little woodland lake right at Habichen, effectively next to the apartment. A short level circuit runs round the water with benches and a picnic spot, and it warms up enough to paddle.",
         kidNote:
-          "The easiest outing of the whole trip: no drive, short and flat, buggy-friendly. There is also a flat signposted Rundweg along the river from Oetz centre if you want to make more of it.",
+          "The lake circuit itself is short, flat and buggy-friendly with no drive at all. To make more of it, walk out from Oetz on the '9 Schätze' route for the ice cellar and the treasure chest, but that one climbs gently through forest, so carrier rather than buggy.",
         coords: [47.2145, 10.8985],
         mapQuery: "Habicher See, Oetz, Austria",
       },

@@ -166,10 +166,10 @@ export const ATTRACTIONS: Attraction[] = [
     region: "oetz",
     category: "lake",
     coords: [47.2145, 10.8985],
-    link: "https://www.oetztal.com/en/activities/excursion-destinations",
+    link: "https://www.oetztal.com/de/aktivitaeten/alle-routen-touren/9-schaetze-habicher-see.r-19878715",
     description:
-      "A small, quiet lake in the woods at Habichen, effectively on the doorstep of the Ötztal apartment. A short, level circuit runs round the water with benches and a picnic spot, and it warms up enough to paddle. There is also an easy signposted Rundweg from the centre of Oetz that follows the Ötztaler Ache to the lake and back, flat the whole way, which you can extend towards Piburger See if legs allow. The gentlest walk in the valley.",
-    good_for: ["At the doorstep", "Flat riverside Rundweg", "Paddling"],
+      "A small, quiet lake in the woods at Habichen, effectively on the doorstep of the Ötztal apartment. A short, level circuit runs round the water with benches and a picnic spot, and it warms up enough to paddle. Two different waymarked walks reach it from Oetz. The plain Rundweg follows the Ötztaler Ache and stays flat. The official '9 Schätze' route is the better one with children: it runs along the river to the Wellerbrücke, climbs gently through forest to Habichen past the Grassmayr bell-founders' house, and branches to the lake and the ice cellar, a natural cave fridge that sits at 0–2 °C and was used to keep food cold until the 1960s. There is a treasure chest with a treasures book at the lake.",
+    good_for: ["At the doorstep", "Treasure chest & ice cellar", "Paddling"],
   },
   {
     id: "alpine-coaster-imst",
