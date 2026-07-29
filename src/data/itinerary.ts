@@ -386,6 +386,17 @@ export const ITINERARY: Day[] = [
         mapQuery: "Aqua Dome, Längenfeld, Austria",
       },
       {
+        title: "Naturpark Haus, Längenfeld (Wednesday stations)",
+        tag: "sights",
+        attractionId: "naturparkhaus",
+        description:
+          "The Ötztal Nature Park visitor centre: a compact multimedia exhibition on the valley's animals, geology and water, with touchscreens, a hologram, VR glasses and a children's puzzle sheet. Same village as the Aqua Dome, so the two pair naturally.",
+        kidNote:
+          "An hour indoors rather than a whole outing, and it is an exhibition, not a play centre. Today is the one Wednesday here, and Wednesday afternoons run nature activity stations from 14:00 to 16:30 with no booking.",
+        coords: [47.0703, 10.9714],
+        mapQuery: "Naturpark Haus, Oberlängenfeld 142, Längenfeld, Austria",
+      },
+      {
         title: "9 Schätze Habicher See from Oetz (morning)",
         tag: "walk",
         attractionId: "habicher-see",
@@ -423,6 +434,7 @@ export const ITINERARY: Day[] = [
     ],
     tips: [
       "Both treasure routes fit into one day with almost no driving: Habicher See on foot from Oetz in the morning, then ten minutes up to Piburg for the lake and a swim after lunch. Two of the nine treasures, and the car barely moves.",
+      "This is the only Wednesday of the Ötztal stay, and the Naturpark Haus runs its nature activity stations on Wednesday afternoons. If the weather breaks, that plus the Aqua Dome makes a whole Längenfeld day.",
       "Trainers with grip help on the damp waterfall steps.",
     ],
   },
