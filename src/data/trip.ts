@@ -12,6 +12,15 @@ export const TRIP = {
   heroWiki: "Seiser Alm",
 };
 
+/**
+ * Who is travelling, used to turn per-person prices into a family total.
+ * Under-4s often go free, so the estimate is deliberately a worst case.
+ */
+export const PARTY = { adults: 2, children: 3 };
+
+/** Prices in the data were checked against published 2025 rates. */
+export const PRICES_CHECKED = "2025 rates";
+
 export const REGIONS: Region[] = [
   {
     id: "wilderkaiser",

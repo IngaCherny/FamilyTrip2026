@@ -4,7 +4,8 @@ export const ATTRACTIONS: Attraction[] = [
   // ---------- Wilder Kaiser ----------
   {
     id: "hintersteiner-see",
-    price: "Free (parking ~€5/day)",
+    price: { free: true, note: "Parking ~€5/day" },
+    buggy: true,
     wiki: "Hintersteiner See",
     name: "Hintersteiner See",
     region: "wilderkaiser",
@@ -16,7 +17,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "hexenwasser",
-    price: "~€34 adult / €17 child (incl. Söll gondola)",
+    price: { adult: 34, child: 17, covers: "incl. Söll gondola" },
     wiki: "Hohe Salve",
     name: "Hexenwasser Söll",
     region: "wilderkaiser",
@@ -28,7 +29,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "hartkaiser-ellmi",
-    price: "~€27 adult / €13 child (Hartkaiser funicular); playground free",
+    price: { adult: 27, child: 13, covers: "Hartkaiser funicular", note: "Playground free" },
+    buggy: true,
     wiki: "Ellmau",
     name: "Hartkaiser & Ellmi's Zauberwelt",
     region: "wilderkaiser",
@@ -40,7 +42,13 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "triassic-park",
-    price: "Park free; Steinplatte gondola ~€31 adult return (children reduced, under-4s free). Free parking.",
+    price: {
+      adult: 31,
+      covers: "Steinplatte gondola return",
+      note: "Park entry free; children reduced and under-4s free. Free parking.",
+    },
+    buggy: true,
+    indoor: true,
     wiki: "Steinplatte",
     name: "Triassic Park, Steinplatte (Waidring)",
     region: "wilderkaiser",
@@ -53,7 +61,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kitzbuehel",
-    price: "Free (town); Hahnenkamm cable car ~€32 adult",
+    price: { free: true, note: "Town free; Hahnenkamm cable car ~€32 adult" },
+    buggy: true,
     wiki: "Kitzbühel",
     name: "Kitzbühel",
     region: "wilderkaiser",
@@ -65,7 +74,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "gaudeamushuette",
-    price: "Free (hut food extra)",
+    price: { free: true, note: "Hut food extra" },
+    buggy: true,
     wiki: "Wilder Kaiser",
     name: "Wilder Kaiser hike (Gaudeamushütte)",
     region: "wilderkaiser",
@@ -75,11 +85,13 @@ export const ATTRACTIONS: Attraction[] = [
       "Classic hut hike into the Kaisertal / Wilder Kaiser foothills, ending at a mountain hut for Kaiserschmarrn. Several distances possible.",
     good_for: ["Hiking", "Mountain hut lunch", "Big scenery"],
   },
-
   {
     id: "kaiserwelt",
-    price:
-      "Park free; you pay only the Brandstadlbahn (SkiWelt summer rate, check skiwelt.at). Children born 2022 or later ride free. Covered by the Kitzbühel Alps Summer Card.",
+    price: {
+      note: "Park free; you pay only the Brandstadlbahn (SkiWelt summer rate, check skiwelt.at). Children born 2022 or later ride free. Covered by the Kitzbühel Alps Summer Card.",
+    },
+    season: { from: "05-15", to: "10-15" },
+    buggy: true,
     wiki: "Scheffau am Wilden Kaiser",
     name: "KaiserWelt Scheffau (Brandstadl)",
     region: "wilderkaiser",
@@ -92,8 +104,14 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "juppi-zauberwald",
-    price:
-      "Forest free; Reitherkogelbahn ~€12 adult / €6 child return (~€9.50 / €5 one way). Closed Wednesdays.",
+    price: {
+      adult: 12,
+      child: 6,
+      covers: "Reitherkogelbahn return",
+      note: "~€9.50 / €5 one way. The forest itself is free.",
+    },
+    closedOn: [3],
+    buggy: true,
     wiki: "Reith im Alpbachtal",
     name: "Juppi Zauberwald, Reith im Alpbachtal",
     region: "wilderkaiser",
@@ -106,7 +124,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "griessbachklamm",
-    price: "Free (small parking fee at Erpfendorf)",
+    price: { free: true, note: "Small parking fee at Erpfendorf" },
+    season: { from: "05-01", to: "10-31" },
     wiki: "Erpfendorf",
     name: "Grießbachklamm gorge, Erpfendorf",
     region: "wilderkaiser",
@@ -121,7 +140,8 @@ export const ATTRACTIONS: Attraction[] = [
   // ---------- Ötztal ----------
   {
     id: "habicher-see",
-    price: "Free",
+    price: { free: true },
+    buggy: true,
     wiki: "Oetz",
     name: "Habicher See",
     region: "oetz",
@@ -133,7 +153,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "widiversum",
-    price: "~€30 adult / ~€18 child (Acherkogelbahn return); play world free",
+    price: { adult: 30, child: 18, covers: "Acherkogelbahn return", note: "Play world free" },
+    buggy: true,
     wiki: "Oetz",
     name: "WIDIVERSUM Hochoetz",
     region: "oetz",
@@ -146,7 +167,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "area47",
-    price: "~€35 adult / €29 child (day ticket)",
+    price: { adult: 35, child: 29, covers: "day ticket" },
     wiki: "Ötztal",
     name: "Area 47",
     region: "oetz",
@@ -158,7 +179,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "stuibenfall",
-    price: "Free",
+    price: { free: true },
     wiki: "Stuibenfall",
     name: "Stuibenfall Waterfall",
     region: "oetz",
@@ -170,7 +191,9 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "aquadome",
-    price: "~€27 adult / €16 child (3-hour ticket)",
+    price: { adult: 27, child: 16, covers: "3-hour ticket" },
+    indoor: true,
+    buggy: true,
     wiki: "Längenfeld",
     name: "Aqua Dome (Längenfeld)",
     region: "oetz",
@@ -182,7 +205,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "piburger-see",
-    price: "Free (rowing boat ~€10/hr)",
+    price: { free: true, note: "Rowing boat ~€10/hr" },
+    buggy: true,
     wiki: "Piburger See",
     name: "Piburger See",
     region: "oetz",
@@ -194,7 +218,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "soelden-007",
-    price: "~€42 adult / €25 child (Gaislachkogl cable car); 007 Elements ~€23",
+    price: { adult: 42, child: 25, covers: "Gaislachkogl cable car", note: "007 Elements ~€23 extra" },
+    indoor: true,
     wiki: "Gaislachkogl",
     name: "Gaislachkogl & 007 Elements (Sölden)",
     region: "oetz",
@@ -206,7 +231,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "timmelsjoch",
-    price: "~€19 per car (toll road)",
+    price: { perCar: 19, covers: "toll road" },
     wiki: "Timmelsjoch",
     name: "Timmelsjoch High Alpine Road",
     region: "oetz",
@@ -220,7 +245,11 @@ export const ATTRACTIONS: Attraction[] = [
   // ---------- South Tyrol ----------
   {
     id: "pragser-wildsee",
-    price: "Free (parking from ~€7; rowing boat ~€30/30min)",
+    price: {
+      free: true,
+      note: "Parking from ~€7; rowing boat ~€30/30min. Timed access or shuttle in peak summer, book ahead.",
+    },
+    buggy: true,
     wiki: "Pragser Wildsee",
     name: "Lago di Braies (Pragser Wildsee)",
     region: "southtyrol",
@@ -232,7 +261,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "seiser-alm",
-    price: "~€26 adult / €13 child (cable car return)",
+    price: { adult: 26, child: 13, covers: "cable car return" },
+    buggy: true,
     wiki: "Seiser Alm",
     name: "Seiser Alm / Alpe di Siusi",
     region: "southtyrol",
@@ -244,7 +274,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "tre-cime",
-    price: "~€30 per car (Auronzo toll road)",
+    price: { perCar: 30, covers: "Auronzo toll road" },
     wiki: "Tre Cime di Lavaredo",
     name: "Tre Cime di Lavaredo",
     region: "southtyrol",
@@ -256,7 +286,9 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "bolzano-otzi",
-    price: "~€13 adult / €8 child (family ticket available)",
+    price: { adult: 13, child: 8, note: "Family ticket available. Closed Mondays outside July and August." },
+    indoor: true,
+    buggy: true,
     wiki: "South Tyrol Museum of Archaeology",
     name: "Bolzano & Ötzi Museum",
     region: "southtyrol",
@@ -268,7 +300,9 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "merano-gardens",
-    price: "~€16 adult / €10 child",
+    price: { adult: 16, child: 10 },
+    season: { from: "04-01", to: "11-15" },
+    buggy: true,
     wiki: "Gardens of Trauttmansdorff Castle",
     name: "Merano & Trauttmansdorff Gardens",
     region: "southtyrol",
@@ -280,7 +314,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "rodelbahn-haunold",
-    price: "~€6 per ride (family fun park; combo tickets available)",
+    price: { note: "~€6 per ride; family fun park, combo tickets available" },
     wiki: "San Candido",
     name: "Rodelbahn Haunold (summer toboggan)",
     region: "southtyrol",
@@ -293,7 +327,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "val-fiscalina",
-    price: "Free (paid parking at Fischleinboden)",
+    price: { free: true, note: "Paid parking at Fischleinboden" },
+    buggy: true,
     wiki: "Sesto Dolomites",
     name: "Val Fiscalina (Fischleintal)",
     region: "southtyrol",
@@ -305,7 +340,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kastelruth",
-    price: "Free (village)",
+    price: { free: true },
+    buggy: true,
     wiki: "Kastelruth",
     name: "Kastelruth / Castelrotto",
     region: "southtyrol",
@@ -317,7 +353,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "elfenweg",
-    price: "Free (Töpslplatz parking by the San Nicolò church)",
+    price: { free: true, note: "Free Töpslplatz parking by the San Nicolò church" },
     wiki: "Vintl",
     name: "Sentiero degli Elfi (Elves' Path), Vandoies",
     region: "southtyrol",
@@ -330,7 +366,9 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "concordia-360",
-    price: "~€26 adult / €13 child (Kronplatz cable car return)",
+    price: { adult: 26, child: 13, covers: "Kronplatz cable car return" },
+    buggy: true,
+    indoor: true,
     wiki: "Kronplatz",
     name: "Concordia 360° panoramic loop, Kronplatz",
     region: "southtyrol",
@@ -343,7 +381,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "antholzer-see",
-    price: "Free (paid parking at the lake)",
+    price: { free: true, note: "Paid parking at the lake" },
+    buggy: true,
     wiki: "Antholzer See",
     name: "Antholzer See (Lago di Anterselva)",
     region: "southtyrol",
@@ -356,7 +395,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kiens-farmtrail",
-    price: "Free",
+    price: { free: true },
+    buggy: true,
     wiki: "Kiens",
     name: "Farm trail Kiens – St. Sigmund",
     region: "southtyrol",
@@ -369,7 +409,9 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "issinger-weiher",
-    price: "Free (bathing area seasonal; parking nearby)",
+    price: { free: true, note: "Parking nearby" },
+    season: { from: "06-15", to: "08-31", label: "Bathing area" },
+    buggy: true,
     wiki: "Pfalzen",
     name: "Issinger Weiher (Lago d'Issengo)",
     region: "southtyrol",
@@ -382,7 +424,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "rienz-gorge",
-    price: "Free",
+    price: { free: true },
+    buggy: true,
     wiki: "Rienz",
     name: "Rienz Gorge & Sternwaldele, Bruneck",
     region: "southtyrol",
@@ -395,7 +438,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "woodywalk-plose",
-    price: "Cable car ~€27 adult / reduced child (Plose gondola from St. Andrä)",
+    price: { adult: 27, covers: "Plose gondola from St. Andrä", note: "Children reduced" },
+    buggy: true,
     wiki: "Plose",
     name: "WoodyWalk on the Plose (near Brixen)",
     region: "southtyrol",

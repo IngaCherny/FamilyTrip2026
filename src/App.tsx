@@ -4,6 +4,7 @@ import Itinerary from "./components/Itinerary";
 import TripMap from "./components/TripMap";
 import Places from "./components/Places";
 import Stays from "./components/Stays";
+import Cards from "./components/Cards";
 import Food from "./components/Food";
 import Tips from "./components/Tips";
 import Packing from "./components/Packing";
@@ -46,6 +47,7 @@ export default function App() {
         <TripMap />
         <Places />
         <Stays />
+        <Cards />
         <Food />
         <Tips />
         <Packing />

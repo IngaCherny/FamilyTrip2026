@@ -8,6 +8,7 @@ const PRIMARY = [
 ];
 
 const SECONDARY = [
+  { id: "cards", label: "Guest Cards" },
   { id: "food", label: "Food & Drink" },
   { id: "tips", label: "Tips" },
   { id: "packing", label: "Packing" },

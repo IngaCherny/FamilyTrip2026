@@ -1,14 +1,22 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Section from "./Section";
 import SmartImage from "./SmartImage";
 import { ITINERARY } from "../data/itinerary";
-import { DESTINATIONS, regionById } from "../data/trip";
+import { DESTINATIONS, PARTY, regionById } from "../data/trip";
 import { attractionById } from "../data/attractions";
 import { TAG_META } from "../lib/tags";
-import { formatShort } from "../lib/format";
+import {
+  closedLabel,
+  familyCost,
+  formatFamilyCost,
+  formatPrice,
+  formatShort,
+  isClosedOnDate,
+  isOutOfSeason,
+} from "../lib/format";
 import { MapWithDirections, placeQuery } from "./MapEmbed";
-import type { Day, DayOption, RouteStop } from "../lib/types";
+import type { Attraction, Day, DayOption, RouteStop } from "../lib/types";
 
 /** A small CSS caret used as the open/close affordance (no icon library). */
 function Caret({ open }: { open: boolean }) {
@@ -49,6 +57,8 @@ function PlaceCard({
   linkLabel,
   imageWiki,
   accent,
+  attraction,
+  date,
 }: {
   title: string;
   description: string;
@@ -61,8 +71,16 @@ function PlaceCard({
   linkLabel?: string;
   imageWiki?: string;
   accent: "option" | "stop";
+  /** Linked attraction, if any: supplies price, closures and access flags. */
+  attraction?: Attraction;
+  /** The day this option sits on, used to warn about closures. */
+  date?: string;
 }) {
   const [open, setOpen] = useState(false);
+  const priceText = formatPrice(attraction?.price);
+  const total = formatFamilyCost(familyCost(attraction?.price, PARTY));
+  const shutToday = date ? isClosedOnDate(attraction?.closedOn, date) : false;
+  const offSeason = date ? isOutOfSeason(attraction?.season, date) : false;
   return (
     <div
       className={`overflow-hidden rounded-xl ring-1 ${
@@ -73,7 +91,16 @@ function PlaceCard({
         <SmartImage wiki={imageWiki} alt={title} className="h-14 w-14 shrink-0 rounded-lg" />
         <span className="min-w-0 flex-1">
           <span className="block font-semibold leading-snug text-stone-900">{title}</span>
-          {tag && <span className="mt-0.5 inline-block text-xs text-stone-500">{TAG_META[tag].label}</span>}
+          <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs">
+            {tag && <span className="text-stone-500">{TAG_META[tag].label}</span>}
+            {total && <span className="font-medium text-meadow-700">{total}</span>}
+            {attraction?.buggy && <span className="text-meadow-600">Buggy OK</span>}
+            {(shutToday || offSeason) && (
+              <span className="rounded bg-sunset-200 px-1.5 font-semibold text-stone-800">
+                {shutToday ? "Closed today" : "Out of season"}
+              </span>
+            )}
+          </span>
         </span>
         <Caret open={open} />
       </button>
@@ -92,6 +119,20 @@ function PlaceCard({
                 <TagChip tag={tag} />
               </div>
               <p className="text-sm text-stone-600">{description}</p>
+              {(shutToday || offSeason) && (
+                <p className="rounded-lg bg-sunset-200/50 p-2 text-sm font-medium text-stone-800 ring-1 ring-sunset-200">
+                  {shutToday
+                    ? `${closedLabel(attraction?.closedOn)} — and this day is one of them. Check before you drive.`
+                    : `Runs ${attraction?.season?.from} to ${attraction?.season?.to}, so it may be shut on this date.`}
+                </p>
+              )}
+              {priceText && (
+                <p className="text-sm text-stone-700">
+                  <span className="font-semibold text-meadow-700">Price: </span>
+                  {priceText}
+                  {total && <span className="block text-xs text-stone-500">{total}</span>}
+                </p>
+              )}
               {kidNote && (
                 <p className="rounded-lg bg-white/70 p-2 text-sm text-meadow-700 ring-1 ring-meadow-100">
                   <span className="font-semibold">For the kids: </span>
@@ -117,19 +158,36 @@ function PlaceCard({
   );
 }
 
-function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open: boolean; onToggle: () => void }) {
+function DayCard({
+  day,
+  index,
+  isToday,
+  open,
+  onToggle,
+}: {
+  day: Day;
+  index: number;
+  isToday: boolean;
+  open: boolean;
+  onToggle: () => void;
+}) {
   const region = regionById(day.region);
   const regionWiki = region.wiki ?? "Munich";
   return (
     <motion.div
+      id={`day-${day.date}`}
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.35 }}
-      className="card-paper overflow-hidden"
+      className={`card-paper overflow-hidden ${isToday ? "ring-2 ring-glacier-500" : ""}`}
     >
       <button onClick={onToggle} className="flex w-full items-center gap-4 p-4 text-left">
-        <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl bg-glacier-50 text-glacier-700">
+        <div
+          className={`flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl ${
+            isToday ? "bg-glacier-600 text-white" : "bg-glacier-50 text-glacier-700"
+          }`}
+        >
           <span className="text-[10px] font-semibold uppercase tracking-wide">Day</span>
           <span className="font-serif text-2xl font-bold leading-none">{index + 1}</span>
         </div>
@@ -140,6 +198,11 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
             </span>
             <span>·</span>
             <span>{region.name}</span>
+            {isToday && (
+              <span className="rounded-full bg-glacier-600 px-2 py-0.5 text-[10px] font-semibold text-white">
+                Today
+              </span>
+            )}
           </div>
           <h3 className="truncate font-serif text-lg font-bold text-stone-900">{day.title}</h3>
           {day.subtitle && <p className="truncate text-sm text-stone-500">{day.subtitle}</p>}
@@ -187,6 +250,8 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
                           coords={s.coords}
                           imageWiki={s.wiki ?? regionWiki}
                           accent="stop"
+                          attraction={s.attractionId ? attractionById(s.attractionId) : undefined}
+                          date={day.date}
                         />
                       ))}
                     </div>
@@ -213,6 +278,8 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
                     linkLabel={o.linkLabel}
                     imageWiki={o.wiki ?? (o.attractionId ? attractionById(o.attractionId)?.wiki : undefined) ?? regionWiki}
                     accent="option"
+                    attraction={o.attractionId ? attractionById(o.attractionId) : undefined}
+                    date={day.date}
                   />
                 ))}
               </div>
@@ -262,14 +329,37 @@ function DayCard({ day, index, open, onToggle }: { day: Day; index: number; open
   );
 }
 
+/** Today as a local "YYYY-MM-DD", so it compares with the itinerary dates. */
+function todayIso(): string {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+/**
+ * The day to open on: today while the trip is running, otherwise day one. Means
+ * that on the morning of the 22nd you see the 22nd, not the arrival day.
+ */
+function initialOpenDate(): string | null {
+  const today = todayIso();
+  return ITINERARY.some((d) => d.date === today) ? today : ITINERARY[0]?.date ?? null;
+}
+
 export default function Itinerary() {
   const [filter, setFilter] = useState<string>("all");
-  const [openDate, setOpenDate] = useState<string | null>(ITINERARY[0]?.date ?? null);
+  const [openDate, setOpenDate] = useState<string | null>(initialOpenDate);
+  const today = todayIso();
 
   const days = useMemo(
     () => (filter === "all" ? ITINERARY : ITINERARY.filter((d) => d.region === filter)),
     [filter]
   );
+
+  // Bring today's card into view on first load, once the cards have mounted.
+  useEffect(() => {
+    if (!ITINERARY.some((d) => d.date === today)) return;
+    const el = document.getElementById(`day-${today}`);
+    if (el) el.scrollIntoView({ block: "center" });
+  }, [today]);
 
   return (
     <Section
@@ -308,6 +398,7 @@ export default function Itinerary() {
               key={day.date}
               day={day}
               index={globalIndex}
+              isToday={day.date === today}
               open={openDate === day.date}
               onToggle={() => setOpenDate(openDate === day.date ? null : day.date)}
             />

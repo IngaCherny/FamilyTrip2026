@@ -243,6 +243,7 @@ export const ITINERARY: Day[] = [
         {
           name: "Juppi Zauberwald, Reith im Alpbachtal",
           wiki: "Reith im Alpbachtal",
+          attractionId: "juppi-zauberwald",
           description:
             "An enchanted forest on the Reitherkogel, the first good break of the drive and just off the motorway. A 2.5 km buggy-friendly loop from the gondola winds past a magic village with a witch's kitchen, a ghost moor with a wooden wizard, a wobbly bridge, a viewing tower and water games.",
           tag: "kids",

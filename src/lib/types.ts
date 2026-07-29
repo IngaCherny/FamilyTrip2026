@@ -85,6 +85,8 @@ export interface RouteStop extends Mappable {
   tag?: ActivityTag;
   /** Wikipedia title used for the card's thumbnail photo. */
   wiki?: string;
+  /** Links to an attraction for price, closures and access flags. */
+  attractionId?: string;
 }
 
 /** A family-friendly place to eat, flagged if it has a playground. */
@@ -127,6 +129,36 @@ export interface Day {
 
 export type PoiCategory = "sight" | "hike" | "lake" | "spa" | "kids" | "town";
 
+/**
+ * Admission cost as data rather than prose, so it can be shown next to a day's
+ * options, filtered on, and added up for the whole family.
+ */
+export interface Price {
+  /** Nothing to pay to get in. Parking and extras go in `note`. */
+  free?: boolean;
+  /** Euro per adult. */
+  adult?: number;
+  /** Euro per child. */
+  child?: number;
+  /** Flat euro per car, e.g. a toll road. */
+  perCar?: number;
+  /** What the figures buy, e.g. "cable car return", "day ticket". */
+  covers?: string;
+  /** Whatever the numbers cannot say: parking, extras, guest cards. */
+  note?: string;
+}
+
+/** 0 = Sunday … 6 = Saturday, matching `Date.prototype.getDay()`. */
+export type Weekday = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+
+/** An operating season, as inclusive "MM-DD" bounds. */
+export interface Season {
+  from: string;
+  to: string;
+  /** What the season applies to, e.g. "Bathing area". Defaults to the place. */
+  label?: string;
+}
+
 export interface Attraction {
   id: string;
   name: string;
@@ -138,8 +170,36 @@ export interface Attraction {
   link?: string;
   /** Wikipedia article title used to fetch a representative photo. */
   wiki?: string;
-  /** Approximate 2026 admission, e.g. "Free" or "~€34 adult / €17 child". */
-  price?: string;
+  /** Approximate admission, checked against 2025 rates. */
+  price?: Price;
+  /** Weekdays the place (or its lift) does not operate. */
+  closedOn?: Weekday[];
+  /** Operating season, when it does not cover the whole of August. */
+  season?: Season;
+  /** A pushchair can manage the main route. */
+  buggy?: boolean;
+  /** Largely indoors or sheltered, so it still works in the rain. */
+  indoor?: boolean;
+}
+
+/**
+ * A regional guest card or lift pass. These are the biggest single saving
+ * available on a trip like this, and most are only offered if you ask.
+ */
+export interface GuestCard {
+  id: string;
+  name: string;
+  region: RegionId;
+  /** included = free with the stay · buy = we pay for it · check = ask first. */
+  kind: "included" | "buy" | "check";
+  summary: string;
+  /** What it covers that this trip actually uses. */
+  includes: string[];
+  /** The thing to actually do, and when. */
+  action: string;
+  /** Anything that could catch us out. */
+  caveat?: string;
+  link?: string;
 }
 
 export interface Dish {
