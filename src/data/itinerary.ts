@@ -271,7 +271,7 @@ export const ITINERARY: Day[] = [
     base: "Falkners Five",
     baseQuery: BASE_FALKNER,
     title: "Travel to the Ötztal",
-    subtitle: "Moving day",
+    subtitle: "Moving day, via Juppi Zauberwald",
     drive: {
       from: "Wilder Kaiser",
       to: "Falkners Five, Oetz",
@@ -281,16 +281,6 @@ export const ITINERARY: Day[] = [
       toQuery: BASE_FALKNER,
       note: "West along the Inn valley past Innsbruck, then south into the mouth of the Ötztal.",
       stops: [
-        {
-          name: "Juppi Zauberwald, Reith im Alpbachtal",
-          wiki: "Reith im Alpbachtal",
-          attractionId: "juppi-zauberwald",
-          description:
-            "An enchanted forest on the Reitherkogel, the first good break of the drive and just off the motorway. A 2.5 km buggy-friendly loop from the gondola winds past a magic village with a witch's kitchen, a ghost moor with a wooden wizard, a wobbly bridge, a viewing tower and water games.",
-          tag: "kids",
-          coords: [47.4247, 11.8792],
-          mapQuery: "Reitherkogelbahn, Reith im Alpbachtal, Austria",
-        },
         {
           name: "Swarovski Kristallwelten, Wattens",
           wiki: "Swarovski Kristallwelten",
@@ -312,6 +302,17 @@ export const ITINERARY: Day[] = [
       ],
     },
     options: [
+      {
+        title: "Juppi Zauberwald on the drive to the Ötztal",
+        tag: "kids",
+        attractionId: "juppi-zauberwald",
+        description:
+          "The highlight of the moving day: an enchanted forest on the Reitherkogel, right off the Inn-valley motorway. A 2.5 km buggy-friendly loop from the gondola winds past a magic village with a witch's kitchen, a ghost moor with a wooden wizard, a wobbly bridge, a viewing tower, a bird's-nest swing and water games.",
+        kidNote:
+          "Buggy-friendly the whole loop, a proper leg-stretch mid-drive. The Reitherkogelbahn is closed on Wednesdays, but this is a Monday. The Alpbachtaler Kinderpark by the gondola has lunch and a playground.",
+        coords: [47.4247, 11.8792],
+        mapQuery: "Reitherkogelbahn, Reith im Alpbachtal, Austria",
+      },
       {
         title: "Check in and Piburger See sunset loop",
         tag: "lake",
