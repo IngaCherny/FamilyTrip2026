@@ -12,6 +12,7 @@ import {
   formatFamilyCost,
   formatPrice,
   formatShort,
+  freeChildrenNote,
   imageUrl,
   isClosedOnDate,
   isOutOfSeason,
@@ -79,7 +80,9 @@ function PlaceCard({
 }) {
   const [open, setOpen] = useState(false);
   const priceText = formatPrice(attraction?.price);
-  const total = formatFamilyCost(familyCost(attraction?.price, PARTY));
+  const cost = familyCost(attraction?.price, PARTY);
+  const total = formatFamilyCost(cost);
+  const freeNote = freeChildrenNote(cost);
   const shutToday = date ? isClosedOnDate(attraction?.closedOn, date) : false;
   const offSeason = date ? isOutOfSeason(attraction?.season, date) : false;
   return (
@@ -136,7 +139,12 @@ function PlaceCard({
                 <p className="text-sm text-stone-700">
                   <span className="font-semibold text-meadow-700">Price: </span>
                   {priceText}
-                  {total && <span className="block text-xs text-stone-500">{total}</span>}
+                  {total && (
+                    <span className="block text-xs text-stone-500">
+                      {total}
+                      {freeNote && ` — ${freeNote}`}
+                    </span>
+                  )}
                 </p>
               )}
               {kidNote && (

@@ -17,7 +17,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "hexenwasser",
-    price: { adult: 34, child: 17, covers: "incl. Söll gondola" },
+    price: { adult: 34, child: 17, covers: "incl. Söll gondola", freeUnder: 4 },
     wiki: "Hohe Salve",
     name: "Hexenwasser Söll",
     region: "wilderkaiser",
@@ -29,7 +29,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "hartkaiser-ellmi",
-    price: { adult: 27, child: 13, covers: "Hartkaiser funicular", note: "Playground free" },
+    price: { adult: 27, child: 13, covers: "Hartkaiser funicular", note: "Playground free", freeUnder: 4 },
     buggy: true,
     wiki: "Ellmau",
     name: "Hartkaiser & Ellmi's Zauberwelt",
@@ -46,6 +46,7 @@ export const ATTRACTIONS: Attraction[] = [
       adult: 31,
       covers: "Steinplatte gondola return",
       note: "Park entry free; children reduced and under-4s free. Free parking.",
+      freeUnder: 4,
     },
     buggy: true,
     indoor: true,
@@ -153,7 +154,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "widiversum",
-    price: { adult: 30, child: 18, covers: "Acherkogelbahn return", note: "Play world free" },
+    price: { adult: 30, child: 18, covers: "Acherkogelbahn return", note: "Play world free", freeUnder: 4 },
     buggy: true,
     wiki: "Oetz",
     name: "WIDIVERSUM Hochoetz",
@@ -167,7 +168,13 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "area47",
-    price: { adult: 35, child: 29, covers: "day ticket" },
+    price: {
+      adult: 36,
+      child: 25,
+      covers: "Water AREA day ticket",
+      freeUnder: 5,
+      note: "Child rate is ages 5–15, so the 2 year old is free. Included outright if the Ötztal Inside Summer Card applies.",
+    },
     wiki: "Ötztal",
     name: "Area 47",
     region: "oetz",
@@ -191,7 +198,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "aquadome",
-    price: { adult: 27, child: 16, covers: "3-hour ticket" },
+    price: { adult: 27, child: 16, covers: "3-hour ticket", freeUnder: 3 },
     indoor: true,
     buggy: true,
     wiki: "Längenfeld",
@@ -261,7 +268,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "seiser-alm",
-    price: { adult: 26, child: 13, covers: "cable car return" },
+    price: { adult: 26, child: 13, covers: "cable car return", freeUnder: 8, note: "Children under 8 ride free; under-16s get 30% off." },
     buggy: true,
     wiki: "Seiser Alm",
     name: "Seiser Alm / Alpe di Siusi",
@@ -366,7 +373,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "concordia-360",
-    price: { adult: 26, child: 13, covers: "Kronplatz cable car return" },
+    price: { adult: 26, child: 13, covers: "Kronplatz cable car return", freeUnder: 8, note: "Children under 8 ride free, one per paying adult, so only the 8 year old pays." },
     buggy: true,
     indoor: true,
     wiki: "Kronplatz",

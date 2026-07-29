@@ -5,14 +5,22 @@ import SmartImage from "./SmartImage";
 import { ATTRACTIONS } from "../data/attractions";
 import { DESTINATIONS, PARTY, PRICES_CHECKED } from "../data/trip";
 import { POI_META } from "../lib/tags";
-import { closedLabel, familyCost, formatFamilyCost, formatPrice, imageUrl, mapLinks } from "../lib/format";
+import {
+  closedLabel,
+  familyCost,
+  formatFamilyCost,
+  formatPrice,
+  freeChildrenNote,
+  imageUrl,
+  mapLinks,
+} from "../lib/format";
 import type { Attraction } from "../lib/types";
 
 /** The constraints that actually decide a day out with a 2 year old. */
 const FLAGS = [
   { id: "buggy", label: "Buggy-friendly", test: (a: Attraction) => a.buggy === true },
   { id: "indoor", label: "Works in rain", test: (a: Attraction) => a.indoor === true },
-  { id: "free", label: "Free", test: (a: Attraction) => familyCost(a.price, PARTY) === 0 },
+  { id: "free", label: "Free", test: (a: Attraction) => familyCost(a.price, PARTY)?.total === 0 },
 ] as const;
 
 type FlagId = (typeof FLAGS)[number]["id"];
@@ -93,7 +101,9 @@ export default function Places() {
             const meta = POI_META[a.category];
             const links = mapLinks(a.coords, a.name);
             const priceText = formatPrice(a.price);
-            const total = formatFamilyCost(familyCost(a.price, PARTY));
+            const cost = familyCost(a.price, PARTY);
+            const total = formatFamilyCost(cost);
+            const freeNote = freeChildrenNote(cost);
             const closed = closedLabel(a.closedOn);
             return (
               <motion.article
@@ -146,7 +156,12 @@ export default function Places() {
                     <p className="mt-3 text-sm text-stone-700">
                       <span className="font-semibold text-meadow-700">Price: </span>
                       {priceText}
-                      {total && <span className="block text-xs text-stone-500">{total} ({PRICES_CHECKED})</span>}
+                      {total && (
+                        <span className="block text-xs text-stone-500">
+                          {total}
+                          {freeNote && ` — ${freeNote}`} ({PRICES_CHECKED})
+                        </span>
+                      )}
                     </p>
                   )}
 

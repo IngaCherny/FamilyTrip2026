@@ -1,4 +1,4 @@
-import type { Price, Season, Weekday } from "./types";
+import type { FamilyCost, Party, Price, Season, Weekday } from "./types";
 
 export function formatDate(iso: string, opts?: Intl.DateTimeFormatOptions): string {
   const d = new Date(iso + "T00:00:00");
@@ -47,20 +47,41 @@ export function formatPrice(p?: Price): string | null {
 
 /**
  * What the whole party pays, or null when the price has no figures to add up.
- * Per-car costs are counted once; we travel in one car.
+ * Children below the price's own free-entry age are excluded, and per-car costs
+ * are counted once because we travel in one car.
  */
-export function familyCost(p: Price | undefined, party: { adults: number; children: number }): number | null {
+export function familyCost(p: Price | undefined, party: Party): FamilyCost | null {
   if (!p) return null;
-  if (p.adult == null && p.child == null && p.perCar == null) return p.free ? 0 : null;
-  return (
-    (p.adult ?? 0) * party.adults + (p.child ?? 0) * party.children + (p.perCar ?? 0)
-  );
+  if (p.adult == null && p.child == null && p.perCar == null) {
+    return p.free ? { total: 0, payingChildren: 0, freeAges: [...party.childAges] } : null;
+  }
+  const freeUnder = p.freeUnder ?? party.defaultFreeUnder;
+  // Only per-child fares can exempt a child. A per-car toll or an adult-only
+  // figure gets nobody in "free", so do not claim it does.
+  const freeAges = p.child == null ? [] : party.childAges.filter((age) => age < freeUnder);
+  const payingChildren = party.childAges.length - freeAges.length;
+  return {
+    total: (p.adult ?? 0) * party.adults + (p.child ?? 0) * payingChildren + (p.perCar ?? 0),
+    payingChildren,
+    freeAges,
+  };
 }
 
 /** Format a family total for display. */
-export function formatFamilyCost(total: number | null): string | null {
-  if (total == null) return null;
-  return total === 0 ? "Free for all of us" : `~${EUR(Math.round(total))} for the family`;
+export function formatFamilyCost(cost: FamilyCost | null): string | null {
+  if (!cost) return null;
+  return cost.total === 0 ? "Free for all of us" : `~${EUR(Math.round(cost.total))} for the family`;
+}
+
+/** Say which children get in free, e.g. "ages 2 & 6 free". */
+export function freeChildrenNote(cost: FamilyCost | null): string | null {
+  if (!cost?.freeAges.length || cost.total === 0) return null;
+  const ages = cost.freeAges;
+  const list =
+    ages.length === 1
+      ? `age ${ages[0]}`
+      : `ages ${ages.slice(0, -1).join(", ")} & ${ages[ages.length - 1]}`;
+  return `${list} free`;
 }
 
 const WEEKDAY_NAMES = ["Sundays", "Mondays", "Tuesdays", "Wednesdays", "Thursdays", "Fridays", "Saturdays"];

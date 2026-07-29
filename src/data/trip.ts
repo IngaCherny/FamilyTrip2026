@@ -1,4 +1,4 @@
-import type { Region } from "../lib/types";
+import type { Party, Region } from "../lib/types";
 
 export const TRIP = {
   title: "Alpine Summer",
@@ -19,13 +19,20 @@ export const TRIP = {
 };
 
 /**
- * Who is travelling, used to turn per-person prices into a family total.
- * Under-4s often go free, so the estimate is deliberately a worst case.
+ * Who is travelling. Ages matter more than headcount: most lifts and pools let
+ * small children in free, and the cut-off moves between operators, so each
+ * price can state its own. Update the ages if the trip ever moves year.
  */
-export const PARTY = { adults: 2, children: 3 };
+export const PARTY: Party = {
+  adults: 2,
+  childAges: [2, 6, 8],
+  // Under-3s go free virtually everywhere, so this is the safe assumption for
+  // any place whose own rule we have not confirmed.
+  defaultFreeUnder: 3,
+};
 
-/** Prices in the data were checked against published 2025 rates. */
-export const PRICES_CHECKED = "2025 rates";
+/** Prices in the data were checked against published 2025/26 rates. */
+export const PRICES_CHECKED = "2025/26 rates";
 
 export const REGIONS: Region[] = [
   {

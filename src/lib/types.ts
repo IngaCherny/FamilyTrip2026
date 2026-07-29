@@ -149,8 +149,31 @@ export interface Price {
   perCar?: number;
   /** What the figures buy, e.g. "cable car return", "day ticket". */
   covers?: string;
+  /**
+   * Children below this age go free. Varies a lot: the Dolomite cable cars say
+   * under 8, Area 47 starts charging at 5, the Tyrolean lifts at about 4. Left
+   * unset, the party's conservative default applies.
+   */
+  freeUnder?: number;
   /** Whatever the numbers cannot say: parking, extras, guest cards. */
   note?: string;
+}
+
+/** Who is going, for turning per-person prices into a family total. */
+export interface Party {
+  adults: number;
+  /** Each child's age during the trip. */
+  childAges: number[];
+  /** Free-child age assumed when a price does not state one. */
+  defaultFreeUnder: number;
+}
+
+/** A family total, split so the UI can say who got in free. */
+export interface FamilyCost {
+  total: number;
+  payingChildren: number;
+  /** Ages that go free, for a "the 2 year old is free" note. */
+  freeAges: number[];
 }
 
 /** 0 = Sunday … 6 = Saturday, matching `Date.prototype.getDay()`. */
