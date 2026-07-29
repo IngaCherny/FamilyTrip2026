@@ -276,8 +276,9 @@ export const ITINERARY: Day[] = [
         tag: "lake",
         attractionId: "piburger-see",
         description:
-          "Drop bags, then drive up to the warm little nature-reserve lake above Oetz for an easy loop and a paddle.",
-        kidNote: "Short, mostly flat loop. Warm, shallow swimming. Rowing boats to rent.",
+          "Drop bags, then drive up to Piburg and the warm little nature-reserve lake above Oetz for a gentle shore circuit and a paddle.",
+        kidNote:
+          "Drive up rather than walking from Oetz. The shore circuit is about an hour but is rooty and rocky in places, so carrier rather than buggy for the 2 year old. Warm, shallow swimming and rowing boats.",
         coords: [47.1986, 10.8806],
         mapQuery: "Piburger See, Oetz, Austria",
       },
@@ -378,7 +379,8 @@ export const ITINERARY: Day[] = [
         tag: "walk",
         description:
           "The official Ötztal family route: a loop of the warm nature-reserve lake passing nine viewing platforms and 'places of strength'. The wider western shore is stroller-friendly; the eastern shore is a rootier adventure path.",
-        kidNote: "About 1.5 to 2 hours; west shore is buggy-friendly, swimming at the lake. Take the Elsinger Weg up from Oetz.",
+        kidNote:
+          "About 1.5 to 2 hours at the lake itself; the west shore takes a buggy, the east shore does not. Park at Piburg. Walking up the Elsinger Weg from Oetz adds a real climb, so only with a carrier and no buggy.",
         coords: [47.1986, 10.8806],
         mapQuery: "Piburger See, Oetz, Austria",
         link: "https://www.oetztal.com/en/activities/summer/hiking-mountaineering/hiking-regions/oetz-region/the-9-treasures-of-lake-piburgersee",

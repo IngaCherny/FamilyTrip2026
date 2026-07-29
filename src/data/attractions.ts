@@ -234,8 +234,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "piburger-see",
-    price: { free: true, note: "Rowing boat ~€10/hr" },
-    buggy: true,
+    price: { free: true, note: "Rowing boat ~€10/hr. Parking at Piburg saves the climb from Oetz." },
     wiki: "Piburger See",
     name: "Piburger See",
     region: "oetz",
@@ -243,8 +242,8 @@ export const ATTRACTIONS: Attraction[] = [
     coords: [47.1986, 10.8806],
     link: "https://www.oetztal.com/en/activities/excursion-destinations",
     description:
-      "A small, warm, protected nature-reserve lake above Oetz with a flat loop trail and a little rowing-boat rental, swimmable in summer.",
-    good_for: ["Swimming", "Easy loop", "Rowing boats"],
+      "A small, warm, protected nature-reserve lake above Oetz, swimmable in summer, with a little rowing-boat rental. Drive up to Piburg and the shore circuit is a gentle hour, though it is rooty and rocky in places rather than truly buggy-flat. Do not confuse it with the 'große Runde' from the valley floor: that one climbs 271 m over 6.3 km with stairs and a steep pull to the Seejöchl, and is a real hike.",
+    good_for: ["Swimming", "Lakeside circuit", "Rowing boats"],
   },
   {
     id: "soelden-007",
