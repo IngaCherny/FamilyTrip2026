@@ -64,6 +64,7 @@ function PlaceCard({
   date,
   defaultOpen,
   hero,
+  bare,
 }: {
   title: string;
   description: string;
@@ -84,6 +85,8 @@ function PlaceCard({
   defaultOpen?: boolean;
   /** Show a large banner photo and stay open (used for the day's chosen plan). */
   hero?: boolean;
+  /** Render only the details, no image or toggle (the day tile carries the photo). */
+  bare?: boolean;
 }) {
   const [open, setOpen] = useState(hero || (defaultOpen ?? false));
   const priceText = formatPrice(attraction?.price);
@@ -141,6 +144,10 @@ function PlaceCard({
       <MapWithDirections destination={destination} origin={origin} coords={coords} height={180} />
     </div>
   );
+
+  // Bare layout: just the details, for when a big day tile already carries
+  // the photo and title above.
+  if (bare) return <div className="-mx-3">{body}</div>;
 
   // Hero layout: a big banner photo with the title and key facts on it,
   // visible without tapping, then the details straight below.
@@ -258,45 +265,62 @@ function DayCard({
   const chosen = day.options.find((o) => o.title === pick) ?? day.options[0];
   const others = day.options.filter((o) => o.title !== chosen?.title);
   const chosenAttr = chosen?.attractionId ? attractionById(chosen.attractionId) : undefined;
-  const headerImg = imageUrl(chosenAttr?.image, 300);
+  const headerImg = imageUrl(chosenAttr?.image, 1200);
   const headerWiki = chosen?.wiki ?? chosenAttr?.wiki ?? regionWiki;
+  const cost = familyCost(chosenAttr?.price, PARTY);
+  const total = formatFamilyCost(cost);
+  const shutToday = isClosedOnDate(chosenAttr?.closedOn, day.date);
   return (
     <motion.div
       id={`day-${day.date}`}
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.35 }}
-      className={`card-paper overflow-hidden ${isToday ? "ring-2 ring-glacier-500" : ""}`}
+      className={`overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ${
+        isToday ? "ring-2 ring-glacier-500" : "ring-stone-200/70"
+      }`}
     >
-      <button onClick={onToggle} className="flex w-full items-center gap-4 p-3 text-left">
-        <div className="relative h-20 w-20 shrink-0">
-          <SmartImage src={headerImg} wiki={headerWiki} alt={chosen?.title ?? day.title} className="h-20 w-20 rounded-xl" />
-          <span
-            className={`absolute left-1 top-1 rounded-md px-1.5 py-0.5 text-[10px] font-bold ${
-              isToday ? "bg-glacier-600 text-white" : "bg-white/85 text-glacier-700"
-            }`}
-          >
-            Day {index + 1}
-          </span>
-        </div>
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-2 text-xs text-stone-500">
-            <span>
-              {day.weekday}, {formatShort(day.date)}
+      {/* Big photo tile — the day at a glance. Tap to reveal everything. */}
+      <button onClick={onToggle} className="block w-full text-left">
+        <SmartImage
+          src={headerImg}
+          wiki={headerWiki}
+          alt={chosen?.title ?? day.title}
+          big
+          overlay
+          className="h-60 w-full sm:h-72"
+        >
+          <div className="absolute inset-x-0 top-0 flex items-center justify-between p-4">
+            <span className="rounded-full bg-white/20 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white backdrop-blur-sm">
+              Day {index + 1} · {day.weekday}, {formatShort(day.date)}
             </span>
-            <span>·</span>
-            <span>{region.name}</span>
             {isToday && (
-              <span className="rounded-full bg-glacier-600 px-2 py-0.5 text-[10px] font-semibold text-white">
-                Today
-              </span>
+              <span className="rounded-full bg-glacier-600 px-2.5 py-1 text-[11px] font-bold text-white">Today</span>
             )}
           </div>
-          <h3 className="truncate font-serif text-lg font-bold text-stone-900">{day.title}</h3>
-          {day.subtitle && <p className="truncate text-sm text-stone-500">{day.subtitle}</p>}
-        </div>
-        <Caret open={open} />
+          <div className="absolute inset-x-0 bottom-0 p-4">
+            <h3 className="font-serif text-2xl font-bold leading-tight text-white drop-shadow sm:text-3xl">
+              {day.title}
+            </h3>
+            <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-white/90 drop-shadow">
+              <span>{chosen?.title ?? day.subtitle}</span>
+              {total && (
+                <span className="rounded-full bg-meadow-500/90 px-2 py-0.5 text-[11px] font-semibold text-white">
+                  {total}
+                </span>
+              )}
+              {shutToday && (
+                <span className="rounded-full bg-sunset-300 px-2 py-0.5 text-[11px] font-semibold text-stone-900">
+                  Closed today
+                </span>
+              )}
+            </div>
+            <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-white/80">
+              {open ? "Hide details" : "Tap for the full day"} <Caret open={open} />
+            </span>
+          </div>
+        </SmartImage>
       </button>
 
       <AnimatePresence initial={false}>
@@ -392,10 +416,10 @@ function DayCard({
                 </div>
               )}
 
-              {/* The day's plan: just the one chosen option, cleanly. */}
+              {/* The day's plan details — the photo and title are on the tile above. */}
               {chosen && (
                 <div className="space-y-2">
-                  <p className="kicker">Your plan</p>
+                  <p className="kicker">Your plan · {chosen.title}</p>
                   <PlaceCard
                     key={chosen.title}
                     title={chosen.title}
@@ -415,7 +439,7 @@ function DayCard({
                     accent="option"
                     attraction={chosen.attractionId ? attractionById(chosen.attractionId) : undefined}
                     date={day.date}
-                    hero
+                    bare
                   />
 
                   {others.length > 0 && (
@@ -535,7 +559,7 @@ export default function Itinerary() {
       id="itinerary"
       kicker="The Plan"
       title="Day by Day"
-      intro="Sixteen days across the Tyrolean and Dolomite Alps. Each day shows one plan; tap 'Change plan' to swap it for an alternative. Every other idea lives under Places, where 'Near me' shows what is closest right now."
+      intro="Sixteen days across the Tyrolean and Dolomite Alps. Tap a day for the full plan; swap it for an alternative any time. Every other idea lives under Places, where 'Near me' shows what is closest right now."
     >
       <div className="no-scrollbar -mx-4 mb-6 flex gap-2 overflow-x-auto px-4 pb-1">
         <button
@@ -559,7 +583,7 @@ export default function Itinerary() {
         ))}
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-5">
         {days.map((day) => {
           const globalIndex = ITINERARY.indexOf(day);
           return (
