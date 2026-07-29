@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { directionsUrl, mapLinks } from "../lib/format";
 import type { Mappable } from "../lib/types";
 
@@ -43,6 +44,11 @@ export function MapWithDirections({
   coords?: [number, number];
   height?: number;
 }) {
+  // The embed is a Google Maps iframe that scrolls itself into view as it
+  // loads, which yanks the page when a card opens with it already mounted.
+  // So load it only when the user taps for it.
+  const [showMap, setShowMap] = useState(false);
+
   const gDir = origin
     ? directionsUrl(origin, destination)
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`;
@@ -52,7 +58,17 @@ export function MapWithDirections({
 
   return (
     <div className="space-y-2">
-      <GoogleMapEmbed query={destination} height={height} />
+      {showMap ? (
+        <GoogleMapEmbed query={destination} height={height} />
+      ) : (
+        <button
+          onClick={() => setShowMap(true)}
+          className="tap flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-stone-300 bg-stone-50 py-3 text-sm font-medium text-stone-600 hover:bg-stone-100"
+          style={{ minHeight: 44 }}
+        >
+          <span aria-hidden>🗺️</span> Show map
+        </button>
+      )}
       <div className="flex flex-wrap gap-2">
         <a
           href={gDir}
