@@ -53,3 +53,25 @@ production so asset paths resolve under the Pages subpath.
 
 Coordinates for the stays are approximate town centres — update them with the
 exact addresses from your booking confirmations.
+
+### Photos
+
+Photos are pulled from each place's Wikipedia article at runtime. That is fine
+most of the time, but alpine articles often lead with a **winter** photo, which
+looks wrong for an August trip.
+
+To pin a specific summer photo, set `image` on the region or attraction (or
+`heroImage` in [`src/data/trip.ts`](src/data/trip.ts)). It takes either a full
+URL or a **Wikimedia Commons file name**:
+
+```ts
+{ id: "wilderkaiser", image: "Wilder Kaiser from Hintersteiner See.jpg", … }
+```
+
+To get one: find a photo on [Wikimedia Commons](https://commons.wikimedia.org),
+open its file page, and copy the title after `File:`. No need to hunt down the
+hashed upload path — the app builds a stable `Special:FilePath` link, and the
+service worker caches it for offline use like any other photo.
+
+If a pinned photo ever 404s, the card quietly falls back to the Wikipedia
+article image rather than showing an empty box.

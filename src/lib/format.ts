@@ -10,6 +10,19 @@ export function formatShort(iso: string): string {
   return d.toLocaleDateString("en-GB", { day: "numeric", month: "short" });
 }
 
+/**
+ * Resolve a pinned photo. Accepts either a full URL or a Wikimedia Commons file
+ * name ("Foo bar.jpg"), which is turned into a stable Special:FilePath link so
+ * you never have to dig out the hashed upload path. Commons redirects to
+ * upload.wikimedia.org, which the service worker already caches for offline.
+ */
+export function imageUrl(image?: string, width = 1200): string | undefined {
+  if (!image) return undefined;
+  if (/^https?:\/\//i.test(image)) return image;
+  const file = image.replace(/^File:/i, "");
+  return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
+}
+
 const EUR = (n: number) => `€${Number.isInteger(n) ? n : n.toFixed(2)}`;
 
 /** Render a Price as the one-line string shown on a card. */

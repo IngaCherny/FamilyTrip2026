@@ -5,7 +5,7 @@ import SmartImage from "./SmartImage";
 import { ATTRACTIONS } from "../data/attractions";
 import { DESTINATIONS, PARTY, PRICES_CHECKED } from "../data/trip";
 import { POI_META } from "../lib/tags";
-import { closedLabel, familyCost, formatFamilyCost, formatPrice, mapLinks } from "../lib/format";
+import { closedLabel, familyCost, formatFamilyCost, formatPrice, imageUrl, mapLinks } from "../lib/format";
 import type { Attraction } from "../lib/types";
 
 /** The constraints that actually decide a day out with a 2 year old. */
@@ -104,7 +104,7 @@ export default function Places() {
                 transition={{ duration: 0.3, delay: (i % 3) * 0.05 }}
                 className="card-paper flex flex-col overflow-hidden"
               >
-                <SmartImage wiki={a.wiki} alt={a.name} overlay className="h-40 w-full">
+                <SmartImage src={imageUrl(a.image, 800)} wiki={a.wiki} alt={a.name} overlay className="h-40 w-full">
                   <span
                     className="absolute left-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-semibold text-white"
                     style={{ background: meta.color }}

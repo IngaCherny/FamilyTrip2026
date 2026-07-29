@@ -10,6 +10,12 @@ export const TRIP = {
   tagline: "Two weeks across the Tyrolean and Dolomite Alps, meadows, lakes, cable cars and Knödel.",
   /** Wikipedia title used for the full-bleed hero photo. */
   heroWiki: "Seiser Alm",
+  /**
+   * Pinned hero photo, winning over `heroWiki`. Full URL or a Wikimedia
+   * Commons file name, e.g. "Alpe di Siusi in summer.jpg". Set this if the
+   * article's lead image ever turns up snowy.
+   */
+  heroImage: undefined as string | undefined,
 };
 
 /**
@@ -27,7 +33,9 @@ export const REGIONS: Region[] = [
     name: "Wilder Kaiser",
     country: "Austria",
     center: [47.5106, 12.2939],
-    wiki: "Wilder Kaiser",
+    // The range's own article leads with a snow shot; the lake beneath its
+    // walls says "August" instead. Pin `image` to override either of them.
+    wiki: "Hintersteiner See",
     blurb:
       "Jagged limestone peaks above flower meadows in the Tyrolean Kitzbühel Alps. Our first base, at Apartment Streif.",
   },
@@ -36,7 +44,9 @@ export const REGIONS: Region[] = [
     name: "Ötz / Ötztal",
     country: "Austria",
     center: [47.2017, 10.8975],
-    wiki: "Ötztal",
+    // The valley article leans glacier and snow; the warm bathing lake above
+    // Oetz is the summer face of the same valley.
+    wiki: "Piburger See",
     blurb:
       "The valley of the Iceman, glaciers, thermal spas and waterfalls running down from the highest paved road in the Alps.",
   },
@@ -45,7 +55,9 @@ export const REGIONS: Region[] = [
     name: "South Tyrol",
     country: "Italy",
     center: [46.78, 11.85],
-    wiki: "Pragser Wildsee",
+    // Braies is a summer lake but is usually shot against snowy peaks. A
+    // botanical garden cannot be wintry, and it is unmistakably South Tyrolean.
+    wiki: "Gardens of Trauttmansdorff Castle",
     blurb:
       "Where the Alps speak German and eat Italian. Based in Val Pusteria near Kronplatz, apple orchards, Dolomite spires and the famous Hugo spritz.",
   },

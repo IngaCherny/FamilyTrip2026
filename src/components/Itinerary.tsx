@@ -12,6 +12,7 @@ import {
   formatFamilyCost,
   formatPrice,
   formatShort,
+  imageUrl,
   isClosedOnDate,
   isOutOfSeason,
 } from "../lib/format";
@@ -71,7 +72,7 @@ function PlaceCard({
   linkLabel?: string;
   imageWiki?: string;
   accent: "option" | "stop";
-  /** Linked attraction, if any: supplies price, closures and access flags. */
+  /** Linked attraction, if any: supplies price, closures, flags and photo. */
   attraction?: Attraction;
   /** The day this option sits on, used to warn about closures. */
   date?: string;
@@ -88,7 +89,12 @@ function PlaceCard({
       }`}
     >
       <button onClick={() => setOpen((o) => !o)} className="flex w-full items-center gap-3 p-2.5 text-left">
-        <SmartImage wiki={imageWiki} alt={title} className="h-14 w-14 shrink-0 rounded-lg" />
+        <SmartImage
+          src={imageUrl(attraction?.image, 200)}
+          wiki={imageWiki}
+          alt={title}
+          className="h-14 w-14 shrink-0 rounded-lg"
+        />
         <span className="min-w-0 flex-1">
           <span className="block font-semibold leading-snug text-stone-900">{title}</span>
           <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs">

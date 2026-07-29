@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { TRIP, DESTINATIONS } from "../data/trip";
 import { useCountdown } from "../lib/useCountdown";
-import { formatDate } from "../lib/format";
+import { formatDate, imageUrl } from "../lib/format";
 import { useWikiImage } from "../lib/useWikiImage";
 
 function Unit({ value, label }: { value: number; label: string }) {
@@ -18,6 +18,7 @@ function Unit({ value, label }: { value: number; label: string }) {
 export default function Hero() {
   const cd = useCountdown(TRIP.startDate, TRIP.endDate);
   const heroImg = useWikiImage(TRIP.heroWiki, { big: true });
+  const heroSrc = imageUrl(TRIP.heroImage, 2000) ?? heroImg?.src;
 
   const status = cd.isBefore
     ? "Counting down to"
@@ -29,9 +30,10 @@ export default function Hero() {
     <header className="relative min-h-[88vh] overflow-hidden sm:min-h-[80vh]">
       {/* Full-bleed alpine photo with a gradient fallback underneath. */}
       <div className="absolute inset-0 bg-gradient-to-b from-glacier-700 via-glacier-600 to-meadow-600" />
-      {heroImg && (
+      {heroSrc && (
         <img
-          src={heroImg.src}
+          key={heroSrc}
+          src={heroSrc}
           alt="The Alps"
           className="absolute inset-0 h-full w-full object-cover"
         />

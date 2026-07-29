@@ -1,9 +1,12 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { useWikiImage } from "../lib/useWikiImage";
 
 /**
- * Shows a real photo (from an explicit src or a Wikipedia title) with a graceful
- * gradient fallback while loading or if the image is missing / fails.
+ * Shows a real photo with a graceful fallback chain: a pinned `src` first, then
+ * the Wikipedia lead image for `wiki`, then a gradient. The chain matters
+ * because a pinned photo is hand-picked and can rot (a Commons file gets
+ * renamed); when that happens we quietly drop back to the article photo rather
+ * than showing an empty card.
  */
 export default function SmartImage({
   wiki,
@@ -15,6 +18,7 @@ export default function SmartImage({
   children,
 }: {
   wiki?: string;
+  /** A pinned photo that wins over the Wikipedia lookup. */
   src?: string;
   alt: string;
   big?: boolean;
@@ -24,22 +28,34 @@ export default function SmartImage({
   children?: ReactNode;
 }) {
   const wikiImg = useWikiImage(wiki, { big });
-  const resolved = src ?? wikiImg?.src;
-  const [failed, setFailed] = useState(false);
-  const show = resolved && !failed;
+  const [srcFailed, setSrcFailed] = useState(false);
+  const [wikiFailed, setWikiFailed] = useState(false);
+
+  // A new pinned photo deserves a fresh attempt.
+  useEffect(() => setSrcFailed(false), [src]);
+  useEffect(() => setWikiFailed(false), [wikiImg?.src]);
+
+  const pinned = src && !srcFailed ? src : undefined;
+  const fallback = wikiImg?.src && !wikiFailed ? wikiImg.src : undefined;
+  const resolved = pinned ?? fallback;
 
   return (
-    <div className={`relative overflow-hidden bg-gradient-to-br from-glacier-200 via-meadow-200 to-sunset-200 ${className ?? ""}`}>
-      {show && (
+    <div
+      className={`relative overflow-hidden bg-gradient-to-br from-glacier-200 via-meadow-200 to-sunset-200 ${
+        className ?? ""
+      }`}
+    >
+      {resolved && (
         <img
+          key={resolved}
           src={resolved}
           alt={alt}
           loading="lazy"
-          onError={() => setFailed(true)}
+          onError={() => (resolved === pinned ? setSrcFailed(true) : setWikiFailed(true))}
           className="h-full w-full object-cover"
         />
       )}
-      {!show && (
+      {!resolved && (
         <div className="absolute inset-0 flex items-center justify-center">
           {/* Simple mountain glyph as the fallback motif. */}
           <svg viewBox="0 0 64 40" className="h-12 w-12 text-white/70" fill="currentColor" aria-hidden>
@@ -47,7 +63,7 @@ export default function SmartImage({
           </svg>
         </div>
       )}
-      {overlay && show && (
+      {overlay && resolved && (
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
       )}
       {children}

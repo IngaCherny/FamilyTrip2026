@@ -12,6 +12,11 @@ export interface Region {
   blurb: string;
   /** Wikipedia article title used to fetch a representative photo. */
   wiki?: string;
+  /**
+   * Pinned photo, winning over `wiki`. Either a full URL or a Wikimedia
+   * Commons file name. Use it when the article's lead image is a winter shot.
+   */
+  image?: string;
   /** Hidden from destination lists (e.g. the arrival/departure airport). */
   hidden?: boolean;
 }
@@ -170,6 +175,8 @@ export interface Attraction {
   link?: string;
   /** Wikipedia article title used to fetch a representative photo. */
   wiki?: string;
+  /** Pinned photo (full URL or Commons file name), winning over `wiki`. */
+  image?: string;
   /** Approximate admission, checked against 2025 rates. */
   price?: Price;
   /** Weekdays the place (or its lift) does not operate. */

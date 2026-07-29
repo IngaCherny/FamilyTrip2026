@@ -11,6 +11,7 @@ import Packing from "./components/Packing";
 import Emergency from "./components/Emergency";
 import SmartImage from "./components/SmartImage";
 import { DESTINATIONS, TRIP } from "./data/trip";
+import { imageUrl } from "./lib/format";
 
 function RegionsStrip() {
   return (
@@ -22,7 +23,7 @@ function RegionsStrip() {
       <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-3">
         {DESTINATIONS.map((r) => (
           <article key={r.id} className="card-paper group overflow-hidden">
-            <SmartImage wiki={r.wiki} alt={r.name} overlay className="h-36 w-full">
+            <SmartImage src={imageUrl(r.image, 800)} wiki={r.wiki} alt={r.name} overlay className="h-36 w-full">
               <div className="absolute bottom-0 left-0 p-3">
                 <h3 className="font-serif text-xl font-bold leading-tight text-white drop-shadow">{r.name}</h3>
                 <p className="text-xs text-white/80">{r.country}</p>
