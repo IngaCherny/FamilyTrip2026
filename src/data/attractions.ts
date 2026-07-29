@@ -39,6 +39,19 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["Kids", "Funicular", "Gentle walks"],
   },
   {
+    id: "triassic-park",
+    price: "Park free; Steinplatte gondola ~€31 adult return (children reduced, under-4s free). Free parking.",
+    wiki: "Steinplatte",
+    name: "Triassic Park, Steinplatte (Waidring)",
+    region: "wilderkaiser",
+    category: "kids",
+    coords: [47.588, 12.582],
+    link: "https://www.steinplatte.tirol/en/summer-in-triassic-park-1.html",
+    description:
+      "A dinosaur adventure world on top of the Steinplatte above Waidring, in the next valley north-east of the base. Ride the gondola up to life-size dinosaurs, dig for fossils at the 'Triassic Beach', paddle rafts, try the low ropes course and explore a stalactite cave, all on a plateau that was a coral reef 200 million years ago. Entry to the park itself is free, you only pay the lift.",
+    good_for: ["Dinosaurs", "Fossil digging", "Cable car"],
+  },
+  {
     id: "kitzbuehel",
     price: "Free (town); Hahnenkamm cable car ~€32 adult",
     wiki: "Kitzbühel",
@@ -237,15 +250,15 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "elfenweg",
-    price: "Free (parking at the San Nicolò church)",
-    wiki: "Vandoies",
+    price: "Free (Töpslplatz parking by the San Nicolò church)",
+    wiki: "Vintl",
     name: "Sentiero degli Elfi (Elves' Path), Vandoies",
     region: "southtyrol",
     category: "hike",
-    coords: [46.9005, 11.6595],
+    coords: [46.8139, 11.7549],
     link: "https://www.suedtirol.info/en/experiences/sentiero-degli-elfi_activity_11317526",
     description:
-      "A magical themed family walk above Vandoies di Sopra, only ~15 minutes from the hotel. Eleven storytelling stations (animal tracks, bees, deer, dry-stone walls, lizards) lead through the woods to the thundering 43 m Vandoies waterfall and a stone viewing balcony. About 4 km with 150 m of climbing, roughly an hour of gentle walking.",
+      "A magical themed family walk above Vandoies di Sopra, a short run down the valley road from the hotel. Eleven storytelling stations (animal tracks, bees, deer, dry-stone walls, lizards) lead past a deer enclosure to the thundering 43 m waterfall on the Rio di Terento and a stone viewing balcony. About 4 km with 150 m of climbing, roughly an hour of gentle walking.",
     good_for: ["Themed family walk", "Waterfall", "Story stations"],
   },
   {
@@ -258,7 +271,7 @@ export const ATTRACTIONS: Attraction[] = [
     coords: [46.8075, 11.872],
     link: "https://www.suedtirol.info/en/en/experiences-and-events/plp-experiences/experiences-south-tyrol/pdp-experience.smgpoi2c913117942466d1e992997a4a2948b0.farm-hike-between-chienes-kiens-and-san-sigismondo-st--sigmund.chienes-kiens",
     description:
-      "The closest walk of all, starting right in Kiens on the hotel's doorstep. A gentle valley-floor path winds between Kiens and the pretty hamlet of St. Sigmund past working farms, meadows and grazing animals, with the Dolomites as a backdrop. An easy stroll you can start straight from the hotel.",
+      "The closest walk of all, in the valley immediately below the hotel. A gentle valley-floor path winds between Kiens and the pretty hamlet of St. Sigmund past working farms, meadows and grazing animals, with the Dolomites as a backdrop. Close enough to walk to from the hotel rather than drive.",
     good_for: ["At the doorstep", "Farms & animals", "Gentle stroll"],
   },
   {
@@ -271,7 +284,7 @@ export const ATTRACTIONS: Attraction[] = [
     coords: [46.7967, 11.893],
     link: "https://www.kiens.bz/en/info/issinger-weiherlago-dissengo-pond_4243",
     description:
-      "A warm little swimming lake near Pfalzen, only ~10 minutes from the hotel, with a lawn, playground and a small water slide. A leisurely loop trail circles the water and returns through shady forest along the Pfalznerbach. The perfect close half-day: an easy family walk that ends in a swim.",
+      "A warm little swimming lake at Issing near Pfalzen, the next village along from the hotel, with a lawn, playground and a small water slide. A leisurely loop trail circles the water and returns through shady forest along the Pfalznerbach. The perfect close half-day: an easy family walk that ends in a swim. Bathing area open mid-June to end of August.",
     good_for: ["Swim & play", "Easy forest loop", "Very close"],
   },
   {
@@ -284,7 +297,7 @@ export const ATTRACTIONS: Attraction[] = [
     coords: [46.7928, 11.927],
     link: "https://www.bruneck.com/en/activity/walk-along-the-river-rienz-to-bruneck_23975",
     description:
-      "A shady, flat family walk barely ~12 minutes away, starting by the old Bruneck ice rink. Follow the Rienz river into the gently carved Rienz Gorge, or take the Sternwaldele nature trail through cool forest. Level, buggy-friendly and ideal for a hot afternoon, with Bruneck's old town and gelato at the end.",
+      "A shady, flat family walk on the edge of Bruneck, the nearest town to the hotel, starting by the old ice rink. Follow the Rienz river into the gently carved Rienz Gorge, or take the Sternwaldele nature trail through cool forest. Level, buggy-friendly and ideal for a hot afternoon, with Bruneck's old town and gelato at the end.",
     good_for: ["River gorge", "Shady & flat", "Buggy-friendly"],
   },
   {
@@ -297,7 +310,7 @@ export const ATTRACTIONS: Attraction[] = [
     coords: [46.6975, 11.7405],
     link: "https://www.plose.org/en/woodywalk/",
     description:
-      "A playful family adventure trail on the Plose above Brixen (~40 min west). From the gondola top station a wide, stroller-friendly path runs to the Rossalm past wooden play stations, a Kneipp water walk, giant loungers and a viking ship, all under the Peitlerkofel and Geisler spires. About 5 km, ~100 m of climb.",
+      "A playful family adventure trail on the Plose above Brixen, the furthest of these trails, out west beyond the mouth of the valley. From the gondola top station a wide, stroller-friendly path runs to the Rossalm past wooden play stations, a Kneipp water walk, giant loungers and a viking ship, all under the Peitlerkofel and Geisler spires. About 5 km, ~100 m of climb.",
     good_for: ["Wooden play stations", "Cable car", "Stroller-friendly"],
   },
 ];

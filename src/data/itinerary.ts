@@ -142,6 +142,16 @@ export const ITINERARY: Day[] = [
         coords: [47.5045, 12.3085],
         mapQuery: "Hartkaiser Funicular, Ellmau, Austria",
       },
+      {
+        title: "Triassic Park on the Steinplatte, Waidring",
+        tag: "kids",
+        attractionId: "triassic-park",
+        description:
+          "A dinosaur adventure world on a mountaintop that was a coral reef 200 million years ago. Gondola up to life-size dinosaurs, a fossil-digging beach, water rafts, a low ropes course and a stalactite cave. The park is free, you only pay the lift.",
+        kidNote: "Gondola up, then wide easy paths; a big hit for the 6 and 8 year olds. Cave and indoor Triassic Centre make it work in poor weather too.",
+        coords: [47.588, 12.582],
+        mapQuery: "Bergbahn Steinplatte, Alpegg 10, 6384 Waidring, Austria",
+      },
     ],
     food: [
       {
@@ -430,7 +440,7 @@ export const ITINERARY: Day[] = [
         tag: "walk",
         attractionId: "elfenweg",
         description:
-          "A magical themed walk barely 15 minutes from the hotel, with eleven storytelling stations through the woods to the 43 m Vandoies waterfall. A gentle, enchanting way to end the arrival day.",
+          "A magical themed walk a short run down the valley road, with eleven storytelling stations through the woods past a deer enclosure to the 43 m Vandoies waterfall. A gentle, enchanting way to end the arrival day.",
         kidNote: "About 4 km / ~1 hour, some climbing; carrier for the 2 year old. The story stations keep little ones going.",
         coords: [46.9005, 11.6595],
         mapQuery: "Sentiero degli Elfi, Vandoies di Sopra, Italy",
@@ -440,7 +450,7 @@ export const ITINERARY: Day[] = [
         tag: "walk",
         attractionId: "kiens-farmtrail",
         description:
-          "The closest walk of all, straight from the hotel: a gentle valley path between Kiens and the hamlet of St. Sigmund, past working farms and grazing animals with the Dolomites ahead. No driving needed.",
+          "The closest walk of all, in the valley just below the hotel: a gentle path between Kiens and the hamlet of St. Sigmund, past working farms and grazing animals with the Dolomites ahead. Close enough to walk to rather than drive.",
         kidNote: "Flat and short as you like; buggy-friendly on the valley sections. Animals to spot along the way.",
         coords: [46.8075, 11.872],
         mapQuery: "St. Sigmund, Kiens, Italy",
@@ -458,7 +468,7 @@ export const ITINERARY: Day[] = [
     tips: [
       "Italy charges per-trip motorway tolls; keep a card or euro coins for the booths.",
       "Sterzing is the nicest leg-stretch on this drive and very buggy-friendly.",
-      "The Elves' Path at Vandoies is the closest themed family walk to the hotel, an easy first taste of the valley.",
+      "The Elves' Path at Vandoies is the nearest themed family walk to the hotel, an easy first taste of the valley. Tap 'Drive here' on any option for the live driving time.",
     ],
   },
   {
@@ -495,7 +505,7 @@ export const ITINERARY: Day[] = [
         tag: "walk",
         attractionId: "woodywalk-plose",
         description:
-          "A themed family adventure trail ~40 minutes west: ride the Plose gondola up, then a wide, stroller-friendly path to the Rossalm past wooden play stations, a Kneipp water walk and a viking ship, under the Geisler spires.",
+          "A themed family adventure trail out west beyond the mouth of the valley, above Brixen: ride the Plose gondola up, then a wide, stroller-friendly path to the Rossalm past wooden play stations, a Kneipp water walk and a viking ship, under the Geisler spires.",
         kidNote: "Gondola up, then ~5 km of easy walking with play stops. Buggy-friendly; the play stations pace the little ones.",
         coords: [46.6975, 11.7405],
         mapQuery: "Plose cable car mountain station, Brixen, Italy",
@@ -547,7 +557,7 @@ export const ITINERARY: Day[] = [
         tag: "swim",
         attractionId: "issinger-weiher",
         description:
-          "A warm little swimming lake near Pfalzen, only ~10 minutes from the hotel, with a lawn, playground and small water slide. An easy loop circles the water and returns through shady forest along the stream, an easy walk that ends in a swim.",
+          "A warm little swimming lake at Issing near Pfalzen, the next village along from the hotel, with a lawn, playground and small water slide. An easy loop circles the water and returns through shady forest along the stream, an easy walk that ends in a swim.",
         kidNote: "Short, flat loop and safe shallow swimming; playground and slide on site. A great hot-day fallback close to base.",
         coords: [46.7967, 11.893],
         mapQuery: "Issinger Weiher, Pfalzen, Italy",
@@ -669,7 +679,7 @@ export const ITINERARY: Day[] = [
         tag: "walk",
         attractionId: "rienz-gorge",
         description:
-          "A shady, flat family walk barely ~12 minutes away: from the old Bruneck ice rink, follow the Rienz river into its gorge or take the Sternwaldele nature trail through cool forest, ending in Bruneck's old town for gelato.",
+          "A shady, flat family walk on the edge of Bruneck, the nearest town: from the old ice rink, follow the Rienz river into its gorge or take the Sternwaldele nature trail through cool forest, ending in the old town for gelato.",
         kidNote: "Level and buggy-friendly; a good hot-day option. Go as far as you like and turn back.",
         coords: [46.7928, 11.927],
         mapQuery: "Rienzschlucht, Bruneck, Italy",

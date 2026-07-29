@@ -17,6 +17,11 @@ export const TIPS: Tip[] = [
       "The scenic Timmelsjoch High Alpine Road between the Ötztal and South Tyrol is a paid toll road that closes overnight and in bad weather. Check it's open before routing over it; the Brenner motorway is the all-weather alternative.",
   },
   {
+    title: "Use 'Drive here' for real driving times",
+    body:
+      "Every option and stop has a 'Drive here' button that opens Google Maps directions from that day's base, and a Waze link next to it. Trust those for timings rather than any rough guide in the text: they account for the day's traffic, roadworks and pass closures, which matter a lot on single-lane alpine roads in August.",
+  },
+  {
     title: "Alpine weather changes fast",
     body:
       "Even in August, mountains can swing from sun to thunderstorms. Pack layers and a rain shell every day, start hikes early, and check cable-car and hut hours before heading up.",
