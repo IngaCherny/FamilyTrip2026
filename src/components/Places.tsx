@@ -165,7 +165,12 @@ export default function Places() {
                     </p>
                   )}
 
-                  <div className="mt-3 flex gap-4 border-t border-stone-100 pt-3 text-sm font-medium text-glacier-600">
+                  <div className="mt-3 flex flex-wrap gap-4 border-t border-stone-100 pt-3 text-sm font-medium text-glacier-600">
+                    {a.link && (
+                      <a href={a.link} target="_blank" rel="noreferrer" className="font-semibold">
+                        Official site
+                      </a>
+                    )}
                     <a href={links.google} target="_blank" rel="noreferrer">
                       Maps
                     </a>

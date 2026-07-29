@@ -91,14 +91,14 @@ export const ITINERARY: Day[] = [
         mapQuery: "Hintersteiner See, Scheffau am Wilden Kaiser, Austria",
       },
       {
-        title: "Koasa Trail kids loop, St. Johann",
-        wiki: "St. Johann in Tirol",
+        title: "Schnackler adventure trail, Kaiserbachtal",
         tag: "walk",
+        attractionId: "schnackler",
         description:
-          "Easy valley nature trails and a Kneipp water-treading pool just minutes from the apartment. Good if you want a relaxed half day.",
-        kidNote: "Flat gravel paths, buggy-friendly, water play.",
-        coords: [47.5226, 12.4239],
-        mapQuery: "St. Johann in Tirol, Austria",
+          "A story trail in the Kaiserbach valley just up the road, telling the tale of the Schnackler, a bored young shepherd who made music by clicking his tongue and snapping his fingers. Statues, boards, climbing frames and play areas along the way.",
+        kidNote: "About 2 km and roughly 45 minutes at kid pace, with play stops built in. Same valley as the Griesner Alm walk.",
+        coords: [47.5783, 12.3983],
+        mapQuery: "Kaiserbachtal, Kirchdorf in Tirol, Austria",
       },
     ],
     food: [

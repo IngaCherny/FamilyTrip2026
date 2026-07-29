@@ -85,6 +85,8 @@ function PlaceCard({
   const freeNote = freeChildrenNote(cost);
   const shutToday = date ? isClosedOnDate(attraction?.closedOn, date) : false;
   const offSeason = date ? isOutOfSeason(attraction?.season, date) : false;
+  // An option's own link wins; otherwise fall back to the attraction's official page.
+  const officialLink = link ?? attraction?.link;
   return (
     <div
       className={`overflow-hidden rounded-xl ring-1 ${
@@ -153,14 +155,14 @@ function PlaceCard({
                   {kidNote}
                 </p>
               )}
-              {link && (
+              {officialLink && (
                 <a
-                  href={link}
+                  href={officialLink}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-block text-sm font-semibold text-glacier-600 underline underline-offset-2"
                 >
-                  {linkLabel ?? "Official route"}
+                  {link ? linkLabel ?? "Official route" : "Official site"}
                 </a>
               )}
               <MapWithDirections destination={destination} origin={origin} coords={coords} height={180} />

@@ -49,6 +49,20 @@ export default defineConfig(({ mode }) => ({
             },
           },
           {
+            // Photos pinned via `image` can live on any host (a tourist board,
+            // for instance), so cache cross-origin images by request type
+            // rather than by hostname. Without this a pinned photo would be
+            // the one thing on the page that fails in a valley with no signal.
+            urlPattern: ({ request, url }) =>
+              request.destination === "image" && url.origin !== self.location.origin,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "pinned-images",
+              expiration: { maxEntries: 150, maxAgeSeconds: 60 * 60 * 24 * 60 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+          {
             urlPattern: ({ url }) => url.hostname.endsWith("basemaps.cartocdn.com"),
             handler: "CacheFirst",
             options: {

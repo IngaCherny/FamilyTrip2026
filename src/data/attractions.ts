@@ -11,6 +11,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "wilderkaiser",
     category: "lake",
     coords: [47.5631, 12.2522],
+    link: "https://www.wilderkaiser.info/en/hintersteinersee-lake-scheffau.html",
     description:
       "A turquoise mountain lake directly beneath the Wilder Kaiser walls. Clear, swimmable in August, with an easy 3 km loop around the shore.",
     good_for: ["Swimming", "Easy lake walk", "Picnics"],
@@ -23,6 +24,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "wilderkaiser",
     category: "kids",
     coords: [47.4836, 12.1869],
+    link: "https://hexenwasser.at/en/",
     description:
       "A 'witch's water' adventure world at the Hohe Salve, barefoot trails, water channels and forest play. Reached by the Söll gondola.",
     good_for: ["Kids", "Barefoot trail", "Cable car views"],
@@ -36,6 +38,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "wilderkaiser",
     category: "kids",
     coords: [47.5045, 12.3085],
+    link: "https://www.wilderkaiser.info/en/ellmau/info/ellmis-zauberwelt-am-hartkaiser.html",
     description:
       "Funicular from Ellmau up to a family playground and themed walking trails with the Wilder Kaiser as a backdrop.",
     good_for: ["Kids", "Funicular", "Gentle walks"],
@@ -61,6 +64,19 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["Dinosaurs", "Fossil digging", "Cable car"],
   },
   {
+    id: "schnackler",
+    price: { free: true, note: "Kaiserbachtal is a toll road, about €5 per car" },
+    wiki: "Wilder Kaiser",
+    name: "Schnackler adventure trail, Kaiserbachtal",
+    region: "wilderkaiser",
+    category: "kids",
+    coords: [47.5783, 12.3983],
+    link: "https://www.kitzbueheler-alpen.com/en/stjo/so/hiking/schnackler-adventure-trail.html",
+    description:
+      "A story trail for younger walkers in the Kaiserbach valley, a few minutes from the base. It tells the tale of the Schnackler, a young shepherd so bored minding the herd on the Griesener Alpe that he made music by clicking his tongue and snapping his fingers. Statues and boards mark the stations, with climbing frames and play areas along the way. About 2 km, roughly 45 minutes, and it runs into the same valley as the Griesner Alm walk.",
+    good_for: ["Story stations", "Play areas", "Short and easy"],
+  },
+  {
     id: "kitzbuehel",
     price: { free: true, note: "Town free; Hahnenkamm cable car ~€32 adult" },
     buggy: true,
@@ -69,6 +85,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "wilderkaiser",
     category: "town",
     coords: [47.4467, 12.3917],
+    link: "https://www.kitzbuehel.com/",
     description:
       "The famous medieval ski town, pretty in summer too, painted houses, cafés and the Hahnenkamm cable car for a high alpine stroll.",
     good_for: ["Town stroll", "Cafés", "Cable car"],
@@ -82,6 +99,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "wilderkaiser",
     category: "hike",
     coords: [47.5556, 12.3331],
+    link: "https://www.kitzbueheler-alpen.com/en/stjo/infra/a-z/griesner-alm.html",
     description:
       "Classic hut hike into the Kaisertal / Wilder Kaiser foothills, ending at a mountain hut for Kaiserschmarrn. Several distances possible.",
     good_for: ["Hiking", "Mountain hut lunch", "Big scenery"],
@@ -148,6 +166,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "oetz",
     category: "lake",
     coords: [47.2145, 10.8985],
+    link: "https://www.oetztal.com/en/activities/excursion-destinations",
     description:
       "A small, quiet lake in the woods at Habichen, effectively on the doorstep of the Ötztal apartment. A short, level circuit runs round the water with benches and a picnic spot, and it warms up enough to paddle. The easiest possible outing on a tired day, with no drive at all.",
     good_for: ["At the doorstep", "Short level loop", "Paddling"],
@@ -180,6 +199,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "oetz",
     category: "kids",
     coords: [47.2406, 10.8589],
+    link: "https://www.area47.at/en/",
     description:
       "The Alps' biggest outdoor adventure park at the mouth of the Ötztal, lake with slides and blobs, water obstacle courses, climbing and rafting.",
     good_for: ["Kids & teens", "Water park", "Adventure"],
@@ -192,6 +212,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "oetz",
     category: "hike",
     coords: [47.1361, 10.9286],
+    link: "https://www.oetztal.com/en/regions-villages/oetztal-a-z/stuibenfall-waterfall-tirol-s-biggest-waterfall.i-2e167aba-7e9a-4900-997c-fb7229210867",
     description:
       "Tyrol's highest waterfall (159 m) above Umhausen, with stairs, a suspension bridge and viewing platforms right in the spray.",
     good_for: ["Short hike", "Suspension bridge", "Spray & rainbows"],
@@ -206,6 +227,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "oetz",
     category: "spa",
     coords: [47.0711, 10.9756],
+    link: "https://www.aqua-dome.at/en/",
     description:
       "Striking thermal spa with outdoor saltwater bowls steaming under the mountains. A perfect rainy-day or tired-legs afternoon.",
     good_for: ["Thermal pools", "Relax", "Rainy day"],
@@ -219,6 +241,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "oetz",
     category: "lake",
     coords: [47.1986, 10.8806],
+    link: "https://www.oetztal.com/en/activities/excursion-destinations",
     description:
       "A small, warm, protected nature-reserve lake above Oetz with a flat loop trail and a little rowing-boat rental, swimmable in summer.",
     good_for: ["Swimming", "Easy loop", "Rowing boats"],
@@ -232,6 +255,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "oetz",
     category: "sight",
     coords: [46.9636, 11.0072],
+    link: "https://www.soelden.com/en/search-book/adventures/007elements",
     description:
       "Cable car to 3,058 m and the James Bond cinematic museum perched on the summit. High-alpine views, glacier panoramas and the Ice Q restaurant.",
     good_for: ["Cable car", "Bond fans", "Glacier views"],
@@ -244,6 +268,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "oetz",
     category: "sight",
     coords: [46.9075, 11.0972],
+    link: "https://www.timmelsjoch.com/",
     description:
       "A spectacular toll pass road (2,509 m) linking the Ötztal to South Tyrol, with sculpture viewpoints along the way. A scenic option for the transfer south.",
     good_for: ["Scenic drive", "Viewpoints", "Pass crossing"],
@@ -262,6 +287,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "southtyrol",
     category: "lake",
     coords: [46.6947, 12.0855],
+    link: "https://www.prags.bz/en",
     description:
       "The emerald jewel of the Dolomites, ringed by peaks. Walk the 3.5 km shore loop or hire a wooden rowing boat. Go early, it gets busy and needs a booked slot in summer.",
     good_for: ["Iconic photos", "Shore walk", "Rowing boats"],
@@ -275,6 +301,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "southtyrol",
     category: "hike",
     coords: [46.5447, 11.6075],
+    link: "https://www.seiseralm.it/en/info/getting-around/seiser-alm-aerial-cableway-summer.html",
     description:
       "Europe's largest high-alpine meadow, a vast rolling plateau under the Schlern. Cable car up, then gentle trails, huts and the Sassolungo spires ahead.",
     good_for: ["Meadow walks", "Cable car", "Mountain huts"],
@@ -287,6 +314,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "southtyrol",
     category: "hike",
     coords: [46.6186, 12.3055],
+    link: "https://www.drei-zinnen.bz/en",
     description:
       "The three iconic Dolomite towers. The 10 km loop is one of the world's great hikes; a toll road takes you to the Auronzo hut trailhead.",
     good_for: ["Big hike", "Dolomite icon", "Refuge stops"],
@@ -301,6 +329,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "southtyrol",
     category: "town",
     coords: [46.4983, 11.3548],
+    link: "https://www.iceman.it/en/",
     description:
       "The capital's South Tyrol Museum of Archaeology houses Ötzi the 5,300-year-old Iceman, the mummy found above the Ötztal. Arcaded streets and piazzas outside.",
     good_for: ["Museum", "Town & piazzas", "Rainy day"],
@@ -315,6 +344,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "southtyrol",
     category: "town",
     coords: [46.6628, 11.1869],
+    link: "https://www.trauttmansdorff.it/en/",
     description:
       "An elegant spa town with palm-lined promenades and the terraced Botanical Gardens of Trauttmansdorff Castle tumbling down the hillside.",
     good_for: ["Botanical gardens", "Promenade", "Town stroll"],
@@ -341,6 +371,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "southtyrol",
     category: "hike",
     coords: [46.6773, 12.363],
+    link: "https://www.suedtirol.info/en/en/experiences-and-events/nature/fischleintal-valley",
     description:
       "A flat, family-friendly valley in the Three Peaks Nature Park next to San Candido and Sexten, with the Sundial (Meridiana) peaks towering at the head of the valley. One of the loveliest gentle Dolomite walks, about a 45 minute drive from the Entdecker hotel.",
     good_for: ["Family valley walk", "Buggy-friendly", "Dolomite views"],
@@ -354,6 +385,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "southtyrol",
     category: "town",
     coords: [46.5675, 11.5597],
+    link: "https://www.castelrotto.info/",
     description:
       "A postcard South Tyrolean village with a landmark bell tower, gateway to the Seiser Alm. Good for an easy afternoon and dinner.",
     good_for: ["Village stroll", "Dinner", "Photos"],
