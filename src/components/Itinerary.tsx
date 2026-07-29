@@ -63,6 +63,7 @@ function PlaceCard({
   attraction,
   date,
   defaultOpen,
+  hero,
 }: {
   title: string;
   description: string;
@@ -81,8 +82,10 @@ function PlaceCard({
   date?: string;
   /** Start expanded (used for the day's chosen plan). */
   defaultOpen?: boolean;
+  /** Show a large banner photo and stay open (used for the day's chosen plan). */
+  hero?: boolean;
 }) {
-  const [open, setOpen] = useState(defaultOpen ?? false);
+  const [open, setOpen] = useState(hero || (defaultOpen ?? false));
   const priceText = formatPrice(attraction?.price);
   const cost = familyCost(attraction?.price, PARTY);
   const total = formatFamilyCost(cost);
@@ -91,6 +94,98 @@ function PlaceCard({
   const offSeason = date ? isOutOfSeason(attraction?.season, date) : false;
   // An option's own link wins; otherwise fall back to the attraction's official page.
   const officialLink = link ?? attraction?.link;
+
+  const body = (
+    <div className="space-y-3 px-3 pb-3">
+      {!hero && (
+        <div className="flex flex-wrap items-center gap-1.5">
+          <TagChip tag={tag} />
+        </div>
+      )}
+      <p className="text-sm text-stone-600">{description}</p>
+      {(shutToday || offSeason) && (
+        <p className="rounded-lg bg-sunset-200/50 p-2 text-sm font-medium text-stone-800 ring-1 ring-sunset-200">
+          {shutToday
+            ? `${closedLabel(attraction?.closedOn)} — and this day is one of them. Check before you drive.`
+            : `Runs ${attraction?.season?.from} to ${attraction?.season?.to}, so it may be shut on this date.`}
+        </p>
+      )}
+      {priceText && (
+        <p className="text-sm text-stone-700">
+          <span className="font-semibold text-meadow-700">Price: </span>
+          {priceText}
+          {total && (
+            <span className="block text-xs text-stone-500">
+              {total}
+              {freeNote && ` — ${freeNote}`}
+            </span>
+          )}
+        </p>
+      )}
+      {kidNote && (
+        <p className="rounded-lg bg-white/70 p-2 text-sm text-meadow-700 ring-1 ring-meadow-100">
+          <span className="font-semibold">For the kids: </span>
+          {kidNote}
+        </p>
+      )}
+      {officialLink && (
+        <a
+          href={officialLink}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-block text-sm font-semibold text-glacier-600 underline underline-offset-2"
+        >
+          {link ? linkLabel ?? "Official route" : "Official site"}
+        </a>
+      )}
+      <MapWithDirections destination={destination} origin={origin} coords={coords} height={180} />
+    </div>
+  );
+
+  // Hero layout: a big banner photo with the title and key facts on it,
+  // visible without tapping, then the details straight below.
+  if (hero) {
+    return (
+      <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-meadow-100">
+        <SmartImage
+          src={imageUrl(attraction?.image, 1000)}
+          wiki={imageWiki}
+          alt={title}
+          big
+          overlay
+          className="h-52 w-full sm:h-60"
+        >
+          <div className="absolute inset-x-0 bottom-0 p-4">
+            <div className="mb-1 flex flex-wrap items-center gap-1.5">
+              {tag && (
+                <span className="rounded-full bg-white/25 px-2 py-0.5 text-[11px] font-semibold text-white backdrop-blur-sm">
+                  {TAG_META[tag].label}
+                </span>
+              )}
+              {total && (
+                <span className="rounded-full bg-meadow-500/90 px-2 py-0.5 text-[11px] font-semibold text-white">
+                  {total}
+                </span>
+              )}
+              {attraction?.buggy && (
+                <span className="rounded-full bg-white/25 px-2 py-0.5 text-[11px] font-semibold text-white backdrop-blur-sm">
+                  Buggy OK
+                </span>
+              )}
+              {(shutToday || offSeason) && (
+                <span className="rounded-full bg-sunset-300 px-2 py-0.5 text-[11px] font-semibold text-stone-900">
+                  {shutToday ? "Closed today" : "Out of season"}
+                </span>
+              )}
+            </div>
+            <h3 className="font-serif text-2xl font-bold leading-tight text-white drop-shadow">{title}</h3>
+          </div>
+        </SmartImage>
+        <div className="pt-3">{body}</div>
+      </div>
+    );
+  }
+
   return (
     <div
       className={`overflow-hidden rounded-xl ring-1 ${
@@ -129,48 +224,7 @@ function PlaceCard({
             transition={{ duration: 0.22 }}
             className="overflow-hidden"
           >
-            <div className="space-y-3 px-3 pb-3">
-              <div className="flex flex-wrap items-center gap-1.5">
-                <TagChip tag={tag} />
-              </div>
-              <p className="text-sm text-stone-600">{description}</p>
-              {(shutToday || offSeason) && (
-                <p className="rounded-lg bg-sunset-200/50 p-2 text-sm font-medium text-stone-800 ring-1 ring-sunset-200">
-                  {shutToday
-                    ? `${closedLabel(attraction?.closedOn)} — and this day is one of them. Check before you drive.`
-                    : `Runs ${attraction?.season?.from} to ${attraction?.season?.to}, so it may be shut on this date.`}
-                </p>
-              )}
-              {priceText && (
-                <p className="text-sm text-stone-700">
-                  <span className="font-semibold text-meadow-700">Price: </span>
-                  {priceText}
-                  {total && (
-                    <span className="block text-xs text-stone-500">
-                      {total}
-                      {freeNote && ` — ${freeNote}`}
-                    </span>
-                  )}
-                </p>
-              )}
-              {kidNote && (
-                <p className="rounded-lg bg-white/70 p-2 text-sm text-meadow-700 ring-1 ring-meadow-100">
-                  <span className="font-semibold">For the kids: </span>
-                  {kidNote}
-                </p>
-              )}
-              {officialLink && (
-                <a
-                  href={officialLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-block text-sm font-semibold text-glacier-600 underline underline-offset-2"
-                >
-                  {link ? linkLabel ?? "Official route" : "Official site"}
-                </a>
-              )}
-              <MapWithDirections destination={destination} origin={origin} coords={coords} height={180} />
-            </div>
+            {body}
           </motion.div>
         )}
       </AnimatePresence>
@@ -199,9 +253,13 @@ function DayCard({
   const region = regionById(day.region);
   const regionWiki = region.wiki ?? "Munich";
   const [showChange, setShowChange] = useState(false);
+  const [showStops, setShowStops] = useState(false);
   // The plan is the picked option, or the first as a sensible default.
   const chosen = day.options.find((o) => o.title === pick) ?? day.options[0];
   const others = day.options.filter((o) => o.title !== chosen?.title);
+  const chosenAttr = chosen?.attractionId ? attractionById(chosen.attractionId) : undefined;
+  const headerImg = imageUrl(chosenAttr?.image, 300);
+  const headerWiki = chosen?.wiki ?? chosenAttr?.wiki ?? regionWiki;
   return (
     <motion.div
       id={`day-${day.date}`}
@@ -211,14 +269,16 @@ function DayCard({
       transition={{ duration: 0.35 }}
       className={`card-paper overflow-hidden ${isToday ? "ring-2 ring-glacier-500" : ""}`}
     >
-      <button onClick={onToggle} className="flex w-full items-center gap-4 p-4 text-left">
-        <div
-          className={`flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl ${
-            isToday ? "bg-glacier-600 text-white" : "bg-glacier-50 text-glacier-700"
-          }`}
-        >
-          <span className="text-[10px] font-semibold uppercase tracking-wide">Day</span>
-          <span className="font-serif text-2xl font-bold leading-none">{index + 1}</span>
+      <button onClick={onToggle} className="flex w-full items-center gap-4 p-3 text-left">
+        <div className="relative h-20 w-20 shrink-0">
+          <SmartImage src={headerImg} wiki={headerWiki} alt={chosen?.title ?? day.title} className="h-20 w-20 rounded-xl" />
+          <span
+            className={`absolute left-1 top-1 rounded-md px-1.5 py-0.5 text-[10px] font-bold ${
+              isToday ? "bg-glacier-600 text-white" : "bg-white/85 text-glacier-700"
+            }`}
+          >
+            Day {index + 1}
+          </span>
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 text-xs text-stone-500">
@@ -267,22 +327,42 @@ function DayCard({
                     </div>
                   )}
                   {day.drive.stops && day.drive.stops.length > 0 && (
-                    <div className="mt-3 space-y-2">
-                      <p className="kicker">Stops along the way</p>
-                      {day.drive.stops.map((s: RouteStop) => (
-                        <PlaceCard
-                          key={s.name}
-                          title={s.name}
-                          description={s.description}
-                          tag={s.tag}
-                          destination={placeQuery(s)}
-                          coords={s.coords}
-                          imageWiki={s.wiki ?? regionWiki}
-                          accent="stop"
-                          attraction={s.attractionId ? attractionById(s.attractionId) : undefined}
-                          date={day.date}
-                        />
-                      ))}
+                    <div className="mt-3">
+                      <button
+                        onClick={() => setShowStops((v) => !v)}
+                        className="tap flex w-full items-center justify-between rounded-lg bg-white/70 px-3 py-2 text-left ring-1 ring-stone-200"
+                      >
+                        <span className="kicker">Stops along the way ({day.drive.stops.length})</span>
+                        <Caret open={showStops} />
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {showStops && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.22 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="space-y-2 pt-2">
+                              {day.drive.stops.map((s: RouteStop) => (
+                                <PlaceCard
+                                  key={s.name}
+                                  title={s.name}
+                                  description={s.description}
+                                  tag={s.tag}
+                                  destination={placeQuery(s)}
+                                  coords={s.coords}
+                                  imageWiki={s.wiki ?? regionWiki}
+                                  accent="stop"
+                                  attraction={s.attractionId ? attractionById(s.attractionId) : undefined}
+                                  date={day.date}
+                                />
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   )}
                 </div>
@@ -311,7 +391,7 @@ function DayCard({
                     accent="option"
                     attraction={chosen.attractionId ? attractionById(chosen.attractionId) : undefined}
                     date={day.date}
-                    defaultOpen
+                    hero
                   />
 
                   {others.length > 0 && (
