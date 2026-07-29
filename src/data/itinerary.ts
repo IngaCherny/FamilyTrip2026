@@ -77,50 +77,8 @@ export const ITINERARY: Day[] = [
     region: "wilderkaiser",
     base: "Apartment Streif LXL",
     baseQuery: BASE_STREIF,
-    title: "Lakes and meadows",
-    subtitle: "Ease into the mountains",
-    options: [
-      {
-        title: "Hintersteiner See lake walk and swim",
-        tag: "lake",
-        attractionId: "hintersteiner-see",
-        description:
-          "A turquoise lake under the Kaiser walls. Walk as much of the flat shore path as little legs allow, then swim in the clear shallows.",
-        kidNote: "Mostly flat shore loop (~3.5 km, shorten freely). Carrier for the 2 year old. Swimming.",
-        coords: [47.5631, 12.2522],
-        mapQuery: "Hintersteiner See, Scheffau am Wilden Kaiser, Austria",
-      },
-      {
-        title: "Schnackler adventure trail, Kaiserbachtal",
-        tag: "walk",
-        attractionId: "schnackler",
-        description:
-          "A story trail in the Kaiserbach valley just up the road, telling the tale of the Schnackler, a bored young shepherd who made music by clicking his tongue and snapping his fingers. Statues, boards, climbing frames and play areas along the way.",
-        kidNote: "About 2 km and roughly 45 minutes at kid pace, with play stops built in. Same valley as the Griesner Alm walk.",
-        coords: [47.5783, 12.3983],
-        mapQuery: "Kaiserbachtal, Kirchdorf in Tirol, Austria",
-      },
-    ],
-    food: [
-      {
-        name: "Cafe Bärnstatt, Hintersteiner See",
-        description:
-          "A lakeside farm cafe famous with families: a big adventure playground plus goats, ponies and rabbits to visit, and Kaiserschmarrn on the terrace.",
-        playground: true,
-        coords: [47.5613, 12.2556],
-        mapQuery: "Cafe Bärnstatt, Hintersteiner See, Scheffau, Austria",
-      },
-    ],
-    tips: ["Mornings are quietest and easiest for parking at Hintersteiner See."],
-  },
-  {
-    date: "2026-08-15",
-    weekday: "Saturday",
-    region: "wilderkaiser",
-    base: "Apartment Streif LXL",
-    baseQuery: BASE_STREIF,
-    title: "Water world or magic mountain",
-    subtitle: "Big family fun",
+    title: "Hexenwasser Söll",
+    subtitle: "The big witch's water day",
     options: [
       {
         title: "Hexenwasser Söll (witch's water)",
@@ -133,6 +91,117 @@ export const ITINERARY: Day[] = [
         mapQuery: "Hexenwasser Söll, Austria",
       },
       {
+        title: "Hintersteiner See lake walk and swim",
+        tag: "lake",
+        attractionId: "hintersteiner-see",
+        description:
+          "A quieter alternative: a turquoise lake under the Kaiser walls. Walk as much of the flat shore path as little legs allow, then swim in the clear shallows.",
+        kidNote: "Mostly flat shore loop (~3.5 km, shorten freely). Carrier for the 2 year old. Swimming.",
+        coords: [47.5631, 12.2522],
+        mapQuery: "Hintersteiner See, Scheffau am Wilden Kaiser, Austria",
+      },
+    ],
+    food: [
+      {
+        name: "Cafe Bärnstatt, Hintersteiner See",
+        description:
+          "A lakeside farm cafe famous with families: a big adventure playground plus goats, ponies and rabbits to visit, and Kaiserschmarrn on the terrace.",
+        playground: true,
+        coords: [47.5613, 12.2556],
+        mapQuery: "Cafe Bärnstatt, Hintersteiner See, Scheffau, Austria",
+      },
+    ],
+    tips: [
+      "Do the big grocery shop today. Tomorrow is a public holiday and Sunday follows it, so the shops are shut for two days straight.",
+      "Check the cable-car operating hours and last descent before heading up.",
+    ],
+  },
+  {
+    date: "2026-08-15",
+    weekday: "Saturday",
+    region: "wilderkaiser",
+    base: "Apartment Streif LXL",
+    baseQuery: BASE_STREIF,
+    title: "Schnackler trail in the Kaiserbachtal",
+    subtitle: "A quiet valley on a busy holiday",
+    options: [
+      {
+        title: "Schnackler adventure trail, Kaiserbachtal",
+        tag: "walk",
+        attractionId: "schnackler",
+        description:
+          "A story trail in the Kaiserbach valley just up the road, telling the tale of the Schnackler, a bored young shepherd who made music by clicking his tongue and snapping his fingers. Statues, boards, climbing frames and play areas along the way.",
+        kidNote:
+          "About 2 km and roughly 45 minutes at kid pace, with play stops built in. Out and back on the same path, so simply turn around when you have had enough.",
+        coords: [47.5783, 12.3983],
+        mapQuery: "Fischbachalm, Kaiserbachtal, Kirchdorf in Tirol, Austria",
+      },
+      {
+        title: "Carry on up the Kaiserbachtal to the Griesner Alm",
+        tag: "hike",
+        attractionId: "gaudeamushuette",
+        description:
+          "The same valley, further in: a gentle, scenic track under the Wilder Kaiser walls ending at the Griesner Alm for Kaiserschmarrn. Pairs naturally with the Schnackler trail since both start from the same toll road.",
+        kidNote: "Wide, mostly flat track. Buggy possible as far as the Griesner Alm; carrier beyond.",
+        coords: [47.5783, 12.3983],
+        mapQuery: "Griesner Alm, Kirchdorf in Tirol, Austria",
+      },
+      {
+        title: "Grießbachklamm gorge, Erpfendorf",
+        tag: "walk",
+        attractionId: "griessbachklamm",
+        description:
+          "A cool, wild little gorge just up the road, where walkways and small suspension bridges carry the path over the tumbling Grießbach. Shady, and usually quieter than the mountain parks on a holiday.",
+        kidNote: "Short loop ~1¼ hours. Bridges and steps mean a carrier for the 2 year old, no buggy.",
+        coords: [47.5545, 12.4295],
+        mapQuery: "Grießbachklamm, Erpfendorf, Austria",
+      },
+    ],
+    food: [
+      {
+        name: "Alpengasthaus Griesner Alm",
+        description:
+          "At the end of the Kaiserbachtal toll road at 1,024 m, right where the Schnackler trail leads. Open daily 08:00 to 22:00 from June to late October, and used to families.",
+        coords: [47.5783, 12.3983],
+        mapQuery: "Alpengasthaus Griesner Alm, Kirchdorf in Tirol, Austria",
+      },
+    ],
+    tips: [
+      "Today is Mariä Himmelfahrt, a public holiday across Austria and Ferragosto in Italy. Shops are shut and the gondola-served parks will be at their busiest all summer, which is exactly why the quiet valley is the better call.",
+      "Drive Kirchdorf to Gasteig to Griesenau, then left into the Kaiserbachtal. Pay at the toll station after 650 m and keep driving to the Fischbachalm car park, where the trail starts.",
+      "The Schnackler trail is out and back rather than a loop, so there is nothing to arrange for the return: just walk back to the car.",
+    ],
+  },
+  {
+    date: "2026-08-16",
+    weekday: "Sunday",
+    region: "wilderkaiser",
+    base: "Apartment Streif LXL",
+    baseQuery: BASE_STREIF,
+    title: "Triassic Park on the Steinplatte",
+    subtitle: "Dinosaurs on an old coral reef",
+    options: [
+      {
+        title: "Triassic Park on the Steinplatte, Waidring",
+        tag: "kids",
+        attractionId: "triassic-park",
+        description:
+          "A dinosaur adventure world on a mountaintop that was a coral reef 200 million years ago. Gondola up to life-size dinosaurs, a fossil-digging beach, water rafts, a low ropes course and a stalactite cave. The park is free, you only pay the lift.",
+        kidNote: "Gondola up, then wide easy paths; a big hit for the 6 and 8 year olds. Cave and indoor Triassic Centre make it work in poor weather too.",
+        coords: [47.588, 12.582],
+        mapQuery: "Bergbahn Steinplatte, Alpegg 10, 6384 Waidring, Austria",
+      },
+      {
+        title: "KaiserWelt Scheffau on the Brandstadl",
+        tag: "playground",
+        attractionId: "kaiserwelt",
+        description:
+          "Ride the Brandstadlbahn up to a play realm at 1,650 m: through a castle gate into the KaiserWald, with castle walls, treehouses, a climbing wall, a sporting course and the Little People's forest.",
+        kidNote: "The gondola takes pushchairs, and the park is free once you have a lift ticket. Easy trails between stations suit all three ages.",
+        coords: [47.5028, 12.2547],
+        mapQuery: "Brandstadlbahn, Scheffau am Wilden Kaiser, Austria",
+      },
+      {
         title: "Ellmi's Zauberwelt at Hartkaiser, Ellmau",
         tag: "cablecar",
         attractionId: "hartkaiser-ellmi",
@@ -143,24 +212,14 @@ export const ITINERARY: Day[] = [
         mapQuery: "Hartkaiser Funicular, Ellmau, Austria",
       },
       {
-        title: "KaiserWelt Scheffau on the Brandstadl",
-        tag: "playground",
-        attractionId: "kaiserwelt",
+        title: "Kitzbühel old town and Schwarzsee",
+        tag: "town",
+        attractionId: "kitzbuehel",
         description:
-          "Ride the Brandstadlbahn up to a play realm at 1,650 m: through a castle gate into the KaiserWald, with castle walls, treehouses, a climbing wall, a sporting course and the Little People's forest, all linked by easy family trails.",
-        kidNote: "The gondola takes pushchairs, and the park is free once you have a lift ticket. Easy trails between stations suit all three ages.",
-        coords: [47.5028, 12.2547],
-        mapQuery: "Brandstadlbahn, Scheffau am Wilden Kaiser, Austria",
-      },
-      {
-        title: "Triassic Park on the Steinplatte, Waidring",
-        tag: "kids",
-        attractionId: "triassic-park",
-        description:
-          "A dinosaur adventure world on a mountaintop that was a coral reef 200 million years ago. Gondola up to life-size dinosaurs, a fossil-digging beach, water rafts, a low ropes course and a stalactite cave. The park is free, you only pay the lift.",
-        kidNote: "Gondola up, then wide easy paths; a big hit for the 6 and 8 year olds. Cave and indoor Triassic Centre make it work in poor weather too.",
-        coords: [47.588, 12.582],
-        mapQuery: "Bergbahn Steinplatte, Alpegg 10, 6384 Waidring, Austria",
+          "Wander the painted medieval town, then cool off at the warm, shallow Schwarzsee lake with a lido and playground just outside town.",
+        kidNote: "Easy town stroll plus a warm swimming lake. Buggy-friendly.",
+        coords: [47.4467, 12.3917],
+        mapQuery: "Schwarzsee, Kitzbühel, Austria",
       },
     ],
     food: [
@@ -174,53 +233,9 @@ export const ITINERARY: Day[] = [
       },
     ],
     tips: [
-      "Three gondola-served kids' worlds are in reach today: Hexenwasser, Ellmi's and KaiserWelt. Pick one, each is a full day.",
+      "Shops are shut again today, the second of the two closed days, so everything should already be in the fridge.",
+      "Triassic Park entry is free and you pay only the Steinplatte gondola, which the Kitzbühel Alps Summer Card also covers.",
       "Check the cable-car operating hours and last descent before heading up.",
-    ],
-  },
-  {
-    date: "2026-08-16",
-    weekday: "Sunday",
-    region: "wilderkaiser",
-    base: "Apartment Streif LXL",
-    baseQuery: BASE_STREIF,
-    title: "Valley hike or pretty Kitzbühel",
-    subtitle: "Choose your pace",
-    options: [
-      {
-        title: "Kaiserbachtal valley walk to Griesner Alm",
-        tag: "hike",
-        attractionId: "gaudeamushuette",
-        description:
-          "A gentle, scenic valley track deep into the Wilder Kaiser ending at mountain huts for strudel. Turn back whenever the kids have had enough.",
-        kidNote: "Wide, mostly flat track. Buggy possible to Griesner Alm; carrier beyond. Hut food at the end.",
-        coords: [47.5783, 12.3983],
-        mapQuery: "Griesner Alm, Kirchdorf in Tirol, Austria",
-      },
-      {
-        title: "Kitzbühel old town and Schwarzsee",
-        tag: "town",
-        attractionId: "kitzbuehel",
-        description:
-          "Wander the painted medieval town, then cool off at the warm, shallow Schwarzsee lake with a lido and playground just outside town.",
-        kidNote: "Easy town stroll plus a warm swimming lake. Buggy-friendly.",
-        coords: [47.4467, 12.3917],
-        mapQuery: "Schwarzsee, Kitzbühel, Austria",
-      },
-      {
-        title: "Grießbachklamm gorge, Erpfendorf",
-        tag: "walk",
-        attractionId: "griessbachklamm",
-        description:
-          "A cool, wild little gorge just up the road, where walkways and small suspension bridges carry the path over the tumbling Grießbach. A proper adventure for short legs without a long climb, and shady on a hot day.",
-        kidNote: "Short loop ~1¼ hours. Bridges and steps mean a carrier for the 2 year old, no buggy. The 6 and 8 year olds will love the bridges.",
-        coords: [47.5545, 12.4295],
-        mapQuery: "Grießbachklamm, Erpfendorf, Austria",
-      },
-    ],
-    tips: [
-      "Pack a layer and rain shell; alpine weather turns fast even in August.",
-      "The Grießbachklamm is the best hot-day option here: shaded, cool and close.",
     ],
   },
   {
@@ -305,9 +320,41 @@ export const ITINERARY: Day[] = [
     region: "oetz",
     base: "Falkners Five",
     baseQuery: BASE_FALKNER,
-    title: "Adventure park or iceman village",
-    subtitle: "Big fun day",
+    title: "WIDI day at Hochoetz",
+    subtitle: "Play world plus one themed trail",
     options: [
+      {
+        title: "WIDIVERSUM Hochoetz play world",
+        tag: "kids",
+        attractionId: "widiversum",
+        description:
+          "The Acherkogelbahn lifts you straight from Oetz to Hochoetz, where 36 play and puzzle stations are spread over 3,000 m² of mountainside, themed around WIDI the mountain sheep.",
+        kidNote: "Gondola up, wide mostly level paths near the top station, so a buggy works around the main area. Stations suit all three ages.",
+        coords: [47.2075, 10.9375],
+        mapQuery: "WIDIVERSUM Hochoetz, Oetz, Austria",
+      },
+      {
+        title: "WIDI trail A: Glück auf! World of the miners",
+        tag: "walk",
+        attractionId: "widi-glueck-auf",
+        description:
+          "The shorter of the two themed trails: 2.7 km and 110 m of climbing over the Balbach to the Kühtaile Alm, where the miner Kuno tells the story of mining in the valley. There is a hut partway for refreshments.",
+        kidNote:
+          "About 1¼ hours on paper, so closer to 2½ with children stopping at everything. The hut halfway is the reason to pick this one.",
+        coords: [47.2075, 10.9375],
+        mapQuery: "Kühtaile Alm, Hochoetz, Austria",
+      },
+      {
+        title: "WIDI trail B: Hoch hinaus! For summit conquerors",
+        tag: "walk",
+        attractionId: "widi-hoch-hinaus",
+        description:
+          "The bigger-feeling one, though it only climbs about 130 m: from the Panorama Restaurant at 2,020 m via the Balanceakt to the Bielefelder Hütte at 2,150 m, then the climbing crystal, WIDI's photo platform and a Hollywood swing before looping back.",
+        kidNote:
+          "Roughly 3.5 km and an hour on paper, again about double that in practice. Pick this one for the mountain hut and the summit views rather than for difficulty.",
+        coords: [47.2075, 10.9375],
+        mapQuery: "Bielefelder Hütte, Hochoetz, Austria",
+      },
       {
         title: "Area 47 water playground",
         tag: "swim",
@@ -338,17 +385,6 @@ export const ITINERARY: Day[] = [
           "Minimum age 3 to ride even with an adult, so the 2 year old cannot go on the coaster; Albin's play park at the base covers her instead. From 8 and 1.25 m they may ride alone, so the 8 year old probably can.",
         coords: [47.2231, 10.7256],
         mapQuery: "Alpine Coaster Imst, Hoch-Imst, Austria",
-      },
-      {
-        title: "Habicher See, the lake at the doorstep",
-        tag: "lake",
-        attractionId: "habicher-see",
-        description:
-          "A quiet little woodland lake right at Habichen, effectively next to the apartment. A short level circuit runs round the water with benches and a picnic spot, and it warms up enough to paddle.",
-        kidNote:
-          "The lake circuit itself is short, flat and buggy-friendly with no drive at all. To make more of it, walk out from Oetz on the '9 Schätze' route for the ice cellar and the treasure chest, but that one climbs gently through forest, so carrier rather than buggy.",
-        coords: [47.2145, 10.8985],
-        mapQuery: "Habicher See, Oetz, Austria",
       },
     ],
     tips: [
@@ -444,28 +480,19 @@ export const ITINERARY: Day[] = [
     region: "oetz",
     base: "Falkners Five",
     baseQuery: BASE_FALKNER,
-    title: "High cable car or gentle gorge",
-    subtitle: "Heights or shade",
+    title: "Treasure hunt or an easy river walk",
+    subtitle: "Last full day in the Ötztal",
     options: [
       {
-        title: "Gaislachkogl cable car, Sölden",
-        tag: "cablecar",
-        attractionId: "soelden-007",
+        title: "Treasure hunt village round, Ochsengarten",
+        tag: "walk",
+        attractionId: "ochsengarten-schatzsuche",
         description:
-          "Ride to 3,058 m for glacier views and the 007 Elements film world on the summit. A thrilling, low-effort way to reach the high mountains.",
-        kidNote: "All the height with no climbing. Bring warm layers; it is cold at the top even in August.",
-        coords: [46.9636, 11.0072],
-        mapQuery: "Gaislachkoglbahn, Sölden, Austria",
-      },
-      {
-        title: "WIDIVERSUM Hochoetz play trail",
-        tag: "kids",
-        attractionId: "widiversum",
-        description:
-          "The kid-focused alternative to the Gaislachkogl: the Acherkogelbahn lifts you straight from Oetz to Hochoetz, where a themed trail follows WIDI the dragon between 36 play and puzzle stations across the mountainside.",
-        kidNote: "Gondola up, wide mostly level paths near the top station, so a buggy works around the main area. Stations suit all three ages.",
-        coords: [47.2075, 10.9375],
-        mapQuery: "WIDIVERSUM Hochoetz, Oetz, Austria",
+          "The gentlest themed walk in the valley: 2.94 km with only 51 m of climbing, up through forest on one side of the stream and back along the other. Find the caches, collect a letter from each, and the solution word earns a gift at the info office.",
+        kidNote:
+          "Wide enough to push a buggy the whole way round, about 1¼ hours, and it finishes at a children's playground. The easiest of the three options for this day.",
+        coords: [47.199, 10.9986],
+        mapQuery: "Ochsengarten 27, 6433 Haiming, Austria",
       },
       {
         title: "Auer Klamm gorge walk, Oetz",
@@ -489,8 +516,21 @@ export const ITINERARY: Day[] = [
         link: "https://www.oetztal.com/en/activities/summer/hiking-mountaineering/hiking-regions/oetz-region",
         linkLabel: "Oetz hiking region on oetztal.com",
       },
+      {
+        title: "Gaislachkogl cable car, Sölden",
+        tag: "cablecar",
+        attractionId: "soelden-007",
+        description:
+          "Ride to 3,058 m for glacier views and the 007 Elements film world on the summit. A thrilling, low-effort way to reach the high mountains.",
+        kidNote: "All the height with no climbing. Bring warm layers; it is cold at the top even in August.",
+        coords: [46.9636, 11.0072],
+        mapQuery: "Gaislachkoglbahn, Sölden, Austria",
+      },
     ],
-    tips: ["Decide heights versus shade by the morning weather and how tired everyone is."],
+    tips: [
+      "Of the three routes considered for today, two are good and one is not. Ochsengarten and the Andreas-Hofer-Weg are both gentle and buggy-friendly; the Wasserläufer Piburger See theme trail is listed as easy but is 9.2 km with 538 m of climbing and a steep pull to the Seejöchl, so it is not a toddler route.",
+      "Decide by the morning weather and how tired everyone is.",
+    ],
   },
   {
     date: "2026-08-21",

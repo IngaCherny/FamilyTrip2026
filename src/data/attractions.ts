@@ -172,6 +172,58 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["At the doorstep", "Treasure chest & ice cellar", "Paddling"],
   },
   {
+    id: "widi-glueck-auf",
+    price: {
+      adult: 30,
+      child: 18,
+      covers: "Acherkogelbahn return",
+      freeUnder: 4,
+      note: "Same lift ticket as the Widiversum, so the trail costs nothing extra.",
+    },
+    wiki: "Oetz",
+    name: "WIDI trail: Glück auf! The world of the miners",
+    region: "oetz",
+    category: "hike",
+    coords: [47.2075, 10.9375],
+    link: "https://www.oetztal.com/en/activities/all-routes-tours/widi-theme-trail-glueck-auf-die-spannende-welt-der-bergmaenner.r-41105330",
+    description:
+      "2.7 km, about 1¼ hours, 110 m of climbing between 1,951 and 2,061 m. Runs over the Balbach to the Kühtaile Alm, where the miner Kuno tells the story of mining in the valley. Rated easy and family-friendly, with a hut for refreshments partway and the gondola doing the height for you.",
+    good_for: ["Shortest of the two", "Hut halfway", "Mining story"],
+  },
+  {
+    id: "widi-hoch-hinaus",
+    price: {
+      adult: 30,
+      child: 18,
+      covers: "Acherkogelbahn return",
+      freeUnder: 4,
+      note: "Same lift ticket as the Widiversum, so the trail costs nothing extra.",
+    },
+    wiki: "Acherkogel",
+    name: "WIDI trail: Hoch hinaus! The round for summit conquerors",
+    region: "oetz",
+    category: "hike",
+    coords: [47.2075, 10.9375],
+    link: "https://www.oetztal.com/en/activities/all-routes-tours/widi-theme-trails-hoch-hinaus.r-41103820",
+    description:
+      "About 3.5 km and an hour of walking, from the Panorama Restaurant at 2,020 m via the Balanceakt to the Bielefelder Hütte at 2,150 m, then the climbing crystal, WIDI's photo platform and a Hollywood swing before looping back. Despite the name it only gains around 130 m, and every station is built for children.",
+    good_for: ["Mountain hut on the way", "Climbing crystal", "Big summit views"],
+  },
+  {
+    id: "ochsengarten-schatzsuche",
+    price: { free: true, note: "Free, and the solution word earns a small gift at the Ochsengarten or Oetz info office." },
+    wiki: "Haiming, Tyrol",
+    name: "Treasure hunt village round, Ochsengarten",
+    region: "oetz",
+    category: "kids",
+    coords: [47.199, 10.9986],
+    link: "https://www.oetztal.com/en/activities/all-routes-tours/treasure-hunt-village-round-ochsengarten.r-804275843",
+    buggy: true,
+    description:
+      "The gentlest themed walk in the valley and the best of the treasure hunts: 2.94 km with only 51 m of climbing, about 1¼ hours, up through forest on one side of the stream and back along the other. Small caches hidden along the way each hold a letter; collect them all to spell the solution word and claim a gift at the info office. The path is wide enough to push a buggy the whole way, and it ends at a children's playground.",
+    good_for: ["Buggy the whole way", "Real treasure hunt", "Playground at the end"],
+  },
+  {
     id: "alpine-coaster-imst",
     price: {
       adult: 15,
