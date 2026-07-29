@@ -474,6 +474,54 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["Lakeside playground", "Flat near shore", "Cool valley air"],
   },
   {
+    id: "pustertal-radweg",
+    price: {
+      free: true,
+      note: "Path free; bike hire extra. Parking in Kiens sits right by the route, and the Südtirol Guest Pass covers the train back if you ride one way.",
+    },
+    wiki: "Puster Valley",
+    name: "Pustertal cycle path (from Kiens)",
+    region: "southtyrol",
+    category: "sight",
+    coords: [46.797, 11.859],
+    link: "https://www.kiens.bz/en/activity/pustertal-valley-bike-route_5060",
+    description:
+      "The valley cycle route runs straight through Kiens, so this one starts at the door. The Mühlbach to Bruneck section is about 25.5 km and almost completely flat, fully asphalted and largely away from the road, threaded through Niedervintl, Obervintl, Kiens, Ehrenburg and St. Lorenzen. Ride the short leg east into Bruneck for gelato and roll back, or head west toward Vandoies and the Elves' Path. Picnic tables and benches all along it.",
+    good_for: ["Flat and asphalted", "Starts at the hotel", "Ride as far as you like"],
+  },
+  {
+    id: "ahrntal-radweg",
+    price: {
+      free: true,
+      note: "Path free; bike hire extra, with rental at Bruneck station. Trains and buses back up the valley are covered by the Südtirol Guest Pass.",
+    },
+    wiki: "Tauferer Ahrntal",
+    name: "Ahrntal family cycle path (Bruneck – Sand in Taufers)",
+    region: "southtyrol",
+    category: "sight",
+    coords: [46.7959, 11.9369],
+    link: "https://www.kronplatz.net/sport/sommeraktivurlaub/mountainbiken-radfahren/radwege/familientour-bruneck-sand/",
+    description:
+      "The pick of the family rides near the hotel: 16.8 km from Bruneck station up the Ahr valley through St. Georgen, Gais and Uttenheim to Sand in Taufers, nearly flat the whole way and paved, mostly through meadows and fields well away from traffic. Roughly 2½ hours at a gentle pace and it passes the Reinbach Waterfalls, so the ride and the waterfall walk make one day together.",
+    good_for: ["Nearly flat", "Ends at the waterfalls", "Bike hire in Bruneck"],
+  },
+  {
+    id: "dolomiti-radweg",
+    price: {
+      free: true,
+      note: "Path free; bike hire extra in Toblach. Ride out and back rather than committing to Cortina.",
+    },
+    wiki: "Dobbiaco",
+    name: "Dolomites cycle path (Toblach towards Cortina)",
+    region: "southtyrol",
+    category: "sight",
+    coords: [46.7333, 12.2225],
+    link: "https://www.dreizinnen.com/en/activity/dolomites-cycle-path-route-toblach-dobbiaco-cortina_50093",
+    description:
+      "The old Dolomites railway, dismantled in 1964 and now possibly the most scenic cycleway in Italy, running from Toblach through Landro and over the Cimabanche saddle toward Cortina. Gradients stay gentle because it is a railway bed, and old stations punctuate the route. Note it is a long, steady climb of roughly 280 m from Toblach up to Cimabanche and the surface is gravel on this stretch, so it is prettier but harder work than the valley paths.",
+    good_for: ["Old railway line", "Dolomite scenery", "Gentle railway gradient"],
+  },
+  {
     id: "kiens-farmtrail",
     price: { free: true },
     buggy: true,

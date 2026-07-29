@@ -658,6 +658,17 @@ export const ITINERARY: Day[] = [
         mapQuery: "Reinbach Waterfalls, Sand in Taufers, Italy",
       },
       {
+        title: "Cycle Bruneck to the Reinbach Waterfalls",
+        tag: "sights",
+        attractionId: "ahrntal-radweg",
+        description:
+          "Hire bikes at Bruneck station and ride the Ahr valley path 16.8 km up to Sand in Taufers, nearly flat the whole way through meadows and well away from traffic. It finishes at the Reinbach Waterfalls, so the ride and the waterfall walk become one day.",
+        kidNote:
+          "The easiest proper cycle of the trip: paved, level and you pick the turnaround. Bike seat or trailer for the 2 year old. Trains and buses run back down the valley if legs give out.",
+        coords: [46.7959, 11.9369],
+        mapQuery: "Bruneck Brunico railway station, Italy",
+      },
+      {
         title: "Issinger Weiher swim & forest loop (very close)",
         tag: "swim",
         attractionId: "issinger-weiher",
@@ -745,12 +756,13 @@ export const ITINERARY: Day[] = [
         mapQuery: "Val Fiscalina Fischleintal, Sexten, Italy",
       },
       {
-        title: "Pragser or Toblach lake and bike path",
-        wiki: "Lake Dobbiaco",
-        tag: "walk",
+        title: "Toblach lake and the old Dolomites railway path",
+        tag: "sights",
+        attractionId: "dolomiti-radweg",
         description:
-          "A calmer alternative: the flat Toblach-to-Cortina valley path, ideal for a stroller or rented kids' bikes, with picnic spots along the river.",
-        kidNote: "Flat, paved, buggy and balance-bike friendly. Go as far as you like and turn back.",
+          "A calmer alternative: the flat shore loop at Lake Toblach, then as much of the old Dolomites railway line towards Landro as you fancy, on a dismantled 1921 railway bed past old stations with the Dolomites all around.",
+        kidNote:
+          "The lake loop is flat, paved and buggy-friendly. The railway path climbs steadily towards Cimabanche and turns to gravel, so ride out and turn back rather than aiming for Cortina.",
         coords: [46.715, 12.223],
         mapQuery: "Toblacher See, Toblach, Italy",
       },
@@ -788,6 +800,17 @@ export const ITINERARY: Day[] = [
         kidNote: "Lots of flat paths and a dedicated kids' play world; buggy-friendly.",
         coords: [46.6628, 11.1869],
         mapQuery: "Gardens of Trauttmansdorff Castle, Merano, Italy",
+      },
+      {
+        title: "Cycle the Pustertal path from Kiens to Bruneck",
+        tag: "sights",
+        attractionId: "pustertal-radweg",
+        description:
+          "The valley cycle route runs through Kiens, so you can start at the door. Roll the flat, asphalted path east into Bruneck for gelato and the old town, then back, or turn west toward Vandoies instead. Picnic tables the whole way.",
+        kidNote:
+          "Flat and asphalted with no real climbing, and you choose the distance since it is out and back. Bike seat or trailer for the 2 year old. Easiest cycling of the trip.",
+        coords: [46.797, 11.859],
+        mapQuery: "Kiens Chienes, Italy",
       },
       {
         title: "Rienz Gorge & Sternwaldele walk, Bruneck",
