@@ -887,6 +887,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "rienz-gorge",
+    images: ["img/rienz-gorge-1.jpg", "img/rienz-gorge-2.jpg"],
     price: { free: true },
     buggy: true,
     wiki: "Rienz",
