@@ -15,7 +15,7 @@ import { TRIP } from "./data/trip";
 
 export default function App() {
   return (
-    <div className="min-h-screen pb-20 md:pb-0">
+    <div className="min-h-screen pb-28 md:pb-0">
       <Hero />
       <Nav />
       <main>

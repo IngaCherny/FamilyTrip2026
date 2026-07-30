@@ -56,7 +56,7 @@ export default function Weather() {
     <section className="px-4 pt-6">
       <button
         onClick={() => failed && setTick((t) => t + 1)}
-        className="mx-auto flex w-full max-w-3xl items-center gap-4 rounded-2xl bg-white p-4 text-left shadow-sm ring-1 ring-stone-200"
+        className="glass mx-auto flex w-full max-w-3xl items-center gap-4 rounded-3xl p-4 text-left"
       >
         <span className="text-4xl leading-none" aria-hidden>
           {wx ? wx.emoji : failed ? "☁️" : "🏔️"}

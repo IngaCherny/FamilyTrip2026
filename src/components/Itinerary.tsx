@@ -299,11 +299,11 @@ function DayCard({
               <span className="rounded-full bg-glacier-600 px-2.5 py-1 text-[11px] font-bold text-white">Today</span>
             )}
           </div>
-          <div className="absolute inset-x-0 bottom-0 p-4">
-            <h3 className="font-serif text-2xl font-bold leading-tight text-white drop-shadow sm:text-3xl">
+          <div className="glass-cap absolute inset-x-3 bottom-3 rounded-2xl p-4">
+            <h3 className="font-serif text-2xl font-bold leading-tight text-white sm:text-[26px]">
               {day.title}
             </h3>
-            <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-white/90 drop-shadow">
+            <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-white/90">
               <span>{chosen?.title ?? day.subtitle}</span>
               {total && (
                 <span className="rounded-full bg-meadow-500/90 px-2 py-0.5 text-[11px] font-semibold text-white">
@@ -316,7 +316,7 @@ function DayCard({
                 </span>
               )}
             </div>
-            <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-white/80">
+            <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-white/85">
               {open ? "Hide details" : "Tap for the full day"} <Caret open={open} />
             </span>
           </div>
@@ -561,7 +561,7 @@ export default function Itinerary() {
       id="itinerary"
       kicker="The Plan"
       title="Day by Day"
-      intro="Sixteen days across the Tyrolean and Dolomite Alps. Tap a day for the full plan; swap it for an alternative any time. Every other idea lives under Places, where 'Near me' shows what is closest right now."
+      intro="Tap a day for the full plan — swap it for an alternative any time."
     >
       <div className="no-scrollbar -mx-4 mb-6 flex gap-2 overflow-x-auto px-4 pb-1">
         <button

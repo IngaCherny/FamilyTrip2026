@@ -55,24 +55,24 @@ export default function Today() {
 
   return (
     <section id="today" className="px-4 pt-8">
-      <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-stone-200">
+      <div className="mx-auto max-w-3xl overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-stone-200/70">
         <SmartImage
           src={imageUrl(attraction?.image, 1200)}
           wiki={chosen?.wiki ?? attraction?.wiki ?? region.wiki}
           alt={chosen?.title ?? day.title}
           big
           overlay
-          className="h-56 w-full sm:h-64"
+          className="h-60 w-full sm:h-72"
         >
-          <div className="absolute inset-x-0 top-0 flex items-center justify-between px-5 py-3 text-white">
+          <div className="absolute inset-x-0 top-0 flex items-center justify-between px-4 py-3 text-white">
             <span className="rounded-full bg-glacier-600/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.15em]">
               Today · Day {dayIndex + 1}
             </span>
-            <span className="text-xs text-white/90 drop-shadow">
+            <span className="glass-cap rounded-full px-2.5 py-1 text-xs text-white">
               {day.weekday}, {formatDate(day.date)} · {region.name}
             </span>
           </div>
-          <div className="absolute inset-x-0 bottom-0 p-5">
+          <div className="glass-cap absolute inset-x-3 bottom-3 rounded-2xl p-4">
             <div className="mb-1.5 flex flex-wrap items-center gap-1.5 text-[11px]">
               {chosen?.tag && (
                 <span className="rounded-full bg-white/25 px-2 py-0.5 font-semibold text-white backdrop-blur-sm">
@@ -93,7 +93,7 @@ export default function Today() {
                 </span>
               )}
             </div>
-            <h2 className="font-serif text-3xl font-bold leading-tight text-white drop-shadow">
+            <h2 className="font-serif text-2xl font-bold leading-tight text-white sm:text-3xl">
               {chosen?.title ?? day.title}
             </h2>
           </div>

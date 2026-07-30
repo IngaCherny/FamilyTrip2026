@@ -12,9 +12,32 @@ html {
 }
 
 body {
-  @apply bg-stone-50 text-stone-900 font-sans antialiased;
+  @apply text-stone-900 font-sans antialiased;
+  /* A cool glacier-tinted ground so the white frosted glass reads as chosen. */
+  background-color: #eef2f3;
   /* Slightly larger base text for legibility in bright sunlight on a phone. */
   font-size: 17px;
+}
+
+/* ---- Frosted glass (design "A": light) ---- */
+.glass {
+  background: rgba(255, 255, 255, 0.62);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 0.5px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 12px 34px -16px rgba(20, 50, 60, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+/* A caption panel that floats over a photo — dark, so white text stays legible. */
+.glass-cap {
+  background: rgba(22, 34, 41, 0.34);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+  border: 0.5px solid rgba(255, 255, 255, 0.22);
+}
+/* Older browsers without backdrop-filter still get a solid, legible fallback. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: rgba(255, 255, 255, 0.92); }
+  .glass-cap { background: rgba(22, 34, 41, 0.62); }
 }
 
 @layer components {
