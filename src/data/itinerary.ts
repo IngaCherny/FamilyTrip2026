@@ -17,6 +17,7 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_STREIF,
     title: "Land in Munich, drive to the Wilder Kaiser",
     subtitle: "Arrival day",
+    image: "img/heimstettener.jpg",
     drive: {
       from: "Munich Airport (MUC)",
       to: "Apartment Streif, Kirchdorf in Tirol",
@@ -27,46 +28,21 @@ export const ITINERARY: Day[] = [
       note: "Pick up the rental car at MUC, then head for Kufstein and St. Johann in Tirol. Austria needs a motorway vignette, so buy the digital Vignette online before you drive.",
       stops: [
         {
-          name: "Chiemsee (Prien am Chiemsee)",
-          wiki: "Chiemsee",
+          name: "Heimstettener See (first stop, swim)",
+          image: "img/heimstettener.jpg",
           description:
-            "Bavaria's biggest lake, right off the A8 about 45 minutes from the airport. A lakeside playground, gentle shallows and a grassy lido make a perfect leg-stretch and swim for jet-lagged kids.",
+            "A calm bathing lake at Heimstetten, just east of Munich and barely 20 minutes from the airport. Grassy banks, gentle shallows and shade — the perfect first leg-stretch and swim to shake off the flight before the drive south.",
           tag: "swim",
-          coords: [47.8662, 12.3492],
-          mapQuery: "Prienavera Erlebnisbad, Prien am Chiemsee, Germany",
+          coords: [48.1646, 11.748],
+          mapQuery: "Heimstettener See, Kirchheim bei München, Germany",
         },
         {
-          name: "SPAR, St. Johann in Tirol (grocery stop)",
+          name: "SPAR, St. Johann in Tirol (food shop)",
           description:
-            "Speckbacherstraße 10, about 5 km before the apartment. Open 07:15 to 19:30 on the Thursday you arrive, the one set of hours confirmed for the day.",
+            "Second stop: the big grocery run about 5 km before the apartment, at Speckbacherstraße 10. Open 07:15 to 19:30 on the Thursday you arrive. Stock up here — tomorrow is fine, but the 15th is a holiday, so buy a few days' worth.",
           tag: "food",
           coords: [47.5222, 12.4244],
           mapQuery: "SPAR, Speckbacherstraße 10, 6380 St. Johann in Tirol, Austria",
-        },
-        {
-          name: "BILLA, St. Johann in Tirol (grocery stop)",
-          description:
-            "Speckbacherstraße 13, across the road from the SPAR. Weekday hours are roughly 07:00 to 19:15, so it closes a little earlier than its neighbour.",
-          tag: "food",
-          coords: [47.5223, 12.4249],
-          mapQuery: "BILLA, Speckbacherstraße 13, 6380 St. Johann in Tirol, Austria",
-        },
-        {
-          name: "MPREIS, Kirchdorf in Tirol (nearest shop)",
-          description:
-            "Innsbrucker Straße 66, the closest supermarket to the apartment and the one to use for top-ups. Hours not confirmed for the day, so treat St. Johann as the reliable stop.",
-          tag: "food",
-          coords: [47.5464, 12.4083],
-          mapQuery: "MPREIS, Innsbrucker Straße 66, 6382 Kirchdorf in Tirol, Austria",
-        },
-        {
-          name: "Kufstein Fortress",
-          wiki: "Kufstein",
-          description:
-            "A storybook clifftop castle just over the border with a panorama lift up. A short, easy visit if you have energy left before the last 40 minutes to the apartment.",
-          tag: "sights",
-          coords: [47.5836, 12.1758],
-          mapQuery: "Festung Kufstein, Austria",
         },
       ],
     },

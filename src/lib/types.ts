@@ -90,6 +90,8 @@ export interface RouteStop extends Mappable {
   tag?: ActivityTag;
   /** Wikipedia title used for the card's thumbnail photo. */
   wiki?: string;
+  /** Pinned photo (full URL or bundled "img/…" path), winning over `wiki`. */
+  image?: string;
   /** Links to an attraction for price, closures and access flags. */
   attractionId?: string;
 }
@@ -123,6 +125,8 @@ export interface Day {
   baseQuery?: string;
   title: string;
   subtitle?: string;
+  /** Pinned hero photo for the day tile (bundled "img/…" path or URL). */
+  image?: string;
   /** Set on travel days. */
   drive?: Drive;
   /** The day's choices (we always offer a few). */

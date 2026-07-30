@@ -60,6 +60,7 @@ function PlaceCard({
   link,
   linkLabel,
   imageWiki,
+  imageSrc,
   accent,
   attraction,
   date,
@@ -77,6 +78,8 @@ function PlaceCard({
   link?: string;
   linkLabel?: string;
   imageWiki?: string;
+  /** A pinned thumbnail photo, overriding the attraction/wiki lookup. */
+  imageSrc?: string;
   accent: "option" | "stop";
   /** Linked attraction, if any: supplies price, closures, flags and photo. */
   attraction?: Attraction;
@@ -202,7 +205,7 @@ function PlaceCard({
     >
       <button onClick={() => setOpen((o) => !o)} className="flex w-full items-center gap-3 p-2.5 text-left">
         <SmartImage
-          src={imageUrl(attraction?.image, 200)}
+          src={imageSrc ?? imageUrl(attraction?.image, 200)}
           wiki={imageWiki}
           alt={title}
           className="h-14 w-14 shrink-0 rounded-lg"
@@ -266,7 +269,7 @@ function DayCard({
   const chosen = day.options.find((o) => o.title === pick) ?? day.options[0];
   const others = day.options.filter((o) => o.title !== chosen?.title);
   const chosenAttr = chosen?.attractionId ? attractionById(chosen.attractionId) : undefined;
-  const headerImg = imageUrl(chosenAttr?.image, 1200);
+  const headerImg = imageUrl(chosenAttr?.image ?? day.image, 1200);
   const headerWiki = chosen?.wiki ?? chosenAttr?.wiki ?? regionWiki;
   const shutToday = isClosedOnDate(chosenAttr?.closedOn, day.date);
   // When the day has several photos, the tile itself becomes a swipe gallery.
@@ -372,6 +375,7 @@ function DayCard({
                         destination={placeQuery(day.drive.stops[0])}
                         coords={day.drive.stops[0].coords}
                         imageWiki={day.drive.stops[0].wiki ?? regionWiki}
+                        imageSrc={day.drive.stops[0].image ? imageUrl(day.drive.stops[0].image, 200) : undefined}
                         accent="stop"
                         attraction={
                           day.drive.stops[0].attractionId
@@ -410,6 +414,7 @@ function DayCard({
                                       destination={placeQuery(s)}
                                       coords={s.coords}
                                       imageWiki={s.wiki ?? regionWiki}
+                                      imageSrc={s.image ? imageUrl(s.image, 200) : undefined}
                                       accent="stop"
                                       attraction={s.attractionId ? attractionById(s.attractionId) : undefined}
                                       date={day.date}

@@ -81,7 +81,7 @@ export default function Today() {
             <Gallery images={gallery} alt={chosen?.title ?? day.title} heightClass="h-60 sm:h-72" overlay={overlay} />
           ) : (
             <SmartImage
-              src={imageUrl(attraction?.image, 1200)}
+              src={imageUrl(attraction?.image ?? day.image, 1200)}
               wiki={chosen?.wiki ?? attraction?.wiki ?? region.wiki}
               alt={chosen?.title ?? day.title}
               big
