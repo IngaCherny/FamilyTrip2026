@@ -410,6 +410,7 @@ export const ATTRACTIONS: Attraction[] = [
   // ---------- South Tyrol ----------
   {
     id: "pragser-wildsee",
+    image: "img/pragser-wildsee.jpg",
     price: {
       free: true,
       note: "Parking from ~€7; rowing boat ~€30/30min. Timed access or shuttle in peak summer, book ahead.",
@@ -427,6 +428,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "seiser-alm",
+    image: "img/seiser-alm.jpg",
     price: { adult: 26, child: 13, covers: "cable car return", freeUnder: 8, note: "Children under 8 ride free; under-16s get 30% off." },
     buggy: true,
     wiki: "Seiser Alm",
@@ -538,6 +540,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "concordia-360",
+    image: "img/concordia-360.jpg",
     price: { adult: 26, child: 13, covers: "Kronplatz cable car return", freeUnder: 8, note: "Children under 8 ride free, one per paying adult, so only the 8 year old pays." },
     buggy: true,
     indoor: true,
@@ -608,6 +611,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "toblacher-see",
+    image: "img/toblacher-see.jpg",
     price: { free: true, note: "Paid parking at the lake." },
     buggy: true,
     wiki: "Lake Dobbiaco",
@@ -678,6 +682,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "raier-moos",
+    image: "img/raier-moos.jpg",
     price: { free: true },
     buggy: true,
     wiki: "Natz-Schabs",
@@ -768,6 +773,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "gilfenklamm",
+    image: "img/gilfenklamm.jpg",
     price: {
       adult: 5,
       child: 3,
