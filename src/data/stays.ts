@@ -15,6 +15,7 @@ export const STAYS: Stay[] = [
     coords: [47.536, 12.397],
     address: "Vorderjägerweg 4, 6382 Kirchdorf in Tirol, Austria",
     link: "https://www.apartment-streif.at/",
+    image: "img/streif.jpg",
     driveFromAirport: {
       duration: "~1 h 45 m",
       distance: "~145 km",
