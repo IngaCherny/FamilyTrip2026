@@ -906,6 +906,7 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_MUC,
     title: "Fly home from Munich",
     subtitle: "Departure day",
+    image: "img/hilton-muc.jpg",
     options: [
       {
         title: "Check out and fly home from Munich (MUC)",
