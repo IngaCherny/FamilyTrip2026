@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import Section from "./Section";
 import SmartImage from "./SmartImage";
 import Gallery from "./Gallery";
@@ -35,9 +36,17 @@ export default function Places() {
   const [here, setHere] = useState<[number, number] | null>(null);
   const [locating, setLocating] = useState(false);
   const [geoError, setGeoError] = useState<string | null>(null);
+  const [openIds, setOpenIds] = useState<Set<string>>(new Set());
 
   const toggle = (id: FlagId) =>
     setActive((cur) => (cur.includes(id) ? cur.filter((f) => f !== id) : [...cur, id]));
+
+  const toggleCard = (id: string) =>
+    setOpenIds((cur) => {
+      const next = new Set(cur);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
 
   const findMe = () => {
     if (!("geolocation" in navigator)) {
@@ -137,7 +146,7 @@ export default function Places() {
           Nothing matches those filters here. Try clearing one, or switch region.
         </p>
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {places.map((a, i) => {
             const meta = POI_META[a.category];
             const links = mapLinks(a.coords, a.name);
@@ -146,6 +155,34 @@ export default function Places() {
             const total = formatFamilyCost(cost);
             const freeNote = freeChildrenNote(cost);
             const closed = closedLabel(a.closedOn);
+            const open = openIds.has(a.id);
+            const overlay = (
+              <>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
+                <span
+                  className="absolute left-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-semibold text-white shadow-sm"
+                  style={{ background: meta.color }}
+                >
+                  {meta.label}
+                </span>
+                {here && (
+                  <span className="absolute right-3 top-3 rounded-full bg-black/50 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-sm">
+                    {formatDistance(distanceKm(here, a.coords))} away
+                  </span>
+                )}
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
+                  <div className="glass-cap max-w-[80%] rounded-xl px-3 py-2">
+                    <h3 className="font-serif text-base font-bold leading-snug text-white sm:text-lg">{a.name}</h3>
+                    {total && (
+                      <span className="mt-0.5 block text-[11px] font-semibold text-white/90">{total}</span>
+                    )}
+                  </div>
+                  <span className="glass-cap flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white">
+                    <ChevronDown size={18} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+                  </span>
+                </div>
+              </>
+            );
             return (
               <motion.article
                 key={a.id}
@@ -153,89 +190,92 @@ export default function Places() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: (i % 3) * 0.05 }}
-                className="card-paper flex flex-col overflow-hidden"
+                className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-stone-200/70"
               >
-                {(() => {
-                  const badges = (
-                    <>
-                      <span
-                        className="absolute left-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-semibold text-white"
-                        style={{ background: meta.color }}
-                      >
-                        {meta.label}
-                      </span>
-                      {here && (
-                        <span className="absolute right-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[11px] font-semibold text-white">
-                          {formatDistance(distanceKm(here, a.coords))} away
-                        </span>
-                      )}
-                    </>
-                  );
-                  return a.images && a.images.length > 1 ? (
-                    <Gallery images={a.images} alt={a.name} heightClass="h-40" overlay={badges} />
-                  ) : (
-                    <SmartImage src={imageUrl(a.image, 800)} wiki={a.wiki} alt={a.name} overlay className="h-40 w-full">
-                      {badges}
+                {a.images && a.images.length > 1 ? (
+                  <Gallery
+                    images={a.images}
+                    alt={a.name}
+                    heightClass="h-52"
+                    onTap={() => toggleCard(a.id)}
+                    overlay={overlay}
+                  />
+                ) : (
+                  <button onClick={() => toggleCard(a.id)} className="block w-full text-left">
+                    <SmartImage src={imageUrl(a.image, 800)} wiki={a.wiki} alt={a.name} big className="h-52 w-full">
+                      {overlay}
                     </SmartImage>
-                  );
-                })()}
-                <div className="flex flex-1 flex-col p-4">
-                  <h3 className="font-serif text-xl font-bold text-stone-900">{a.name}</h3>
-                  <p className="mt-1 flex-1 text-sm text-stone-600">{a.description}</p>
+                  </button>
+                )}
 
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {a.buggy && (
-                      <span className="rounded-full bg-meadow-100 px-2.5 py-0.5 text-xs font-medium text-meadow-700">
-                        Buggy-friendly
-                      </span>
-                    )}
-                    {a.indoor && (
-                      <span className="rounded-full bg-glacier-50 px-2.5 py-0.5 text-xs font-medium text-glacier-700">
-                        Works in rain
-                      </span>
-                    )}
-                    {a.good_for.map((g) => (
-                      <span key={g} className="rounded-full bg-stone-100 px-2.5 py-0.5 text-xs text-stone-600">
-                        {g}
-                      </span>
-                    ))}
-                  </div>
+                <AnimatePresence initial={false}>
+                  {open && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="space-y-3 border-t border-stone-100 p-4">
+                        <p className="text-sm text-stone-600">{a.description}</p>
 
-                  {(closed || a.season) && (
-                    <p className="mt-3 rounded-lg bg-sunset-200/40 px-2.5 py-1.5 text-xs font-medium text-stone-700 ring-1 ring-sunset-200">
-                      {[closed, a.season && `${a.season.label ?? "Open"} ${a.season.from} to ${a.season.to}`]
-                        .filter(Boolean)
-                        .join(" · ")}
-                    </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {a.buggy && (
+                            <span className="rounded-full bg-meadow-100 px-2.5 py-0.5 text-xs font-medium text-meadow-700">
+                              Buggy-friendly
+                            </span>
+                          )}
+                          {a.indoor && (
+                            <span className="rounded-full bg-glacier-50 px-2.5 py-0.5 text-xs font-medium text-glacier-700">
+                              Works in rain
+                            </span>
+                          )}
+                          {a.good_for.map((g) => (
+                            <span key={g} className="rounded-full bg-stone-100 px-2.5 py-0.5 text-xs text-stone-600">
+                              {g}
+                            </span>
+                          ))}
+                        </div>
+
+                        {(closed || a.season) && (
+                          <p className="rounded-lg bg-sunset-200/40 px-2.5 py-1.5 text-xs font-medium text-stone-700 ring-1 ring-sunset-200">
+                            {[closed, a.season && `${a.season.label ?? "Open"} ${a.season.from} to ${a.season.to}`]
+                              .filter(Boolean)
+                              .join(" · ")}
+                          </p>
+                        )}
+
+                        {priceText && (
+                          <p className="text-sm text-stone-700">
+                            <span className="font-semibold text-meadow-700">Price: </span>
+                            {priceText}
+                            {total && (
+                              <span className="block text-xs text-stone-500">
+                                {total}
+                                {freeNote && ` — ${freeNote}`} ({PRICES_CHECKED})
+                              </span>
+                            )}
+                          </p>
+                        )}
+
+                        <div className="flex flex-wrap gap-4 border-t border-stone-100 pt-3 text-sm font-medium text-glacier-600">
+                          {a.link && (
+                            <a href={a.link} target="_blank" rel="noreferrer" className="font-semibold">
+                              Official site
+                            </a>
+                          )}
+                          <a href={links.google} target="_blank" rel="noreferrer">
+                            Maps
+                          </a>
+                          <a href={links.waze} target="_blank" rel="noreferrer">
+                            Waze
+                          </a>
+                        </div>
+                      </div>
+                    </motion.div>
                   )}
-
-                  {priceText && (
-                    <p className="mt-3 text-sm text-stone-700">
-                      <span className="font-semibold text-meadow-700">Price: </span>
-                      {priceText}
-                      {total && (
-                        <span className="block text-xs text-stone-500">
-                          {total}
-                          {freeNote && ` — ${freeNote}`} ({PRICES_CHECKED})
-                        </span>
-                      )}
-                    </p>
-                  )}
-
-                  <div className="mt-3 flex flex-wrap gap-4 border-t border-stone-100 pt-3 text-sm font-medium text-glacier-600">
-                    {a.link && (
-                      <a href={a.link} target="_blank" rel="noreferrer" className="font-semibold">
-                        Official site
-                      </a>
-                    )}
-                    <a href={links.google} target="_blank" rel="noreferrer">
-                      Maps
-                    </a>
-                    <a href={links.waze} target="_blank" rel="noreferrer">
-                      Waze
-                    </a>
-                  </div>
-                </div>
+                </AnimatePresence>
               </motion.article>
             );
           })}

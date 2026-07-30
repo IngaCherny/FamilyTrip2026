@@ -1,21 +1,53 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import Section from "./Section";
+import SmartImage from "./SmartImage";
 import { STAYS } from "../data/stays";
 import { regionById } from "../data/trip";
 import { mapLinks, formatShort, imageUrl } from "../lib/format";
 
 export default function Stays() {
+  const [openIds, setOpenIds] = useState<Set<string>>(new Set());
+  const toggle = (id: string) =>
+    setOpenIds((cur) => {
+      const next = new Set(cur);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+
   return (
     <Section
       id="stays"
       kicker="Home Base"
       title="Where We Stay"
-      intro="Four bases over fifteen nights, each pinned to its real address. Tap Maps or Waze to navigate, or the airport chip for driving directions from Munich."
+      intro="Four bases over fifteen nights, each pinned to its real address. Tap a stay for dates, directions and what makes it handy."
     >
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid items-start gap-4 md:grid-cols-2">
         {STAYS.map((s, i) => {
           const region = regionById(s.region);
           const links = mapLinks(s.coords, s.name);
+          const open = openIds.has(s.id);
+          const overlay = (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
+              <span className="absolute right-3 top-3 rounded-full bg-black/45 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-sm">
+                {s.nights} nights
+              </span>
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
+                <div className="glass-cap max-w-[80%] rounded-xl px-3 py-2">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/80">{region.name}</span>
+                  <h3 className="font-serif text-base font-bold leading-snug text-white sm:text-lg">{s.name}</h3>
+                  <p className="text-[11px] text-white/85">
+                    {s.town}, {s.country}
+                  </p>
+                </div>
+                <span className="glass-cap flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white">
+                  <ChevronDown size={18} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+                </span>
+              </div>
+            </>
+          );
           return (
             <motion.article
               key={s.id}
@@ -23,65 +55,76 @@ export default function Stays() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: (i % 2) * 0.05 }}
-              className="card-paper flex flex-col overflow-hidden p-5"
+              className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-stone-200/70"
             >
-              {s.image && (
-                <img
+              <button onClick={() => toggle(s.id)} className="block w-full text-left">
+                <SmartImage
                   src={imageUrl(s.image, 1200)}
+                  wiki={region.wiki}
                   alt={s.name}
-                  loading="lazy"
-                  className="-mx-5 -mt-5 mb-4 h-44 w-[calc(100%+2.5rem)] object-cover sm:h-52"
-                />
-              )}
-              <div className="flex items-start justify-between">
-                <div>
-                  <span className="kicker">{region.name}</span>
-                  <h3 className="mt-1 font-serif text-2xl font-bold text-stone-900">{s.name}</h3>
-                  <p className="text-sm text-stone-500">
-                    {s.town}, {s.country}
-                  </p>
-                  {s.address && <p className="mt-0.5 text-xs text-stone-400">{s.address}</p>}
-                </div>
-                <span className="shrink-0 rounded-full bg-glacier-50 px-3 py-1 text-sm font-semibold text-glacier-700">
-                  {s.nights} nights
-                </span>
-              </div>
-
-              <p className="mt-3 text-sm text-stone-600">{s.description}</p>
-
-              <p className="mt-3 text-sm font-medium text-stone-700">
-                {formatShort(s.checkIn)} to {formatShort(s.checkOut)}
-              </p>
-
-              {s.driveFromAirport && (
-                <a
-                  href={s.driveFromAirport.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-2 flex items-center gap-2 rounded-xl bg-glacier-50 px-3 py-2 text-sm text-glacier-700 transition-colors hover:bg-glacier-100"
+                  big
+                  className="h-52 w-full sm:h-56"
                 >
-                  <span className="font-medium">{s.driveFromAirport.duration} from Munich Airport</span>
-                  <span className="text-glacier-600/70">· {s.driveFromAirport.distance}</span>
-                  <span className="ms-auto font-semibold underline underline-offset-2">Directions</span>
-                </a>
-              )}
+                  {overlay}
+                </SmartImage>
+              </button>
 
-              <ul className="mt-3 space-y-1">
-                {s.highlights.map((h) => (
-                  <li key={h} className="flex gap-2 text-sm text-stone-600">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-meadow-400" /> {h}
-                  </li>
-                ))}
-              </ul>
+              <AnimatePresence initial={false}>
+                {open && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="space-y-3 border-t border-stone-100 p-4">
+                      {s.address && <p className="text-xs text-stone-400">{s.address}</p>}
 
-              <div className="mt-4 flex gap-4 border-t border-stone-100 pt-3 text-sm font-medium text-glacier-600">
-                <a href={links.google} target="_blank" rel="noreferrer">
-                  Maps
-                </a>
-                <a href={links.waze} target="_blank" rel="noreferrer">
-                  Waze
-                </a>
-              </div>
+                      <p className="text-sm text-stone-600">{s.description}</p>
+
+                      <p className="text-sm font-medium text-stone-700">
+                        {formatShort(s.checkIn)} to {formatShort(s.checkOut)}
+                      </p>
+
+                      {s.driveFromAirport && (
+                        <a
+                          href={s.driveFromAirport.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center gap-2 rounded-xl bg-glacier-50 px-3 py-2 text-sm text-glacier-700 transition-colors hover:bg-glacier-100"
+                        >
+                          <span className="font-medium">{s.driveFromAirport.duration} from Munich Airport</span>
+                          <span className="text-glacier-600/70">· {s.driveFromAirport.distance}</span>
+                          <span className="ms-auto font-semibold underline underline-offset-2">Directions</span>
+                        </a>
+                      )}
+
+                      <ul className="space-y-1">
+                        {s.highlights.map((h) => (
+                          <li key={h} className="flex gap-2 text-sm text-stone-600">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-meadow-400" /> {h}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="flex gap-4 border-t border-stone-100 pt-3 text-sm font-medium text-glacier-600">
+                        <a href={links.google} target="_blank" rel="noreferrer">
+                          Maps
+                        </a>
+                        <a href={links.waze} target="_blank" rel="noreferrer">
+                          Waze
+                        </a>
+                        {s.link && (
+                          <a href={s.link} target="_blank" rel="noreferrer" className="font-semibold">
+                            Hotel site
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.article>
           );
         })}
