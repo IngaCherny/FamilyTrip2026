@@ -528,6 +528,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "elfenweg",
+    image: "img/elfenweg.jpg",
     price: { free: true, note: "Free Töpslplatz parking by the San Nicolò church" },
     wiki: "Vintl",
     name: "Sentiero degli Elfi (Elves' Path), Vandoies",
