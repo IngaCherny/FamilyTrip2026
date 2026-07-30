@@ -380,6 +380,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "soelden-007",
+    image: "img/soelden-007.jpg",
     price: { adult: 42, child: 25, covers: "Gaislachkogl cable car", note: "007 Elements ~€23 extra" },
     indoor: true,
     wiki: "Gaislachkogl",
