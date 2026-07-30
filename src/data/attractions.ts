@@ -657,6 +657,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "bruneck",
+    image: "img/bruneck.jpg",
     price: { free: true, note: "Town free; museums and the cable car extra." },
     buggy: true,
     wiki: "Bruneck",
