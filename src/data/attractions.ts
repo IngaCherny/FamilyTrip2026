@@ -691,6 +691,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "olang-welsberg-bike",
+    image: "img/olang-bike.jpg",
     price: {
       free: true,
       note: "Path free; bike hire in Olang extra, and the Pustertal train back is covered by the Südtirol Guest Pass.",
