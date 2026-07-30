@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Section from "./Section";
 import SmartImage from "./SmartImage";
+import Gallery from "./Gallery";
 import { STAYS } from "../data/stays";
 import { regionById } from "../data/trip";
 import { mapLinks, formatShort, imageUrl } from "../lib/format";
@@ -57,17 +58,27 @@ export default function Stays() {
               transition={{ duration: 0.35, delay: (i % 2) * 0.05 }}
               className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-stone-200/70"
             >
-              <button onClick={() => toggle(s.id)} className="block w-full text-left">
-                <SmartImage
-                  src={imageUrl(s.image, 1200)}
-                  wiki={region.wiki}
+              {s.images && s.images.length > 1 ? (
+                <Gallery
+                  images={s.images}
                   alt={s.name}
-                  big
-                  className="h-52 w-full sm:h-56"
-                >
-                  {overlay}
-                </SmartImage>
-              </button>
+                  heightClass="h-52 sm:h-56"
+                  onTap={() => toggle(s.id)}
+                  overlay={overlay}
+                />
+              ) : (
+                <button onClick={() => toggle(s.id)} className="block w-full text-left">
+                  <SmartImage
+                    src={imageUrl(s.image, 1200)}
+                    wiki={region.wiki}
+                    alt={s.name}
+                    big
+                    className="h-52 w-full sm:h-56"
+                  >
+                    {overlay}
+                  </SmartImage>
+                </button>
+              )}
 
               <AnimatePresence initial={false}>
                 {open && (

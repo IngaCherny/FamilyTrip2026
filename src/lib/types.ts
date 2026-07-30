@@ -43,6 +43,8 @@ export interface Stay {
   link?: string;
   /** Pinned photo (bundled "img/…" path or URL) for the stay card. */
   image?: string;
+  /** Extra photos for a swipe-through gallery on the stay tile. */
+  images?: string[];
 }
 
 export type ActivityTag =

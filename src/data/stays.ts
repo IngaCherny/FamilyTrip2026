@@ -44,6 +44,7 @@ export const STAYS: Stay[] = [
     coords: [47.2098, 10.8949],
     address: "Habichen 65a, 6433 Oetz, Austria",
     link: "https://www.falkners-five.at/en/",
+    images: ["img/falkners-2.jpg", "img/falkners-1.jpg"],
     description:
       "Four nights in the Ötztal at the mouth of the valley. A handy springboard for Area 47, the Aqua Dome and drives up to Sölden.",
     highlights: [
