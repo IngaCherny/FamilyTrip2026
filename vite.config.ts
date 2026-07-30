@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => ({
         ],
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,svg,png,ico,webmanifest}"],
+        globPatterns: ["**/*.{js,css,html,svg,png,jpg,jpeg,ico,webmanifest}"],
         navigateFallback: "index.html",
         // Cache photos and map tiles as they are viewed, so they work offline later.
         runtimeCaching: [

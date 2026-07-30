@@ -19,6 +19,7 @@ export const ATTRACTIONS: Attraction[] = [
   {
     id: "hexenwasser",
     price: { adult: 34, child: 17, covers: "incl. Söll gondola", freeUnder: 4 },
+    image: "img/hexenwasser.jpg",
     wiki: "Hohe Salve",
     name: "Hexenwasser Söll",
     region: "wilderkaiser",
@@ -66,6 +67,7 @@ export const ATTRACTIONS: Attraction[] = [
   {
     id: "schnackler",
     price: { free: true, note: "Kaiserbachtal is a toll road, about €5 per car" },
+    image: "img/schnackler.jpg",
     wiki: "Wilder Kaiser",
     name: "Schnackler adventure trail, Kaiserbachtal",
     region: "wilderkaiser",

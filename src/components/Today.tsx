@@ -72,34 +72,32 @@ export default function Today() {
               {day.weekday}, {formatDate(day.date)} · {region.name}
             </span>
           </div>
-          <div className="glass-cap absolute inset-x-3 bottom-3 rounded-2xl p-4">
-            <div className="mb-1.5 flex flex-wrap items-center gap-1.5 text-[11px]">
-              {chosen?.tag && (
-                <span className="rounded-full bg-white/25 px-2 py-0.5 font-semibold text-white backdrop-blur-sm">
-                  {TAG_META[chosen.tag].label}
-                </span>
-              )}
-              {total && (
-                <span className="rounded-full bg-meadow-500/90 px-2 py-0.5 font-semibold text-white">{total}</span>
-              )}
-              {attraction?.buggy && (
-                <span className="rounded-full bg-white/25 px-2 py-0.5 font-semibold text-white backdrop-blur-sm">
-                  Buggy OK
-                </span>
-              )}
-              {(shut || offSeason) && (
-                <span className="rounded-full bg-sunset-300 px-2 py-0.5 font-semibold text-stone-900">
-                  {shut ? closedLabel(attraction?.closedOn) ?? "Closed today" : "Out of season"}
-                </span>
-              )}
-            </div>
-            <h2 className="font-serif text-2xl font-bold leading-tight text-white sm:text-3xl">
+          <div className="glass-cap absolute bottom-3 left-3 max-w-[80%] rounded-xl px-3 py-2">
+            <h2 className="font-serif text-lg font-bold leading-snug text-white sm:text-xl">
               {chosen?.title ?? day.title}
             </h2>
           </div>
         </SmartImage>
 
         <div className="p-5">
+          <div className="mb-3 flex flex-wrap items-center gap-1.5 text-[11px]">
+            {chosen?.tag && (
+              <span className="rounded-full bg-stone-100 px-2.5 py-0.5 font-semibold text-stone-600">
+                {TAG_META[chosen.tag].label}
+              </span>
+            )}
+            {total && (
+              <span className="rounded-full bg-meadow-100 px-2.5 py-0.5 font-semibold text-meadow-700">{total}</span>
+            )}
+            {attraction?.buggy && (
+              <span className="rounded-full bg-meadow-50 px-2.5 py-0.5 font-semibold text-meadow-700">Buggy OK</span>
+            )}
+            {(shut || offSeason) && (
+              <span className="rounded-full bg-sunset-200 px-2.5 py-0.5 font-semibold text-stone-800">
+                {shut ? closedLabel(attraction?.closedOn) ?? "Closed today" : "Out of season"}
+              </span>
+            )}
+          </div>
           {chosen?.description && <p className="text-sm text-stone-600">{chosen.description}</p>}
 
           {(shut || offSeason) && (
