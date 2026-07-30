@@ -455,21 +455,6 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["Big hike", "Dolomite icon", "Refuge stops"],
   },
   {
-    id: "bolzano-otzi",
-    price: { adult: 13, child: 8, note: "Family ticket available. Closed Mondays outside July and August." },
-    indoor: true,
-    buggy: true,
-    wiki: "South Tyrol Museum of Archaeology",
-    name: "Bolzano & Ötzi Museum",
-    region: "southtyrol",
-    category: "town",
-    coords: [46.4983, 11.3548],
-    link: "https://www.iceman.it/en/",
-    description:
-      "The capital's South Tyrol Museum of Archaeology houses Ötzi the 5,300-year-old Iceman, the mummy found above the Ötztal. Arcaded streets and piazzas outside.",
-    good_for: ["Museum", "Town & piazzas", "Rainy day"],
-  },
-  {
     id: "merano-gardens",
     image: "img/merano-gardens.jpg",
     price: { adult: 16, child: 10 },
