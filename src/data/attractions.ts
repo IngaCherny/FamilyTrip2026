@@ -615,6 +615,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "reinbach-waterfalls",
+    image: "img/reinbach-waterfalls.jpg",
     price: { free: true },
     wiki: "Sand in Taufers",
     name: "Reinbach Waterfalls, Sand in Taufers",
