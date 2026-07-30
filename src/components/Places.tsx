@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Section from "./Section";
 import SmartImage from "./SmartImage";
+import Gallery from "./Gallery";
 import { ATTRACTIONS } from "../data/attractions";
 import { DESTINATIONS, PARTY, PRICES_CHECKED } from "../data/trip";
 import { POI_META } from "../lib/tags";
@@ -162,19 +163,30 @@ export default function Places() {
                 transition={{ duration: 0.3, delay: (i % 3) * 0.05 }}
                 className="card-paper flex flex-col overflow-hidden"
               >
-                <SmartImage src={imageUrl(a.image, 800)} wiki={a.wiki} alt={a.name} overlay className="h-40 w-full">
-                  <span
-                    className="absolute left-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-semibold text-white"
-                    style={{ background: meta.color }}
-                  >
-                    {meta.label}
-                  </span>
-                  {here && (
-                    <span className="absolute right-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[11px] font-semibold text-white">
-                      {formatDistance(distanceKm(here, a.coords))} away
-                    </span>
-                  )}
-                </SmartImage>
+                {(() => {
+                  const badges = (
+                    <>
+                      <span
+                        className="absolute left-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-semibold text-white"
+                        style={{ background: meta.color }}
+                      >
+                        {meta.label}
+                      </span>
+                      {here && (
+                        <span className="absolute right-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[11px] font-semibold text-white">
+                          {formatDistance(distanceKm(here, a.coords))} away
+                        </span>
+                      )}
+                    </>
+                  );
+                  return a.images && a.images.length > 1 ? (
+                    <Gallery images={a.images} alt={a.name} heightClass="h-40" overlay={badges} />
+                  ) : (
+                    <SmartImage src={imageUrl(a.image, 800)} wiki={a.wiki} alt={a.name} overlay className="h-40 w-full">
+                      {badges}
+                    </SmartImage>
+                  );
+                })()}
                 <div className="flex flex-1 flex-col p-4">
                   <h3 className="font-serif text-xl font-bold text-stone-900">{a.name}</h3>
                   <p className="mt-1 flex-1 text-sm text-stone-600">{a.description}</p>

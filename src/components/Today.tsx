@@ -5,6 +5,7 @@ import { PARTY, regionById } from "../data/trip";
 import { TAG_META } from "../lib/tags";
 import { loadPicks, onPicksChanged } from "../lib/picks";
 import SmartImage from "./SmartImage";
+import Gallery from "./Gallery";
 import {
   closedLabel,
   directionsUrl,
@@ -56,28 +57,40 @@ export default function Today() {
   return (
     <section id="today" className="px-4 pt-8">
       <div className="mx-auto max-w-3xl overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-stone-200/70">
-        <SmartImage
-          src={imageUrl(attraction?.image, 1200)}
-          wiki={chosen?.wiki ?? attraction?.wiki ?? region.wiki}
-          alt={chosen?.title ?? day.title}
-          big
-          overlay
-          className="h-60 w-full sm:h-72"
-        >
-          <div className="absolute inset-x-0 top-0 flex items-center justify-between px-4 py-3 text-white">
-            <span className="rounded-full bg-glacier-600/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.15em]">
-              Today · Day {dayIndex + 1}
-            </span>
-            <span className="glass-cap rounded-full px-2.5 py-1 text-xs text-white">
-              {day.weekday}, {formatDate(day.date)} · {region.name}
-            </span>
-          </div>
-          <div className="glass-cap absolute bottom-3 left-3 max-w-[80%] rounded-xl px-3 py-2">
-            <h2 className="font-serif text-lg font-bold leading-snug text-white sm:text-xl">
-              {chosen?.title ?? day.title}
-            </h2>
-          </div>
-        </SmartImage>
+        {(() => {
+          const gallery = attraction?.images && attraction.images.length > 1 ? attraction.images : null;
+          const overlay = (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/20" />
+              <div className="absolute inset-x-0 top-0 flex items-center justify-between px-4 py-3 text-white">
+                <span className="rounded-full bg-glacier-600/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.15em]">
+                  Today · Day {dayIndex + 1}
+                </span>
+                <span className="glass-cap rounded-full px-2.5 py-1 text-xs text-white">
+                  {day.weekday}, {formatDate(day.date)} · {region.name}
+                </span>
+              </div>
+              <div className="glass-cap absolute bottom-3 left-3 max-w-[80%] rounded-xl px-3 py-2">
+                <h2 className="font-serif text-lg font-bold leading-snug text-white sm:text-xl">
+                  {chosen?.title ?? day.title}
+                </h2>
+              </div>
+            </>
+          );
+          return gallery ? (
+            <Gallery images={gallery} alt={chosen?.title ?? day.title} heightClass="h-60 sm:h-72" overlay={overlay} />
+          ) : (
+            <SmartImage
+              src={imageUrl(attraction?.image, 1200)}
+              wiki={chosen?.wiki ?? attraction?.wiki ?? region.wiki}
+              alt={chosen?.title ?? day.title}
+              big
+              className="h-60 w-full sm:h-72"
+            >
+              {overlay}
+            </SmartImage>
+          );
+        })()}
 
         <div className="p-5">
           <div className="mb-3 flex flex-wrap items-center gap-1.5 text-[11px]">

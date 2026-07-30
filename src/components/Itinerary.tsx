@@ -269,6 +269,36 @@ function DayCard({
   const headerImg = imageUrl(chosenAttr?.image, 1200);
   const headerWiki = chosen?.wiki ?? chosenAttr?.wiki ?? regionWiki;
   const shutToday = isClosedOnDate(chosenAttr?.closedOn, day.date);
+  // When the day has several photos, the tile itself becomes a swipe gallery.
+  const tileGallery = chosenAttr?.images && chosenAttr.images.length > 1 ? chosenAttr.images : null;
+
+  const tileOverlay = (
+    <>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15" />
+      <div className="absolute inset-x-0 top-0 flex items-center justify-between p-4">
+        <span className="rounded-full bg-black/25 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white backdrop-blur-sm">
+          Day {index + 1} · {day.weekday}, {formatShort(day.date)}
+        </span>
+        {isToday && (
+          <span className="rounded-full bg-glacier-600 px-2.5 py-1 text-[11px] font-bold text-white">Today</span>
+        )}
+      </div>
+      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
+        <div className="glass-cap max-w-[80%] rounded-xl px-3 py-2">
+          <h3 className="font-serif text-base font-bold leading-snug text-white sm:text-lg">{day.title}</h3>
+          {shutToday && (
+            <span className="mt-1 inline-block rounded-full bg-sunset-300 px-2 py-0.5 text-[10px] font-semibold text-stone-900">
+              Closed today
+            </span>
+          )}
+        </div>
+        <span className="glass-cap flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white">
+          <Caret open={open} />
+        </span>
+      </div>
+    </>
+  );
+
   return (
     <motion.div
       id={`day-${day.date}`}
@@ -280,40 +310,28 @@ function DayCard({
         isToday ? "ring-2 ring-glacier-500" : "ring-stone-200/70"
       }`}
     >
-      {/* Big photo tile — the day at a glance. Tap to reveal everything. */}
-      <button onClick={onToggle} className="block w-full text-left">
-        <SmartImage
-          src={headerImg}
-          wiki={headerWiki}
+      {/* Big photo tile — the day at a glance. Swipe photos, tap to open. */}
+      {tileGallery ? (
+        <Gallery
+          images={tileGallery}
           alt={chosen?.title ?? day.title}
-          big
-          overlay
-          className="h-60 w-full sm:h-72"
-        >
-          <div className="absolute inset-x-0 top-0 flex items-center justify-between p-4">
-            <span className="rounded-full bg-white/20 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white backdrop-blur-sm">
-              Day {index + 1} · {day.weekday}, {formatShort(day.date)}
-            </span>
-            {isToday && (
-              <span className="rounded-full bg-glacier-600 px-2.5 py-1 text-[11px] font-bold text-white">Today</span>
-            )}
-          </div>
-          {/* Compact label, kept to one side so the photo carries the tile. */}
-          <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
-            <div className="glass-cap max-w-[80%] rounded-xl px-3 py-2">
-              <h3 className="font-serif text-base font-bold leading-snug text-white sm:text-lg">{day.title}</h3>
-              {shutToday && (
-                <span className="mt-1 inline-block rounded-full bg-sunset-300 px-2 py-0.5 text-[10px] font-semibold text-stone-900">
-                  Closed today
-                </span>
-              )}
-            </div>
-            <span className="glass-cap flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white">
-              <Caret open={open} />
-            </span>
-          </div>
-        </SmartImage>
-      </button>
+          heightClass="h-60 sm:h-72"
+          onTap={onToggle}
+          overlay={tileOverlay}
+        />
+      ) : (
+        <button onClick={onToggle} className="block w-full text-left">
+          <SmartImage
+            src={headerImg}
+            wiki={headerWiki}
+            alt={chosen?.title ?? day.title}
+            big
+            className="h-60 w-full sm:h-72"
+          >
+            {tileOverlay}
+          </SmartImage>
+        </button>
+      )}
 
       <AnimatePresence initial={false}>
         {open && (
@@ -412,9 +430,6 @@ function DayCard({
               {chosen && (
                 <div className="space-y-2">
                   <p className="kicker">Your plan · {chosen.title}</p>
-                  {chosenAttr?.images && chosenAttr.images.length > 1 && (
-                    <Gallery images={chosenAttr.images} alt={chosen.title} />
-                  )}
                   <PlaceCard
                     key={chosen.title}
                     title={chosen.title}
