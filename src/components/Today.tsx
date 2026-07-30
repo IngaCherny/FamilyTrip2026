@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ITINERARY } from "../data/itinerary";
 import { attractionById } from "../data/attractions";
-import { PARTY, TRIP, regionById } from "../data/trip";
+import { PARTY, regionById } from "../data/trip";
 import { TAG_META } from "../lib/tags";
 import { loadPicks, onPicksChanged } from "../lib/picks";
 import SmartImage from "./SmartImage";
@@ -22,12 +22,6 @@ function todayIso(): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
-function daysBetween(fromIso: string, toIso: string): number {
-  const a = new Date(fromIso + "T00:00:00").getTime();
-  const b = new Date(toIso + "T00:00:00").getTime();
-  return Math.round((b - a) / 86_400_000);
-}
-
 function scrollToDay(date: string) {
   const el = document.getElementById(`day-${date}`);
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -39,44 +33,10 @@ export default function Today() {
   useEffect(() => onPicksChanged(() => setPicks(loadPicks())), []);
 
   const dayIndex = ITINERARY.findIndex((d) => d.date === today);
-  const beforeTrip = today < TRIP.startDate;
-  const afterTrip = today > TRIP.endDate;
 
-  // Before the trip: a countdown teaser pointing at day one.
-  if (dayIndex === -1) {
-    if (afterTrip) return null; // the hero already says "we made it home"
-    if (beforeTrip) {
-      const first = ITINERARY[0];
-      const firstRegion = regionById(first.region);
-      const days = daysBetween(today, TRIP.startDate);
-      return (
-        <section id="today" className="px-4 pt-8">
-          <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl shadow-sm">
-            <SmartImage wiki={firstRegion.wiki} alt={firstRegion.name} big overlay className="h-56 w-full sm:h-64">
-              <div className="absolute inset-0 flex flex-col justify-end p-5 text-white">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/85 drop-shadow">
-                  {days === 0 ? "Departure day" : `${days} day${days === 1 ? "" : "s"} to go`}
-                </p>
-                <h2 className="mt-1 font-serif text-3xl font-bold leading-tight drop-shadow">
-                  First up: {first.title}
-                </h2>
-                <p className="mt-1 text-sm text-white/90 drop-shadow">
-                  {first.weekday}, {formatDate(first.date)} · {firstRegion.name}
-                </p>
-                <button
-                  onClick={() => scrollToDay(first.date)}
-                  className="tap mt-4 w-fit rounded-xl bg-white/20 px-4 py-2 text-sm font-semibold text-white ring-1 ring-white/30 backdrop-blur-sm hover:bg-white/30"
-                >
-                  See the plan ↓
-                </button>
-              </div>
-            </SmartImage>
-          </div>
-        </section>
-      );
-    }
-    return null;
-  }
+  // Only meaningful during the trip. Before and after, the hero already says it,
+  // so the Today card stays out of the way.
+  if (dayIndex === -1) return null;
 
   // During the trip: the day's chosen plan, front and centre.
   const day = ITINERARY[dayIndex];

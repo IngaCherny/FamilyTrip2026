@@ -531,7 +531,9 @@ function todayIso(): string {
  */
 function initialOpenDate(): string | null {
   const today = todayIso();
-  return ITINERARY.some((d) => d.date === today) ? today : ITINERARY[0]?.date ?? null;
+  // Open today's card during the trip; otherwise start with everything closed
+  // so the day tiles read as a clean gallery.
+  return ITINERARY.some((d) => d.date === today) ? today : null;
 }
 
 export default function Itinerary() {

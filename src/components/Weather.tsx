@@ -26,35 +26,48 @@ export default function Weather() {
   const region = regionById(day.region);
   const [wx, setWx] = useState<WeatherData | null>(null);
   const [failed, setFailed] = useState(false);
+  const [tick, setTick] = useState(0); // bump to retry
 
   useEffect(() => {
     const ctrl = new AbortController();
     setFailed(false);
+    setWx(null);
+    // Never hang on "Checking…": give up after 8s and show the offline line.
+    const timer = setTimeout(() => {
+      ctrl.abort();
+      setFailed(true);
+    }, 8000);
     fetchWeather(region.center, ctrl.signal)
-      .then(setWx)
-      .catch((e) => {
-        if (e?.name !== "AbortError") setFailed(true);
-      });
-    return () => ctrl.abort();
-  }, [region.center]);
+      .then((w) => {
+        setWx(w);
+        setFailed(false);
+      })
+      .catch(() => setFailed(true))
+      .finally(() => clearTimeout(timer));
+    return () => {
+      clearTimeout(timer);
+      ctrl.abort();
+    };
+  }, [region.center, tick]);
 
   const isToday = day.date === todayIso();
 
   return (
     <section className="px-4 pt-6">
-      <div className="mx-auto flex max-w-3xl items-center gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-stone-200">
+      <button
+        onClick={() => failed && setTick((t) => t + 1)}
+        className="mx-auto flex w-full max-w-3xl items-center gap-4 rounded-2xl bg-white p-4 text-left shadow-sm ring-1 ring-stone-200"
+      >
         <span className="text-4xl leading-none" aria-hidden>
-          {wx ? wx.emoji : "🏔️"}
+          {wx ? wx.emoji : failed ? "☁️" : "🏔️"}
         </span>
         <div className="min-w-0 flex-1">
           <p className="font-semibold text-stone-900">
             {region.name}
-            <span className="ml-2 text-xs font-normal text-stone-400">
-              {isToday ? "now" : "current"}
-            </span>
+            <span className="ml-2 text-xs font-normal text-stone-400">{isToday ? "now" : "current"}</span>
           </p>
           <p className="truncate text-sm text-stone-500">
-            {wx ? wx.text : failed ? "Weather updates when you're online" : "Checking the forecast…"}
+            {wx ? wx.text : failed ? "Weather unavailable — tap to retry" : "Checking the forecast…"}
           </p>
         </div>
         {wx && (
@@ -65,7 +78,7 @@ export default function Weather() {
             </p>
           </div>
         )}
-      </div>
+      </button>
     </section>
   );
 }
