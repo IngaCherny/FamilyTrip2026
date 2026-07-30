@@ -870,6 +870,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "issinger-weiher",
+    image: "img/issinger-weiher.jpg",
     price: { free: true, note: "Parking nearby" },
     season: { from: "06-15", to: "08-31", label: "Bathing area" },
     buggy: true,
