@@ -202,6 +202,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "widi-glueck-auf",
+    images: ["img/widi-glueck-1.jpg", "img/widi-glueck-2.jpg"],
     price: {
       adult: 30,
       child: 18,
