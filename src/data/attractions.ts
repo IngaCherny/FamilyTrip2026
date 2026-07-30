@@ -114,6 +114,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kaiserwelt",
+    images: ["img/kaiserwelt-1.jpg", "img/kaiserwelt-2.jpg"],
     price: {
       note: "Park free; you pay only the Brandstadlbahn (SkiWelt summer rate, check skiwelt.at). Children born 2022 or later ride free. Covered by the Kitzbühel Alps Summer Card.",
     },
