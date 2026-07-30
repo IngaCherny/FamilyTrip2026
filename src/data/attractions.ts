@@ -442,19 +442,6 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["Meadow walks", "Cable car", "Mountain huts"],
   },
   {
-    id: "tre-cime",
-    price: { perCar: 30, covers: "Auronzo toll road" },
-    wiki: "Tre Cime di Lavaredo",
-    name: "Tre Cime di Lavaredo",
-    region: "southtyrol",
-    category: "hike",
-    coords: [46.6186, 12.3055],
-    link: "https://www.drei-zinnen.bz/en",
-    description:
-      "The three iconic Dolomite towers. The 10 km loop is one of the world's great hikes; a toll road takes you to the Auronzo hut trailhead.",
-    good_for: ["Big hike", "Dolomite icon", "Refuge stops"],
-  },
-  {
     id: "merano-gardens",
     image: "img/merano-gardens.jpg",
     price: { adult: 16, child: 10 },
