@@ -61,7 +61,7 @@ export default function Nav() {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="font-serif text-xl font-bold text-glacier-700"
           >
-            Chernycation
+            Chernycation 2026
           </button>
           <div className="flex items-center gap-1">
             {DESKTOP.map((item) => (

@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => ({
       registerType: "autoUpdate",
       includeAssets: ["icon-192.png", "icon-512.png"],
       manifest: {
-        name: "Chernycation — Family Trip 2026",
+        name: "Chernycation 2026 — Family Trip",
         short_name: "Chernycation",
         description: "Our family trip through Austria, South Tyrol and Munich, August 2026.",
         start_url: "./",
