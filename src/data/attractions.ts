@@ -135,6 +135,7 @@ export const ATTRACTIONS: Attraction[] = [
     },
     closedOn: [3],
     buggy: true,
+    image: "img/juppi.jpg",
     wiki: "Reith im Alpbachtal",
     name: "Juppi Zauberwald, Reith im Alpbachtal",
     region: "wilderkaiser",
