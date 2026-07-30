@@ -83,7 +83,7 @@ export const STAYS: Stay[] = [
     checkOut: "2026-08-28",
     coords: [48.3538, 11.7861],
     link: "https://www.hilton.com/en/hotels/mucaphi-hilton-munich-airport/",
-    image: "img/muc-hotel.jpg",
+    image: "img/hilton-muc.jpg",
     description:
       "One last night next to Munich Airport so the morning departure is stress-free. Drop the rental car, repack, sleep close to the terminal.",
     highlights: [

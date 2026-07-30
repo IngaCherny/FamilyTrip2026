@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Section from "./Section";
 import SmartImage from "./SmartImage";
 import Gallery from "./Gallery";
+import SegmentedControl from "./SegmentedControl";
 import { ATTRACTIONS } from "../data/attractions";
 import { DESTINATIONS, PARTY, PRICES_CHECKED } from "../data/trip";
 import { POI_META } from "../lib/tags";
@@ -80,57 +81,48 @@ export default function Places() {
       title="Places to See"
       intro="Lakes, hikes, towns and rainy-day backups across the whole route. Filter by what the day allows."
     >
-      <div className="no-scrollbar -mx-4 mb-3 flex gap-2 overflow-x-auto px-4 pb-1">
-        <button
-          onClick={() => setRegion("all")}
-          className={`tap whitespace-nowrap rounded-full px-4 text-sm font-medium ${
-            region === "all" ? "bg-glacier-600 text-white" : "bg-white text-stone-600 ring-1 ring-stone-200"
-          }`}
-        >
-          All regions
-        </button>
-        {DESTINATIONS.map((r) => (
-          <button
-            key={r.id}
-            onClick={() => setRegion(r.id)}
-            className={`tap whitespace-nowrap rounded-full px-4 text-sm font-medium ${
-              region === r.id ? "bg-glacier-600 text-white" : "bg-white text-stone-600 ring-1 ring-stone-200"
-            }`}
-          >
-            {r.name}
-          </button>
-        ))}
-      </div>
+      <SegmentedControl
+        segments={[{ id: "all", label: "All regions" }, ...DESTINATIONS.map((r) => ({ id: r.id, label: r.name }))]}
+        value={region}
+        onChange={setRegion}
+        layoutId="placesRegion"
+        className="mb-3"
+      />
 
-      <div className="no-scrollbar -mx-4 mb-3 flex items-center gap-2 overflow-x-auto px-4 pb-1">
-        <button
-          onClick={here ? () => setHere(null) : findMe}
-          aria-pressed={!!here}
-          className={`tap whitespace-nowrap rounded-full px-3.5 text-sm font-semibold ${
-            here ? "bg-glacier-600 text-white" : "bg-white text-glacier-700 ring-1 ring-glacier-200"
-          }`}
-        >
-          {locating ? "Locating…" : here ? "✓ Nearest first" : "📍 Near me"}
-        </button>
-        {FLAGS.map((f) => (
+      <div className="no-scrollbar -mx-4 mb-4 overflow-x-auto px-4 pb-1">
+        <div className="glass inline-flex items-center gap-1 rounded-full p-1">
           <button
-            key={f.id}
-            onClick={() => toggle(f.id)}
-            aria-pressed={active.includes(f.id)}
-            className={`tap whitespace-nowrap rounded-full px-3.5 text-sm font-medium ${
-              active.includes(f.id)
-                ? "bg-meadow-600 text-white"
-                : "bg-white text-stone-600 ring-1 ring-stone-200"
+            onClick={here ? () => setHere(null) : findMe}
+            aria-pressed={!!here}
+            className={`tap whitespace-nowrap rounded-full px-3.5 py-1.5 text-sm font-semibold transition-colors ${
+              here ? "bg-glacier-600 text-white shadow-sm" : "text-glacier-700 hover:text-glacier-800"
             }`}
           >
-            {f.label}
+            {locating ? "Locating…" : here ? "✓ Nearest first" : "📍 Near me"}
           </button>
-        ))}
-        {active.length > 0 && (
-          <button onClick={() => setActive([])} className="tap whitespace-nowrap px-2 text-sm text-stone-500 underline">
-            Clear
-          </button>
-        )}
+          {FLAGS.map((f) => (
+            <button
+              key={f.id}
+              onClick={() => toggle(f.id)}
+              aria-pressed={active.includes(f.id)}
+              className={`tap whitespace-nowrap rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
+                active.includes(f.id)
+                  ? "bg-meadow-600 text-white shadow-sm"
+                  : "text-stone-600 hover:text-stone-900"
+              }`}
+            >
+              {f.label}
+            </button>
+          ))}
+          {active.length > 0 && (
+            <button
+              onClick={() => setActive([])}
+              className="tap whitespace-nowrap rounded-full px-3 py-1.5 text-sm text-stone-500 hover:text-stone-700"
+            >
+              Clear
+            </button>
+          )}
+        </div>
       </div>
 
       {geoError && <p className="mb-4 text-sm text-sunset-700">{geoError}</p>}

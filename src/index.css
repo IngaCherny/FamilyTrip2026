@@ -41,9 +41,10 @@ body {
 }
 
 @layer components {
-  /* One shared card surface unifies the whole visual language. */
+  /* One shared card surface unifies the whole visual language, matching the
+     plan page's generously rounded, softly shadowed tiles. */
   .card-paper {
-    @apply rounded-2xl bg-white shadow-paper ring-1 ring-stone-100;
+    @apply rounded-3xl bg-white shadow-paper ring-1 ring-stone-100;
   }
 
   .kicker {

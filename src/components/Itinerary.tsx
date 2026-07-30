@@ -19,6 +19,7 @@ import {
 } from "../lib/format";
 import { MapWithDirections, placeQuery } from "./MapEmbed";
 import Gallery from "./Gallery";
+import SegmentedControl from "./SegmentedControl";
 import { loadPicks, savePick } from "../lib/picks";
 import type { Attraction, Day, DayOption, RouteStop } from "../lib/types";
 
@@ -575,31 +576,7 @@ export default function Itinerary() {
 
   return (
     <Section id="itinerary" kicker="The Plan" title="Day by Day">
-      <div className="no-scrollbar -mx-4 mb-7 overflow-x-auto px-4">
-        <div className="glass inline-flex gap-1 rounded-full p-1">
-          {tabs.map((t) => {
-            const active = filter === t.id;
-            return (
-              <button
-                key={t.id}
-                onClick={() => setFilter(t.id)}
-                className={`tap relative whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                  active ? "text-white" : "text-stone-600 hover:text-stone-900"
-                }`}
-              >
-                {active && (
-                  <motion.span
-                    layoutId="planTab"
-                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                    className="absolute inset-0 rounded-full bg-glacier-600 shadow-sm"
-                  />
-                )}
-                <span className="relative z-10">{t.label}</span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
+      <SegmentedControl segments={tabs} value={filter} onChange={setFilter} layoutId="planTab" className="mb-7" />
 
       <div className="space-y-5">
         {days.map((day) => {
