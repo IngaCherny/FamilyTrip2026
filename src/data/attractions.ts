@@ -860,6 +860,8 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "woodywalk-plose",
+    image: "img/plose-1.jpg",
+    images: ["img/plose-1.jpg", "img/plose-2.jpg", "img/plose-3.jpg", "img/plose-4.jpg"],
     price: { adult: 27, covers: "Plose gondola from St. Andrä", note: "Children reduced" },
     buggy: true,
     wiki: "Plose",
