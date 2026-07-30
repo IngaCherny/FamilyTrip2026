@@ -1,4 +1,4 @@
-# Alpine Summer 2026 🏔️
+# Chernycation 🏔️
 
 A mobile-first companion app for our family trip across the Alps,
 **13–28 August 2026**: Wilder Kaiser (Austria) → Ötztal (Austria) →

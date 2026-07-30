@@ -1,7 +1,7 @@
 import type { Party, Region } from "../lib/types";
 
 export const TRIP = {
-  title: "Alpine Summer",
+  title: "Chernycation",
   year: 2026,
   subtitle: "Wilder Kaiser · Ötztal · South Tyrol",
   startDate: "2026-08-13",
