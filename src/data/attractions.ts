@@ -485,6 +485,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "val-fiscalina",
+    image: "img/val-fiscalina.jpg",
     price: { free: true, note: "Paid parking at Fischleinboden" },
     buggy: true,
     wiki: "Sesto Dolomites",
