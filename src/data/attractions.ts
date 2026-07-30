@@ -182,6 +182,7 @@ export const ATTRACTIONS: Attraction[] = [
     id: "habicher-see",
     price: { free: true },
     buggy: true,
+    image: "img/habicher.jpg",
     wiki: "Oetz",
     name: "Habicher See",
     region: "oetz",
@@ -240,6 +241,7 @@ export const ATTRACTIONS: Attraction[] = [
     coords: [47.199, 10.9986],
     link: "https://www.oetztal.com/en/activities/all-routes-tours/treasure-hunt-village-round-ochsengarten.r-804275843",
     buggy: true,
+    image: "img/ochsengarten.jpg",
     description:
       "The gentlest themed walk in the valley and the best of the treasure hunts: 2.94 km with only 51 m of climbing, about 1¼ hours, up through forest on one side of the stream and back along the other. Small caches hidden along the way each hold a letter; collect them all to spell the solution word and claim a gift at the info office. The path is wide enough to push a buggy the whole way, and it ends at a children's playground.",
     good_for: ["Buggy the whole way", "Real treasure hunt", "Playground at the end"],
@@ -267,6 +269,7 @@ export const ATTRACTIONS: Attraction[] = [
     id: "widiversum",
     price: { adult: 30, child: 18, covers: "Acherkogelbahn return", note: "Play world free", freeUnder: 4 },
     buggy: true,
+    image: "img/widi.jpg",
     wiki: "Oetz",
     name: "WIDIVERSUM Hochoetz",
     region: "oetz",
