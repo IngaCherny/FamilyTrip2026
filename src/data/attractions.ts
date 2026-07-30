@@ -312,6 +312,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "stuibenfall",
+    image: "img/stuibenfall.jpg",
     price: { free: true },
     wiki: "Stuibenfall",
     name: "Stuibenfall Waterfall",
