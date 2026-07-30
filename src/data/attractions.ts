@@ -222,6 +222,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "widi-hoch-hinaus",
+    image: "img/widi-hoch-hinaus.jpg",
     price: {
       adult: 30,
       child: 18,
@@ -256,6 +257,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "alpine-coaster-imst",
+    image: "img/alpine-coaster-imst.jpg",
     price: {
       adult: 15,
       child: 11,
