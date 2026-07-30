@@ -292,6 +292,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "area47",
+    image: "img/area47.jpg",
     price: {
       adult: 36,
       child: 25,
