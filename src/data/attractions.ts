@@ -544,6 +544,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "antholzer-see",
+    image: "img/antholzer-see.jpg",
     price: { free: true, note: "Paid parking at the lake" },
     buggy: true,
     wiki: "Antholzer See",
