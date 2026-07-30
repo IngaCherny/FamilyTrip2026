@@ -640,6 +640,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "klausberg",
+    image: "img/klausberg.jpg",
     price: { note: "Gondola ticket, with the alpine coaster charged per ride." },
     wiki: "Ahrntal",
     name: "Klausberg family park, Ahrntal",
