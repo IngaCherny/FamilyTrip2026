@@ -570,6 +570,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "otzi-dorf",
+    images: ["img/otzi-dorf-1.jpg", "img/otzi-dorf-2.jpg", "img/otzi-dorf-3.jpg"],
     price: { note: "Combined ticket with the Greifvogelpark next door; check oetztal.com for the current rate." },
     buggy: true,
     wiki: "Umhausen",
