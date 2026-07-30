@@ -163,6 +163,7 @@ export const ATTRACTIONS: Attraction[] = [
 
   {
     id: "kundlerklamm",
+    images: ["img/kundlerklamm-1.jpg", "img/kundlerklamm-2.jpg"],
     price: { free: true },
     season: { from: "04-01", to: "11-15" },
     buggy: true,
@@ -752,7 +753,6 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "gilfenklamm",
-    images: ["img/gilfenklamm-1.jpg", "img/gilfenklamm-2.jpg"],
     price: {
       adult: 5,
       child: 3,
