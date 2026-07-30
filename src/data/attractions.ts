@@ -183,6 +183,28 @@ export const ATTRACTIONS: Attraction[] = [
       "An easy, wide gorge trail along the water between Kundl and Mühltal, right by the A12 near Wörgl and roughly the midpoint of the drive to Munich. Free, stroller-friendly and about 3.5 km of level walking under 200 m rock walls, more a leisurely stream walk than a hike, with places to splash, skip stones and paddle. A little shuttle train saves the legs to the gorge entrance.",
     good_for: ["Stroller-friendly gorge", "Splashing & stones", "Free"],
   },
+  {
+    id: "rosenalm-fichtenschloss",
+    image: "img/rosenalm.jpg",
+    price: {
+      adult: 30,
+      child: 15,
+      covers: "Rosenalmbahn gondola return",
+      freeUnder: 6,
+      note: "The Fichtenschloss playground is free; you pay only the gondola. Covered by the Zillertal Activcard. Checked against 2024 rates — confirm on site.",
+    },
+    season: { from: "05-15", to: "10-15" },
+    buggy: true,
+    wiki: "Zell am Ziller",
+    name: "Rosenalm & Fichtenschloss, Zillertal",
+    region: "wilderkaiser",
+    category: "kids",
+    coords: [47.2136, 11.8616],
+    link: "https://www.zillertalarena.com/en/summer/highlights/fichtenschloss",
+    description:
+      "A giant wooden 'spruce castle' adventure playground at the top of the Rosenalmbahn above Zell am Ziller, with towers, rope bridges, slides, water play and easy summit strolls. A day trip from the Wilder Kaiser base: about an hour down the Inn valley to Wörgl and up the Zillertal. Note it is not on the way to anything else, so it is a there-and-back outing rather than a stop.",
+    good_for: ["Huge wooden castle playground", "Gondola up", "Day trip from Wilder Kaiser"],
+  },
 
   // ---------- Ötztal ----------
   {
