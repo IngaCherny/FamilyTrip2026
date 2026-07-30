@@ -153,6 +153,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "griessbachklamm",
+    images: ["img/griessbachklamm-1.jpg", "img/griessbachklamm-2.jpg", "img/griessbachklamm-3.jpg"],
     price: { free: true, note: "Small parking fee at Erpfendorf" },
     season: { from: "05-01", to: "10-31" },
     wiki: "Erpfendorf",
