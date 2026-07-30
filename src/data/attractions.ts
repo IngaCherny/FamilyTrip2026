@@ -4,6 +4,7 @@ export const ATTRACTIONS: Attraction[] = [
   // ---------- Wilder Kaiser ----------
   {
     id: "hintersteiner-see",
+    image: "img/hintersteiner-see.jpg",
     price: { free: true, note: "Parking ~€5/day" },
     buggy: true,
     wiki: "Hintersteiner See",
@@ -32,6 +33,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "hartkaiser-ellmi",
+    image: "img/hartkaiser-ellmi.jpg",
     price: { adult: 27, child: 13, covers: "Hartkaiser funicular", note: "Playground free", freeUnder: 4 },
     buggy: true,
     wiki: "Ellmau",
@@ -82,6 +84,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "kitzbuehel",
+    image: "img/kitzbuehel.jpg",
     price: { free: true, note: "Town free; Hahnenkamm cable car ~€32 adult" },
     buggy: true,
     wiki: "Kitzbühel",
@@ -96,6 +99,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "gaudeamushuette",
+    image: "img/gaudeamushuette.jpg",
     price: { free: true, note: "Hut food extra" },
     buggy: true,
     wiki: "Wilder Kaiser",
