@@ -50,8 +50,9 @@ export const ATTRACTIONS: Attraction[] = [
     id: "triassic-park",
     price: {
       adult: 31,
+      child: 16,
       covers: "Steinplatte gondola return",
-      note: "Park entry free; children reduced and under-4s free. Free parking.",
+      note: "Park entry free; under-4s free, older children reduced. Free parking. Confirm on steinplatte.tirol.",
       freeUnder: 4,
     },
     buggy: true,
@@ -135,6 +136,7 @@ export const ATTRACTIONS: Attraction[] = [
     price: {
       adult: 12,
       child: 6,
+      freeUnder: 6,
       covers: "Reitherkogelbahn return",
       note: "~€9.50 / €5 one way. The forest itself is free.",
     },
@@ -403,7 +405,7 @@ export const ATTRACTIONS: Attraction[] = [
   {
     id: "soelden-007",
     image: "img/soelden-007.jpg",
-    price: { adult: 42, child: 25, covers: "Gaislachkogl cable car", note: "007 Elements ~€23 extra" },
+    price: { adult: 42, child: 25, freeUnder: 6, covers: "Gaislachkogl cable car", note: "007 Elements ~€23 extra. Children's lift age rules vary — confirm on soelden.com." },
     indoor: true,
     wiki: "Gaislachkogl",
     name: "Gaislachkogl & 007 Elements (Sölden)",
@@ -451,7 +453,7 @@ export const ATTRACTIONS: Attraction[] = [
   {
     id: "merano-gardens",
     image: "img/merano-gardens.jpg",
-    price: { adult: 16, child: 10 },
+    price: { adult: 16, child: 10, freeUnder: 6, note: "Under 6 free; reduced 6–14. Confirm on trauttmansdorff.it." },
     season: { from: "04-01", to: "11-15" },
     buggy: true,
     wiki: "Gardens of Trauttmansdorff Castle",
@@ -782,7 +784,7 @@ export const ATTRACTIONS: Attraction[] = [
     id: "woodywalk-plose",
     image: "img/plose-1.jpg",
     images: ["img/plose-1.jpg", "img/plose-2.jpg", "img/plose-3.jpg", "img/plose-4.jpg"],
-    price: { adult: 27, covers: "Plose gondola from St. Andrä", note: "Children reduced" },
+    price: { adult: 27, child: 14, freeUnder: 6, covers: "Plose gondola from St. Andrä", note: "Under 6 free, older children reduced. Confirm on plose.org." },
     buggy: true,
     wiki: "Plose",
     name: "WoodyWalk on the Plose (near Brixen)",
