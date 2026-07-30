@@ -366,6 +366,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "piburger-see",
+    image: "img/piburger-see.jpg",
     price: { free: true, note: "Rowing boat ~€10/hr. Parking at Piburg saves the climb from Oetz." },
     wiki: "Piburger See",
     name: "Piburger See",
