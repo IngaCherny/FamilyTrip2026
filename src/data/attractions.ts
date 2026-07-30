@@ -700,7 +700,7 @@ export const ATTRACTIONS: Attraction[] = [
     region: "southtyrol",
     category: "sight",
     coords: [46.7447, 12.0206],
-    link: "https://www.olang.com/en/activity/to-welsberg_37384",
+    link: "https://www.olang.com/en/activity/by-bike-with-the-whole-family-to-the-playground-in-welsberg_116437",
     description:
       "The kids' favourite day: hire bikes in Olang and roll the flat, easy Pustertal cycle path past Lake Olang to the village of Welsberg, with Prenninger Park to play in and gelato in town, then take the Pustertal train back to Olang with the bikes. Level, paved and well away from traffic.",
     good_for: ["Flat & paved", "Train back with bikes", "Park & gelato"],
