@@ -598,6 +598,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "andreas-hofer-weg",
+    image: "img/andreas-hofer-weg.jpg",
     price: { free: true },
     buggy: true,
     wiki: "Ötztal",
