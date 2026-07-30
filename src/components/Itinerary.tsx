@@ -18,6 +18,7 @@ import {
   isOutOfSeason,
 } from "../lib/format";
 import { MapWithDirections, placeQuery } from "./MapEmbed";
+import Gallery from "./Gallery";
 import { loadPicks, savePick } from "../lib/picks";
 import type { Attraction, Day, DayOption, RouteStop } from "../lib/types";
 
@@ -411,6 +412,9 @@ function DayCard({
               {chosen && (
                 <div className="space-y-2">
                   <p className="kicker">Your plan · {chosen.title}</p>
+                  {chosenAttr?.images && chosenAttr.images.length > 1 && (
+                    <Gallery images={chosenAttr.images} alt={chosen.title} />
+                  )}
                   <PlaceCard
                     key={chosen.title}
                     title={chosen.title}

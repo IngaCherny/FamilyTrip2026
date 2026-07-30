@@ -54,6 +54,8 @@ export const ATTRACTIONS: Attraction[] = [
     },
     buggy: true,
     indoor: true,
+    image: "img/triassic-1.webp",
+    images: ["img/triassic-1.webp", "img/triassic-2.jpg", "img/triassic-3.jpg"],
     wiki: "Steinplatte",
     name: "Triassic Park, Steinplatte (Waidring)",
     region: "wilderkaiser",

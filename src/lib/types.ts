@@ -200,6 +200,11 @@ export interface Attraction {
   wiki?: string;
   /** Pinned photo (full URL or Commons file name), winning over `wiki`. */
   image?: string;
+  /**
+   * Extra photos for a swipe-through gallery in the day details. The hero
+   * (`image`, or the first entry) leads; the rest become swipe frames.
+   */
+  images?: string[];
   /** Approximate admission, checked against 2025 rates. */
   price?: Price;
   /** Weekdays the place (or its lift) does not operate. */
