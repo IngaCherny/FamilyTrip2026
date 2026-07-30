@@ -18,12 +18,7 @@ export default function Stays() {
     });
 
   return (
-    <Section
-      id="stays"
-      kicker="Home Base"
-      title="Where We Stay"
-      intro="Four bases over fifteen nights, each pinned to its real address. Tap a stay for dates, directions and what makes it handy."
-    >
+    <Section id="stays" kicker="Home Base" title="Where We Stay">
       <div className="grid items-start gap-4 md:grid-cols-2">
         {STAYS.map((s, i) => {
           const region = regionById(s.region);

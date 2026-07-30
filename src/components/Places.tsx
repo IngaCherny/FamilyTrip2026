@@ -84,12 +84,7 @@ export default function Places() {
   }, [region, active, here]);
 
   return (
-    <Section
-      id="places"
-      kicker="Worth the Detour"
-      title="Places to See"
-      intro="Lakes, hikes, towns and rainy-day backups across the whole route. Filter by what the day allows."
-    >
+    <Section id="places" kicker="Worth the Detour" title="Places to See">
       <SegmentedControl
         segments={[{ id: "all", label: "All regions" }, ...DESTINATIONS.map((r) => ({ id: r.id, label: r.name }))]}
         value={region}
