@@ -722,6 +722,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "fane-alm",
+    image: "img/fane-alm.jpg",
     price: { free: true, note: "Parking at Berg am Boden; a shuttle runs up the last stretch of road." },
     buggy: true,
     wiki: "Vals, South Tyrol",
@@ -736,6 +737,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "rodenecker-luesner-alm",
+    image: "img/rodenecker-alm.jpg",
     price: { free: true, note: "Parking charge at the Zumis car park; a bus runs from Mühlbach." },
     buggy: true,
     wiki: "Rodeneck",
@@ -750,6 +752,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "gilfenklamm",
+    images: ["img/gilfenklamm-1.jpg", "img/gilfenklamm-2.jpg"],
     price: {
       adult: 5,
       child: 3,

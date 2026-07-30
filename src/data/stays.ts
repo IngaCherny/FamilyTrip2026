@@ -63,6 +63,7 @@ export const STAYS: Stay[] = [
     coords: [46.801, 11.846],
     address: "Sonnenstraße 11, 39030 Hofern/Kiens, South Tyrol, Italy",
     link: "https://www.entdecker-hotel.com/en",
+    image: "img/entdecker.jpg",
     description:
       "Six nights, the heart of the trip, in a sunny panoramic spot in Val Pusteria near Kronplatz. A family hotel for slower mornings; ideally placed for the eastern Dolomites (Lago di Braies and Tre Cime are close), with Bolzano and Merano an easy drive west.",
     highlights: [
@@ -73,7 +74,7 @@ export const STAYS: Stay[] = [
   },
   {
     id: "muc-hotel",
-    name: "Airport Hotel (Munich)",
+    name: "Hilton Munich Airport",
     region: "munich",
     town: "near Munich Airport (MUC)",
     country: "Germany",
@@ -81,6 +82,8 @@ export const STAYS: Stay[] = [
     checkIn: "2026-08-27",
     checkOut: "2026-08-28",
     coords: [48.3538, 11.7861],
+    link: "https://www.hilton.com/en/hotels/mucaphi-hilton-munich-airport/",
+    image: "img/muc-hotel.jpg",
     description:
       "One last night next to Munich Airport so the morning departure is stress-free. Drop the rental car, repack, sleep close to the terminal.",
     highlights: [

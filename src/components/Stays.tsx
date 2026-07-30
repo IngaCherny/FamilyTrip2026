@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Section from "./Section";
 import { STAYS } from "../data/stays";
 import { regionById } from "../data/trip";
-import { mapLinks, formatShort } from "../lib/format";
+import { mapLinks, formatShort, imageUrl } from "../lib/format";
 
 export default function Stays() {
   return (
@@ -23,8 +23,16 @@ export default function Stays() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: (i % 2) * 0.05 }}
-              className="card-paper flex flex-col p-5"
+              className="card-paper flex flex-col overflow-hidden p-5"
             >
+              {s.image && (
+                <img
+                  src={imageUrl(s.image, 1200)}
+                  alt={s.name}
+                  loading="lazy"
+                  className="-mx-5 -mt-5 mb-4 h-44 w-[calc(100%+2.5rem)] object-cover sm:h-52"
+                />
+              )}
               <div className="flex items-start justify-between">
                 <div>
                   <span className="kicker">{region.name}</span>

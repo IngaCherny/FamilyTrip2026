@@ -570,6 +570,7 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_ENTDECKER,
     title: "Arrive in South Tyrol",
     subtitle: "Check in, pool, no pressure",
+    image: "img/entdecker.jpg",
     drive: {
       from: "Oetz, Ötztal",
       to: "Entdecker Hotel, Hofern / Kiens",
@@ -587,6 +588,15 @@ export const ITINERARY: Day[] = [
           tag: "town",
           coords: [46.8966, 11.43],
           mapQuery: "Sterzing Vipiteno, Italy",
+        },
+        {
+          name: "Rosskopf alpine coaster, Sterzing",
+          image: "img/rosskopf.jpg",
+          description:
+            "Ride the gondola up from Sterzing and let off steam after the long transfer: the Rosskopf summer alpine coaster runs 1.2 km down the mountain on rails, brakes in your own hands, and a child from about three can ride tucked in front of a parent. Playground, huts and big views at the top. A fun, easy first taste of Italy right by the motorway.",
+          tag: "cablecar",
+          coords: [46.9036, 11.4494],
+          mapQuery: "Rosskopf Sterzing cable car, Italy",
         },
         {
           name: "Franzensfeste Fortress",

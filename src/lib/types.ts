@@ -41,6 +41,8 @@ export interface Stay {
   highlights: string[];
   /** Optional booking / website link. */
   link?: string;
+  /** Pinned photo (bundled "img/…" path or URL) for the stay card. */
+  image?: string;
 }
 
 export type ActivityTag =
