@@ -571,33 +571,34 @@ export default function Itinerary() {
     if (el) el.scrollIntoView({ block: "center" });
   }, [today]);
 
+  const tabs = [{ id: "all", label: "Whole trip" }, ...DESTINATIONS.map((r) => ({ id: r.id, label: r.name }))];
+
   return (
-    <Section
-      id="itinerary"
-      kicker="The Plan"
-      title="Day by Day"
-      intro="Tap a day for the full plan — swap it for an alternative any time."
-    >
-      <div className="no-scrollbar -mx-4 mb-6 flex gap-2 overflow-x-auto px-4 pb-1">
-        <button
-          onClick={() => setFilter("all")}
-          className={`tap whitespace-nowrap rounded-full px-4 text-sm font-medium ${
-            filter === "all" ? "bg-glacier-600 text-white" : "bg-white text-stone-600 ring-1 ring-stone-200"
-          }`}
-        >
-          Whole trip
-        </button>
-        {DESTINATIONS.map((r) => (
-          <button
-            key={r.id}
-            onClick={() => setFilter(r.id)}
-            className={`tap whitespace-nowrap rounded-full px-4 text-sm font-medium ${
-              filter === r.id ? "bg-glacier-600 text-white" : "bg-white text-stone-600 ring-1 ring-stone-200"
-            }`}
-          >
-            {r.name}
-          </button>
-        ))}
+    <Section id="itinerary" kicker="The Plan" title="Day by Day">
+      <div className="no-scrollbar -mx-4 mb-7 overflow-x-auto px-4">
+        <div className="glass inline-flex gap-1 rounded-full p-1">
+          {tabs.map((t) => {
+            const active = filter === t.id;
+            return (
+              <button
+                key={t.id}
+                onClick={() => setFilter(t.id)}
+                className={`tap relative whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                  active ? "text-white" : "text-stone-600 hover:text-stone-900"
+                }`}
+              >
+                {active && (
+                  <motion.span
+                    layoutId="planTab"
+                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    className="absolute inset-0 rounded-full bg-glacier-600 shadow-sm"
+                  />
+                )}
+                <span className="relative z-10">{t.label}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       <div className="space-y-5">
