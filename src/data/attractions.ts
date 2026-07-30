@@ -326,6 +326,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "aquadome",
+    image: "img/aquadome.jpg",
     price: { adult: 27, child: 16, covers: "3-hour ticket", freeUnder: 3 },
     indoor: true,
     buggy: true,
