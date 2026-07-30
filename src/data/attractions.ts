@@ -342,6 +342,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "naturparkhaus",
+    image: "img/naturparkhaus.jpg",
     price: {
       adult: 5,
       child: 2.5,
