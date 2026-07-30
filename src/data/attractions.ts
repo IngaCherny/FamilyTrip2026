@@ -471,6 +471,7 @@ export const ATTRACTIONS: Attraction[] = [
   },
   {
     id: "merano-gardens",
+    image: "img/merano-gardens.jpg",
     price: { adult: 16, child: 10 },
     season: { from: "04-01", to: "11-15" },
     buggy: true,
