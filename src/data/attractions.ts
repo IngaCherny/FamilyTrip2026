@@ -772,6 +772,27 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["White marble gorge", "Waterfalls & bridges", "On the way to Munich"],
   },
   {
+    id: "rosskopf-coaster",
+    image: "img/rosskopf.jpg",
+    price: {
+      adult: 20,
+      child: 10,
+      covers: "gondola return",
+      freeUnder: 6,
+      note: "Alpine coaster charged per ride (about €5, or ~€4 with a lift ticket). Kids under about 8 ride tucked in with an adult. Checked against 2024 rates — confirm on site.",
+    },
+    season: { from: "05-01", to: "11-01" },
+    wiki: "Sterzing",
+    name: "Rosskopf alpine coaster, Sterzing",
+    region: "southtyrol",
+    category: "kids",
+    coords: [46.9036, 11.4494],
+    link: "https://www.rosskopf.com/en",
+    description:
+      "The perfect thing to break the long transfer day, right by the motorway just past the Brenner. The Sterzing gondola climbs to Rosskopf (Monte Cavallo) at about 1,860 m, where the Alpine Coaster sled runs 1.2 km down the mountain on rails with the braking in your own hands — a child from about three can ride tucked in front of a parent. Big playground, sun terraces, mountain huts and wide views at the top, so it fills an afternoon before the last half-hour to the hotel.",
+    good_for: ["Alpine coaster fun", "Right by the motorway", "Playground & views"],
+  },
+  {
     id: "pustertal-radweg",
     price: {
       free: true,

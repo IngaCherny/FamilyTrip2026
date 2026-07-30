@@ -568,9 +568,8 @@ export const ITINERARY: Day[] = [
     region: "southtyrol",
     base: "Entdecker Hotel Panorama",
     baseQuery: BASE_ENTDECKER,
-    title: "Arrive in South Tyrol",
-    subtitle: "Check in, pool, no pressure",
-    image: "img/entdecker.jpg",
+    title: "Rosskopf coaster on the way in",
+    subtitle: "Break the drive at Sterzing, then check in",
     drive: {
       from: "Oetz, Ötztal",
       to: "Entdecker Hotel, Hofern / Kiens",
@@ -590,15 +589,6 @@ export const ITINERARY: Day[] = [
           mapQuery: "Sterzing Vipiteno, Italy",
         },
         {
-          name: "Rosskopf alpine coaster, Sterzing",
-          image: "img/rosskopf.jpg",
-          description:
-            "Ride the gondola up from Sterzing and let off steam after the long transfer: the Rosskopf summer alpine coaster runs 1.2 km down the mountain on rails, brakes in your own hands, and a child from about three can ride tucked in front of a parent. Playground, huts and big views at the top. A fun, easy first taste of Italy right by the motorway.",
-          tag: "cablecar",
-          coords: [46.9036, 11.4494],
-          mapQuery: "Rosskopf Sterzing cable car, Italy",
-        },
-        {
           name: "Franzensfeste Fortress",
           wiki: "Franzensfeste",
           description:
@@ -611,12 +601,22 @@ export const ITINERARY: Day[] = [
     },
     options: [
       {
-        title: "Check in and relax at the hotel pool",
+        title: "Rosskopf alpine coaster, Sterzing",
+        tag: "kids",
+        attractionId: "rosskopf-coaster",
+        description:
+          "Break the transfer where it matters: pull off just past the Brenner at Sterzing, ride the gondola up to Rosskopf and let the kids loose on the 1.2 km alpine coaster and the summit playground. An hour or two of fun, lunch at a hut with the view, then the last half-hour down to the hotel to check in and swim.",
+        kidNote: "Coaster from about age 3 tucked in with an adult; playground and easy meadow strolls at the top. Carrier for the 2 year old.",
+        coords: [46.9036, 11.4494],
+        mapQuery: "Rosskopf Sterzing cable car, Italy",
+      },
+      {
+        title: "Straight to the hotel pool instead",
         wiki: "Puster Valley",
         tag: "spa",
         description:
-          "Arrive around noon, check into the Entdecker for the six-night stay, then let the kids loose in the pool and explore the hotel. Dinner in, no pressure to do anything else after the long transfer.",
-        kidNote: "No driving, no plan. Pool, unpack, early dinner.",
+          "If the drive has worn everyone out, skip Sterzing, arrive around noon, check into the Entdecker for the six-night stay and let the kids loose in the pool. Dinner in, no pressure to do anything else.",
+        kidNote: "No detour, no plan. Pool, unpack, early dinner.",
         mapQuery: BASE_ENTDECKER,
       },
       {
