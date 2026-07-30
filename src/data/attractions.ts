@@ -394,21 +394,6 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["Cable car", "Bond fans", "Glacier views"],
   },
   {
-    id: "timmelsjoch",
-    price: { perCar: 19, covers: "toll road" },
-    wiki: "Timmelsjoch",
-    name: "Timmelsjoch High Alpine Road",
-    region: "oetz",
-    category: "sight",
-    coords: [46.9075, 11.0972],
-    link: "https://www.timmelsjoch.com/",
-    description:
-      "A spectacular toll pass road (2,509 m) linking the Ötztal to South Tyrol, with sculpture viewpoints along the way. A scenic option for the transfer south.",
-    good_for: ["Scenic drive", "Viewpoints", "Pass crossing"],
-  },
-
-  // ---------- South Tyrol ----------
-  {
     id: "pragser-wildsee",
     image: "img/pragser-wildsee.jpg",
     price: {
@@ -458,19 +443,6 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["Botanical gardens", "Promenade", "Town stroll"],
   },
   {
-    id: "rodelbahn-haunold",
-    price: { note: "~€6 per ride; family fun park, combo tickets available" },
-    wiki: "San Candido",
-    name: "Rodelbahn Haunold (summer toboggan)",
-    region: "southtyrol",
-    category: "kids",
-    coords: [46.7183, 12.2556],
-    link: "https://maps.app.goo.gl/TQQ1AyL7c7uLkp1t9?g_st=ic",
-    description:
-      "A summer toboggan run and family fun park at the foot of the Haunold (Baranci) mountain right by San Candido, about a 45 minute drive east of the hotel. The spot you stumbled on while driving back.",
-    good_for: ["Summer toboggan", "Kids fun park", "Near San Candido"],
-  },
-  {
     id: "val-fiscalina",
     image: "img/val-fiscalina.jpg",
     price: { free: true, note: "Paid parking at Fischleinboden" },
@@ -484,20 +456,6 @@ export const ATTRACTIONS: Attraction[] = [
     description:
       "A flat, family-friendly valley in the Three Peaks Nature Park next to San Candido and Sexten, with the Sundial (Meridiana) peaks towering at the head of the valley. One of the loveliest gentle Dolomite walks, about a 45 minute drive from the Entdecker hotel.",
     good_for: ["Family valley walk", "Buggy-friendly", "Dolomite views"],
-  },
-  {
-    id: "kastelruth",
-    price: { free: true },
-    buggy: true,
-    wiki: "Kastelruth",
-    name: "Kastelruth / Castelrotto",
-    region: "southtyrol",
-    category: "town",
-    coords: [46.5675, 11.5597],
-    link: "https://www.castelrotto.info/",
-    description:
-      "A postcard South Tyrolean village with a landmark bell tower, gateway to the Seiser Alm. Good for an easy afternoon and dinner.",
-    good_for: ["Village stroll", "Dinner", "Photos"],
   },
   {
     id: "elfenweg",
@@ -558,19 +516,6 @@ export const ATTRACTIONS: Attraction[] = [
     description:
       "An open-air stone-age village recreating how Ötzi would have lived, with aurochs, sheep and pigs, and a birds-of-prey park next door running daily flight shows. Flat, gentle and genuinely educational.",
     good_for: ["Animals", "Flight show", "Flat and buggy-friendly"],
-  },
-  {
-    id: "auer-klamm",
-    price: { free: true },
-    wiki: "Oetz",
-    name: "Auer Klamm gorge, Oetz",
-    region: "oetz",
-    category: "hike",
-    coords: [47.2125, 10.9],
-    link: "https://www.oetztal.com/en/activities/excursion-destinations",
-    description:
-      "A shady, dramatic little gorge along rushing water close to Oetz. Cool and atmospheric on a hot afternoon, and short enough to be an hour rather than an outing.",
-    good_for: ["Shady", "Short out-and-back", "Rushing water"],
   },
   {
     id: "andreas-hofer-weg",
@@ -709,20 +654,6 @@ export const ATTRACTIONS: Attraction[] = [
     good_for: ["Flat & paved", "Train back with bikes", "Park & gelato"],
   },
   {
-    id: "prenninger-park",
-    price: { free: true },
-    buggy: true,
-    wiki: "Welsberg-Taisten",
-    name: "Prenninger Park, Welsberg",
-    region: "southtyrol",
-    category: "kids",
-    coords: [46.7486, 12.1046],
-    link: "https://www.pustertal.org/en/",
-    description:
-      "A riverside family park in Welsberg with a playground and space to run, the natural turnaround of the Olang-to-Welsberg bike ride. A shady spot for a picnic before the train back.",
-    good_for: ["Playground", "Riverside", "Bike-ride turnaround"],
-  },
-  {
     id: "fane-alm",
     image: "img/fane-alm.jpg",
     price: { free: true, note: "Parking at Berg am Boden; a shuttle runs up the last stretch of road." },
@@ -793,68 +724,6 @@ export const ATTRACTIONS: Attraction[] = [
     description:
       "The perfect thing to break the long transfer day, right by the motorway just past the Brenner. The Sterzing gondola climbs to Rosskopf (Monte Cavallo) at about 1,860 m, where the Alpine Coaster sled runs 1.2 km down the mountain on rails with the braking in your own hands — a child from about three can ride tucked in front of a parent. Big playground, sun terraces, mountain huts and wide views at the top, so it fills an afternoon before the last half-hour to the hotel.",
     good_for: ["Alpine coaster fun", "Right by the motorway", "Playground & views"],
-  },
-  {
-    id: "pustertal-radweg",
-    price: {
-      free: true,
-      note: "Path free; bike hire extra. Parking in Kiens sits right by the route, and the Südtirol Guest Pass covers the train back if you ride one way.",
-    },
-    wiki: "Puster Valley",
-    name: "Pustertal cycle path (from Kiens)",
-    region: "southtyrol",
-    category: "sight",
-    coords: [46.797, 11.859],
-    link: "https://www.kiens.bz/en/activity/pustertal-valley-bike-route_5060",
-    description:
-      "The valley cycle route runs straight through Kiens, so this one starts at the door. The Mühlbach to Bruneck section is about 25.5 km and almost completely flat, fully asphalted and largely away from the road, threaded through Niedervintl, Obervintl, Kiens, Ehrenburg and St. Lorenzen. Ride the short leg east into Bruneck for gelato and roll back, or head west toward Vandoies and the Elves' Path. Picnic tables and benches all along it.",
-    good_for: ["Flat and asphalted", "Starts at the hotel", "Ride as far as you like"],
-  },
-  {
-    id: "ahrntal-radweg",
-    price: {
-      free: true,
-      note: "Path free; bike hire extra, with rental at Bruneck station. Trains and buses back up the valley are covered by the Südtirol Guest Pass.",
-    },
-    wiki: "Tauferer Ahrntal",
-    name: "Ahrntal family cycle path (Bruneck – Sand in Taufers)",
-    region: "southtyrol",
-    category: "sight",
-    coords: [46.7959, 11.9369],
-    link: "https://www.kronplatz.net/sport/sommeraktivurlaub/mountainbiken-radfahren/radwege/familientour-bruneck-sand/",
-    description:
-      "The pick of the family rides near the hotel: 16.8 km from Bruneck station up the Ahr valley through St. Georgen, Gais and Uttenheim to Sand in Taufers, nearly flat the whole way and paved, mostly through meadows and fields well away from traffic. Roughly 2½ hours at a gentle pace and it passes the Reinbach Waterfalls, so the ride and the waterfall walk make one day together.",
-    good_for: ["Nearly flat", "Ends at the waterfalls", "Bike hire in Bruneck"],
-  },
-  {
-    id: "dolomiti-radweg",
-    price: {
-      free: true,
-      note: "Path free; bike hire extra in Toblach. Ride out and back rather than committing to Cortina.",
-    },
-    wiki: "Dobbiaco",
-    name: "Dolomites cycle path (Toblach towards Cortina)",
-    region: "southtyrol",
-    category: "sight",
-    coords: [46.7333, 12.2225],
-    link: "https://www.dreizinnen.com/en/activity/dolomites-cycle-path-route-toblach-dobbiaco-cortina_50093",
-    description:
-      "The old Dolomites railway, dismantled in 1964 and now possibly the most scenic cycleway in Italy, running from Toblach through Landro and over the Cimabanche saddle toward Cortina. Gradients stay gentle because it is a railway bed, and old stations punctuate the route. Note it is a long, steady climb of roughly 280 m from Toblach up to Cimabanche and the surface is gravel on this stretch, so it is prettier but harder work than the valley paths.",
-    good_for: ["Old railway line", "Dolomite scenery", "Gentle railway gradient"],
-  },
-  {
-    id: "kiens-farmtrail",
-    price: { free: true },
-    buggy: true,
-    wiki: "Kiens",
-    name: "Farm trail Kiens – St. Sigmund",
-    region: "southtyrol",
-    category: "hike",
-    coords: [46.8075, 11.872],
-    link: "https://www.suedtirol.info/en/en/experiences-and-events/plp-experiences/experiences-south-tyrol/pdp-experience.smgpoi2c913117942466d1e992997a4a2948b0.farm-hike-between-chienes-kiens-and-san-sigismondo-st--sigmund.chienes-kiens",
-    description:
-      "The closest walk of all, in the valley immediately below the hotel. A gentle valley-floor path winds between Kiens and the pretty hamlet of St. Sigmund past working farms, meadows and grazing animals, with the Dolomites as a backdrop. Close enough to walk to from the hotel rather than drive.",
-    good_for: ["At the doorstep", "Farms & animals", "Gentle stroll"],
   },
   {
     id: "issinger-weiher",
