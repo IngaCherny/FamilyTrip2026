@@ -1,13 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Car, Utensils, Mountain } from "lucide-react";
 import Section from "./Section";
 import SmartImage from "./SmartImage";
 import { ITINERARY } from "../data/itinerary";
 import { DESTINATIONS, PARTY, regionById } from "../data/trip";
-import { attractionById } from "../data/attractions";
+import { attractionById, ATTRACTIONS } from "../data/attractions";
 import { TAG_META } from "../lib/tags";
 import {
   closedLabel,
+  distanceKm,
   familyCost,
   formatFamilyCost,
   formatPrice,
@@ -49,6 +51,25 @@ function TagChip({ tag }: { tag?: DayOption["tag"] }) {
   );
 }
 
+/** Approximate drive minutes for a straight-line distance on alpine roads. */
+function approxMin(km: number): number {
+  return Math.max(4, Math.round(km * 1.6));
+}
+
+/** The nearest couple of other hikes/lakes to a trail, for "add a stop". */
+function nearbyHikes(coords: [number, number] | undefined, excludeId?: string) {
+  if (!coords) return [] as { a: Attraction; km: number }[];
+  return ATTRACTIONS.filter((a) => a.id !== excludeId && (a.category === "hike" || a.category === "lake"))
+    .map((a) => ({ a, km: distanceKm(coords, a.coords) }))
+    .filter((x) => x.km <= 30)
+    .sort((x, y) => x.km - y.km)
+    .slice(0, 2);
+}
+
+function mapsSearch(query: string): string {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
 /** An expandable card for a day option or a drive stop; reveals a map on open. */
 function PlaceCard({
   title,
@@ -69,6 +90,8 @@ function PlaceCard({
   hero,
   bare,
   onDark,
+  driveFromBase,
+  trailShape,
 }: {
   title: string;
   description: string;
@@ -95,6 +118,10 @@ function PlaceCard({
   bare?: boolean;
   /** Style the details for a dark (ink) panel — cream text, gold accents. */
   onDark?: boolean;
+  /** Approximate drive from base, shown as a pill, e.g. "~20 min". */
+  driveFromBase?: string;
+  /** Trail shape shown as a chip, e.g. "Loop", "There & back". */
+  trailShape?: string;
 }) {
   const [open, setOpen] = useState(hero || (defaultOpen ?? false));
   const priceText = formatPrice(attraction?.price);
@@ -106,14 +133,49 @@ function PlaceCard({
   // An option's own link wins; otherwise fall back to the attraction's official page.
   const officialLink = link ?? attraction?.link;
 
+  const priceChip = cost
+    ? cost.total === 0
+      ? "Free"
+      : `~€${Math.round(cost.total)} · family`
+    : attraction?.price?.free
+    ? "Free"
+    : undefined;
+
   const body = (
     <div className="space-y-3 px-3 pb-3">
-      {!hero && (
-        <div className="flex flex-wrap items-center gap-1.5">
+      {!hero && (driveFromBase || priceChip || tag) && (
+        <div className="flex flex-wrap items-center gap-2">
+          {driveFromBase && (
+            <span
+              className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${
+                onDark ? "bg-white/10 text-[#E4DDCB]" : "bg-stone-100 text-stone-600"
+              }`}
+            >
+              <Car size={13} strokeWidth={1.8} /> {driveFromBase} drive
+            </span>
+          )}
+          {priceChip && (
+            <span
+              className={`rounded-full px-2.5 py-1 text-[11px] font-bold ${
+                onDark ? "bg-[#D9A441]/15 text-[#F0C86B]" : "bg-meadow-100 text-meadow-700"
+              }`}
+            >
+              {priceChip}
+            </span>
+          )}
           <TagChip tag={tag} />
         </div>
       )}
       <p className={`text-sm ${onDark ? "text-[#EDE8DC]/85" : "text-stone-600"}`}>{description}</p>
+      {trailShape && (
+        <span
+          className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${
+            onDark ? "bg-white/10 text-[#E4DDCB]" : "bg-stone-100 text-stone-600"
+          }`}
+        >
+          {trailShape}
+        </span>
+      )}
       {(shutToday || offSeason) && (
         <p
           className={`rounded-lg p-2 text-sm font-medium ring-1 ${
@@ -126,15 +188,9 @@ function PlaceCard({
         </p>
       )}
       {priceText && (
-        <p className={`text-sm ${onDark ? "text-[#EDE8DC]/90" : "text-stone-700"}`}>
-          <span className={`font-semibold ${onDark ? "text-[#D9A441]" : "text-meadow-700"}`}>Price: </span>
+        <p className={`text-xs ${onDark ? "text-[#EDE8DC]/55" : "text-stone-500"}`}>
           {priceText}
-          {total && (
-            <span className={`block text-xs ${onDark ? "text-[#EDE8DC]/55" : "text-stone-500"}`}>
-              {total}
-              {freeNote && ` — ${freeNote}`}
-            </span>
-          )}
+          {freeNote && ` — ${freeNote}`}
         </p>
       )}
       {kidNote && (
@@ -287,6 +343,13 @@ function DayCard({
   const chosen = day.options.find((o) => o.title === pick) ?? day.options[0];
   const others = day.options.filter((o) => o.title !== chosen?.title);
   const chosenAttr = chosen?.attractionId ? attractionById(chosen.attractionId) : undefined;
+  // "Add a stop" only makes sense on free trail days — not on a paid, full-day
+  // gondola or park, which fills the whole day on its own.
+  const isTrailDay =
+    !!chosen &&
+    (chosen.tag === "hike" || chosen.tag === "walk") &&
+    (!chosenAttr?.price || chosenAttr.price.free === true);
+  const nearby = isTrailDay ? nearbyHikes(chosen?.coords, chosen?.attractionId) : [];
   const headerImg = imageUrl(chosenAttr?.image ?? day.image, 1200);
   const headerWiki = chosen?.wiki ?? chosenAttr?.wiki ?? regionWiki;
   const shutToday = isClosedOnDate(chosenAttr?.closedOn, day.date);
@@ -473,6 +536,8 @@ function DayCard({
                     }
                     accent="option"
                     onDark
+                    driveFromBase={chosen.driveFromBase}
+                    trailShape={chosen.trailShape}
                     attraction={chosen.attractionId ? attractionById(chosen.attractionId) : undefined}
                     date={day.date}
                     bare
@@ -505,6 +570,45 @@ function DayCard({
                           </p>
                         </div>
                       )}
+                    </div>
+                  )}
+
+                  {isTrailDay && chosen?.coords && (
+                    <div className="pt-2">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#D9A441]">Nearby — add to the day</p>
+                      <div className="mt-2 space-y-2">
+                        <a
+                          href={mapsSearch(`restaurant near ${chosen.coords[0]},${chosen.coords[1]}`)}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center gap-3 rounded-xl bg-white/[0.05] px-3 py-2.5 ring-1 ring-white/10 hover:bg-white/10"
+                        >
+                          <Utensils size={16} strokeWidth={1.8} className="shrink-0 text-[#D9A441]" />
+                          <span className="flex-1 text-sm">
+                            <span className="block font-semibold text-[#F6F1E6]">Restaurants near the trail</span>
+                            <span className="text-xs text-[#EDE8DC]/60">Find a hut or café</span>
+                          </span>
+                          <span className="shrink-0 text-xs font-semibold text-[#D9A441]">on Maps →</span>
+                        </a>
+                        {nearby.map(({ a, km }) => (
+                          <a
+                            key={a.id}
+                            href={mapsSearch(`${a.name} ${a.coords[0]},${a.coords[1]}`)}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="flex items-center gap-3 rounded-xl bg-white/[0.05] px-3 py-2.5 ring-1 ring-white/10 hover:bg-white/10"
+                          >
+                            <Mountain size={16} strokeWidth={1.8} className="shrink-0 text-[#D9A441]" />
+                            <span className="flex-1 text-sm">
+                              <span className="block font-semibold text-[#F6F1E6]">{a.name}</span>
+                              <span className="text-xs text-[#EDE8DC]/60">Another hike nearby</span>
+                            </span>
+                            <span className="inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-[#D9A441]">
+                              <Car size={12} strokeWidth={1.8} />~{approxMin(km)} min
+                            </span>
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -547,6 +651,8 @@ function DayCard({
                   ))}
                 </div>
               )}
+
+              {day.dayNote && <p className="text-center text-xs italic text-[#EDE8DC]/50">{day.dayNote}</p>}
             </div>
           </motion.div>
         )}

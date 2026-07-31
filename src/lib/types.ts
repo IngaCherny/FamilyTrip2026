@@ -85,6 +85,10 @@ export interface DayOption extends Mappable {
   /** External link, e.g. an official tourism-board route page. */
   link?: string;
   linkLabel?: string;
+  /** Approximate drive from the day's base, e.g. "~20 min". */
+  driveFromBase?: string;
+  /** Trail shape, e.g. "Loop", "There & back", "Linear — bus back to the car". */
+  trailShape?: string;
 }
 
 /** A worthwhile stop or sight to break up a long drive. */
@@ -137,6 +141,8 @@ export interface Day {
   options: DayOption[];
   /** Family restaurants / snack stops, ideally with a playground. */
   food?: FoodStop[];
+  /** A one-line footer for the day, e.g. "A full day here — cook dinner in." */
+  dayNote?: string;
   tips?: string[];
 }
 
