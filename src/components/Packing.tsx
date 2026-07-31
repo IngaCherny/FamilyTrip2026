@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import Section from "./Section";
 import { PACKING } from "../data/packing";
+import { useLang } from "../lib/i18n";
 
 const KEY = "alpine2026.packing";
 
 export default function Packing() {
+  const { tc } = useLang();
   const [checked, setChecked] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
@@ -50,14 +52,14 @@ export default function Packing() {
           {done}/{total}
         </span>
         <button onClick={reset} className="tap rounded-full px-3 text-sm font-medium text-stone-500 ring-1 ring-stone-200">
-          Reset
+          {tc("Reset")}
         </button>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         {PACKING.map((group) => (
           <div key={group.group} className="card-paper p-4">
-            <h3 className="mb-2 font-serif text-lg font-bold text-stone-900">{group.group}</h3>
+            <h3 className="mb-2 font-serif text-lg font-bold text-stone-900">{tc(group.group)}</h3>
             <ul className="space-y-1">
               {group.items.map((item) => {
                 const on = !!checked[item];
@@ -74,7 +76,7 @@ export default function Packing() {
                       >
                         ✓
                       </span>
-                      <span className={on ? "text-stone-400 line-through" : "text-stone-700"}>{item}</span>
+                      <span className={on ? "text-stone-400 line-through" : "text-stone-700"}>{tc(item)}</span>
                     </button>
                   </li>
                 );

@@ -459,4 +459,760 @@ export const HE_CONTENT: Record<string, string> = {
     "הקונדלר קלאם חינמי, מישורי וידידותי לעגלה, בערך באמצע הדרך הביתה. אם מעדיפים לעשות את קניון השיש במקום, הגילפנקלאם 2 ק״מ מיציאת שטרצינג בתחילת הנסיעה; להחליף עם ׳שנה תוכנית׳.",
   "Refuel and clean out the rental car before returning it to avoid extra fees.":
     "לתדלק ולנקות את הרכב השכור לפני ההחזרה כדי להימנע מחיובים נוספים.",
+
+  // ===================================================================
+  //  REGIONS
+  // ===================================================================
+  "Wilder Kaiser": "וילדר קייזר",
+  "Ötz / Ötztal": "אץ / אצטל",
+  "South Tyrol": "דרום טירול",
+  "Munich Airport": "שדה התעופה מינכן",
+
+  // ===================================================================
+  //  SHARED UI (across sections)
+  // ===================================================================
+  "Do this": "מה לעשות",
+  "Official details": "פרטים רשמיים",
+  "Before you need it": "לפני שצריך",
+  Reset: "איפוס",
+  Clear: "נקה",
+  "All regions": "כל האזורים",
+  Directions: "הוראות הגעה",
+  "Hotel site": "אתר המלון",
+  nights: "לילות",
+  away: "משם",
+  of: "מתוך",
+  Hikes: "טיולים",
+  Lakes: "אגמים",
+  Towns: "עיירות",
+
+  // ---- Places filters ----
+  "Locating…": "מאתר…",
+  "✓ Nearest first": "✓ הקרובים ביותר",
+  "📍 Near me": "📍 קרוב אליי",
+  "Buggy-friendly": "מתאים לעגלה",
+  "Works in rain": "מתאים לגשם",
+  Open: "פתוח",
+  "Sorted by distance from you, across all regions. Tap “Nearest first” again to switch back.":
+    "ממוין לפי מרחק ממך, בכל האזורים. הקישו שוב על ׳הקרובים ביותר׳ כדי לחזור.",
+  "Nothing matches those filters here. Try clearing one, or switch region.":
+    "שום דבר לא תואם את הסינון כאן. נסו להסיר סינון, או להחליף אזור.",
+
+  // ---- price / cost words (format.ts) ----
+  adult: "מבוגר",
+  child: "ילד",
+  "per car": "לרכב",
+  "Free entry": "כניסה חינם",
+  "Free for all of us": "חינם לכולנו",
+  "for the family": "למשפחה",
+  age: "גיל",
+  ages: "גילאי",
+  free: "חינם",
+  family: "משפחה",
+  Closed: "סגור",
+  Sundays: "ימי ראשון",
+  Mondays: "ימי שני",
+  Tuesdays: "ימי שלישי",
+  Wednesdays: "ימי רביעי",
+  Thursdays: "ימי חמישי",
+  Fridays: "ימי שישי",
+  Saturdays: "שבתות",
+
+  // ---- Today card ----
+  "Heads up: this may be shut today. Check before you drive, or swap the plan.":
+    "לתשומת לב: ייתכן שסגור היום. כדאי לבדוק לפני שנוסעים, או להחליף תוכנית.",
+
+  // ---- Hero ----
+  "Two weeks across the Tyrolean & Dolomite Alps": "שבועיים ברחבי האלפים של טירול והדולומיטים",
+  "of the adventure": "של ההרפתקה",
+  "We made it home": "חזרנו הביתה",
+  Days: "ימים",
+  Hrs: "שעות",
+  Min: "דקות",
+  Sec: "שניות",
+  "Full plan": "התוכנית המלאה",
+  "Hintersteiner See · Tirol": "הינטרשטיינר זה · טירול",
+  "Seiser Alm · South Tyrol": "זייזר אלם · דרום טירול",
+  "Lago di Braies · Dolomites": "לאגו די בראייס · דולומיטים",
+  "Rodenecker Alm · South Tyrol": "רודנקר אלם · דרום טירול",
+  "Stuibenfall · Ötztal": "שטויבנפאל · אצטל",
+
+  // ---- Weather ----
+  now: "עכשיו",
+  upcoming: "בקרוב",
+  "Weather unavailable — tap to retry": "מזג האוויר לא זמין — הקישו לניסיון חוזר",
+  "Checking the forecast…": "בודק את התחזית…",
+  "tap to retry": "הקישו לניסיון חוזר",
+  H: "מקס׳",
+  L: "מינ׳",
+  "Clear sky": "שמיים בהירים",
+  "Mostly sunny": "בעיקר שמשי",
+  Overcast: "מעונן",
+  Fog: "ערפל",
+  Drizzle: "טפטוף",
+  Rain: "גשם",
+  Snow: "שלג",
+  Showers: "ממטרים",
+  "Snow showers": "ממטרי שלג",
+  Thunderstorms: "סופות רעמים",
+  Mon: "ב׳",
+  Tue: "ג׳",
+  Wed: "ד׳",
+  Thu: "ה׳",
+  Fri: "ו׳",
+  Sat: "ש׳",
+  Sun: "א׳",
+
+  // ---- section intros ----
+  "Every region here has a card that covers lifts, buses or entry fees. Most are free with the stay but only if you ask. For five of us these are the biggest savings on the trip.":
+    "לכל אזור כאן יש כרטיס שמכסה רכבלים, אוטובוסים או דמי כניסה. רובם חינם עם הלינה אבל רק אם מבקשים. עבור חמישתנו אלה החיסכון הגדול ביותר בטיול.",
+  "The flavours of Tyrol and South Tyrol, what to order at the hut, the table and the bar.":
+    "הטעמים של טירול ודרום טירול, מה להזמין בבקתה, בשולחן ובבר.",
+  "One tap to the nearest supermarket, pharmacy, petrol, playground, cash or hospital around each base — opens a live Google Maps search, so it's always up to date.":
+    "הקשה אחת לסופרמרקט, בית מרקחת, תחנת דלק, גן שעשועים, כספומט או בית חולים הקרובים לכל בסיס — נפתח חיפוש חי ב-Google Maps, כך שתמיד מעודכן.",
+  "Driving, tolls, mountain weather and the little things that make three countries in two weeks run smoothly.":
+    "נהיגה, אגרות, מזג אוויר הררי והדברים הקטנים שגורמים לשלוש מדינות בשבועיים להתנהל חלק.",
+  "112 works everywhere in Austria, Italy and Germany. Keep this handy and save it offline.":
+    "112 עובד בכל מקום באוסטריה, איטליה וגרמניה. כדאי לשמור בהישג יד וגם במצב לא מקוון.",
+  "Tap to tick things off, your progress saves on this device.":
+    "הקישו כדי לסמן, ההתקדמות נשמרת במכשיר הזה.",
+  "Nine quick questions about the places we're visiting. How many can you get?":
+    "תשע שאלות קצרות על המקומות שנבקר בהם. כמה תצליחו?",
+  "Our four bases (★) and the places worth the detour. Filter by what you fancy, then open Google Maps or Waze to navigate.":
+    "ארבעת הבסיסים שלנו (★) והמקומות ששווים עיקוף. סננו לפי מה שבא לכם, ואז פתחו את Google Maps או Waze לניווט.",
+  "The handful of German (Austria & South Tyrol) and Italian words that get you a long way. Tap 🔊 to hear how each one sounds.":
+    "כמה מילים בגרמנית (אוסטריה ודרום טירול) ובאיטלקית שמספיקות לכם לדרך ארוכה. הקישו 🔊 כדי לשמוע איך כל אחת נשמעת.",
+
+  // ===================================================================
+  //  GUEST CARDS
+  // ===================================================================
+  "Usually included": "בדרך כלל כלול",
+  "Ask at check-in": "לשאול בצ׳ק-אין",
+  "We buy it": "כדאי לקנות",
+  "Kitzbühel Alps Summer Card": "כרטיס הקיץ של אלפי קיצביהל",
+  "Ötztal Inside Summer Card": "כרטיס הקיץ Ötztal Inside",
+  "Südtirol Guest Pass": "כרטיס האורח של דרום טירול",
+  "Alpbachtal Seenland Card": "כרטיס Alpbachtal Seenland",
+  "One pass for 39 lifts across the Kitzbühel Alps, sold for 2 to 14 days at any cable-car desk. Worth doing the sums on arrival: nearly every paid thing planned for these four days is a lift.":
+    "כרטיס אחד ל-39 רכבלים ברחבי אלפי קיצביהל, נמכר ל-2 עד 14 ימים בכל דלפק רכבל. שווה לחשב בהגעה: כמעט כל דבר בתשלום שמתוכנן לארבעת הימים האלה הוא רכבל.",
+  "The big one. Partner accommodations hand this out free, and it covers most of what is planned for the Ötztal. Ask Falkners Five before booking anything else.":
+    "הגדול שבהם. מקומות לינה שותפים מחלקים אותו חינם, והוא מכסה את רוב מה שמתוכנן לאצטל. כדאי לשאול את פלקנרס פייב לפני שמזמינים משהו אחר.",
+  "South Tyrol's digital guest card, included by most accommodations. Free public transport across the whole province, which makes the car optional on lazy days.":
+    "כרטיס האורח הדיגיטלי של דרום טירול, כלול ברוב מקומות הלינה. תחבורה ציבורית חינם בכל המחוז, מה שהופך את הרכב לאופציונלי בימים עצלים.",
+  "Makes the Reitherkogelbahn free, but only for guests staying in the Alpbachtal. We are only passing through on the transfer day, so this one does not apply.":
+    "הופך את רכבל הרייטרקוגל לחינמי, אבל רק לאורחים ששוהים באלפבכטל. אנחנו רק עוברים בו ביום המעבר, אז זה לא רלוונטי לנו.",
+  "Söll gondola for Hexenwasser": "רכבל זל להקסוואסר",
+  "Hartkaiser funicular for Ellmi's Zauberwelt": "רכבל הרטקייזר לעולם הקסמים של אלמי",
+  "Brandstadlbahn for KaiserWelt Scheffau": "רכבל ברנדשטאדל לקייזרוולט שפאו",
+  "Steinplatte gondola for Triassic Park": "רכבל שטיינפלאטה לטריאסיק פארק",
+  "Buses on the listed lines, and 10–50% off bonus partners": "אוטובוסים בקווים המפורטים, ו-10–50% הנחה אצל שותפי בונוס",
+  "One free up-and-down ride per mountain lift, per day": "נסיעה חינם אחת מעלה ומטה בכל רכבל הררי, ליום",
+  "One entry to the AREA 47 water area": "כניסה אחת לאזור המים של AREA 47",
+  "All summer mountain lifts and public buses": "כל רכבלי הקיץ ההרריים והאוטובוסים הציבוריים",
+  "Museums and swimming pools at premium partner lodgings": "מוזיאונים ובריכות שחייה במקומות לינה שותפים פרימיום",
+  "Buses and regional trains across South Tyrol": "אוטובוסים ורכבות אזוריות בכל דרום טירול",
+  "Selected cable cars": "רכבלים נבחרים",
+  "Pustertal and Kronplatz region buses": "אוטובוסים באזור הפוסטרטל והקרונפלאץ",
+  "Free Reitherkogelbahn for Juppi Zauberwald": "רכבל רייטרקוגל חינם ליופי צאוברוואלד",
+  "Free travel on the local three summer lifts": "נסיעה חינם בשלושת רכבלי הקיץ המקומיים",
+  "Price it at the first lift desk against the single tickets you would otherwise buy. Up to 50% cheaper if you ride on three or more days.":
+    "תמחרו אותו בדלפק הרכבל הראשון מול הכרטיסים הבודדים שהייתם קונים אחרת. עד 50% זול יותר אם רוכבים בשלושה ימים או יותר.",
+  "Email or ask at check-in whether Falkners Five is an Ötztal Inside partner. If it is, the card is free and Area 47 is already paid for.":
+    "שלחו מייל או שאלו בצ׳ק-אין אם פלקנרס פייב הוא שותף Ötztal Inside. אם כן, הכרטיס חינם ו-Area 47 כבר משולם.",
+  "Ask the Entdecker Hotel for it at check-in. Validate it at the blue ticket machines by scanning the QR code before you travel.":
+    "בקשו אותו ממלון אנטדקר בצ׳ק-אין. אמתו אותו במכונות הכרטיסים הכחולות על ידי סריקת קוד ה-QR לפני הנסיעה.",
+  "Nothing to do. Budget the normal fare instead: about €12 adult and €6 child return for Juppi Zauberwald.":
+    "אין מה לעשות. תקצבו במקום את המחיר הרגיל: כ-€12 למבוגר ו-€6 לילד הלוך ושוב ליופי צאוברוואלד.",
+  "Children born 2022 or later go free, so the 2 year old should not need a card. Add €2 KeyCard deposit, refunded on return.":
+    "ילדים שנולדו ב-2022 או אחר כך נכנסים חינם, אז הקטנה לא אמורה להזדקק לכרטיס. יש להוסיף פיקדון KeyCard של €2, מוחזר בהחזרה.",
+  "Usually valid from the second day of the stay until departure evening. The Aqua Dome is only 15% off in July and August, not free.":
+    "בדרך כלל תקף מהיום השני של השהות עד ערב העזיבה. האקווה דום הוא רק 15% הנחה ביולי ואוגוסט, לא חינם.",
+  "Only available through participating accommodations, and the extras vary by hotel. Confirm what yours includes rather than assuming.":
+    "זמין רק דרך מקומות לינה משתתפים, וההטבות משתנות ממלון למלון. כדאי לאמת מה שלכם כולל במקום להניח.",
+  "The Reitherkogelbahn is closed on Wednesdays whichever ticket you hold.":
+    "רכבל הרייטרקוגל סגור בימי רביעי לא משנה איזה כרטיס יש לכם.",
+
+  // ===================================================================
+  //  FOOD & DRINK
+  // ===================================================================
+  Savoury: "מלוח",
+  Sweet: "מתוק",
+  Drink: "משקה",
+  Kaiserschmarrn: "קייזרשמארן",
+  "Tiroler Gröstl": "טירולר גרסטל",
+  "Kasspatzln (Käsespätzle)": "קספצלן (קזה-שפצלה)",
+  Apfelstrudel: "אפפלשטרודל",
+  "Knödel / Canederli": "קנודל / קנדרלי",
+  "Speck Alto Adige": "שפק אלטו אדיג׳ה",
+  Schlutzkrapfen: "שלוצקראפן",
+  "Hugo Spritz": "הוגו שפריץ",
+  "Lagrein & Gewürztraminer": "לגריין וגוורצטרמינר",
+  "Almdudler & Radler": "אלמדודלר וראדלר",
+  "Tyrol / Austria": "טירול / אוסטריה",
+  "Austria & South Tyrol": "אוסטריה ודרום טירול",
+  "South Tyrol / Italy": "דרום טירול / איטליה",
+  "South Tyrol (invented here!)": "דרום טירול (הומצא כאן!)",
+  Austria: "אוסטריה",
+  Italy: "איטליה",
+  Germany: "גרמניה",
+  "Fluffy shredded pancake dusted with icing sugar, served with apple sauce or plum compote. The reward at every mountain hut.":
+    "פנקייק קרוע ואוורירי מפוזר באבקת סוכר, מוגש עם רסק תפוחים או קומפוט שזיפים. הפרס בכל בקתת הרים.",
+  "Pan-fried potatoes, beef or pork and onion, topped with a fried egg. Hearty fuel after a hike.":
+    "תפוחי אדמה מטוגנים במחבת, בקר או חזיר ובצל, עם ביצת עין מלמעלה. דלק משביע אחרי טיול.",
+  "Soft egg noodles baked with mountain cheese and crispy onions, the Alpine mac & cheese.":
+    "אטריות ביצים רכות אפויות עם גבינת הרים ובצל פריך, ה׳מק אנד צ׳יז׳ האלפיני.",
+  "Warm apple strudel with vanilla sauce, best with apples from the South Tyrolean orchards.":
+    "שטרודל תפוחים חם עם רוטב וניל, הכי טוב עם תפוחים ממטעי דרום טירול.",
+  "Big bread dumplings, often with Speck or cheese, served in broth or with butter. South Tyrol on a plate.":
+    "כופתאות לחם גדולות, לרוב עם שפק או גבינה, מוגשות במרק או עם חמאה. דרום טירול על צלחת.",
+  "Lightly smoked, air-dried ham with a protected name. Sliced thin on a wooden board with rye bread and pickles.":
+    "נקניק מעושן קלות ומיובש באוויר עם שם מוגן. פרוס דק על קרש עץ עם לחם שיפון וחמוצים.",
+  "Half-moon ravioli filled with spinach and ricotta, in brown butter and chives.":
+    "רביולי בצורת חצי סהר במילוי תרד וריקוטה, בחמאה חומה ועירית.",
+  "Prosecco, elderflower syrup, soda and mint, the refreshing aperitivo that was born in South Tyrol. (Adults only.)":
+    "פרוסקו, סירופ פרחי סמבוק, סודה ונענע, האפריטיף המרענן שנולד בדרום טירול. (למבוגרים בלבד.)",
+  "Lagrein, a deep local red; Gewürztraminer, an aromatic white from the village of Tramin. A bottle makes a fine souvenir.":
+    "לגריין, יין אדום מקומי ועמוק; גוורצטרמינר, יין לבן ארומטי מהכפר טרמין. בקבוק הוא מזכרת נאה.",
+  "Almdudler is Austria's herbal soda; a Radler is beer shandy. Easy, family-friendly drinks on a sunny terrace.":
+    "אלמדודלר הוא משקה תוסס על בסיס צמחים של אוסטריה; ראדלר הוא בירה עם לימונדה. משקאות קלים ומשפחתיים על מרפסת שטופת שמש.",
+
+  // ===================================================================
+  //  SERVICES
+  // ===================================================================
+  "Wilder Kaiser base": "בסיס וילדר קייזר",
+  "Ötztal base": "בסיס אצטל",
+  "South Tyrol base": "בסיס דרום טירול",
+  "Kirchdorf in Tirol, Austria": "קירכדורף אין טירול, אוסטריה",
+  "Oetz, Austria": "אץ, אוסטריה",
+  "Kiens, South Tyrol, Italy": "קינס, דרום טירול, איטליה",
+  "Munich Airport, Germany": "שדה התעופה מינכן, גרמניה",
+
+  // ===================================================================
+  //  TRIP TIPS
+  // ===================================================================
+  "Austrian motorway vignette": "וינייטה לכבישי אוסטריה",
+  "To drive on Austrian motorways you need a vignette (digital or sticker). Buy the digital one online a few days before you travel, it activates after a short delay. Some alpine roads and tunnels (and the Timmelsjoch) charge a separate toll on top.":
+    "כדי לנסוע על כבישים מהירים באוסטריה צריך וינייטה (דיגיטלית או מדבקה). קנו את הדיגיטלית אונליין כמה ימים לפני הנסיעה, היא מופעלת אחרי השהיה קצרה. חלק מכבישי ההרים והמנהרות (והטימלסיוך) גובים אגרה נפרדת בנוסף.",
+  "Italian tolls, not vignettes": "אגרות איטלקיות, לא וינייטות",
+  "Italy charges per-trip motorway tolls instead of a vignette, take a ticket entering and pay leaving. Keep a card and some euro coins handy for the booths.":
+    "איטליה גובה אגרות כביש לפי נסיעה במקום וינייטה, קחו כרטיס בכניסה ושלמו ביציאה. שמרו כרטיס אשראי וכמה מטבעות יורו בהישג יד לתאי התשלום.",
+  "Timmelsjoch pass": "מעבר טימלסיוך",
+  "The scenic Timmelsjoch High Alpine Road between the Ötztal and South Tyrol is a paid toll road that closes overnight and in bad weather. Check it's open before routing over it; the Brenner motorway is the all-weather alternative.":
+    "כביש ההרים הנופי טימלסיוך בין האצטל לדרום טירול הוא כביש אגרה בתשלום שנסגר בלילה ובמזג אוויר גרוע. בדקו שהוא פתוח לפני שמנתבים דרכו; הכביש המהיר ברנר הוא החלופה לכל מזג אוויר.",
+  "Use 'Drive here' for real driving times": "השתמשו ב׳נווט לכאן׳ לזמני נסיעה אמיתיים",
+  "Every option and stop has a 'Drive here' button that opens Google Maps directions from that day's base, and a Waze link next to it. Trust those for timings rather than any rough guide in the text: they account for the day's traffic, roadworks and pass closures, which matter a lot on single-lane alpine roads in August.":
+    "לכל אפשרות ועצירה יש כפתור ׳נווט לכאן׳ שפותח הוראות הגעה ב-Google Maps מהבסיס של אותו יום, וקישור Waze לצידו. סמכו עליהם לזמנים ולא על ההערכות בטקסט: הם מתחשבים בעומסי התנועה, בעבודות ובסגירת מעברים של אותו יום, שחשובים מאוד בכבישים אלפיניים חד-נתיביים באוגוסט.",
+  "Alpine weather changes fast": "מזג האוויר האלפיני משתנה מהר",
+  "Even in August, mountains can swing from sun to thunderstorms. Pack layers and a rain shell every day, start hikes early, and check cable-car and hut hours before heading up.":
+    "גם באוגוסט, ההרים יכולים לעבור משמש לסופות רעמים. ארזו שכבות ומעיל גשם בכל יום, התחילו טיולים מוקדם, ובדקו את שעות הרכבלים והבקתות לפני העלייה.",
+  "Book lakes & cable cars ahead": "הזמינו אגמים ורכבלים מראש",
+  "Honeypots like Lago di Braies and the Seiser Alm restrict cars and may need a timed ticket or shuttle in peak summer. Arrive early and book online where you can.":
+    "אתרים מבוקשים כמו לאגו די בראייס והזייזר אלם מגבילים כניסת רכבים ועשויים לדרוש כרטיס מתוזמן או הסעה בשיא הקיץ. הגיעו מוקדם והזמינו אונליין כשאפשר.",
+  "Two countries, one trip": "שתי מדינות, טיול אחד",
+  "You'll cross Austria → Italy → Germany. All use the euro and are in the Schengen area (no border checks), but keep passports handy and your EHIC/GHIC or travel insurance details accessible.":
+    "תעברו אוסטריה → איטליה → גרמניה. כולן משתמשות ביורו ונמצאות באזור שנגן (בלי בדיקות גבול), אבל שמרו דרכונים בהישג יד ואת פרטי ביטוח הבריאות/הנסיעות נגישים.",
+  "Cash & cards": "מזומן וכרטיסים",
+  "Cards are widely accepted, but mountain huts, small lake kiosks and parking machines often prefer cash. Carry some euro notes and coins for the trail.":
+    "כרטיסים מתקבלים בהרחבה, אבל בקתות הרים, קיוסקים קטנים ליד אגמים ומכונות חנייה מעדיפים לרוב מזומן. שאו כמה שטרות ומטבעות יורו לדרך.",
+  "Mountain huts (Hütten)": "בקתות הרים (Hütten)",
+  "Huts serve hearty food at fair prices and are the soul of an alpine day. Many close mid-afternoon and don't take reservations for lunch, go a bit early to grab a table.":
+    "הבקתות מגישות אוכל משביע במחירים הוגנים והן הנשמה של יום אלפיני. רבות נסגרות באמצע אחר הצהריים ולא מקבלות הזמנות לצהריים, הגיעו קצת מוקדם כדי לתפוס שולחן.",
+
+  // ===================================================================
+  //  EMERGENCY
+  // ===================================================================
+  "European emergency number": "מספר החירום האירופי",
+  "Alpine / mountain rescue (Austria)": "חילוץ הרים (אוסטריה)",
+  "Ambulance (Italy)": "אמבולנס (איטליה)",
+  "Police (Germany)": "משטרה (גרמניה)",
+  "Emergency at sea/water poison info": "חירום במים / מידע הרעלות",
+  "Works in Austria, Italy & Germany, police, fire, ambulance": "עובד באוסטריה, איטליה וגרמניה, משטרה, כבאות, אמבולנס",
+  "Bergrettung, mountain emergencies in Tyrol": "Bergrettung, מצבי חירום בהרים בטירול",
+  "Or 112": "או 112",
+  "Use 112 and ask for the right service": "חייגו 112 ובקשו את השירות המתאים",
+  "Save your accommodation addresses and phone numbers offline in case you have no signal.":
+    "שמרו את כתובות מקומות הלינה ומספרי הטלפון במצב לא מקוון למקרה שאין קליטה.",
+  "When calling mountain rescue, give your location coordinates, most phones show them in the maps app.":
+    "כשמתקשרים לחילוץ הרים, מסרו את קואורדינטות המיקום שלכם, רוב הטלפונים מציגים אותן באפליקציית המפות.",
+  "Pharmacies (Apotheke / Farmacia) handle minor ailments; look for the green cross sign.":
+    "בתי מרקחת (Apotheke / Farmacia) מטפלים במחלות קלות; חפשו את שלט הצלב הירוק.",
+  "Carry travel insurance details and any EHIC/GHIC cards; keep a photo of passports on your phone.":
+    "שאו את פרטי ביטוח הנסיעות וכרטיסי EHIC/GHIC; שמרו צילום של הדרכונים בטלפון.",
+
+  // ===================================================================
+  //  PACKING
+  // ===================================================================
+  "Documents & money": "מסמכים וכסף",
+  "Hiking & outdoors": "טיולים וטבע",
+  "Water & swim": "מים ושחייה",
+  Tech: "טכנולוגיה",
+  "Apartment self-catering": "דירה ובישול עצמי",
+  "Passports (everyone) & flight details": "דרכונים (לכולם) ופרטי טיסה",
+  "Driving licence + rental car booking": "רישיון נהיגה + הזמנת רכב שכור",
+  "Travel insurance / EHIC-GHIC cards": "ביטוח נסיעות / כרטיסי EHIC-GHIC",
+  "Austrian digital vignette purchased": "וינייטה דיגיטלית אוסטרית נרכשה",
+  "Euro cash + cards": "מזומן יורו + כרטיסים",
+  "Hotel & apartment confirmations": "אישורי מלון ודירה",
+  "Hiking shoes / trainers with grip": "נעלי טיולים / נעלי ספורט עם אחיזה",
+  "Daypack per person": "תיק יום לכל אחד",
+  "Rain shell + warm layer (every day)": "מעיל גשם + שכבה חמה (כל יום)",
+  "Sun hat, sunglasses, sunscreen SPF 50": "כובע שמש, משקפי שמש, קרם הגנה SPF 50",
+  "Refillable water bottles": "בקבוקי מים למילוי חוזר",
+  "Small first-aid kit & blister plasters": "ערכת עזרה ראשונה קטנה ופלסטרים לשלפוחיות",
+  "Swimwear & quick-dry towels": "בגדי ים ומגבות מתייבשות מהר",
+  "Water shoes (lakes & Area 47)": "נעלי מים (אגמים ו-Area 47)",
+  "Goggles for the kids": "משקפי שחייה לילדים",
+  "Dry bag for wet kit": "שק אטים למים לציוד רטוב",
+  "Snacks for drive days": "חטיפים לימי נסיעה",
+  "Travel games / tablet + headphones": "משחקי דרך / טאבלט + אוזניות",
+  "Comfort items for the apartment": "חפצי נחמה לדירה",
+  "Spare layers, mountains get cold fast": "שכבות להחלפה, בהרים מתקרר מהר",
+  "EU power adapters (Type F)": "מתאמי חשמל לאיחוד האירופי (Type F)",
+  "Phone car mount + charger for navigation": "מחזיק טלפון לרכב + מטען לניווט",
+  "Power bank": "סוללת גיבוי",
+  "Offline maps downloaded for the regions": "מפות לא מקוונות שהורדו לאזורים",
+  "Reusable shopping bag": "שקית קניות רב-פעמית",
+  "Basic pantry plan for first night": "תכנון מזון בסיסי ללילה הראשון",
+  "Travel mugs / picnic kit": "ספלי דרך / ערכת פיקניק",
+
+  // ===================================================================
+  //  QUIZ
+  // ===================================================================
+  "Play again": "שחקו שוב",
+  "Alpine expert!": "מומחה אלפיני!",
+  "Nicely done!": "כל הכבוד!",
+  "Great try — play again!": "ניסיון יפה — שחקו שוב!",
+  Question: "שאלה",
+  Score: "ניקוד",
+  "Correct!": "נכון!",
+  "Good try.": "ניסיון יפה.",
+  "See my score": "לצפייה בניקוד",
+  "Next question": "השאלה הבאה",
+  "Ötzi the Iceman was found frozen in the Alps. How old is he?":
+    "אצי איש הקרח נמצא קפוא באלפים. בן כמה הוא?",
+  "About 500 years": "בערך 500 שנה",
+  "About 5,300 years": "בערך 5,300 שנה",
+  "About 100 years": "בערך 100 שנה",
+  "Ötzi lived around 3,300 BC — over 5,300 years ago! You can meet a copy of him at Ötzi-Dorf.":
+    "אצי חי בסביבות 3,300 לפני הספירה — לפני יותר מ-5,300 שנה! אפשר לפגוש עותק שלו באצי-דורף.",
+  "Triassic Park sits on a mountain that was once…": "טריאסיק פארק יושב על הר שהיה פעם…",
+  "A coral reef under the sea": "שונית אלמוגים מתחת לים",
+  "A volcano": "הר געש",
+  "A desert": "מדבר",
+  "The Steinplatte was a tropical coral reef about 200 million years ago. Now it's a dinosaur park in the sky!":
+    "השטיינפלאטה הייתה שונית אלמוגים טרופית לפני כ-200 מיליון שנה. עכשיו זה פארק דינוזאורים בשמיים!",
+  "The Stuibenfall is Tyrol's biggest what?": "השטויבנפאל הוא הכי גדול בטירול מבין מה?",
+  Cave: "מערה",
+  "It's the largest waterfall in the Ötztal, dropping about 159 metres. A stairway with 700+ steps climbs beside it.":
+    "זהו המפל הגדול ביותר באצטל, בנפילה של כ-159 מטר. גרם מדרגות עם יותר מ-700 מדרגות מטפס לצידו.",
+  "What is the Gilfenklamm gorge near Sterzing made of?": "ממה עשוי קניון הגילפנקלאם ליד שטרצינג?",
+  "White marble": "שיש לבן",
+  "Black lava": "לבה שחורה",
+  "Red brick": "לבנים אדומות",
+  "It's the only gorge in the world carved through pure white marble — the rock almost glows.":
+    "זהו הקניון היחיד בעולם החצוב בשיש לבן טהור — הסלע כמעט זוהר.",
+  "How do you get up to the Fichtenschloss spruce castle on the Rosenalm?":
+    "איך מגיעים לטירת האשוחית פיכטנשלוס ברוזנאלם?",
+  "A rocket": "רקטה",
+  "A gondola (cable car)": "רכבל",
+  "A submarine": "צוללת",
+  "You ride the Rosenalmbahn gondola up the mountain, then the giant wooden castle is right at the top.":
+    "עולים ברכבל רוזנאלם במעלה ההר, ואז טירת העץ הענקית ממש בפסגה.",
+  "South Tyrol's Val Venosta / Puster valleys are famous for growing…":
+    "עמקי ואל וונוסטה / פוסטר בדרום טירול מפורסמים בגידול…",
+  Bananas: "בננות",
+  Apples: "תפוחים",
+  Pineapples: "אננס",
+  "South Tyrol grows about 10% of all of Europe's apples — that's why there's a whole Apple Trail to walk!":
+    "דרום טירול מגדלת כ-10% מכל התפוחים באירופה — בגלל זה יש שביל תפוחים שלם לטייל בו!",
+  "The pale, jagged mountains of South Tyrol are called the…":
+    "ההרים החיוורים והמשוננים של דרום טירול נקראים…",
+  Dolomites: "דולומיטים",
+  Himalayas: "הימלאיה",
+  Andes: "אנדים",
+  "The Dolomites are a UNESCO World Heritage site and turn pink at sunset — locals call it 'enrosadira'.":
+    "הדולומיטים הם אתר מורשת עולמית של אונסק״ו והופכים ורודים בשקיעה — המקומיים קוראים לזה ׳אנרוסדירה׳.",
+  "In South Tyrol, most people speak two languages. Which two?":
+    "בדרום טירול רוב האנשים מדברים שתי שפות. אילו שתיים?",
+  "German & Italian": "גרמנית ואיטלקית",
+  "French & Spanish": "צרפתית וספרדית",
+  "English & Greek": "אנגלית ויוונית",
+  "South Tyrol is in Italy but most people speak German too — signs are in both languages everywhere.":
+    "דרום טירול נמצאת באיטליה אבל רוב האנשים מדברים גם גרמנית — השלטים בשתי השפות בכל מקום.",
+  "Which emergency number works in Austria, Italy AND Germany?":
+    "איזה מספר חירום עובד באוסטריה, איטליה וגם גרמניה?",
+  "112 reaches emergency services across the whole of Europe. Good to remember on the trip!":
+    "112 מגיע לשירותי החירום בכל רחבי אירופה. כדאי לזכור בטיול!",
+
+  // ===================================================================
+  //  STAYS
+  // ===================================================================
+  "Apartment Streif LXL": "דירת שטרייף LXL",
+  "Falkners Five": "פלקנרס פייב",
+  "Entdecker Hotel Panorama": "מלון אנטדקר פנורמה",
+  "Gasteig, Kirchdorf in Tirol": "גסטייג, קירכדורף אין טירול",
+  "Habichen, Oetz": "הביכן, אץ",
+  "Hofern, Kiens (Val Pusteria)": "הופרן, קינס (ואל פוסטריה)",
+  "near Munich Airport (MUC)": "ליד שדה התעופה מינכן (MUC)",
+  "Our base for the first four nights, in the Gasteig hamlet at the foot of the Wilder Kaiser near St. Johann in Tirol (~14 km from Kitzbühel). Self-catering apartment with a wellness area, ideal for cooking and unwinding after big mountain days.":
+    "הבסיס שלנו לארבעת הלילות הראשונים, בכפר הקטן גסטייג למרגלות הווילדר קייזר ליד סנקט יוהאן אין טירול (כ-14 ק״מ מקיצביהל). דירת בישול עצמי עם אזור ספא, אידיאלית לבישול ולהירגעות אחרי ימי הרים גדולים.",
+  "At the foot of the Wilder Kaiser, near St. Johann": "למרגלות הווילדר קייזר, ליד סנקט יוהאן",
+  "Wellness area: sauna, whirlpool, sun terrace": "אזור ספא: סאונה, ג׳קוזי, מרפסת שיזוף",
+  "Spacious terrace/balcony and full kitchen": "מרפסת מרווחת ומטבח מלא",
+  "Four nights in the Ötztal at the mouth of the valley. A handy springboard for Area 47, the Aqua Dome and drives up to Sölden.":
+    "ארבעה לילות באצטל בפתח העמק. נקודת זינוק נוחה ל-Area 47, לאקווה דום ולנסיעות במעלה לזלדן.",
+  "Gateway to the whole Ötztal valley": "שער לכל עמק האצטל",
+  "Minutes from Area 47 water park": "דקות מפארק המים Area 47",
+  "Drives to Stuibenfall and Piburger See": "נסיעות לשטויבנפאל ולפיבורגר זה",
+  "Six nights, the heart of the trip, in a sunny panoramic spot in Val Pusteria near Kronplatz. A family hotel for slower mornings; ideally placed for the eastern Dolomites (Lago di Braies and Tre Cime are close), with Bolzano and Merano an easy drive west.":
+    "שישה לילות, לב הטיול, במקום פנורמי ושטוף שמש בוואל פוסטריה ליד קרונפלאץ. מלון משפחתי לבקרים רגועים; ממוקם אידיאלית לדולומיטים המזרחיים (לאגו די בראייס וטרה צ׳ימה קרובים), עם בולצאנו ומראנו במרחק נסיעה קלה מערבה.",
+  "Longest stay, unpack and settle in": "השהות הארוכה ביותר, לפרוק ולהתמקם",
+  "Family hotel near Kronplatz / Bruneck": "מלון משפחתי ליד קרונפלאץ / ברונק",
+  "Short hops to Lago di Braies & Tre Cime": "קפיצות קצרות ללאגו די בראייס ולטרה צ׳ימה",
+  "One last night next to Munich Airport so the morning departure is stress-free. Drop the rental car, repack, sleep close to the terminal.":
+    "לילה אחרון ליד שדה התעופה מינכן כדי שהיציאה בבוקר תהיה בלי לחץ. להחזיר את הרכב השכור, לארוז מחדש, לישון קרוב לטרמינל.",
+  "Walk / shuttle to the terminal": "הליכה / הסעה לטרמינל",
+  "Return the rental car the evening before": "להחזיר את הרכב השכור בערב הקודם",
+  "Last Bavarian Brezn and beer": "ברצן ובירה בווארים אחרונים",
+
+  // ===================================================================
+  //  ATTRACTIONS — names
+  // ===================================================================
+  "Hintersteiner See": "הינטרשטיינר זה",
+  "Hartkaiser & Ellmi's Zauberwelt": "הרטקייזר ועולם הקסמים של אלמי",
+  "Triassic Park, Steinplatte (Waidring)": "טריאסיק פארק, שטיינפלאטה (ויידרינג)",
+  Kitzbühel: "קיצביהל",
+  "Wilder Kaiser hike (Gaudeamushütte)": "טיול הווילדר קייזר (בקתת גאודאמוס)",
+  "KaiserWelt Scheffau (Brandstadl)": "קייזרוולט שפאו (ברנדשטאדל)",
+  "Kundler Klamm gorge, Kundl": "קניון קונדלר קלאם, קונדל",
+  "Rosenalm & Fichtenschloss, Zillertal": "רוזנאלם ופיכטנשלוס, צילרטל",
+  "Habicher See": "הביכר זה",
+  "WIDI trail: Glück auf! The world of the miners": "שביל WIDI: Glück auf! עולם הכורים",
+  "WIDI trail: Hoch hinaus! The round for summit conquerors": "שביל WIDI: Hoch hinaus! המסלול לכובשי הפסגות",
+  "Alpine Coaster Hoch-Imst": "אלפיין קוסטר הוך-אימסט",
+  "WIDIVERSUM Hochoetz": "ווידיוורסום הוכאץ",
+  "Area 47": "Area 47",
+  "Stuibenfall Waterfall": "מפל שטויבנפאל",
+  "Aqua Dome (Längenfeld)": "אקווה דום (לנגנפלד)",
+  "Naturpark Haus, Längenfeld": "בית פארק הטבע, לנגנפלד",
+  "Piburger See": "פיבורגר זה",
+  "Gaislachkogl & 007 Elements (Sölden)": "גייזלכקוגל ו-007 Elements (זלדן)",
+  "Lago di Braies (Pragser Wildsee)": "לאגו די בראייס (פראגסר וילדזה)",
+  "Seiser Alm / Alpe di Siusi": "זייזר אלם / אלפה די סיוזי",
+  "Merano & Trauttmansdorff Gardens": "מראנו וגני טראוטמנסדורף",
+  "Val Fiscalina (Fischleintal)": "ואל פיסקלינה (פישליינטל)",
+  "Sentiero degli Elfi (Elves' Path), Vandoies": "סנטיירו דלי אלפי (שביל השדונים), ואנדואיס",
+  "Concordia 360° panoramic loop, Kronplatz": "מסלול פנורמי קונקורדיה 360°, קרונפלאץ",
+  "Antholzer See (Lago di Anterselva)": "אנטהולצר זה (לאגו די אנטרסלבה)",
+  "Ötzi-Dorf & Greifvogelpark, Umhausen": "אצי-דורף ופארק ציפורי הטרף, אומהאוזן",
+  "Andreas-Hofer-Weg river walk, Oetz": "טיול הנחל אנדראס-הופר-וג, אץ",
+  "Toblacher See (Lake Dobbiaco)": "טובלכר זה (אגם דוביאקו)",
+  "Reinbach Waterfalls, Sand in Taufers": "מפלי ריינבך, זנד אין טאופרס",
+  "Klausberg family park, Ahrntal": "פארק המשפחות קלאוסברג, אהרנטל",
+  "Bruneck / Brunico old town": "העיר העתיקה ברונק / ברוניקו",
+  "Apple Trail (Apfelweg), Natz-Schabs": "שביל התפוחים (אפפלוג), נאץ-שאבס",
+  "Family bike: Olang to Welsberg": "אופניים משפחתיים: מאולנג לוולסברג",
+  "Fane Alm, Vals": "פאנה אלם, ואלס",
+  "Gilfenklamm marble gorge, Racines": "קניון השיש גילפנקלאם, רצ׳ינס",
+  "Issinger Weiher (Lago d'Issengo)": "איזינגר וייהר (לאגו ד׳איסנגו)",
+  "Rienz Gorge & Sternwaldele, Bruneck": "קניון ריינץ ושטרנוואלדלה, ברונק",
+  "WoodyWalk on the Plose (near Brixen)": "שביל WoodyWalk בפלוזה (ליד בריקסן)",
+  "Bathing area": "אזור רחצה",
+
+  // ---- attraction descriptions ----
+  "A turquoise mountain lake directly beneath the Wilder Kaiser walls. Clear, swimmable in August, with an easy 3 km loop around the shore.":
+    "אגם הררי בצבע טורקיז ממש מתחת לצוקי הווילדר קייזר. צלול, מתאים לשחייה באוגוסט, עם מסלול קל של 3 ק״מ סביב החוף.",
+  "A 'witch's water' adventure world at the Hohe Salve, barefoot trails, water channels and forest play. Reached by the Söll gondola.":
+    "עולם הרפתקאות ׳מי מכשפה׳ בהוהה סאלבה, שבילים יחפים, תעלות מים ומשחקי יער. מגיעים ברכבל של זל.",
+  "Funicular from Ellmau up to a family playground and themed walking trails with the Wilder Kaiser as a backdrop.":
+    "רכבל הרים מאלמאו אל גן שעשועים משפחתי ושבילי הליכה נושאיים עם הווילדר קייזר ברקע.",
+  "A dinosaur adventure world on top of the Steinplatte above Waidring, in the next valley north-east of the base. Ride the gondola up to life-size dinosaurs, dig for fossils at the 'Triassic Beach', paddle rafts, try the low ropes course and explore a stalactite cave, all on a plateau that was a coral reef 200 million years ago. Entry to the park itself is free, you only pay the lift.":
+    "עולם הרפתקאות דינוזאורים על פסגת השטיינפלאטה מעל ויידרינג, בעמק הבא מצפון-מזרח לבסיס. עולים ברכבל אל דינוזאורים בגודל טבעי, חופרים מאובנים ב׳חוף הטריאס׳, משייטים ברפסודות, מנסים את מסלול החבלים הנמוך וחוקרים מערת נטיפים, הכול על מישור שהיה שונית אלמוגים לפני 200 מיליון שנה. הכניסה לפארק עצמו חינם, משלמים רק על הרכבל.",
+  "A story trail for younger walkers in the Kaiserbach valley, a few minutes from the base. It tells the tale of the Schnackler, a young shepherd so bored minding the herd on the Griesener Alpe that he made music by clicking his tongue and snapping his fingers. Statues and boards mark the stations, with climbing frames and play areas along the way. About 2 km, roughly 45 minutes, and it runs into the same valley as the Griesner Alm walk.":
+    "שביל סיפור למטיילים צעירים בעמק הקייזרבך, כמה דקות מהבסיס. הוא מספר את סיפורו של השנאקלר, רועה צעיר כה משועמם ברעיית העדר על הגריזנר אלפה עד שיצר מוזיקה בהקשת הלשון והצמדת האצבעות. פסלים ושלטים מסמנים את העמדות, עם מתקני טיפוס ואזורי משחק לאורך הדרך. כ-2 ק״מ, בערך 45 דקות, והוא נכנס לאותו עמק כמו טיול הגריזנר אלם.",
+  "The famous medieval ski town, pretty in summer too, painted houses, cafés and the Hahnenkamm cable car for a high alpine stroll.":
+    "עיירת הסקי המפורסמת מימי הביניים, יפה גם בקיץ, בתים מצוירים, בתי קפה ורכבל האהננקאם לטיול אלפיני גבוה.",
+  "Classic hut hike into the Kaisertal / Wilder Kaiser foothills, ending at a mountain hut for Kaiserschmarrn. Several distances possible.":
+    "טיול בקתות קלאסי אל מרגלות הקייזרטל / הווילדר קייזר, שמסתיים בבקתת הרים לקייזרשמארן. אפשריים כמה אורכים.",
+  "A mountain play realm at 1,650 m on the Brandstadl above Scheffau. You step through a castle gate into the KaiserWald to find castle walls, treehouses, a climbing wall, a sporting course, the Little People's forest and a handicraft workshop, all linked by easy family trails. Entry is free once you have a gondola ticket, and the 8-seater Brandstadlbahn takes pushchairs. Open mid-May to mid-October.":
+    "ממלכת משחקים הררית בגובה 1,650 מ׳ בברנדשטאדל מעל שפאו. עוברים דרך שער טירה אל היער קייזרוואלד ומוצאים חומות טירה, בתי עץ, קיר טיפוס, מסלול ספורט, יער האנשים הקטנים וסדנת מלאכה, הכול מחובר בשבילים משפחתיים קלים. הכניסה חינם ברגע שיש כרטיס רכבל, ורכבל הברנדשטאדל בן 8 המושבים מקבל עגלות. פתוח מאמצע מאי עד אמצע אוקטובר.",
+  "An enchanted-forest circuit on the Reitherkogel, right beside the Inn valley motorway on the way from the Wilder Kaiser to the Ötztal. The 2.5 km loop from the gondola station is buggy-friendly the whole way round, past a magic village with a witch's kitchen, a ghost moor with a wooden wizard, a wobbly bridge, a viewing tower, a bird's-nest swing, a barefoot path, water games and a petting zoo. Note the Reitherkogelbahn is closed on Wednesdays.":
+    "מסלול יער קסום על הרייטרקוגל, ממש ליד כביש עמק האין בדרך מהווילדר קייזר לאצטל. המסלול המעגלי של 2.5 ק״מ מתחנת הרכבל ידידותי לעגלה לכל אורכו, ליד כפר קסום עם מטבח מכשפה, ביצת רפאים עם קוסם עץ, גשר מתנדנד, מגדל תצפית, נדנדת קן ציפור, שביל יחף, משחקי מים וגן חיות פינתי. שימו לב שרכבל הרייטרקוגל סגור בימי רביעי.",
+  "A cool, wild little gorge just up the road from the base, where the Grießbach tumbles down through the rock. Walkways, wooden jetties and small suspension bridges carry the path over the water, so the kids get a proper adventure without a long climb. The short loop takes about 1¼ hours; a longer 2½ hour round continues above the gorge.":
+    "קניון קטן, פראי וקריר ממש במעלה הדרך מהבסיס, שם נחל הגריסבך גולש במורד הסלע. שבילי עץ, רציפי עץ וגשרים תלויים קטנים נושאים את הדרך מעל המים, כך שהילדים מקבלים הרפתקה אמיתית בלי טיפוס ארוך. המסלול הקצר אורך כשעה ורבע; מסלול ארוך יותר של שעתיים וחצי ממשיך מעל הקניון.",
+  "An easy, wide gorge trail along the water between Kundl and Mühltal, right by the A12 near Wörgl and roughly the midpoint of the drive to Munich. Free, stroller-friendly and about 3.5 km of level walking under 200 m rock walls, more a leisurely stream walk than a hike, with places to splash, skip stones and paddle. A little shuttle train saves the legs to the gorge entrance.":
+    "שביל קניון קל ורחב לאורך המים בין קונדל למיהלטל, ממש ליד ה-A12 ליד ורגל ובערך באמצע הדרך למינכן. חינמי, ידידותי לעגלה וכ-3.5 ק״מ של הליכה מישורית מתחת לצוקים בגובה 200 מ׳, יותר טיול נחל נינוח מאשר מסלול, עם מקומות להתיז, להקפיץ אבנים ולשכשך. רכבת הסעה קטנה חוסכת את ההליכה עד הכניסה לקניון.",
+  "A giant wooden 'spruce castle' adventure playground at the top of the Rosenalmbahn above Zell am Ziller, with towers, rope bridges, slides, water play and easy summit strolls. A day trip from the Wilder Kaiser base: about an hour down the Inn valley to Wörgl and up the Zillertal. Note it is not on the way to anything else, so it is a there-and-back outing rather than a stop.":
+    "מגרש משחקים הרפתקאות בטירת עץ ענקית בראש רכבל הרוזנאלם מעל צל אם צילר, עם מגדלים, גשרי חבלים, מגלשות, משחקי מים וטיולי פסגה קלים. טיול יום מבסיס הווילדר קייזר: כשעה במורד עמק האין לוורגל ובמעלה הצילרטל. שימו לב שהוא לא בדרך לשום דבר אחר, אז זו יציאה הלוך ושוב ולא עצירה.",
+  "A small, quiet lake in the woods at Habichen, effectively on the doorstep of the Ötztal apartment. A short, level circuit runs round the water with benches and a picnic spot, and it warms up enough to paddle. Two different waymarked walks reach it from Oetz. The plain Rundweg follows the Ötztaler Ache and stays flat. The official '9 Schätze' route is the better one with children: it runs along the river to the Wellerbrücke, climbs gently through forest to Habichen past the Grassmayr bell-founders' house, and branches to the lake and the ice cellar, a natural cave fridge that sits at 0–2 °C and was used to keep food cold until the 1960s. There is a treasure chest with a treasures book at the lake.":
+    "אגם קטן ושקט ביער בהביכן, כמעט ממש ליד דירת האצטל. מסלול קצר ומישורי מקיף את המים עם ספסלים ומקום פיקניק, והוא מתחמם מספיק לשכשוך. שני שבילים מסומנים שונים מגיעים אליו מאץ. ה-Rundweg הפשוט עוקב אחרי האצטלר אכה ונשאר מישורי. המסלול הרשמי ׳9 Schätze׳ הוא הטוב יותר עם ילדים: הוא נמשך לאורך הנהר אל גשר וולר, מטפס בעדינות דרך היער להביכן ליד בית יצקני הפעמונים גראסמאייר, ומסתעף אל האגם ואל מרתף הקרח, מקרר מערה טבעי שנמצא ב-0 עד 2 מעלות ושימש לשמירת מזון קר עד שנות ה-60. יש תיבת אוצר עם ספר אוצרות ליד האגם.",
+  "2.7 km, about 1¼ hours, 110 m of climbing between 1,951 and 2,061 m. Runs over the Balbach to the Kühtaile Alm, where the miner Kuno tells the story of mining in the valley. Rated easy and family-friendly, with a hut for refreshments partway and the gondola doing the height for you.":
+    "2.7 ק״מ, כשעה ורבע, 110 מ׳ טיפוס בין 1,951 ל-2,061 מ׳. עובר מעל הבלבך אל הקיהטיילה אלם, שם הכורה קונו מספר את סיפור הכרייה בעמק. מדורג קל ומשפחתי, עם בקתה לכיבוד באמצע הדרך והרכבל שעושה את הגובה בשבילכם.",
+  "About 3.5 km and an hour of walking, from the Panorama Restaurant at 2,020 m via the Balanceakt to the Bielefelder Hütte at 2,150 m, then the climbing crystal, WIDI's photo platform and a Hollywood swing before looping back. Despite the name it only gains around 130 m, and every station is built for children.":
+    "כ-3.5 ק״מ ושעת הליכה, ממסעדת הפנורמה בגובה 2,020 מ׳ דרך הבלנסאקט אל בקתת בילפלדר בגובה 2,150 מ׳, ואז גביש הטיפוס, פלטפורמת הצילום של WIDI ונדנדת הוליווד לפני שסוגרים מעגל. למרות השם הוא מטפס רק כ-130 מ׳, וכל עמדה בנויה לילדים.",
+  "The gentlest themed walk in the valley and the best of the treasure hunts: 2.94 km with only 51 m of climbing, about 1¼ hours, up through forest on one side of the stream and back along the other. Small caches hidden along the way each hold a letter; collect them all to spell the solution word and claim a gift at the info office. The path is wide enough to push a buggy the whole way, and it ends at a children's playground.":
+    "הטיול הנושאי העדין ביותר בעמק והטוב שבצידי האוצר: 2.94 ק״מ עם 51 מ׳ טיפוס בלבד, כשעה ורבע, במעלה דרך היער בצד אחד של הנחל וחזרה לאורך הצד השני. מחבואים קטנים מוסתרים לאורך הדרך מכילים כל אחד אות; אספו את כולן כדי לאיית את מילת הפתרון ולקבל מתנה במשרד המידע. השביל רחב מספיק לדחוף עגלה לכל אורכו, והוא מסתיים בגן שעשועים לילדים.",
+  "The closest thing to the Fiss Funpark without the long drive: the world's longest alpine coaster, 3,535 m of track dropping 500 m down the mountain, about 20 minutes from Oetz. At the valley station Albin's play park adds slides, swings, trampolines, a bungee trampoline and a quad track, so there is plenty for anyone too small to ride.":
+    "הדבר הכי קרוב לפאן-פארק פיס בלי הנסיעה הארוכה: האלפיין קוסטר הארוך בעולם, 3,535 מ׳ מסלול שיורד 500 מ׳ במורד ההר, כ-20 דקות מאץ. בתחנת העמק פארק המשחקים של אלבין מוסיף מגלשות, נדנדות, טרמפולינות, טרמפולינת בנג׳י ומסלול אופנועי שטח, אז יש הרבה לכל מי שקטן מכדי לרכוב.",
+  "The Ötztal's most popular family destination: 36 play and puzzle stations spread over 3,000 m² of mountainside at Hochoetz, reached by the Acherkogelbahn gondola straight up from Oetz. A themed trail follows WIDI the dragon between the stations, with wide, mostly level paths around the mountain station.":
+    "היעד המשפחתי הפופולרי ביותר באצטל: 36 עמדות משחק וחידה פרוסות על 3,000 מ״ר של מדרון הר בהוכאץ, מגיעים ברכבל האכרקוגל ישירות מאץ. שביל נושאי עוקב אחרי WIDI הדרקון בין העמדות, עם שבילים רחבים וברובם מישוריים סביב תחנת ההר.",
+  "The Alps' biggest outdoor adventure park at the mouth of the Ötztal, lake with slides and blobs, water obstacle courses, climbing and rafting.":
+    "פארק ההרפתקאות החיצוני הגדול ביותר באלפים בפתח האצטל, אגם עם מגלשות ובלובים, מסלולי מכשולי מים, טיפוס ורפטינג.",
+  "Tyrol's highest waterfall (159 m) above Umhausen, with stairs, a suspension bridge and viewing platforms right in the spray.":
+    "המפל הגבוה ביותר בטירול (159 מ׳) מעל אומהאוזן, עם מדרגות, גשר תלוי ופלטפורמות תצפית ממש בתוך הרסס.",
+  "Striking thermal spa with outdoor saltwater bowls steaming under the mountains. A perfect rainy-day or tired-legs afternoon.":
+    "ספא תרמי מרשים עם קערות מי מלח חיצוניות שמעלות אדים מתחת להרים. אחר צהריים מושלם ליום גשום או לרגליים עייפות.",
+  "The Ötztal Nature Park visitor centre, about 300 m² of modern multimedia exhibition on the valley's plants, animals, geology and water, from glaciers to moors. Touchscreens, listening stations, a hologram, VR glasses and a digital wall relief carry the content, and there is a fact-finding puzzle for children. Small, indoor and cheap, so it works as an hour's shelter rather than a whole outing. It is in Längenfeld, the same village as the Aqua Dome. Every Wednesday afternoon from 14:00 to 16:30 there are nature activity stations, no booking needed.":
+    "מרכז המבקרים של פארק הטבע אצטל, כ-300 מ״ר של תערוכת מולטימדיה מודרנית על הצמחים, החיות, הגאולוגיה והמים של העמק, מקרחונים ועד ביצות. מסכי מגע, עמדות האזנה, הולוגרמה, משקפי VR ותבליט קיר דיגיטלי נושאים את התוכן, ויש חידת גילוי עובדות לילדים. קטן, מקורה וזול, אז הוא עובד כמחסה לשעה ולא כטיול שלם. הוא בלנגנפלד, אותו כפר כמו האקווה דום. בכל יום רביעי אחר הצהריים מ-14:00 עד 16:30 יש עמדות פעילות טבע, בלי צורך בהזמנה.",
+  "A small, warm, protected nature-reserve lake above Oetz, swimmable in summer, with a little rowing-boat rental. Drive up to Piburg and the circuit round the water is 2.3 km, about 45 minutes, of which only roughly half takes a pram. Do not confuse it with the 'große Runde' from the valley floor: that one climbs 271 m over 6.3 km with stairs and a steep pull to the Seejöchl, and is a proper hike.":
+    "אגם שמורת טבע קטן, חמים ומוגן מעל אץ, מתאים לשחייה בקיץ, עם השכרת סירות משוט קטנה. נוסעים למעלה לפיבורג והמסלול סביב המים הוא 2.3 ק״מ, כ-45 דקות, שמתוכם רק כחצי מתאים לעגלה. אל תבלבלו עם ה׳große Runde׳ מקרקעית העמק: זה מטפס 271 מ׳ לאורך 6.3 ק״מ עם מדרגות ועלייה תלולה אל הזייויכל, והוא מסלול של ממש.",
+  "Cable car to 3,058 m and the James Bond cinematic museum perched on the summit. High-alpine views, glacier panoramas and the Ice Q restaurant.":
+    "רכבל לגובה 3,058 מ׳ ומוזיאון הקולנוע של ג׳יימס בונד שיושב על הפסגה. נופים אלפיניים גבוהים, פנורמות קרחונים ומסעדת Ice Q.",
+  "The emerald jewel of the Dolomites, ringed by peaks. Walk the 3.5 km shore loop or hire a wooden rowing boat. Go early, it gets busy and needs a booked slot in summer.":
+    "פנינת הברקת של הדולומיטים, מוקפת פסגות. ללכת את מסלול החוף של 3.5 ק״מ או לשכור סירת משוט מעץ. להגיע מוקדם, נעשה עמוס וצריך חלון זמן מוזמן בקיץ.",
+  "Europe's largest high-alpine meadow, a vast rolling plateau under the Schlern. Cable car up, then gentle trails, huts and the Sassolungo spires ahead.":
+    "האחו הגבוה-אלפיני הגדול באירופה, מישור מתגלגל עצום מתחת לשלרן. רכבל למעלה, ואז שבילים עדינים, בקתות וצוקי הסאסולונגו מלפנים.",
+  "An elegant spa town with palm-lined promenades and the terraced Botanical Gardens of Trauttmansdorff Castle tumbling down the hillside.":
+    "עיירת ספא אלגנטית עם טיילות מוקפות דקלים והגנים הבוטניים המדורגים של טירת טראוטמנסדורף שנשפכים במורד הגבעה.",
+  "A flat, family-friendly valley in the Three Peaks Nature Park next to San Candido and Sexten, with the Sundial (Meridiana) peaks towering at the head of the valley. One of the loveliest gentle Dolomite walks, about a 45 minute drive from the Entdecker hotel.":
+    "עמק מישורי ומשפחתי בפארק הטבע שלוש הפסגות ליד סן קנדידו וסקסטן, עם פסגות שעון השמש (מרידיאנה) מתנשאות בראש העמק. אחד מטיולי הדולומיטים העדינים והיפים ביותר, כ-45 דקות נסיעה ממלון אנטדקר.",
+  "A magical themed family walk above Vandoies di Sopra, a short run down the valley road from the hotel. Eleven storytelling stations (animal tracks, bees, deer, dry-stone walls, lizards) lead past a deer enclosure to the thundering 43 m waterfall on the Rio di Terento and a stone viewing balcony. About 4 km with 150 m of climbing, roughly an hour of gentle walking.":
+    "טיול משפחתי נושאי וקסום מעל ואנדואיס די סופרה, נסיעה קצרה במורד כביש העמק מהמלון. אחת-עשרה עמדות סיפור (עקבות חיות, דבורים, צבאים, חומות אבן יבשות, לטאות) מובילות ליד מכלאת צבאים אל המפל הגועש בגובה 43 מ׳ על הריו די טרנטו ומרפסת תצפית מאבן. כ-4 ק״מ עם 150 מ׳ טיפוס, בערך שעה של הליכה עדינה.",
+  "The gentlest big-view walk of the trip and the best buggy option in the area. A level circular path runs right around the flat Kronplatz summit plateau at 2,275 m, taking in the Peace Bell Concordia 2000, the Messner and LUMEN museums and staged viewpoints, with the Dolomites on one side and the Zillertal Alps on the other. Cable car up from Reischach, just above Bruneck.":
+    "טיול הנוף הגדול העדין ביותר בטיול ואפשרות העגלה הטובה ביותר באזור. שביל מעגלי מישורי מקיף את מישור פסגת הקרונפלאץ השטוח בגובה 2,275 מ׳, וכולל את פעמון השלום קונקורדיה 2000, את מוזיאוני מסנר ו-LUMEN ונקודות תצפית מבוימות, עם הדולומיטים בצד אחד ואלפי הצילרטל בצד השני. רכבל למעלה מריישאך, ממש מעל ברונק.",
+  "A deep green mountain lake at 1,642 m at the head of the Antholz valley, ringed by forest and peaks. A 2.7 km nature trail circles the shore, with a playground and a restaurant at the eastern end. The near shore is flat and easy; the far side gets rougher, so with a buggy walk out and back rather than the full loop.":
+    "אגם הררי ירוק ועמוק בגובה 1,642 מ׳ בראש עמק אנטהולץ, מוקף יער ופסגות. שביל טבע של 2.7 ק״מ מקיף את החוף, עם גן שעשועים ומסעדה בקצה המזרחי. החוף הקרוב מישורי וקל; הצד הרחוק נעשה מחוספס, אז עם עגלה כדאי ללכת הלוך ושוב ולא את המסלול המלא.",
+  "An open-air stone-age village recreating how Ötzi would have lived, with aurochs, sheep and pigs, and a birds-of-prey park next door running daily flight shows. Flat, gentle and genuinely educational.":
+    "כפר תקופת אבן פתוח שמשחזר כיצד אצי חי, עם שוורי בר, כבשים וחזירים, ופארק ציפורי טרף בסמוך שמפעיל מופעי תעופה יומיים. מישורי, עדין וחינוכי באמת.",
+  "An easy official Oetz valley walk along the Ötztaler Ache from the village to the Weller Bridge near Habichen and on toward Piburger See. Flat riverside paths, about two hours, and you can shorten it anywhere.":
+    "טיול עמק רשמי וקל של אץ לאורך האצטלר אכה מהכפר אל גשר וולר ליד הביכן והלאה לכיוון פיבורגר זה. שבילי גדה מישוריים, כשעתיים, ואפשר לקצר בכל מקום.",
+  "A flat, easy shore loop of about 3.5 km around Lake Toblach with mountain views and a kiosk, at the mouth of the Höhlensteintal. Buggy-friendly the whole way and an easy first or last outing.":
+    "מסלול חוף מישורי וקל של כ-3.5 ק״מ סביב אגם טובלך עם נופי הרים וקיוסק, בפתח ההולנשטיינטל. ידידותי לעגלה לכל אורכו ויציאה ראשונה או אחרונה קלה.",
+  "A forest walk past three thundering waterfalls linked by bridges, with a Franciscan friary above and the 'Bad Winkel' barefoot area for the kids. About an hour to an hour and a half, with some steps. The Ahrntal cycle path finishes here.":
+    "טיול יער ליד שלושה מפלים גועשים המחוברים בגשרים, עם מנזר פרנציסקני מעל ואזור יחף ׳Bad Winkel׳ לילדים. כשעה עד שעה וחצי, עם כמה מדרגות. שביל האופניים של האהרנטל מסתיים כאן.",
+  "A summit fun park reached by gondola, with the Klausberg Flitzer alpine coaster running back down the mountain, a water playground and farm animals. The coaster has height and age rules; the rest suits everyone.":
+    "פארק שעשועים בפסגה שמגיעים אליו ברכבל, עם האלפיין קוסטר Klausberg Flitzer שרץ במורד ההר, גן שעשועי מים וחיות משק. לרכבת ההרים כללי גובה וגיל; השאר מתאים לכולם.",
+  "The main town of the Val Pusteria and the nearest to the hotel: a pretty pedestrian street for gelato and souvenirs, a riverside playground, and the Rienz gorge walk starting at its edge. Flat and very buggy-friendly.":
+    "העיירה הראשית של ואל פוסטריה והקרובה ביותר למלון: רחוב מדרחוב יפה לגלידה ומזכרות, גן שעשועים לחוף הנהר, וטיול קניון הריינץ שמתחיל בקצה שלה. מישורי וידידותי מאוד לעגלה.",
+  "A gentle themed loop through the apple orchards of the Natz-Schabs plateau, about 30 minutes west of the hotel. Mostly flat and family-friendly, lined with information panels about South Tyrol's apple growing, passing the Flötscher pond, the Sommersürs and Raiermoos biotopes and the Ölberg viewpoint with its sun loungers. The full circuit is 7.7 km, but you can walk any part and turn back.":
+    "מסלול מעגלי נושאי ועדין דרך מטעי התפוחים של מישור נאץ-שאבס, כ-30 דקות מערבה מהמלון. ברובו מישורי ומשפחתי, מלווה בשלטי מידע על גידול התפוחים של דרום טירול, עובר את בריכת פלטשר, את הביוטופים זומרסירס וראיירמוס ואת נקודת התצפית אולברג עם מיטות השיזוף שלה. המסלול המלא הוא 7.7 ק״מ, אבל אפשר ללכת כל חלק ולחזור.",
+  "A protected wetland biotope near Raas on the Natz-Schabs plateau, with a flat boardwalk over the reeds and ponds and rich birdlife. A short, easy leg on its own or part of the Apple Trail, and shaded on a hot day.":
+    "ביוטופ ביצה מוגן ליד ראס במישור נאץ-שאבס, עם שביל עץ מישורי מעל הקנים והבריכות וציפורים רבות. קטע קצר וקל בפני עצמו או חלק משביל התפוחים, ומוצל ביום חם.",
+  "A family playground on the sunny Natz-Schabs apple plateau, an easy first-morning stop paired with the Apple Trail and the Raiermoos boardwalk. Flat and buggy-friendly.":
+    "גן שעשועים משפחתי על מישור התפוחים השטוף שמש של נאץ-שאבס, עצירת בוקר ראשונה קלה בשילוב עם שביל התפוחים ושביל העץ ראיירמוס. מישורי וידידותי לעגלה.",
+  "The kids' favourite day: hire bikes in Olang and roll the flat, easy Pustertal cycle path past Lake Olang to the village of Welsberg, with Prenninger Park to play in and gelato in town, then take the Pustertal train back to Olang with the bikes. Level, paved and well away from traffic.":
+    "היום האהוב על הילדים: לשכור אופניים באולנג ולרכוב על שביל האופניים המישורי והקל של הפוסטרטל ליד אגם אולנג אל כפר וולסברג, עם פארק פרנינגר לשחק בו וגלידה בעיר, ואז לחזור ברכבת הפוסטרטל לאולנג עם האופניים. מישורי, סלול ורחוק מאוד מתנועה.",
+  "Often called South Tyrol's prettiest alpine village: 35 weathered wooden huts, barns and a little church scattered across the meadows at 1,740 m at the head of the Valser valley. From the Berg am Boden car park it is a gentle hour up the Milk Trail beside a splashing stream, past grazing cows and sheep, with staffed huts for a long lunch and children free to roam and play. Continue further up the valley only as far as everyone fancies.":
+    "נקרא לעיתים קרובות הכפר האלפיני היפה ביותר בדרום טירול: 35 בקתות עץ מיושנות, אסמים וכנסייה קטנה פזורים על האחו בגובה 1,740 מ׳ בראש עמק ואלס. מחניון ברג אם בודן זו שעה עדינה במעלה שביל החלב לצד נחל מפכפך, ליד פרות וכבשים רועות, עם בקתות מאוישות לארוחת צהריים ארוכה וילדים חופשיים לשוטט ולשחק. המשיכו במעלה העמק רק עד כמה שכולם רוצים.",
+  "One of the easiest and loveliest high-meadow days in South Tyrol, and far quieter than the Seiser Alm. From the Zumis car park at 1,725 m, wide gentle paths with barely any climb cross huge rolling pastures dotted with wooden huts, the Roner and Starkenfeld huts among them, with the art stations of the Creation Trail along the way and enormous views. Ideal for small children.":
+    "אחד מימי האחו-הגבוה הקלים והיפים ביותר בדרום טירול, ושקט הרבה יותר מהזייזר אלם. מחניון צומיס בגובה 1,725 מ׳, שבילים רחבים ועדינים כמעט בלי טיפוס חוצים מרעה מתגלגל ענק זרוע בקתות עץ, ביניהן בקתות רונר וסטרקנפלד, עם עמדות האמנות של שביל הבריאה לאורך הדרך ונופים אדירים. אידיאלי לילדים קטנים.",
+  "The only gorge in the world carved through pure white marble, near Sterzing and right on the Brenner route toward Munich. Wooden walkways and bridges thread up the canyon past a 15 m waterfall and glowing white rock, cool and shaded. About 2.5 km and an hour one way, 175 m of climbing, so a carrier rather than a buggy for the 2 year old, and best for children of about 4 and up.":
+    "הקניון היחיד בעולם החצוב בשיש לבן טהור, ליד שטרצינג וממש על ציר הברנר לכיוון מינכן. שבילי עץ וגשרים מתפתלים במעלה הקניון ליד מפל בגובה 15 מ׳ וסלע לבן זוהר, קריר ומוצל. כ-2.5 ק״מ ושעה לכיוון אחד, 175 מ׳ טיפוס, אז מנשא ולא עגלה לקטנה, והכי מתאים לילדים מגיל 4 בערך ומעלה.",
+  "A warm little swimming lake at Issing near Pfalzen, the next village along from the hotel, with a lawn, playground and a small water slide. A leisurely loop trail circles the water and returns through shady forest along the Pfalznerbach. The perfect close half-day: an easy family walk that ends in a swim. Bathing area open mid-June to end of August.":
+    "אגם שחייה קטן וחמים באיסינג ליד פפאלצן, הכפר הבא מהמלון, עם מדשאה, גן שעשועים ומגלשת מים קטנה. מסלול מעגלי נינוח מקיף את המים וחוזר דרך יער מוצל לאורך הפפאלצנרבך. חצי היום הקרוב המושלם: טיול משפחתי קל שמסתיים בשחייה. אזור הרחצה פתוח מאמצע יוני עד סוף אוגוסט.",
+  "A shady, flat family walk on the edge of Bruneck, the nearest town to the hotel, starting by the old ice rink. Follow the Rienz river into the gently carved Rienz Gorge, or take the Sternwaldele nature trail through cool forest. Level, buggy-friendly and ideal for a hot afternoon, with Bruneck's old town and gelato at the end.":
+    "טיול משפחתי מוצל ומישורי בשולי ברונק, העיירה הקרובה ביותר למלון, שמתחיל ליד זירת הקרח הישנה. עקבו אחרי נהר הריינץ אל קניון הריינץ החצוב בעדינות, או קחו את שביל הטבע שטרנוואלדלה דרך יער קריר. מישורי, ידידותי לעגלה ואידיאלי לאחר צהריים חם, עם העיר העתיקה של ברונק וגלידה בסוף.",
+  "A playful family adventure trail on the Plose above Brixen, the furthest of these trails, out west beyond the mouth of the valley. From the gondola top station a wide, stroller-friendly path runs to the Rossalm past wooden play stations, a Kneipp water walk, giant loungers and a viking ship, all under the Peitlerkofel and Geisler spires. About 5 km, ~100 m of climb.":
+    "שביל הרפתקאות משפחתי ומשחקי בפלוזה מעל בריקסן, הרחוק ביותר מבין השבילים האלה, במערב מעבר לפתח העמק. מהתחנה העליונה של הרכבל שביל רחב וידידותי-לעגלה נמשך אל הרוסאלם ליד עמדות משחק מעץ, מסלול מים ע״ש קנייפ, מיטות שיזוף ענקיות וספינת ויקינגים, הכול מתחת לצוקי הפייטלרקופל והגייזלר. כ-5 ק״מ, כ-100 מ׳ טיפוס.",
+
+  // ---- attraction good_for chips ----
+  Swimming: "שחייה",
+  "Easy lake walk": "טיול אגם קל",
+  Picnics: "פיקניקים",
+  "Barefoot trail": "שביל יחף",
+  "Cable car views": "נופים מהרכבל",
+  Funicular: "רכבל הרים",
+  "Gentle walks": "טיולים עדינים",
+  Dinosaurs: "דינוזאורים",
+  "Fossil digging": "חפירת מאובנים",
+  "Story stations": "עמדות סיפור",
+  "Play areas": "אזורי משחק",
+  "Short and easy": "קצר וקל",
+  "Town stroll": "טיול בעיירה",
+  Cafés: "בתי קפה",
+  Hiking: "טיולי הליכה",
+  "Mountain hut lunch": "צהריים בבקתת הרים",
+  "Big scenery": "נופים גדולים",
+  "Castle & treehouses": "טירה ובתי עץ",
+  "Pushchair-friendly gondola": "רכבל ידידותי לעגלה",
+  "Free with the lift": "חינם עם הרכבל",
+  "Buggy-friendly loop": "מסלול ידידותי לעגלה",
+  "Magic-forest stations": "עמדות יער קסום",
+  "Perfect drive break": "עצירה מושלמת בנסיעה",
+  "Shady hot-day walk": "טיול מוצל ליום חם",
+  "Bridges & walkways": "גשרים ושבילי עץ",
+  "Short loop option": "אפשרות מסלול קצר",
+  "Stroller-friendly gorge": "קניון ידידותי לעגלה",
+  "Splashing & stones": "שכשוך ואבנים",
+  "Huge wooden castle playground": "מגרש משחקים ענק בטירת עץ",
+  "Gondola up": "רכבל למעלה",
+  "Day trip from Wilder Kaiser": "טיול יום מווילדר קייזר",
+  "At the doorstep": "ממש ליד הבית",
+  "Treasure chest & ice cellar": "תיבת אוצר ומרתף קרח",
+  Paddling: "שכשוך במים",
+  "Shortest of the two": "הקצר מבין השניים",
+  "Hut halfway": "בקתה באמצע הדרך",
+  "Mining story": "סיפור הכרייה",
+  "Mountain hut on the way": "בקתת הרים בדרך",
+  "Climbing crystal": "גביש טיפוס",
+  "Big summit views": "נופי פסגה גדולים",
+  "Buggy the whole way": "עגלה לכל אורך הדרך",
+  "Real treasure hunt": "ציד אוצר אמיתי",
+  "Playground at the end": "גן שעשועים בסוף",
+  "Longest alpine coaster": "האלפיין קוסטר הארוך ביותר",
+  "Play park at the base": "פארק משחקים בבסיס",
+  "Close to Oetz": "קרוב לאץ",
+  "Themed play trail": "שביל משחק נושאי",
+  "All three ages": "כל שלושת הגילאים",
+  "Kids & teens": "ילדים ובני נוער",
+  "Water park": "פארק מים",
+  Adventure: "הרפתקה",
+  "Short hike": "טיול קצר",
+  "Suspension bridge": "גשר תלוי",
+  "Spray & rainbows": "רסס וקשתות",
+  "Thermal pools": "בריכות תרמיות",
+  Relax: "רגיעה",
+  "Rainy day": "יום גשום",
+  "Rainy hour": "שעה גשומה",
+  "VR & touchscreens": "VR ומסכי מגע",
+  "Wednesday activity stations": "עמדות פעילות בימי רביעי",
+  "Lakeside circuit": "מסלול לחוף האגם",
+  "Rowing boats": "סירות משוט",
+  "Bond fans": "מעריצי בונד",
+  "Glacier views": "נופי קרחונים",
+  "Iconic photos": "תמונות אייקוניות",
+  "Shore walk": "טיול לאורך החוף",
+  "Meadow walks": "טיולי אחו",
+  "Mountain huts": "בקתות הרים",
+  "Botanical gardens": "גנים בוטניים",
+  Promenade: "טיילת",
+  "Family valley walk": "טיול עמק משפחתי",
+  "Dolomite views": "נופי דולומיטים",
+  "Themed family walk": "טיול משפחתי נושאי",
+  "360° Dolomite views": "נופי דולומיטים 360°",
+  "Cable car up": "רכבל למעלה",
+  "Lakeside playground": "גן שעשועים לחוף האגם",
+  "Flat near shore": "חוף קרוב ומישורי",
+  "Cool valley air": "אוויר עמק קריר",
+  "Flight show": "מופע תעופה",
+  "Flat and buggy-friendly": "מישורי וידידותי לעגלה",
+  "Flat riverside": "גדת נהר מישורית",
+  "Shorten any time": "אפשר לקצר בכל רגע",
+  "Flat shore loop": "מסלול חוף מישורי",
+  "Kiosk on site": "קיוסק במקום",
+  "Three waterfalls": "שלושה מפלים",
+  "Barefoot area": "אזור יחף",
+  "Forest shade": "צל יער",
+  "Alpine coaster": "אלפיין קוסטר",
+  "Water playground": "גן שעשועי מים",
+  "Farm animals": "חיות משק",
+  "Gelato & shops": "גלידה וחנויות",
+  "Riverside playground": "גן שעשועים לחוף הנהר",
+  "Nearest town": "העיירה הקרובה ביותר",
+  "Flat orchard walk": "טיול מטעים מישורי",
+  "Ponds & biotopes": "בריכות וביוטופים",
+  "Do any section": "אפשר כל קטע",
+  "Flat boardwalk": "שביל עץ מישורי",
+  "Birds & ponds": "ציפורים ובריכות",
+  "Orchard plateau": "מישור המטעים",
+  "Pairs with the Apple Trail": "משתלב עם שביל התפוחים",
+  "Flat & paved": "מישורי וסלול",
+  "Train back with bikes": "חזרה ברכבת עם האופניים",
+  "Park & gelato": "פארק וגלידה",
+  "Storybook alpine village": "כפר אלפיני מספר סיפור",
+  "Stream & bridges": "נחל וגשרים",
+  "Hut lunch": "צהריים בבקתה",
+  "Huge gentle meadows": "אחו ענק ועדין",
+  "Quiet & easy": "שקט וקל",
+  "White marble gorge": "קניון שיש לבן",
+  "Waterfalls & bridges": "מפלים וגשרים",
+  "On the way to Munich": "בדרך למינכן",
+  "Alpine coaster fun": "כיף באלפיין קוסטר",
+  "Right by the motorway": "ממש ליד הכביש המהיר",
+  "Playground & views": "גן שעשועים ונופים",
+  "Swim & play": "שחייה ומשחק",
+  "Easy forest loop": "מסלול יער קל",
+  "Very close": "קרוב מאוד",
+  "River gorge": "קניון נהר",
+  "Shady & flat": "מוצל ומישורי",
+  "Wooden play stations": "עמדות משחק מעץ",
+  "Stroller-friendly": "ידידותי לעגלה",
+
+  // ---- price: covers ----
+  "incl. Söll gondola": "כולל רכבל זל",
+  "Hartkaiser funicular": "רכבל הרטקייזר",
+  "Steinplatte gondola return": "רכבל שטיינפלאטה הלוך ושוב",
+  "Reitherkogelbahn return": "רכבל רייטרקוגל הלוך ושוב",
+  "Rosenalmbahn gondola return": "רכבל רוזנאלם הלוך ושוב",
+  "Acherkogelbahn return": "רכבל אכרקוגל הלוך ושוב",
+  "coaster ride including the lift": "נסיעת רכבת הרים כולל הרכבל",
+  "Water AREA day ticket": "כרטיס יומי לאזור המים",
+  "3-hour ticket": "כרטיס ל-3 שעות",
+  "exhibition entry": "כניסה לתערוכה",
+  "Gaislachkogl cable car": "רכבל גייזלכקוגל",
+  "cable car return": "רכבל הלוך ושוב",
+  "Kronplatz cable car return": "רכבל קרונפלאץ הלוך ושוב",
+  "gorge entry": "כניסה לקניון",
+  "gondola return": "רכבל הלוך ושוב",
+  "Plose gondola from St. Andrä": "רכבל פלוזה מסנקט אנדרה",
+
+  // ---- price: notes ----
+  "Parking ~€5/day": "חניה כ-€5 ליום",
+  "Playground free": "גן השעשועים חינם",
+  "Park entry free; under-4s free, older children reduced. Free parking. Confirm on steinplatte.tirol.":
+    "הכניסה לפארק חינם; עד גיל 4 חינם, ילדים גדולים יותר בהנחה. חניה חינם. לאימות ב-steinplatte.tirol.",
+  "Kaiserbachtal is a toll road, about €5 per car": "הקייזרבכטל הוא כביש אגרה, כ-€5 לרכב",
+  "Town free; Hahnenkamm cable car ~€32 adult": "העיירה חינם; רכבל האהננקאם כ-€32 למבוגר",
+  "Hut food extra": "אוכל בבקתה בתוספת תשלום",
+  "Park free; you pay only the Brandstadlbahn (SkiWelt summer rate, check skiwelt.at). Children born 2022 or later ride free. Covered by the Kitzbühel Alps Summer Card.":
+    "הפארק חינם; משלמים רק על רכבל הברנדשטאדל (מחיר קיץ של SkiWelt, בדקו ב-skiwelt.at). ילדים שנולדו ב-2022 או אחר כך נוסעים חינם. מכוסה בכרטיס הקיץ של אלפי קיצביהל.",
+  "~€9.50 / €5 one way. The forest itself is free.": "כ-€9.50 / €5 לכיוון אחד. היער עצמו חינם.",
+  "Small parking fee at Erpfendorf": "דמי חניה קטנים בארפנדורף",
+  "Rowing boat ~€10/hr. Parking at Piburg saves the climb from Oetz.":
+    "סירת משוט כ-€10 לשעה. חניה בפיבורג חוסכת את הטיפוס מאץ.",
+  "The Fichtenschloss playground is free; you pay only the gondola. Covered by the Zillertal Activcard. Checked against 2024 rates — confirm on site.":
+    "גן השעשועים פיכטנשלוס חינם; משלמים רק על הרכבל. מכוסה בכרטיס Zillertal Activcard. נבדק מול מחירי 2024 — לאימות במקום.",
+  "Same lift ticket as the Widiversum, so the trail costs nothing extra.":
+    "אותו כרטיס רכבל כמו הווידיוורסום, אז השביל לא עולה שום דבר נוסף.",
+  "Free, and the solution word earns a small gift at the Ochsengarten or Oetz info office.":
+    "חינם, ומילת הפתרון מזכה במתנה קטנה במשרד המידע של אוקסנגארטן או אץ.",
+  "Seasonal rates, check imst.at. Albin's play park at the valley station is free.":
+    "מחירים עונתיים, בדקו ב-imst.at. פארק המשחקים של אלבין בתחנת העמק חינם.",
+  "Play world free": "עולם המשחקים חינם",
+  "Child rate is ages 5–15, so the 2 year old is free. Included outright if the Ötztal Inside Summer Card applies.":
+    "מחיר הילד לגילאי 5–15, אז הקטנה חינם. כלול לחלוטין אם כרטיס הקיץ Ötztal Inside חל.",
+  "Children 6–14 pay the reduced rate. The Monday 18:00 guided tour is free.":
+    "ילדים 6–14 משלמים מחיר מוזל. הסיור המודרך ביום שני ב-18:00 חינם.",
+  "007 Elements ~€23 extra. Children's lift age rules vary — confirm on soelden.com.":
+    "007 Elements בתוספת כ-€23. כללי הגיל לרכבל לילדים משתנים — לאימות ב-soelden.com.",
+  "Parking from ~€7; rowing boat ~€30/30min. Timed access or shuttle in peak summer, book ahead.":
+    "חניה מ-כ-€7; סירת משוט כ-€30 ל-30 דקות. כניסה מתוזמנת או הסעה בשיא הקיץ, הזמינו מראש.",
+  "Children under 8 ride free; under-16s get 30% off.":
+    "ילדים מתחת לגיל 8 נוסעים חינם; מתחת לגיל 16 מקבלים 30% הנחה.",
+  "Under 6 free; reduced 6–14. Confirm on trauttmansdorff.it.":
+    "עד גיל 6 חינם; מוזל 6–14. לאימות ב-trauttmansdorff.it.",
+  "Paid parking at Fischleinboden": "חניה בתשלום בפישליינבודן",
+  "Free Töpslplatz parking by the San Nicolò church": "חניית Töpslplatz חינם ליד כנסיית סן ניקולו",
+  "Children under 8 ride free, one per paying adult, so only the 8 year old pays.":
+    "ילדים מתחת לגיל 8 נוסעים חינם, אחד לכל מבוגר משלם, אז רק בן ה-8 משלם.",
+  "Paid parking at the lake": "חניה בתשלום ליד האגם",
+  "Combined ticket with the Greifvogelpark next door; check oetztal.com for the current rate.":
+    "כרטיס משולב עם פארק ציפורי הטרף הסמוך; בדקו את המחיר העדכני ב-oetztal.com.",
+  "Paid parking at the lake.": "חניה בתשלום ליד האגם.",
+  "Gondola ticket, with the alpine coaster charged per ride.":
+    "כרטיס רכבל, כשהאלפיין קוסטר בתשלום לכל נסיעה.",
+  "Town free; museums and the cable car extra.": "העיירה חינם; מוזיאונים והרכבל בתוספת תשלום.",
+  "Path free; bike hire in Olang extra, and the Pustertal train back is covered by the Südtirol Guest Pass.":
+    "השביל חינם; השכרת אופניים באולנג בתוספת, והרכבת חזרה בפוסטרטל מכוסה בכרטיס האורח של דרום טירול.",
+  "Parking at Berg am Boden; a shuttle runs up the last stretch of road.":
+    "חניה בברג אם בודן; הסעה נוסעת בקטע הדרך האחרון.",
+  "Parking charge at the Zumis car park; a bus runs from Mühlbach.":
+    "דמי חניה בחניון צומיס; אוטובוס נוסע ממיהלבך.",
+  "Best for ages 4+. Open early May to early November, 09:00–18:00 in July and August.":
+    "מתאים לגיל 4 ומעלה. פתוח מתחילת מאי עד תחילת נובמבר, 09:00–18:00 ביולי ואוגוסט.",
+  "Alpine coaster charged per ride (about €5, or ~€4 with a lift ticket). Kids under about 8 ride tucked in with an adult. Checked against 2024 rates — confirm on site.":
+    "האלפיין קוסטר בתשלום לכל נסיעה (כ-€5, או כ-€4 עם כרטיס רכבל). ילדים מתחת לגיל 8 בערך נוסעים צמודים למבוגר. נבדק מול מחירי 2024 — לאימות במקום.",
+  "Parking nearby": "חניה בקרבת מקום",
+  "Under 6 free, older children reduced. Confirm on plose.org.":
+    "עד גיל 6 חינם, ילדים גדולים יותר בהנחה. לאימות ב-plose.org.",
 };

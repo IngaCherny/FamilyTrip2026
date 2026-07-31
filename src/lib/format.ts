@@ -30,23 +30,27 @@ export function imageUrl(image?: string, width = 1200): string | undefined {
 
 const EUR = (n: number) => `€${Number.isInteger(n) ? n : n.toFixed(2)}`;
 
+/** Identity translator, so callers that don't localise still work. */
+type T = (s: string) => string;
+const ID: T = (s) => s;
+
 /** Render a Price as the one-line string shown on a card. */
-export function formatPrice(p?: Price): string | null {
+export function formatPrice(p?: Price, t: T = ID): string | null {
   if (!p) return null;
   const parts: string[] = [];
   const perPerson = [
-    p.adult != null ? `~${EUR(p.adult)} adult` : null,
-    p.child != null ? `${EUR(p.child)} child` : null,
+    p.adult != null ? `~${EUR(p.adult)} ${t("adult")}` : null,
+    p.child != null ? `${EUR(p.child)} ${t("child")}` : null,
   ].filter(Boolean);
 
   if (perPerson.length) parts.push(perPerson.join(" / "));
-  if (p.perCar != null) parts.push(`~${EUR(p.perCar)} per car`);
-  if (!parts.length && p.free) parts.push("Free");
+  if (p.perCar != null) parts.push(`~${EUR(p.perCar)} ${t("per car")}`);
+  if (!parts.length && p.free) parts.push(t("Free"));
 
   let out = parts.join(" · ");
-  if (p.covers) out += ` (${p.covers})`;
-  if (p.free && parts.length && !parts.includes("Free")) out = `Free entry · ${out}`;
-  if (p.note) out = out ? `${out}. ${p.note}` : p.note;
+  if (p.covers) out += ` (${t(p.covers)})`;
+  if (p.free && parts.length && !parts.includes(t("Free"))) out = `${t("Free entry")} · ${out}`;
+  if (p.note) out = out ? `${out}. ${t(p.note)}` : t(p.note);
   return out || null;
 }
 
@@ -73,28 +77,28 @@ export function familyCost(p: Price | undefined, party: Party): FamilyCost | nul
 }
 
 /** Format a family total for display. */
-export function formatFamilyCost(cost: FamilyCost | null): string | null {
+export function formatFamilyCost(cost: FamilyCost | null, t: T = ID): string | null {
   if (!cost) return null;
-  return cost.total === 0 ? "Free for all of us" : `~${EUR(Math.round(cost.total))} for the family`;
+  return cost.total === 0 ? t("Free for all of us") : `~${EUR(Math.round(cost.total))} ${t("for the family")}`;
 }
 
 /** Say which children get in free, e.g. "ages 2 & 6 free". */
-export function freeChildrenNote(cost: FamilyCost | null): string | null {
+export function freeChildrenNote(cost: FamilyCost | null, t: T = ID): string | null {
   if (!cost?.freeAges.length || cost.total === 0) return null;
   const ages = cost.freeAges;
   const list =
     ages.length === 1
-      ? `age ${ages[0]}`
-      : `ages ${ages.slice(0, -1).join(", ")} & ${ages[ages.length - 1]}`;
-  return `${list} free`;
+      ? `${t("age")} ${ages[0]}`
+      : `${t("ages")} ${ages.slice(0, -1).join(", ")} & ${ages[ages.length - 1]}`;
+  return `${list} ${t("free")}`;
 }
 
 const WEEKDAY_NAMES = ["Sundays", "Mondays", "Tuesdays", "Wednesdays", "Thursdays", "Fridays", "Saturdays"];
 
 /** Name the closed days, e.g. "Closed Wednesdays". */
-export function closedLabel(days?: Weekday[]): string | null {
+export function closedLabel(days?: Weekday[], t: T = ID): string | null {
   if (!days?.length) return null;
-  return `Closed ${days.map((d) => WEEKDAY_NAMES[d]).join(" & ")}`;
+  return `${t("Closed")} ${days.map((d) => t(WEEKDAY_NAMES[d])).join(" & ")}`;
 }
 
 /** True when the given ISO date falls on one of the closed weekdays. */

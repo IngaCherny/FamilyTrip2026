@@ -1,7 +1,9 @@
 import Section from "./Section";
 import { EMERGENCY, EMERGENCY_NOTES } from "../data/emergency";
+import { useLang } from "../lib/i18n";
 
 export default function Emergency() {
+  const { tc } = useLang();
   return (
     <Section
       id="emergency"
@@ -20,19 +22,19 @@ export default function Emergency() {
               {e.value}
             </span>
             <div className="min-w-0">
-              <p className="font-semibold text-stone-900">{e.label}</p>
-              {e.note && <p className="text-sm text-stone-500">{e.note}</p>}
+              <p className="font-semibold text-stone-900">{tc(e.label)}</p>
+              {e.note && <p className="text-sm text-stone-500">{tc(e.note)}</p>}
             </div>
           </a>
         ))}
       </div>
 
       <div className="card-paper mt-4 border-l-4 border-sunset-400 p-4">
-        <h3 className="mb-2 font-semibold text-stone-900">Before you need it</h3>
+        <h3 className="mb-2 font-semibold text-stone-900">{tc("Before you need it")}</h3>
         <ul className="space-y-1.5">
           {EMERGENCY_NOTES.map((n) => (
             <li key={n} className="flex gap-2 text-sm text-stone-600">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sunset-400" /> {n}
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sunset-400" /> {tc(n)}
             </li>
           ))}
         </ul>

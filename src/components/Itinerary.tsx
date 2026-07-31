@@ -127,10 +127,10 @@ function PlaceCard({
 }) {
   const { tc } = useLang();
   const [open, setOpen] = useState(hero || (defaultOpen ?? false));
-  const priceText = formatPrice(attraction?.price);
+  const priceText = formatPrice(attraction?.price, tc);
   const cost = familyCost(attraction?.price, PARTY);
-  const total = formatFamilyCost(cost);
-  const freeNote = freeChildrenNote(cost);
+  const total = formatFamilyCost(cost, tc);
+  const freeNote = freeChildrenNote(cost, tc);
   const shutToday = date ? isClosedOnDate(attraction?.closedOn, date) : false;
   const offSeason = date ? isOutOfSeason(attraction?.season, date) : false;
   // An option's own link wins; otherwise fall back to the attraction's official page.
@@ -138,10 +138,10 @@ function PlaceCard({
 
   const priceChip = cost
     ? cost.total === 0
-      ? "Free"
-      : `~€${Math.round(cost.total)} · family`
+      ? tc("Free")
+      : `~€${Math.round(cost.total)} · ${tc("family")}`
     : attraction?.price?.free
-    ? "Free"
+    ? tc("Free")
     : undefined;
 
   const body = (
@@ -163,7 +163,7 @@ function PlaceCard({
                 onDark ? "bg-[#D9A441]/15 text-[#F0C86B]" : "bg-meadow-100 text-meadow-700"
               }`}
             >
-              {tc(priceChip)}
+              {priceChip}
             </span>
           )}
           <TagChip tag={tag} />
@@ -186,7 +186,7 @@ function PlaceCard({
           }`}
         >
           {shutToday
-            ? `${tc(closedLabel(attraction?.closedOn) ?? "")} — ${tc("and this day is one of them. Check before you drive.")}`
+            ? `${closedLabel(attraction?.closedOn, tc) ?? ""} — ${tc("and this day is one of them. Check before you drive.")}`
             : `${tc("Runs")} ${attraction?.season?.from} ${tc("to")} ${attraction?.season?.to}, ${tc("so it may be shut on this date.")}`}
         </p>
       )}

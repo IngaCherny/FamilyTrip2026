@@ -11,13 +11,13 @@ interface Props {
 }
 
 export default function Section({ id, kicker, title, intro, children, className }: Props) {
-  const { lang } = useLang();
+  const { lang, tc } = useLang();
   // In Hebrew, swap the header for a translated one when we have it; the intro
-  // (trip content) stays in English for now.
+  // is translated through the content dictionary (falls back to English).
   const tr = lang === "he" ? SECTION_I18N[id] : undefined;
   const showKicker = tr?.kicker ?? kicker;
   const showTitle = tr?.title ?? title;
-  const showIntro = lang === "he" && tr ? undefined : intro;
+  const showIntro = intro ? tc(intro) : undefined;
 
   return (
     <section id={id} className={`scroll-mt-20 px-4 py-12 sm:py-16 ${className ?? ""}`}>

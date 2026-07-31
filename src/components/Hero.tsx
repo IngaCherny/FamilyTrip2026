@@ -4,6 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { TRIP } from "../data/trip";
 import { useCountdown } from "../lib/useCountdown";
 import { formatDate, imageUrl } from "../lib/format";
+import { useLang } from "../lib/i18n";
 import Weather from "./Weather";
 import type { View } from "../App";
 
@@ -32,6 +33,7 @@ function Colon() {
 }
 
 export default function Hero({ onNav }: { onNav?: (v: View) => void }) {
+  const { tc } = useLang();
   const cd = useCountdown(TRIP.startDate, TRIP.endDate);
   const [i, setI] = useState(0);
 
@@ -43,10 +45,10 @@ export default function Hero({ onNav }: { onNav?: (v: View) => void }) {
   }, []);
 
   const status = cd.isBefore
-    ? "Two weeks across the Tyrolean & Dolomite Alps"
+    ? tc("Two weeks across the Tyrolean & Dolomite Alps")
     : cd.isDuring
-    ? `Day ${cd.tripDay} of the adventure`
-    : "We made it home";
+    ? `${tc("Day")} ${cd.tripDay} ${tc("of the adventure")}`
+    : tc("We made it home");
 
   return (
     <header className="relative flex min-h-[92vh] flex-col justify-between overflow-hidden bg-stone-900 text-[#F6F4EE]">
@@ -75,7 +77,7 @@ export default function Hero({ onNav }: { onNav?: (v: View) => void }) {
           language toggle (top-right) never covers it. */}
       <div className="relative z-10 px-6 pt-7">
         <span className="text-xs font-semibold tracking-[0.34em]">CHERNYCATION</span>
-        <span className="mt-1 block text-[11px] uppercase tracking-[0.14em] text-[#F6F4EE]/75">{SLIDES[i].loc}</span>
+        <span className="mt-1 block text-[11px] uppercase tracking-[0.14em] text-[#F6F4EE]/75">{tc(SLIDES[i].loc)}</span>
       </div>
 
       {/* Centrepiece */}
@@ -93,13 +95,13 @@ export default function Hero({ onNav }: { onNav?: (v: View) => void }) {
 
         {!cd.isAfter && (
           <div className="mt-7 flex items-center justify-center gap-1 sm:gap-2">
-            <Unit value={cd.days} label="Days" />
+            <Unit value={cd.days} label={tc("Days")} />
             <Colon />
-            <Unit value={cd.hours} label="Hrs" />
+            <Unit value={cd.hours} label={tc("Hrs")} />
             <Colon />
-            <Unit value={cd.minutes} label="Min" />
+            <Unit value={cd.minutes} label={tc("Min")} />
             <Colon />
-            <Unit value={cd.seconds} label="Sec" />
+            <Unit value={cd.seconds} label={tc("Sec")} />
           </div>
         )}
 
@@ -114,7 +116,7 @@ export default function Hero({ onNav }: { onNav?: (v: View) => void }) {
           onClick={() => onNav?.("itinerary")}
           className="tap mx-auto mb-4 flex flex-col items-center gap-1 text-[#F6F4EE]/85 hover:text-[#F6F4EE]"
         >
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em]">Full plan</span>
+          <span className="text-[11px] font-semibold uppercase tracking-[0.2em]">{tc("Full plan")}</span>
           <ChevronDown size={22} className="motion-safe:animate-bounce" />
         </button>
         <div className="mx-auto flex max-w-md items-end gap-3">

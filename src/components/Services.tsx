@@ -15,7 +15,7 @@ const ICONS: Record<string, LucideIcon> = {
 };
 
 export default function Services() {
-  const { lang } = useLang();
+  const { lang, tc } = useLang();
   const he = lang === "he";
 
   return (
@@ -36,9 +36,9 @@ export default function Services() {
             className="card-paper p-4"
           >
             <div className="mb-3">
-              <span className="kicker">{regionById(base.region)?.name ?? ""}</span>
-              <h3 className="font-serif text-lg font-bold text-stone-900">{base.name}</h3>
-              <p className="text-xs text-stone-400">{base.town}</p>
+              <span className="kicker">{tc(regionById(base.region)?.name ?? "")}</span>
+              <h3 className="font-serif text-lg font-bold text-stone-900">{tc(base.name)}</h3>
+              <p className="text-xs text-stone-400">{tc(base.town)}</p>
             </div>
             <div className="grid grid-cols-2 gap-2">
               {SERVICE_CATEGORIES.map((c) => {

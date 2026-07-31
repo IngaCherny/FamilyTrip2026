@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Section from "./Section";
 import { DISHES } from "../data/food";
+import { useLang } from "../lib/i18n";
 import type { Dish } from "../lib/types";
 
 const KIND_META: Record<Dish["kind"], { className: string; label: string }> = {
@@ -10,6 +11,7 @@ const KIND_META: Record<Dish["kind"], { className: string; label: string }> = {
 };
 
 export default function Food() {
+  const { tc } = useLang();
   return (
     <Section
       id="food"
@@ -31,12 +33,12 @@ export default function Food() {
             >
               <div className="mb-2 flex items-center justify-between">
                 <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${meta.className}`}>
-                  {meta.label}
+                  {tc(meta.label)}
                 </span>
-                <span className="text-xs text-stone-400">{d.origin}</span>
+                <span className="text-xs text-stone-400">{tc(d.origin)}</span>
               </div>
-              <h3 className="font-serif text-xl font-bold text-stone-900">{d.name}</h3>
-              <p className="mt-1 text-sm text-stone-600">{d.description}</p>
+              <h3 className="font-serif text-xl font-bold text-stone-900">{tc(d.name)}</h3>
+              <p className="mt-1 text-sm text-stone-600">{tc(d.description)}</p>
             </motion.div>
           );
         })}

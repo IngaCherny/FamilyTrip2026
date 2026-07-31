@@ -8,6 +8,7 @@ import SegmentedControl from "./SegmentedControl";
 import { ATTRACTIONS } from "../data/attractions";
 import { DESTINATIONS, PARTY, PRICES_CHECKED } from "../data/trip";
 import { POI_META } from "../lib/tags";
+import { useLang } from "../lib/i18n";
 import {
   closedLabel,
   distanceKm,
@@ -31,6 +32,7 @@ const FLAGS = [
 type FlagId = (typeof FLAGS)[number]["id"];
 
 export default function Places() {
+  const { tc } = useLang();
   const [region, setRegion] = useState<string>("all");
   const [active, setActive] = useState<FlagId[]>([]);
   const [here, setHere] = useState<[number, number] | null>(null);
@@ -86,7 +88,7 @@ export default function Places() {
   return (
     <Section id="places" kicker="Worth the Detour" title="Places to See">
       <SegmentedControl
-        segments={[{ id: "all", label: "All regions" }, ...DESTINATIONS.map((r) => ({ id: r.id, label: r.name }))]}
+        segments={[{ id: "all", label: tc("All regions") }, ...DESTINATIONS.map((r) => ({ id: r.id, label: tc(r.name) }))]}
         value={region}
         onChange={setRegion}
         layoutId="placesRegion"
@@ -102,7 +104,7 @@ export default function Places() {
               here ? "bg-glacier-600 text-white shadow-sm" : "text-glacier-700 hover:text-glacier-800"
             }`}
           >
-            {locating ? "Locating…" : here ? "✓ Nearest first" : "📍 Near me"}
+            {locating ? tc("Locating…") : here ? tc("✓ Nearest first") : tc("📍 Near me")}
           </button>
           {FLAGS.map((f) => (
             <button
@@ -115,7 +117,7 @@ export default function Places() {
                   : "text-stone-600 hover:text-stone-900"
               }`}
             >
-              {f.label}
+              {tc(f.label)}
             </button>
           ))}
           {active.length > 0 && (
@@ -123,33 +125,33 @@ export default function Places() {
               onClick={() => setActive([])}
               className="tap whitespace-nowrap rounded-full px-3 py-1.5 text-sm text-stone-500 hover:text-stone-700"
             >
-              Clear
+              {tc("Clear")}
             </button>
           )}
         </div>
       </div>
 
-      {geoError && <p className="mb-4 text-sm text-sunset-700">{geoError}</p>}
+      {geoError && <p className="mb-4 text-sm text-sunset-700">{tc(geoError)}</p>}
       {here && (
         <p className="mb-4 text-sm text-stone-500">
-          Sorted by distance from you, across all regions. Tap “Nearest first” again to switch back.
+          {tc("Sorted by distance from you, across all regions. Tap “Nearest first” again to switch back.")}
         </p>
       )}
 
       {places.length === 0 ? (
         <p className="rounded-xl bg-stone-50 p-6 text-center text-sm text-stone-500">
-          Nothing matches those filters here. Try clearing one, or switch region.
+          {tc("Nothing matches those filters here. Try clearing one, or switch region.")}
         </p>
       ) : (
         <div className="grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {places.map((a, i) => {
             const meta = POI_META[a.category];
             const links = mapLinks(a.coords, a.name);
-            const priceText = formatPrice(a.price);
+            const priceText = formatPrice(a.price, tc);
             const cost = familyCost(a.price, PARTY);
-            const total = formatFamilyCost(cost);
-            const freeNote = freeChildrenNote(cost);
-            const closed = closedLabel(a.closedOn);
+            const total = formatFamilyCost(cost, tc);
+            const freeNote = freeChildrenNote(cost, tc);
+            const closed = closedLabel(a.closedOn, tc);
             const open = openIds.has(a.id);
             const overlay = (
               <>
@@ -158,16 +160,16 @@ export default function Places() {
                   className="absolute left-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-semibold text-white shadow-sm"
                   style={{ background: meta.color }}
                 >
-                  {meta.label}
+                  {tc(meta.label)}
                 </span>
                 {here && (
                   <span className="absolute right-3 top-3 rounded-full bg-black/50 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-sm">
-                    {formatDistance(distanceKm(here, a.coords))} away
+                    {formatDistance(distanceKm(here, a.coords))} {tc("away")}
                   </span>
                 )}
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
                   <div className="glass-cap max-w-[80%] rounded-xl px-3 py-2">
-                    <h3 className="font-serif text-base font-bold leading-snug text-white sm:text-lg">{a.name}</h3>
+                    <h3 className="font-serif text-base font-bold leading-snug text-white sm:text-lg">{tc(a.name)}</h3>
                     {total && (
                       <span className="mt-0.5 block text-[11px] font-semibold text-white/90">{total}</span>
                     )}
@@ -213,21 +215,24 @@ export default function Places() {
                       className="overflow-hidden"
                     >
                       <div className="detail space-y-3 p-5">
-                        <p className="text-sm leading-relaxed text-[#EDE8DC]/85">{a.description}</p>
+                        <p className="text-sm leading-relaxed text-[#EDE8DC]/85">{tc(a.description)}</p>
 
                         <div className="flex flex-wrap gap-1.5">
-                          {a.buggy && <span className="detail-chip">Buggy-friendly</span>}
-                          {a.indoor && <span className="detail-chip">Works in rain</span>}
+                          {a.buggy && <span className="detail-chip">{tc("Buggy-friendly")}</span>}
+                          {a.indoor && <span className="detail-chip">{tc("Works in rain")}</span>}
                           {a.good_for.map((g) => (
                             <span key={g} className="detail-chip">
-                              {g}
+                              {tc(g)}
                             </span>
                           ))}
                         </div>
 
                         {(closed || a.season) && (
                           <p className="rounded-lg bg-white/[0.07] px-2.5 py-1.5 text-xs font-medium text-[#EDE8DC] ring-1 ring-white/10">
-                            {[closed, a.season && `${a.season.label ?? "Open"} ${a.season.from} to ${a.season.to}`]
+                            {[
+                              closed && tc(closed),
+                              a.season && `${tc(a.season.label ?? "Open")} ${a.season.from} ${tc("to")} ${a.season.to}`,
+                            ]
                               .filter(Boolean)
                               .join(" · ")}
                           </p>
@@ -235,7 +240,7 @@ export default function Places() {
 
                         {priceText && (
                           <p className="text-sm text-[#EDE8DC]/90">
-                            <span className="font-semibold text-[#D9A441]">Price: </span>
+                            <span className="font-semibold text-[#D9A441]">{tc("Price")}: </span>
                             {priceText}
                             {total && (
                               <span className="block text-xs text-[#EDE8DC]/55">
@@ -249,14 +254,14 @@ export default function Places() {
                         <div className="detail-links">
                           {a.link && (
                             <a href={a.link} target="_blank" rel="noreferrer" className="font-semibold">
-                              Official site
+                              {tc("Official site")}
                             </a>
                           )}
                           <a href={links.google} target="_blank" rel="noreferrer">
-                            Maps
+                            {tc("Maps")}
                           </a>
                           <a href={links.waze} target="_blank" rel="noreferrer">
-                            Waze
+                            {tc("Waze")}
                           </a>
                         </div>
                       </div>

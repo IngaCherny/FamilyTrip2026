@@ -6,6 +6,7 @@ import { ATTRACTIONS } from "../data/attractions";
 import { STAYS } from "../data/stays";
 import { POI_META } from "../lib/tags";
 import { mapLinks } from "../lib/format";
+import { useLang } from "../lib/i18n";
 import type { PoiCategory } from "../lib/types";
 
 function pinIcon(color: string, isStay = false) {
@@ -35,6 +36,7 @@ const CATEGORIES: { id: PoiCategory; label: string }[] = [
 ];
 
 export default function TripMap() {
+  const { tc } = useLang();
   const [active, setActive] = useState<Set<PoiCategory>>(new Set());
 
   const toggle = (c: PoiCategory) =>
@@ -70,7 +72,7 @@ export default function TripMap() {
               }`}
               style={on ? { background: POI_META[c.id].color } : undefined}
             >
-              {c.label}
+              {tc(c.label)}
             </button>
           );
         })}
@@ -93,11 +95,11 @@ export default function TripMap() {
           {STAYS.map((s) => (
             <Marker key={s.id} position={s.coords} icon={pinIcon("#1f7f8d", true)}>
               <Popup>
-                <strong>{s.name}</strong>
+                <strong>{tc(s.name)}</strong>
                 <br />
-                {s.address ?? `${s.town}, ${s.country}`}
+                {s.address ? tc(s.address) : `${tc(s.town)}, ${tc(s.country)}`}
                 <br />
-                <span style={{ color: "#6b6253" }}>{s.nights} nights</span>
+                <span style={{ color: "#6b6253" }}>{s.nights} {tc("nights")}</span>
                 <br />
                 <PopupLinks coords={s.coords} label={s.name} />
               </Popup>
@@ -107,11 +109,11 @@ export default function TripMap() {
           {pois.map((a) => (
             <Marker key={a.id} position={a.coords} icon={pinIcon(POI_META[a.category].color)}>
               <Popup>
-                <strong>{a.name}</strong>
+                <strong>{tc(a.name)}</strong>
                 <br />
-                <span style={{ color: "#6b6253" }}>{POI_META[a.category].label}</span>
+                <span style={{ color: "#6b6253" }}>{tc(POI_META[a.category].label)}</span>
                 <br />
-                {a.description}
+                {tc(a.description)}
                 <br />
                 <PopupLinks coords={a.coords} label={a.name} />
               </Popup>
@@ -124,14 +126,15 @@ export default function TripMap() {
 }
 
 function PopupLinks({ coords, label }: { coords: [number, number]; label: string }) {
+  const { tc } = useLang();
   const links = mapLinks(coords, label);
   return (
     <span style={{ display: "inline-flex", gap: 12, marginTop: 6 }}>
       <a href={links.google} target="_blank" rel="noreferrer" style={{ color: "#1f7f8d", fontWeight: 600 }}>
-        Maps
+        {tc("Maps")}
       </a>
       <a href={links.waze} target="_blank" rel="noreferrer" style={{ color: "#1f7f8d", fontWeight: 600 }}>
-        Waze
+        {tc("Waze")}
       </a>
     </span>
   );

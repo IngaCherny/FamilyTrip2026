@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Check, X, RotateCcw } from "lucide-react";
 import Section from "./Section";
 import { QUIZ } from "../data/quiz";
+import { useLang } from "../lib/i18n";
 
 export default function Quiz() {
+  const { tc } = useLang();
   const [i, setI] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [score, setScore] = useState(0);
@@ -43,28 +45,28 @@ export default function Quiz() {
               {score} / {QUIZ.length}
             </h3>
             <p className="mt-1 text-stone-600">
-              {score >= 7 ? "Alpine expert!" : score >= 4 ? "Nicely done!" : "Great try — play again!"}
+              {score >= 7 ? tc("Alpine expert!") : score >= 4 ? tc("Nicely done!") : tc("Great try — play again!")}
             </p>
             <button
               onClick={restart}
               className="tap mt-5 inline-flex items-center gap-2 rounded-xl bg-glacier-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-glacier-700"
             >
-              <RotateCcw size={16} /> Play again
+              <RotateCcw size={16} /> {tc("Play again")}
             </button>
           </div>
         ) : (
           <div className="card-paper p-5 sm:p-6">
             <div className="mb-3 flex items-center justify-between text-xs font-semibold text-stone-400">
               <span>
-                Question {i + 1} of {QUIZ.length}
+                {tc("Question")} {i + 1} {tc("of")} {QUIZ.length}
               </span>
-              <span>Score {score}</span>
+              <span>{tc("Score")} {score}</span>
             </div>
             <div className="mb-1 h-1.5 overflow-hidden rounded-full bg-stone-100">
               <div className="h-full rounded-full bg-glacier-500 transition-all" style={{ width: `${((i + 1) / QUIZ.length) * 100}%` }} />
             </div>
 
-            <h3 className="mt-4 font-serif text-xl font-bold leading-snug text-stone-900">{q.q}</h3>
+            <h3 className="mt-4 font-serif text-xl font-bold leading-snug text-stone-900">{tc(q.q)}</h3>
 
             <div className="mt-4 space-y-2">
               {q.options.map((opt, idx) => {
@@ -93,7 +95,7 @@ export default function Quiz() {
                         : "bg-white text-stone-400 ring-stone-100"
                     }`}
                   >
-                    <span>{opt}</span>
+                    <span>{tc(opt)}</span>
                     {state === "right" && <Check size={16} className="shrink-0" />}
                     {state === "wrong" && <X size={16} className="shrink-0" />}
                   </button>
@@ -110,14 +112,14 @@ export default function Quiz() {
                   className="overflow-hidden"
                 >
                   <p className="mt-4 rounded-xl bg-glacier-50 p-3 text-sm text-glacier-800 ring-1 ring-glacier-100">
-                    <span className="font-semibold">{picked === q.answer ? "Correct! " : "Good try. "}</span>
-                    {q.fact}
+                    <span className="font-semibold">{picked === q.answer ? tc("Correct!") + " " : tc("Good try.") + " "}</span>
+                    {tc(q.fact)}
                   </p>
                   <button
                     onClick={next}
                     className="tap mt-4 w-full rounded-xl bg-glacier-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-glacier-700"
                   >
-                    {last ? "See my score" : "Next question"}
+                    {last ? tc("See my score") : tc("Next question")}
                   </button>
                 </motion.div>
               )}

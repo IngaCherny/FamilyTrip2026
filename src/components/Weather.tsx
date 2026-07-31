@@ -3,6 +3,7 @@ import { Sun, CloudSun, Cloud, CloudFog, CloudDrizzle, CloudRain, CloudSnow, Clo
 import { ITINERARY } from "../data/itinerary";
 import { regionById } from "../data/trip";
 import { fetchWeather, type Weather as WeatherData } from "../lib/weather";
+import { useLang } from "../lib/i18n";
 
 function todayIso(): string {
   const d = new Date();
@@ -41,6 +42,7 @@ function weekday(iso: string): string {
  * standalone light card.
  */
 export default function Weather({ hero = false }: { hero?: boolean }) {
+  const { tc } = useLang();
   const day = activeDay();
   const region = regionById(day.region);
   const [wx, setWx] = useState<WeatherData | null>(null);
@@ -116,12 +118,12 @@ export default function Weather({ hero = false }: { hero?: boolean }) {
         <Icon size={hero ? 22 : 26} strokeWidth={1.6} className={`shrink-0 ${t.icon}`} />
         <div className="min-w-0 flex-1">
           <p className={`text-sm font-semibold ${t.name}`}>
-            {region.name}
-            <span className={`ms-2 text-xs font-normal ${t.sub}`}>{isToday ? "now" : "upcoming"}</span>
+            {tc(region.name)}
+            <span className={`ms-2 text-xs font-normal ${t.sub}`}>{isToday ? tc("now") : tc("upcoming")}</span>
           </p>
           {!hero && (
             <p className={`truncate text-xs ${t.sub}`}>
-              {wx ? wx.text : failed ? "Weather unavailable — tap to retry" : "Checking the forecast…"}
+              {wx ? tc(wx.text) : failed ? tc("Weather unavailable — tap to retry") : tc("Checking the forecast…")}
             </p>
           )}
         </div>
@@ -130,13 +132,13 @@ export default function Weather({ hero = false }: { hero?: boolean }) {
             <div className="text-end">
               <p className={`text-xl font-bold leading-none ${t.temp} ${hero ? "" : "sm:text-2xl"}`}>{wx.current}°</p>
               <p className={`mt-0.5 text-[11px] tabular-nums ${t.hl}`}>
-                H {wx.max}° · L {wx.min}°
+                {tc("H")} {wx.max}° · {tc("L")} {wx.min}°
               </p>
             </div>
             <ChevronDown size={16} className={`shrink-0 transition-transform ${t.chev} ${open ? "rotate-180" : ""}`} />
           </>
         ) : (
-          hero && <span className={`text-xs ${t.sub}`}>{failed ? "tap to retry" : "…"}</span>
+          hero && <span className={`text-xs ${t.sub}`}>{failed ? tc("tap to retry") : "…"}</span>
         )}
       </button>
 
@@ -146,7 +148,7 @@ export default function Weather({ hero = false }: { hero?: boolean }) {
             const DIcon = wxIcon(d.code);
             return (
               <div key={d.date} className="flex flex-col items-center gap-1 px-1 py-0.5">
-                <span className={`text-[11px] font-semibold ${t.dName}`}>{idx === 0 ? "Today" : weekday(d.date)}</span>
+                <span className={`text-[11px] font-semibold ${t.dName}`}>{idx === 0 ? tc("Today") : tc(weekday(d.date))}</span>
                 <DIcon size={20} strokeWidth={1.6} className={t.dIcon} />
                 <span className={`text-xs font-semibold tabular-nums ${t.dMax}`}>{d.max}°</span>
                 <span className={`text-[11px] tabular-nums ${t.dMin}`}>{d.min}°</span>

@@ -7,8 +7,10 @@ import Gallery from "./Gallery";
 import { STAYS } from "../data/stays";
 import { regionById } from "../data/trip";
 import { mapLinks, formatShort, imageUrl } from "../lib/format";
+import { useLang } from "../lib/i18n";
 
 export default function Stays() {
+  const { tc } = useLang();
   const [openIds, setOpenIds] = useState<Set<string>>(new Set());
   const toggle = (id: string) =>
     setOpenIds((cur) => {
@@ -28,14 +30,14 @@ export default function Stays() {
             <>
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
               <span className="absolute right-3 top-3 rounded-full bg-black/45 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-sm">
-                {s.nights} nights
+                {s.nights} {tc("nights")}
               </span>
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
                 <div className="glass-cap max-w-[80%] rounded-xl px-3 py-2">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/80">{region.name}</span>
-                  <h3 className="font-serif text-base font-bold leading-snug text-white sm:text-lg">{s.name}</h3>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/80">{tc(region.name)}</span>
+                  <h3 className="font-serif text-base font-bold leading-snug text-white sm:text-lg">{tc(s.name)}</h3>
                   <p className="text-[11px] text-white/85">
-                    {s.town}, {s.country}
+                    {tc(s.town)}, {tc(s.country)}
                   </p>
                 </div>
                 <span className="glass-cap flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white">
@@ -85,12 +87,12 @@ export default function Stays() {
                     className="overflow-hidden"
                   >
                     <div className="detail space-y-3 p-5">
-                      {s.address && <p className="text-xs text-[#EDE8DC]/50">{s.address}</p>}
+                      {s.address && <p className="text-xs text-[#EDE8DC]/50">{tc(s.address)}</p>}
 
-                      <p className="text-sm leading-relaxed text-[#EDE8DC]/85">{s.description}</p>
+                      <p className="text-sm leading-relaxed text-[#EDE8DC]/85">{tc(s.description)}</p>
 
                       <p className="text-sm font-medium text-[#EDE8DC]">
-                        {formatShort(s.checkIn)} to {formatShort(s.checkOut)}
+                        {formatShort(s.checkIn)} {tc("to")} {formatShort(s.checkOut)}
                       </p>
 
                       {s.driveFromAirport && (
@@ -100,30 +102,30 @@ export default function Stays() {
                           rel="noreferrer"
                           className="flex items-center gap-2 rounded-xl bg-white/[0.07] px-3 py-2 text-sm text-[#EDE8DC] ring-1 ring-white/10 transition-colors hover:bg-white/10"
                         >
-                          <span className="font-medium">{s.driveFromAirport.duration} from Munich Airport</span>
+                          <span className="font-medium">{s.driveFromAirport.duration} {tc("from Munich Airport")}</span>
                           <span className="text-[#EDE8DC]/60">· {s.driveFromAirport.distance}</span>
-                          <span className="ms-auto font-semibold text-[#D9A441] underline underline-offset-2">Directions</span>
+                          <span className="ms-auto font-semibold text-[#D9A441] underline underline-offset-2">{tc("Directions")}</span>
                         </a>
                       )}
 
                       <ul className="space-y-1">
                         {s.highlights.map((h) => (
                           <li key={h} className="flex gap-2 text-sm text-[#EDE8DC]/80">
-                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#D9A441]" /> {h}
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#D9A441]" /> {tc(h)}
                           </li>
                         ))}
                       </ul>
 
                       <div className="detail-links">
                         <a href={links.google} target="_blank" rel="noreferrer">
-                          Maps
+                          {tc("Maps")}
                         </a>
                         <a href={links.waze} target="_blank" rel="noreferrer">
-                          Waze
+                          {tc("Waze")}
                         </a>
                         {s.link && (
                           <a href={s.link} target="_blank" rel="noreferrer" className="font-semibold">
-                            Hotel site
+                            {tc("Hotel site")}
                           </a>
                         )}
                       </div>

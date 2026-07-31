@@ -22,7 +22,7 @@ export interface Weather {
 
 /** Short description for a WMO weather code. */
 export function describeCode(code: number): string {
-  if (code === 0) return "Clear";
+  if (code === 0) return "Clear sky";
   if (code <= 2) return "Mostly sunny";
   if (code === 3) return "Overcast";
   if (code <= 48) return "Fog";
