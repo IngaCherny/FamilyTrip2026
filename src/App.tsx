@@ -15,6 +15,7 @@ import Tips from "./components/Tips";
 import Packing from "./components/Packing";
 import Emergency from "./components/Emergency";
 import InstallPrompt from "./components/InstallPrompt";
+import LanguageSwitcher from "./components/LanguageSwitcher";
 import { TRIP } from "./data/trip";
 
 export type View =
@@ -60,6 +61,10 @@ export default function App() {
 
   return (
     <div className="min-h-screen pb-28 md:pb-0">
+      {/* Always-available language toggle (desktop keeps the one in the nav bar). */}
+      <div className="glass fixed end-3 top-3 z-[60] rounded-full p-0.5 md:hidden">
+        <LanguageSwitcher />
+      </div>
       {isHome && <Hero />}
       <Nav view={view} onNav={setView} />
       <main className={isHome ? "" : "pt-2"}>
