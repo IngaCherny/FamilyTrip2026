@@ -18,30 +18,35 @@ import {
 } from "lucide-react";
 import type { ActivityTag, PoiCategory } from "./types";
 
+// One quiet neutral chip for every tag — refined, not colourful.
+const CHIP = "bg-stone-100 text-stone-600";
+
 export const TAG_META: Record<ActivityTag, { label: string; icon: LucideIcon; className: string }> = {
-  drive: { label: "Drive", icon: Car, className: "bg-stone-100 text-stone-700" },
-  hike: { label: "Hike", icon: Mountain, className: "bg-meadow-100 text-meadow-700" },
-  walk: { label: "Nature walk", icon: TreePine, className: "bg-meadow-100 text-meadow-700" },
-  swim: { label: "Swim", icon: Waves, className: "bg-glacier-100 text-glacier-700" },
-  sights: { label: "Sights", icon: Landmark, className: "bg-sunset-200 text-sunset-600" },
-  town: { label: "Town", icon: Landmark, className: "bg-stone-100 text-stone-700" },
-  lake: { label: "Lake", icon: Waves, className: "bg-glacier-100 text-glacier-700" },
-  waterfall: { label: "Waterfall", icon: Droplets, className: "bg-glacier-100 text-glacier-700" },
-  cablecar: { label: "Cable car", icon: CableCar, className: "bg-sunset-200 text-sunset-600" },
-  animals: { label: "Animals", icon: PawPrint, className: "bg-meadow-100 text-meadow-700" },
-  playground: { label: "Playground", icon: Blocks, className: "bg-meadow-100 text-meadow-700" },
-  food: { label: "Food", icon: UtensilsCrossed, className: "bg-sunset-200 text-sunset-600" },
-  kids: { label: "Kids", icon: Baby, className: "bg-meadow-100 text-meadow-700" },
-  spa: { label: "Spa", icon: Sparkles, className: "bg-glacier-100 text-glacier-700" },
-  flight: { label: "Flight", icon: Plane, className: "bg-stone-100 text-stone-700" },
-  free: { label: "Free", icon: Coffee, className: "bg-stone-100 text-stone-600" },
+  drive: { label: "Drive", icon: Car, className: CHIP },
+  hike: { label: "Hike", icon: Mountain, className: CHIP },
+  walk: { label: "Nature walk", icon: TreePine, className: CHIP },
+  swim: { label: "Swim", icon: Waves, className: CHIP },
+  sights: { label: "Sights", icon: Landmark, className: CHIP },
+  town: { label: "Town", icon: Landmark, className: CHIP },
+  lake: { label: "Lake", icon: Waves, className: CHIP },
+  waterfall: { label: "Waterfall", icon: Droplets, className: CHIP },
+  cablecar: { label: "Cable car", icon: CableCar, className: CHIP },
+  animals: { label: "Animals", icon: PawPrint, className: CHIP },
+  playground: { label: "Playground", icon: Blocks, className: CHIP },
+  food: { label: "Food", icon: UtensilsCrossed, className: CHIP },
+  kids: { label: "Kids", icon: Baby, className: CHIP },
+  spa: { label: "Spa", icon: Sparkles, className: CHIP },
+  flight: { label: "Flight", icon: Plane, className: CHIP },
+  free: { label: "Free", icon: Coffee, className: CHIP },
 };
 
+// Category badges over photos: a single ink chip, no colour.
+const POI_INK = "#23211d";
 export const POI_META: Record<PoiCategory, { label: string; icon: LucideIcon; color: string }> = {
-  sight: { label: "Sight", icon: Landmark, color: "#e3823a" },
-  hike: { label: "Hike", icon: Footprints, color: "#567a35" },
-  lake: { label: "Lake", icon: Waves, color: "#1f7f8d" },
-  spa: { label: "Spa", icon: Sparkles, color: "#2ba0ae" },
-  kids: { label: "Kids", icon: Baby, color: "#6f9a47" },
-  town: { label: "Town", icon: Landmark, color: "#8a7f6b" },
+  sight: { label: "Sight", icon: Landmark, color: POI_INK },
+  hike: { label: "Hike", icon: Footprints, color: POI_INK },
+  lake: { label: "Lake", icon: Waves, color: POI_INK },
+  spa: { label: "Spa", icon: Sparkles, color: POI_INK },
+  kids: { label: "Kids", icon: Baby, color: POI_INK },
+  town: { label: "Town", icon: Landmark, color: POI_INK },
 };

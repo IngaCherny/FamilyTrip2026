@@ -1,87 +1,119 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { TRIP, DESTINATIONS } from "../data/trip";
 import { useCountdown } from "../lib/useCountdown";
 import { formatDate, imageUrl } from "../lib/format";
-import { useWikiImage } from "../lib/useWikiImage";
+
+/** The rotating hero shots — our best photos from across the trip. */
+const SLIDES = [
+  { img: "img/hintersteiner-see.jpg", loc: "Hintersteiner See · Tirol" },
+  { img: "img/seiser-alm.jpg", loc: "Seiser Alm · South Tyrol" },
+  { img: "img/pragser-wildsee.jpg", loc: "Lago di Braies · Dolomites" },
+  { img: "img/rodenecker-alm.jpg", loc: "Rodenecker Alm · South Tyrol" },
+  { img: "img/gaudeamushuette.jpg", loc: "Wilder Kaiser · Tirol" },
+];
 
 function Unit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="font-serif text-3xl font-bold tabular-nums text-white sm:text-5xl">
+      <span className="font-serif text-3xl font-bold tabular-nums text-[#F6F4EE] sm:text-4xl">
         {String(value).padStart(2, "0")}
       </span>
-      <span className="text-[10px] uppercase tracking-[0.2em] text-white/70 sm:text-xs">{label}</span>
+      <span className="mt-0.5 text-[10px] uppercase tracking-[0.22em] text-[#F6F4EE]/70">{label}</span>
     </div>
   );
 }
 
 export default function Hero() {
   const cd = useCountdown(TRIP.startDate, TRIP.endDate);
-  const heroImg = useWikiImage(TRIP.heroWiki, { big: true });
-  const heroSrc = imageUrl(TRIP.heroImage, 2000) ?? heroImg?.src;
+  const [i, setI] = useState(0);
+
+  useEffect(() => {
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    const t = setInterval(() => setI((n) => (n + 1) % SLIDES.length), 6000);
+    return () => clearInterval(t);
+  }, []);
 
   const status = cd.isBefore
-    ? "Counting down to"
+    ? "Two weeks across the Tyrolean & Dolomite Alps"
     : cd.isDuring
     ? `Day ${cd.tripDay} of the adventure`
     : "We made it home";
 
   return (
-    <header className="relative min-h-[88vh] overflow-hidden sm:min-h-[80vh]">
-      {/* Full-bleed alpine photo with a gradient fallback underneath. */}
-      <div className="absolute inset-0 bg-gradient-to-b from-glacier-700 via-glacier-600 to-meadow-600" />
-      {heroSrc && (
-        <img
-          key={heroSrc}
-          src={heroSrc}
-          alt="The Alps"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      )}
-      <div className="absolute inset-0 bg-gradient-to-b from-stone-900/55 via-stone-900/35 to-stone-900/65" />
-      <svg
-        className="absolute bottom-0 left-0 block w-full text-stone-50"
-        viewBox="0 0 1200 160"
-        preserveAspectRatio="none"
-        aria-hidden
-      >
-        <path
-          d="M0 161 L160 110 L340 140 L520 90 L700 140 L880 100 L1060 145 L1200 105 L1200 161 Z"
-          fill="currentColor"
-        />
-      </svg>
-
-      <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-5xl flex-col justify-center px-4 pb-28 pt-20 sm:min-h-[80vh]">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+    <header className="relative flex min-h-[92vh] flex-col justify-between overflow-hidden bg-stone-900 text-[#F6F4EE]">
+      {/* Cross-fading photo carousel */}
+      {SLIDES.map((s, idx) => (
+        <div
+          key={s.img}
+          className="absolute inset-0 transition-opacity duration-[1600ms] ease-in-out"
+          style={{ opacity: idx === i ? 1 : 0 }}
+          aria-hidden={idx !== i}
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/80">
-            {status}
-          </p>
-          <h1 className="mt-2 font-serif text-5xl font-bold leading-none text-white sm:text-7xl">
-            {TRIP.title}
-            <span className="block text-glacier-200">{TRIP.year}</span>
-          </h1>
-          <p className="mt-4 max-w-xl text-lg text-white/85">{TRIP.tagline}</p>
+          <img
+            src={imageUrl(s.img, 2000)}
+            alt=""
+            className="h-full w-full object-cover"
+            style={{
+              transform: idx === i ? "scale(1)" : "scale(1.06)",
+              transition: "transform 7s ease-out",
+            }}
+          />
+        </div>
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-b from-stone-900/55 via-stone-900/20 to-stone-900/75" />
 
-          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/80">
-            <span>
-              {formatDate(TRIP.startDate)} to {formatDate(TRIP.endDate, { day: "numeric", month: "long", year: "numeric" })}
-            </span>
-            <span>{DESTINATIONS.map((r) => r.name).join(" · ")}</span>
+      {/* Top bar */}
+      <div className="relative z-10 flex items-center gap-3.5 px-6 pt-7">
+        <span className="text-xs font-semibold tracking-[0.34em]">CHERNYCATION</span>
+        <span className="h-px flex-1 bg-[#F6F4EE]/30" />
+        <span className="text-[11px] uppercase tracking-[0.14em] text-[#F6F4EE]/80">{SLIDES[i].loc}</span>
+      </div>
+
+      {/* Centrepiece */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="relative z-10 mx-auto max-w-3xl px-6 text-center"
+      >
+        <p className="font-serif text-base italic text-[#F6F4EE]/85 sm:text-lg">{status}</p>
+        <h1 className="mt-2 font-serif text-6xl font-semibold leading-[0.92] tracking-tight sm:text-8xl">
+          {TRIP.title}
+          <span className="mt-1 block text-[0.5em] font-medium tracking-wide text-stone-200">{TRIP.year}</span>
+        </h1>
+
+        {!cd.isAfter && (
+          <div className="mt-7 inline-flex gap-6 rounded-2xl border border-[#F6F4EE]/20 bg-[#F6F4EE]/10 px-7 py-4 backdrop-blur-md sm:gap-8">
+            <Unit value={cd.days} label="Days" />
+            <Unit value={cd.hours} label="Hrs" />
+            <Unit value={cd.minutes} label="Min" />
+            <Unit value={cd.seconds} label="Sec" />
           </div>
+        )}
 
-          {!cd.isAfter && (
-            <div className="mt-8 inline-flex gap-4 rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-sm ring-1 ring-white/20 sm:gap-7">
-              <Unit value={cd.days} label="Days" />
-              <Unit value={cd.hours} label="Hrs" />
-              <Unit value={cd.minutes} label="Min" />
-              <Unit value={cd.seconds} label="Sec" />
-            </div>
-          )}
-        </motion.div>
+        <p className="mt-4 text-xs uppercase tracking-[0.16em] text-[#F6F4EE]/80">
+          {formatDate(TRIP.startDate)} – {formatDate(TRIP.endDate, { day: "numeric", month: "long" })}
+        </p>
+      </motion.div>
+
+      {/* Bottom: destinations + slide dots */}
+      <div className="relative z-10 flex items-center justify-between px-6 pb-7">
+        <span className="hidden text-xs text-[#F6F4EE]/75 sm:block">
+          {DESTINATIONS.map((r) => r.name).join(" · ")}
+        </span>
+        <div className="flex gap-1.5">
+          {SLIDES.map((s, idx) => (
+            <button
+              key={s.img}
+              onClick={() => setI(idx)}
+              aria-label={`Show ${s.loc}`}
+              className="h-[3px] w-6 rounded-full transition-colors"
+              style={{ background: idx === i ? "rgba(246,244,238,.95)" : "rgba(246,244,238,.35)" }}
+            />
+          ))}
+        </div>
       </div>
     </header>
   );

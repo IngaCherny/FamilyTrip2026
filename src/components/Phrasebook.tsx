@@ -25,10 +25,7 @@ export default function Phrasebook() {
             transition={{ duration: 0.3, delay: (i % 2) * 0.05 }}
             className="card-paper p-4"
           >
-            <h3 className="mb-3 font-serif text-lg font-bold text-stone-900">
-              <span className="me-2">{g.emoji}</span>
-              {he ? g.groupHe : g.group}
-            </h3>
+            <h3 className="mb-3 font-serif text-lg font-bold text-stone-900">{he ? g.groupHe : g.group}</h3>
             <ul className="divide-y divide-stone-100">
               {g.items.map((p) => (
                 <li key={p.de + p.it} className="py-2.5">

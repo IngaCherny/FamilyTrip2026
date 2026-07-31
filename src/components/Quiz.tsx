@@ -64,10 +64,7 @@ export default function Quiz() {
               <div className="h-full rounded-full bg-glacier-500 transition-all" style={{ width: `${((i + 1) / QUIZ.length) * 100}%` }} />
             </div>
 
-            <h3 className="mt-4 font-serif text-xl font-bold leading-snug text-stone-900">
-              <span className="me-2">{q.emoji}</span>
-              {q.q}
-            </h3>
+            <h3 className="mt-4 font-serif text-xl font-bold leading-snug text-stone-900">{q.q}</h3>
 
             <div className="mt-4 space-y-2">
               {q.options.map((opt, idx) => {
