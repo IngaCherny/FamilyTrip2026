@@ -16,13 +16,17 @@ const SLIDES = [
 
 function Unit({ value, label }: { value: number; label: string }) {
   return (
-    <div className="flex flex-col items-center">
-      <span className="font-serif text-3xl font-bold tabular-nums text-[#F6F4EE] sm:text-4xl">
+    <div className="flex flex-col items-center rounded-xl border border-[#F6F4EE]/20 bg-[#F6F4EE]/[0.12] px-3 py-1.5 backdrop-blur-sm sm:px-4">
+      <span className="font-serif text-4xl font-semibold leading-none tabular-nums text-[#F6F4EE] sm:text-6xl">
         {String(value).padStart(2, "0")}
       </span>
-      <span className="mt-0.5 text-[10px] uppercase tracking-[0.22em] text-[#F6F4EE]/70">{label}</span>
+      <span className="mt-1 text-[9px] uppercase tracking-[0.22em] text-[#F6F4EE]/85 sm:text-[11px]">{label}</span>
     </div>
   );
+}
+
+function Colon() {
+  return <span className="self-start pt-2 font-serif text-3xl text-[#F6F4EE]/40 sm:pt-3 sm:text-5xl">:</span>;
 }
 
 export default function Hero() {
@@ -86,10 +90,13 @@ export default function Hero() {
         </h1>
 
         {!cd.isAfter && (
-          <div className="mt-7 inline-flex gap-6 rounded-2xl border border-[#F6F4EE]/20 bg-[#F6F4EE]/10 px-7 py-4 backdrop-blur-md sm:gap-8">
+          <div className="mt-7 flex items-center justify-center gap-1 sm:gap-2">
             <Unit value={cd.days} label="Days" />
+            <Colon />
             <Unit value={cd.hours} label="Hrs" />
+            <Colon />
             <Unit value={cd.minutes} label="Min" />
+            <Colon />
             <Unit value={cd.seconds} label="Sec" />
           </div>
         )}
