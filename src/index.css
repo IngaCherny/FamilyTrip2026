@@ -60,6 +60,22 @@ body {
   .tap {
     @apply min-h-11 min-w-11 inline-flex items-center justify-center;
   }
+
+  /* Glossy dark panel revealed when a location card is opened. */
+  .detail {
+    background-image: linear-gradient(180deg, #26241f, #1a1815);
+    border-top: 1px solid rgba(217, 164, 65, 0.35);
+  }
+  .detail-chip {
+    @apply rounded-full px-2.5 py-0.5 text-xs font-medium;
+    background: rgba(237, 232, 220, 0.1);
+    color: #e4ddcb;
+  }
+  .detail-links {
+    @apply flex flex-wrap gap-4 pt-3 text-sm font-medium;
+    border-top: 1px solid rgba(237, 232, 220, 0.14);
+    color: #d9a441;
+  }
 }
 
 /* Stop a fast double-tap from zooming/jumping the page: taps on our own

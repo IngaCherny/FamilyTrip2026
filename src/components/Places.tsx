@@ -212,29 +212,21 @@ export default function Places() {
                       transition={{ duration: 0.25 }}
                       className="overflow-hidden"
                     >
-                      <div className="space-y-3 border-t border-stone-100 p-4">
-                        <p className="text-sm text-stone-600">{a.description}</p>
+                      <div className="detail space-y-3 p-5">
+                        <p className="text-sm leading-relaxed text-[#EDE8DC]/85">{a.description}</p>
 
                         <div className="flex flex-wrap gap-1.5">
-                          {a.buggy && (
-                            <span className="rounded-full bg-meadow-100 px-2.5 py-0.5 text-xs font-medium text-meadow-700">
-                              Buggy-friendly
-                            </span>
-                          )}
-                          {a.indoor && (
-                            <span className="rounded-full bg-glacier-50 px-2.5 py-0.5 text-xs font-medium text-glacier-700">
-                              Works in rain
-                            </span>
-                          )}
+                          {a.buggy && <span className="detail-chip">Buggy-friendly</span>}
+                          {a.indoor && <span className="detail-chip">Works in rain</span>}
                           {a.good_for.map((g) => (
-                            <span key={g} className="rounded-full bg-stone-100 px-2.5 py-0.5 text-xs text-stone-600">
+                            <span key={g} className="detail-chip">
                               {g}
                             </span>
                           ))}
                         </div>
 
                         {(closed || a.season) && (
-                          <p className="rounded-lg bg-sunset-200/40 px-2.5 py-1.5 text-xs font-medium text-stone-700 ring-1 ring-sunset-200">
+                          <p className="rounded-lg bg-white/[0.07] px-2.5 py-1.5 text-xs font-medium text-[#EDE8DC] ring-1 ring-white/10">
                             {[closed, a.season && `${a.season.label ?? "Open"} ${a.season.from} to ${a.season.to}`]
                               .filter(Boolean)
                               .join(" · ")}
@@ -242,11 +234,11 @@ export default function Places() {
                         )}
 
                         {priceText && (
-                          <p className="text-sm text-stone-700">
-                            <span className="font-semibold text-meadow-700">Price: </span>
+                          <p className="text-sm text-[#EDE8DC]/90">
+                            <span className="font-semibold text-[#D9A441]">Price: </span>
                             {priceText}
                             {total && (
-                              <span className="block text-xs text-stone-500">
+                              <span className="block text-xs text-[#EDE8DC]/55">
                                 {total}
                                 {freeNote && ` — ${freeNote}`} ({PRICES_CHECKED})
                               </span>
@@ -254,7 +246,7 @@ export default function Places() {
                           </p>
                         )}
 
-                        <div className="flex flex-wrap gap-4 border-t border-stone-100 pt-3 text-sm font-medium text-glacier-600">
+                        <div className="detail-links">
                           {a.link && (
                             <a href={a.link} target="_blank" rel="noreferrer" className="font-semibold">
                               Official site

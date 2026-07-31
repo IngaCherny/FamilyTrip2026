@@ -84,12 +84,12 @@ export default function Stays() {
                     transition={{ duration: 0.25 }}
                     className="overflow-hidden"
                   >
-                    <div className="space-y-3 border-t border-stone-100 p-4">
-                      {s.address && <p className="text-xs text-stone-400">{s.address}</p>}
+                    <div className="detail space-y-3 p-5">
+                      {s.address && <p className="text-xs text-[#EDE8DC]/50">{s.address}</p>}
 
-                      <p className="text-sm text-stone-600">{s.description}</p>
+                      <p className="text-sm leading-relaxed text-[#EDE8DC]/85">{s.description}</p>
 
-                      <p className="text-sm font-medium text-stone-700">
+                      <p className="text-sm font-medium text-[#EDE8DC]">
                         {formatShort(s.checkIn)} to {formatShort(s.checkOut)}
                       </p>
 
@@ -98,23 +98,23 @@ export default function Stays() {
                           href={s.driveFromAirport.url}
                           target="_blank"
                           rel="noreferrer"
-                          className="flex items-center gap-2 rounded-xl bg-glacier-50 px-3 py-2 text-sm text-glacier-700 transition-colors hover:bg-glacier-100"
+                          className="flex items-center gap-2 rounded-xl bg-white/[0.07] px-3 py-2 text-sm text-[#EDE8DC] ring-1 ring-white/10 transition-colors hover:bg-white/10"
                         >
                           <span className="font-medium">{s.driveFromAirport.duration} from Munich Airport</span>
-                          <span className="text-glacier-600/70">· {s.driveFromAirport.distance}</span>
-                          <span className="ms-auto font-semibold underline underline-offset-2">Directions</span>
+                          <span className="text-[#EDE8DC]/60">· {s.driveFromAirport.distance}</span>
+                          <span className="ms-auto font-semibold text-[#D9A441] underline underline-offset-2">Directions</span>
                         </a>
                       )}
 
                       <ul className="space-y-1">
                         {s.highlights.map((h) => (
-                          <li key={h} className="flex gap-2 text-sm text-stone-600">
-                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-meadow-400" /> {h}
+                          <li key={h} className="flex gap-2 text-sm text-[#EDE8DC]/80">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#D9A441]" /> {h}
                           </li>
                         ))}
                       </ul>
 
-                      <div className="flex gap-4 border-t border-stone-100 pt-3 text-sm font-medium text-glacier-600">
+                      <div className="detail-links">
                         <a href={links.google} target="_blank" rel="noreferrer">
                           Maps
                         </a>
