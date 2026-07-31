@@ -94,7 +94,7 @@ export default function Hero({ onNav }: { onNav?: (v: View) => void }) {
         </h1>
 
         {!cd.isAfter && (
-          <div className="mt-7 flex items-center justify-center gap-1 sm:gap-2">
+          <div dir="ltr" className="mt-7 flex items-center justify-center gap-1 sm:gap-2">
             <Unit value={cd.days} label={tc("Days")} />
             <Colon />
             <Unit value={cd.hours} label={tc("Hrs")} />

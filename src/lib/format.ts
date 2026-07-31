@@ -1,13 +1,21 @@
 import type { FamilyCost, Party, Price, Season, Weekday } from "./types";
 
+// The locale used to format dates. LanguageProvider keeps this in sync with the
+// chosen language, so "13 August" becomes "13 באוגוסט" in Hebrew — the day and
+// month numbers stay the same, only the words localise.
+let DATE_LOCALE = "en-GB";
+export function setDateLocale(locale: string): void {
+  DATE_LOCALE = locale;
+}
+
 export function formatDate(iso: string, opts?: Intl.DateTimeFormatOptions): string {
   const d = new Date(iso + "T00:00:00");
-  return d.toLocaleDateString("en-GB", opts ?? { day: "numeric", month: "long" });
+  return d.toLocaleDateString(DATE_LOCALE, opts ?? { day: "numeric", month: "long" });
 }
 
 export function formatShort(iso: string): string {
   const d = new Date(iso + "T00:00:00");
-  return d.toLocaleDateString("en-GB", { day: "numeric", month: "short" });
+  return d.toLocaleDateString(DATE_LOCALE, { day: "numeric", month: "short" });
 }
 
 /**

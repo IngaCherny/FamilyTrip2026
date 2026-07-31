@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { HE_CONTENT } from "../data/i18n/he";
+import { setDateLocale } from "./format";
 
 export type Lang = "en" | "he";
 
@@ -73,6 +74,11 @@ function readLang(): Lang {
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(readLang);
+
+  // Keep date formatting in sync with the language. Set synchronously during
+  // render (before descendants render) so dates never lag a frame behind a
+  // language switch.
+  setDateLocale(lang === "he" ? "he" : "en-GB");
 
   useEffect(() => {
     const root = document.documentElement;
