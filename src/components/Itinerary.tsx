@@ -68,6 +68,7 @@ function PlaceCard({
   defaultOpen,
   hero,
   bare,
+  onDark,
 }: {
   title: string;
   description: string;
@@ -92,6 +93,8 @@ function PlaceCard({
   hero?: boolean;
   /** Render only the details, no image or toggle (the day tile carries the photo). */
   bare?: boolean;
+  /** Style the details for a dark (ink) panel — cream text, gold accents. */
+  onDark?: boolean;
 }) {
   const [open, setOpen] = useState(hero || (defaultOpen ?? false));
   const priceText = formatPrice(attraction?.price);
@@ -110,20 +113,24 @@ function PlaceCard({
           <TagChip tag={tag} />
         </div>
       )}
-      <p className="text-sm text-stone-600">{description}</p>
+      <p className={`text-sm ${onDark ? "text-[#EDE8DC]/85" : "text-stone-600"}`}>{description}</p>
       {(shutToday || offSeason) && (
-        <p className="rounded-lg bg-sunset-200/50 p-2 text-sm font-medium text-stone-800 ring-1 ring-sunset-200">
+        <p
+          className={`rounded-lg p-2 text-sm font-medium ring-1 ${
+            onDark ? "bg-white/[0.07] text-[#EDE8DC] ring-white/10" : "bg-sunset-200/50 text-stone-800 ring-sunset-200"
+          }`}
+        >
           {shutToday
             ? `${closedLabel(attraction?.closedOn)} — and this day is one of them. Check before you drive.`
             : `Runs ${attraction?.season?.from} to ${attraction?.season?.to}, so it may be shut on this date.`}
         </p>
       )}
       {priceText && (
-        <p className="text-sm text-stone-700">
-          <span className="font-semibold text-meadow-700">Price: </span>
+        <p className={`text-sm ${onDark ? "text-[#EDE8DC]/90" : "text-stone-700"}`}>
+          <span className={`font-semibold ${onDark ? "text-[#D9A441]" : "text-meadow-700"}`}>Price: </span>
           {priceText}
           {total && (
-            <span className="block text-xs text-stone-500">
+            <span className={`block text-xs ${onDark ? "text-[#EDE8DC]/55" : "text-stone-500"}`}>
               {total}
               {freeNote && ` — ${freeNote}`}
             </span>
@@ -131,7 +138,11 @@ function PlaceCard({
         </p>
       )}
       {kidNote && (
-        <p className="rounded-lg bg-white/70 p-2 text-sm text-meadow-700 ring-1 ring-meadow-100">
+        <p
+          className={`rounded-lg p-2 text-sm ring-1 ${
+            onDark ? "bg-white/[0.07] text-[#EDE8DC]/90 ring-white/10" : "bg-white/70 text-meadow-700 ring-meadow-100"
+          }`}
+        >
           <span className="font-semibold">For the kids: </span>
           {kidNote}
         </p>
@@ -141,7 +152,9 @@ function PlaceCard({
           href={officialLink}
           target="_blank"
           rel="noreferrer"
-          className="inline-block text-sm font-semibold text-glacier-600 underline underline-offset-2"
+          className={`inline-block text-sm font-semibold underline underline-offset-2 ${
+            onDark ? "text-[#D9A441]" : "text-glacier-600"
+          }`}
         >
           {link ? linkLabel ?? "Official route" : "Official site"}
         </a>
@@ -201,7 +214,11 @@ function PlaceCard({
   return (
     <div
       className={`overflow-hidden rounded-xl ring-1 ${
-        accent === "option" ? "bg-meadow-50/60 ring-meadow-100" : "bg-stone-50 ring-stone-200"
+        onDark
+          ? "bg-white/[0.05] ring-white/10"
+          : accent === "option"
+          ? "bg-meadow-50/60 ring-meadow-100"
+          : "bg-stone-50 ring-stone-200"
       }`}
     >
       <button onClick={() => setOpen((o) => !o)} className="flex w-full items-center gap-3 p-2.5 text-left">
@@ -212,11 +229,11 @@ function PlaceCard({
           className="h-14 w-14 shrink-0 rounded-lg"
         />
         <span className="min-w-0 flex-1">
-          <span className="block font-semibold leading-snug text-stone-900">{title}</span>
+          <span className={`block font-semibold leading-snug ${onDark ? "text-[#F6F1E6]" : "text-stone-900"}`}>{title}</span>
           <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs">
-            {tag && <span className="text-stone-500">{TAG_META[tag].label}</span>}
-            {total && <span className="font-medium text-meadow-700">{total}</span>}
-            {attraction?.buggy && <span className="text-meadow-600">Buggy OK</span>}
+            {tag && <span className={onDark ? "text-[#EDE8DC]/60" : "text-stone-500"}>{TAG_META[tag].label}</span>}
+            {total && <span className={`font-medium ${onDark ? "text-[#D9A441]" : "text-meadow-700"}`}>{total}</span>}
+            {attraction?.buggy && <span className={onDark ? "text-[#EDE8DC]/60" : "text-meadow-600"}>Buggy OK</span>}
             {(shutToday || offSeason) && (
               <span className="rounded bg-sunset-200 px-1.5 font-semibold text-stone-800">
                 {shutToday ? "Closed today" : "Out of season"}
@@ -346,18 +363,18 @@ function DayCard({
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <div className="space-y-5 border-t border-stone-100 p-4">
+            <div className="detail space-y-5 p-4">
               {/* Travel leg, with route map and stops along the way */}
               {day.drive && (
-                <div className="rounded-xl bg-stone-100 p-3">
+                <div className="rounded-xl bg-white/[0.06] p-3 ring-1 ring-white/10">
                   <div className="text-sm">
-                    <p className="font-semibold text-stone-800">
+                    <p className="font-semibold text-[#F6F1E6]">
                       {day.drive.from} to {day.drive.to}
                     </p>
-                    <p className="text-stone-600">
+                    <p className="text-[#EDE8DC]/80">
                       {day.drive.duration} · {day.drive.distance}
                     </p>
-                    {day.drive.note && <p className="mt-1 text-stone-500">{day.drive.note}</p>}
+                    {day.drive.note && <p className="mt-1 text-[#EDE8DC]/60">{day.drive.note}</p>}
                   </div>
                   {day.drive.toQuery && (
                     <div className="mt-3">
@@ -366,7 +383,7 @@ function DayCard({
                   )}
                   {day.drive.stops && day.drive.stops.length > 0 && (
                     <div className="mt-3 space-y-2">
-                      <p className="kicker">Stops along the way</p>
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#D9A441]">Stops along the way</p>
                       {/* The first stop is the planned one, so keep it in view. */}
                       <PlaceCard
                         key={day.drive.stops[0].name}
@@ -378,6 +395,7 @@ function DayCard({
                         imageWiki={day.drive.stops[0].wiki ?? regionWiki}
                         imageSrc={day.drive.stops[0].image ? imageUrl(day.drive.stops[0].image, 200) : undefined}
                         accent="stop"
+                        onDark
                         attraction={
                           day.drive.stops[0].attractionId
                             ? attractionById(day.drive.stops[0].attractionId)
@@ -389,9 +407,9 @@ function DayCard({
                         <>
                           <button
                             onClick={() => setShowStops((v) => !v)}
-                            className="tap flex w-full items-center justify-between rounded-lg bg-white/70 px-3 py-2 text-left ring-1 ring-stone-200"
+                            className="tap flex w-full items-center justify-between rounded-lg bg-white/[0.06] px-3 py-2 text-left ring-1 ring-white/10"
                           >
-                            <span className="text-sm font-medium text-stone-600">
+                            <span className="text-sm font-medium text-[#EDE8DC]/80">
                               {showStops ? "Hide extra stops" : `${day.drive.stops.length - 1} more stop${day.drive.stops.length - 1 > 1 ? "s" : ""}`}
                             </span>
                             <Caret open={showStops} />
@@ -417,6 +435,7 @@ function DayCard({
                                       imageWiki={s.wiki ?? regionWiki}
                                       imageSrc={s.image ? imageUrl(s.image, 200) : undefined}
                                       accent="stop"
+                                      onDark
                                       attraction={s.attractionId ? attractionById(s.attractionId) : undefined}
                                       date={day.date}
                                     />
@@ -435,7 +454,7 @@ function DayCard({
               {/* The day's plan details — the photo and title are on the tile above. */}
               {chosen && (
                 <div className="space-y-2">
-                  <p className="kicker">Your plan · {chosen.title}</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#D9A441]">Your plan · {chosen.title}</p>
                   <PlaceCard
                     key={chosen.title}
                     title={chosen.title}
@@ -453,6 +472,7 @@ function DayCard({
                       regionWiki
                     }
                     accent="option"
+                    onDark
                     attraction={chosen.attractionId ? attractionById(chosen.attractionId) : undefined}
                     date={day.date}
                     bare
@@ -462,7 +482,7 @@ function DayCard({
                     <div className="pt-1">
                       <button
                         onClick={() => setShowChange((v) => !v)}
-                        className="tap text-sm font-medium text-glacier-600"
+                        className="tap text-sm font-medium text-[#D9A441]"
                       >
                         {showChange ? "Hide alternatives" : `Change plan (${others.length} other${others.length > 1 ? "s" : ""})`}
                       </button>
@@ -475,12 +495,12 @@ function DayCard({
                                 onPick(o.title);
                                 setShowChange(false);
                               }}
-                              className="tap block w-full rounded-lg bg-stone-50 px-3 py-2 text-left text-sm text-stone-700 ring-1 ring-stone-200 hover:bg-stone-100"
+                              className="tap block w-full rounded-lg bg-white/[0.06] px-3 py-2 text-left text-sm text-[#EDE8DC] ring-1 ring-white/10 hover:bg-white/10"
                             >
                               {o.title}
                             </button>
                           ))}
-                          <p className="pt-1 text-xs text-stone-400">
+                          <p className="pt-1 text-xs text-[#EDE8DC]/50">
                             Every option also lives under Places, with its own map and “near me”.
                           </p>
                         </div>
@@ -493,24 +513,24 @@ function DayCard({
               {/* Family food stops */}
               {day.food && day.food.length > 0 && (
                 <div className="space-y-2">
-                  <p className="kicker">Family food stops</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#D9A441]">Family food stops</p>
                   {day.food.map((f) => (
                     <a
                       key={f.name}
                       href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(placeQuery(f))}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="block rounded-xl bg-sunset-200/40 p-3 ring-1 ring-sunset-200 transition-colors hover:bg-sunset-200/60"
+                      className="block rounded-xl bg-white/[0.06] p-3 ring-1 ring-white/10 transition-colors hover:bg-white/10"
                     >
                       <span className="flex flex-wrap items-center gap-2">
-                        <span className="font-semibold text-stone-900">{f.name}</span>
+                        <span className="font-semibold text-[#F6F1E6]">{f.name}</span>
                         {f.playground && (
-                          <span className="rounded-full bg-meadow-100 px-2 py-0.5 text-[10px] font-semibold text-meadow-700">
+                          <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-[#E4DDCB]">
                             Playground
                           </span>
                         )}
                       </span>
-                      <span className="mt-0.5 block text-sm text-stone-600">{f.description}</span>
+                      <span className="mt-0.5 block text-sm text-[#EDE8DC]/75">{f.description}</span>
                     </a>
                   ))}
                 </div>
@@ -518,10 +538,10 @@ function DayCard({
 
               {/* Tips */}
               {day.tips && day.tips.length > 0 && (
-                <div className="rounded-xl border-l-4 border-meadow-400 bg-meadow-50 p-3">
+                <div className="rounded-xl border-s-4 border-[#D9A441] bg-white/[0.06] p-3">
                   {day.tips.map((t) => (
-                    <p key={t} className="text-sm text-meadow-700">
-                      <span className="font-semibold">Tip: </span>
+                    <p key={t} className="text-sm text-[#EDE8DC]/85">
+                      <span className="font-semibold text-[#F6F1E6]">Tip: </span>
                       {t}
                     </p>
                   ))}
