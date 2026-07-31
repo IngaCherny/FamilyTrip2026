@@ -19,7 +19,6 @@ function activeDay() {
   );
 }
 
-/** A WMO weather code → a neutral line icon. */
 function wxIcon(code: number): LucideIcon {
   if (code === 0) return Sun;
   if (code <= 2) return CloudSun;
@@ -36,7 +35,12 @@ function weekday(iso: string): string {
   return new Date(iso + "T00:00:00").toLocaleDateString("en-GB", { weekday: "short" });
 }
 
-export default function Weather() {
+/**
+ * The weather widget. `hero` renders a translucent glass strip that sits over
+ * the hero carousel (cream text, forecast opens upward); otherwise it renders a
+ * standalone light card.
+ */
+export default function Weather({ hero = false }: { hero?: boolean }) {
   const day = activeDay();
   const region = regionById(day.region);
   const [wx, setWx] = useState<WeatherData | null>(null);
@@ -69,57 +73,91 @@ export default function Weather() {
   const Icon = wx ? wxIcon(wx.code) : Cloud;
   const forecast = wx?.daily.slice(0, 5) ?? [];
 
-  return (
-    <section className="px-4 pt-6">
-      <div className="glass mx-auto w-full max-w-3xl overflow-hidden rounded-3xl">
-        {/* Compact strip */}
-        <button
-          onClick={() => (failed ? setTick((t) => t + 1) : wx && setOpen((o) => !o))}
-          className="flex w-full items-center gap-3.5 px-4 py-3 text-left"
-        >
-          <Icon size={26} strokeWidth={1.6} className="shrink-0 text-stone-600" />
-          <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold text-stone-900">
-              {region.name}
-              <span className="ms-2 text-xs font-normal text-stone-400">{isToday ? "now" : "upcoming"}</span>
-            </p>
-            <p className="truncate text-xs text-stone-500">
+  // ---- colour tokens per variant ----
+  const t = hero
+    ? {
+        wrap: "relative",
+        strip: "flex w-full items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-3.5 py-2 text-left backdrop-blur-md",
+        icon: "text-[#F6F4EE]",
+        name: "text-[#F6F4EE]",
+        sub: "text-[#F6F4EE]/70",
+        temp: "text-[#F6F4EE]",
+        hl: "text-[#F6F4EE]/70",
+        chev: "text-[#F6F4EE]/70",
+        panel:
+          "absolute inset-x-0 bottom-full mb-2 grid grid-cols-5 gap-1 rounded-2xl border border-white/20 bg-black/40 px-2 py-3 backdrop-blur-md",
+        dName: "text-[#F6F4EE]/70",
+        dIcon: "text-[#F6F4EE]",
+        dMax: "text-[#F6F4EE]",
+        dMin: "text-[#F6F4EE]/55",
+      }
+    : {
+        wrap: "glass mx-auto w-full max-w-3xl overflow-hidden rounded-3xl",
+        strip: "flex w-full items-center gap-3.5 px-4 py-3 text-left",
+        icon: "text-stone-600",
+        name: "text-stone-900",
+        sub: "text-stone-400",
+        temp: "text-stone-900",
+        hl: "text-stone-500",
+        chev: "text-stone-400",
+        panel: "grid grid-cols-5 gap-1 border-t border-stone-200/70 px-2 py-3",
+        dName: "text-stone-500",
+        dIcon: "text-stone-600",
+        dMax: "text-stone-800",
+        dMin: "text-stone-400",
+      };
+
+  const widget = (
+    <div className={t.wrap}>
+      <button
+        onClick={() => (failed ? setTick((n) => n + 1) : wx && setOpen((o) => !o))}
+        className={t.strip}
+      >
+        <Icon size={hero ? 22 : 26} strokeWidth={1.6} className={`shrink-0 ${t.icon}`} />
+        <div className="min-w-0 flex-1">
+          <p className={`text-sm font-semibold ${t.name}`}>
+            {region.name}
+            <span className={`ms-2 text-xs font-normal ${t.sub}`}>{isToday ? "now" : "upcoming"}</span>
+          </p>
+          {!hero && (
+            <p className={`truncate text-xs ${t.sub}`}>
               {wx ? wx.text : failed ? "Weather unavailable — tap to retry" : "Checking the forecast…"}
             </p>
-          </div>
-          {wx && (
-            <>
-              <div className="text-end">
-                <p className="text-2xl font-bold leading-none text-stone-900">{wx.current}°</p>
-                <p className="mt-0.5 text-[11px] text-stone-500 tabular-nums">
-                  H {wx.max}° · L {wx.min}°
-                </p>
-              </div>
-              <ChevronDown
-                size={18}
-                className={`shrink-0 text-stone-400 transition-transform ${open ? "rotate-180" : ""}`}
-              />
-            </>
           )}
-        </button>
-
-        {/* Expandable multi-day forecast */}
-        {open && wx && (
-          <div className="grid grid-cols-5 gap-1 border-t border-stone-200/70 px-2 py-3">
-            {forecast.map((d, idx) => {
-              const DIcon = wxIcon(d.code);
-              return (
-                <div key={d.date} className="flex flex-col items-center gap-1 rounded-xl px-1 py-1.5">
-                  <span className="text-[11px] font-semibold text-stone-500">{idx === 0 ? "Today" : weekday(d.date)}</span>
-                  <DIcon size={20} strokeWidth={1.6} className="text-stone-600" />
-                  <span className="text-xs font-semibold text-stone-800 tabular-nums">{d.max}°</span>
-                  <span className="text-[11px] text-stone-400 tabular-nums">{d.min}°</span>
-                </div>
-              );
-            })}
-          </div>
+        </div>
+        {wx ? (
+          <>
+            <div className="text-end">
+              <p className={`text-xl font-bold leading-none ${t.temp} ${hero ? "" : "sm:text-2xl"}`}>{wx.current}°</p>
+              <p className={`mt-0.5 text-[11px] tabular-nums ${t.hl}`}>
+                H {wx.max}° · L {wx.min}°
+              </p>
+            </div>
+            <ChevronDown size={16} className={`shrink-0 transition-transform ${t.chev} ${open ? "rotate-180" : ""}`} />
+          </>
+        ) : (
+          hero && <span className={`text-xs ${t.sub}`}>{failed ? "tap to retry" : "…"}</span>
         )}
-      </div>
-    </section>
+      </button>
+
+      {open && wx && (
+        <div className={t.panel}>
+          {forecast.map((d, idx) => {
+            const DIcon = wxIcon(d.code);
+            return (
+              <div key={d.date} className="flex flex-col items-center gap-1 px-1 py-0.5">
+                <span className={`text-[11px] font-semibold ${t.dName}`}>{idx === 0 ? "Today" : weekday(d.date)}</span>
+                <DIcon size={20} strokeWidth={1.6} className={t.dIcon} />
+                <span className={`text-xs font-semibold tabular-nums ${t.dMax}`}>{d.max}°</span>
+                <span className={`text-[11px] tabular-nums ${t.dMin}`}>{d.min}°</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
   );
+
+  if (hero) return widget;
+  return <section className="px-4 pt-6">{widget}</section>;
 }

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { TRIP, DESTINATIONS } from "../data/trip";
+import { TRIP } from "../data/trip";
 import { useCountdown } from "../lib/useCountdown";
 import { formatDate, imageUrl } from "../lib/format";
+import Weather from "./Weather";
 
 /** The rotating hero shots — our best photos from across the trip. */
 const SLIDES = [
@@ -98,12 +99,14 @@ export default function Hero() {
         </p>
       </motion.div>
 
-      {/* Bottom: destinations + slide dots */}
-      <div className="relative z-10 flex items-center justify-between px-6 pb-7">
-        <span className="hidden text-xs text-[#F6F4EE]/75 sm:block">
-          {DESTINATIONS.map((r) => r.name).join(" · ")}
-        </span>
-        <div className="flex gap-1.5">
+      {/* Bottom: weather glass strip over the photo + slide dots */}
+      <div className="relative z-10 px-6 pb-7">
+        <div className="mx-auto flex max-w-md items-end gap-3">
+          <div className="min-w-0 flex-1">
+            <Weather hero />
+          </div>
+        </div>
+        <div className="mx-auto mt-3 flex max-w-md justify-center gap-1.5">
           {SLIDES.map((s, idx) => (
             <button
               key={s.img}
