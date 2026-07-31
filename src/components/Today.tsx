@@ -6,6 +6,7 @@ import { TAG_META } from "../lib/tags";
 import { loadPicks, onPicksChanged } from "../lib/picks";
 import SmartImage from "./SmartImage";
 import Gallery from "./Gallery";
+import ListenButton from "./ListenButton";
 import {
   closedLabel,
   directionsUrl,
@@ -111,7 +112,12 @@ export default function Today() {
               </span>
             )}
           </div>
-          {chosen?.description && <p className="text-sm text-stone-600">{chosen.description}</p>}
+          {chosen?.description && (
+            <div className="flex items-start gap-2">
+              <p className="text-sm text-stone-600">{chosen.description}</p>
+              <ListenButton text={`${chosen.title}. ${chosen.description}`} lang="en-GB" className="mt-0.5 shrink-0" />
+            </div>
+          )}
 
           {(shut || offSeason) && (
             <p className="mt-3 rounded-lg bg-sunset-200/50 p-2.5 text-sm font-medium text-stone-800 ring-1 ring-sunset-200">

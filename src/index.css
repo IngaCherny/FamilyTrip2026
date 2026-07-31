@@ -76,6 +76,14 @@ button {
   user-select: none;
 }
 
+/* Hebrew (RTL) gets a system Hebrew font stack — no webfont, still offline. */
+html[dir="rtl"] body {
+  font-family: "Assistant", "Rubik", "Noto Sans Hebrew", "Arial Hebrew", -apple-system, system-ui, sans-serif;
+}
+html[dir="rtl"] .font-serif {
+  font-family: "Frank Ruhl Libre", "Noto Serif Hebrew", ui-serif, Georgia, serif;
+}
+
 /* Leaflet tiles should sit under our own UI chrome. */
 .leaflet-container {
   font-family: inherit;

@@ -8,9 +8,13 @@ import Places from "./components/Places";
 import Stays from "./components/Stays";
 import Cards from "./components/Cards";
 import Food from "./components/Food";
+import Phrasebook from "./components/Phrasebook";
+import Quiz from "./components/Quiz";
+import Services from "./components/Services";
 import Tips from "./components/Tips";
 import Packing from "./components/Packing";
 import Emergency from "./components/Emergency";
+import InstallPrompt from "./components/InstallPrompt";
 import { TRIP } from "./data/trip";
 
 export default function App() {
@@ -25,8 +29,11 @@ export default function App() {
         <TripMap />
         <Places />
         <Stays />
+        <Services />
         <Cards />
         <Food />
+        <Phrasebook />
+        <Quiz />
         <Tips />
         <Packing />
         <Emergency />
@@ -41,6 +48,7 @@ export default function App() {
         </p>
         <p className="mt-1 text-xs text-stone-400">Photos via Wikipedia / Wikimedia Commons.</p>
       </footer>
+      <InstallPrompt />
     </div>
   );
 }

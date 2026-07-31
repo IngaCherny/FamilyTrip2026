@@ -1,37 +1,43 @@
 import { useEffect, useState } from "react";
 import { CalendarDays, Compass, BedDouble, Sparkles, Menu, X } from "lucide-react";
+import { useLang } from "../lib/i18n";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const MOBILE_TABS = [
-  { id: "today", label: "Today", Icon: Sparkles },
-  { id: "itinerary", label: "Plan", Icon: CalendarDays },
-  { id: "places", label: "Places", Icon: Compass },
-  { id: "stays", label: "Stays", Icon: BedDouble },
-];
+  { id: "today", key: "nav.today", Icon: Sparkles },
+  { id: "itinerary", key: "nav.plan", Icon: CalendarDays },
+  { id: "places", key: "nav.places", Icon: Compass },
+  { id: "stays", key: "nav.stays", Icon: BedDouble },
+] as const;
 
 // Everything else lives behind "More" on mobile; the desktop bar shows it all.
 const SECONDARY = [
-  { id: "map", label: "Map" },
-  { id: "cards", label: "Guest Cards" },
-  { id: "food", label: "Food & Drink" },
-  { id: "tips", label: "Tips" },
-  { id: "packing", label: "Packing" },
-  { id: "emergency", label: "Emergency" },
-];
+  { id: "map", key: "nav.map" },
+  { id: "services", key: "nav.services" },
+  { id: "cards", key: "nav.cards" },
+  { id: "food", key: "nav.food" },
+  { id: "phrasebook", key: "nav.phrases" },
+  { id: "quiz", key: "nav.quiz" },
+  { id: "tips", key: "nav.tips" },
+  { id: "packing", key: "nav.packing" },
+  { id: "emergency", key: "nav.emergency" },
+] as const;
 
 const DESKTOP = [
-  { id: "today", label: "Today" },
-  { id: "itinerary", label: "Plan" },
-  { id: "map", label: "Map" },
-  { id: "places", label: "Places" },
-  { id: "stays", label: "Stays" },
+  { id: "today", key: "nav.today" },
+  { id: "itinerary", key: "nav.plan" },
+  { id: "map", key: "nav.map" },
+  { id: "places", key: "nav.places" },
+  { id: "stays", key: "nav.stays" },
   ...SECONDARY.filter((s) => s.id !== "map"),
-];
+] as const;
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 }
 
 export default function Nav() {
+  const { t } = useLang();
   const [more, setMore] = useState(false);
   const [active, setActive] = useState("today");
 
@@ -72,9 +78,10 @@ export default function Nav() {
                   active === item.id ? "bg-glacier-600 text-white" : "text-stone-600 hover:bg-white/60"
                 }`}
               >
-                {item.label}
+                {t(item.key)}
               </button>
             ))}
+            <LanguageSwitcher className="ms-2" />
           </div>
         </div>
       </nav>
@@ -82,7 +89,7 @@ export default function Nav() {
       {/* Mobile floating glass tab bar */}
       <nav className="fixed inset-x-4 bottom-4 z-40 md:hidden">
         <div className="glass mx-auto flex max-w-md items-stretch justify-around rounded-[26px] px-1.5 py-1.5">
-          {MOBILE_TABS.map(({ id, label, Icon }) => {
+          {MOBILE_TABS.map(({ id, key, Icon }) => {
             const on = active === id;
             return (
               <button
@@ -96,7 +103,7 @@ export default function Nav() {
                 <span className={`rounded-2xl px-4 py-1 ${on ? "bg-white/70" : ""}`}>
                   <Icon size={20} strokeWidth={on ? 2.4 : 2} />
                 </span>
-                {label}
+                {t(key)}
               </button>
             );
           })}
@@ -107,7 +114,7 @@ export default function Nav() {
             <span className="px-4 py-1">
               <Menu size={20} strokeWidth={2} />
             </span>
-            More
+            {t("nav.more")}
           </button>
         </div>
       </nav>
@@ -117,14 +124,13 @@ export default function Nav() {
         <div className="fixed inset-0 z-50 flex items-end bg-black/40 md:hidden" onClick={() => setMore(false)}>
           <div className="w-full rounded-t-3xl bg-white p-4 pb-9" onClick={(e) => e.stopPropagation()}>
             <div className="mb-3 flex items-center justify-between">
-              <h3 className="font-serif text-xl font-bold">More</h3>
-              <button
-                onClick={() => setMore(false)}
-                className="tap rounded-full text-stone-400"
-                aria-label="Close"
-              >
-                <X size={22} />
-              </button>
+              <h3 className="font-serif text-xl font-bold">{t("nav.more")}</h3>
+              <div className="flex items-center gap-3">
+                <LanguageSwitcher />
+                <button onClick={() => setMore(false)} className="tap rounded-full text-stone-400" aria-label={t("common.close")}>
+                  <X size={22} />
+                </button>
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
               {SECONDARY.map((item) => (
@@ -134,9 +140,9 @@ export default function Nav() {
                     setMore(false);
                     setTimeout(() => scrollTo(item.id), 80);
                   }}
-                  className="tap justify-start rounded-2xl bg-stone-50 px-4 py-3 text-left text-sm font-medium text-stone-700 ring-1 ring-stone-200"
+                  className="tap justify-start rounded-2xl bg-stone-50 px-4 py-3 text-start text-sm font-medium text-stone-700 ring-1 ring-stone-200"
                 >
-                  {item.label}
+                  {t(item.key)}
                 </button>
               ))}
             </div>
