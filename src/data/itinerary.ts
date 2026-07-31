@@ -46,6 +46,7 @@ export const ITINERARY: Day[] = [
         },
       ],
     },
+    dayNote: "Arrival day — settle in and take it easy.",
     options: [
       {
         title: "Settle in and meadow stroll",
@@ -81,9 +82,11 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_STREIF,
     title: "Hexenwasser Söll",
     subtitle: "The big witch's water day",
+    dayNote: "A full day out — cook dinner back at the apartment.",
     options: [
       {
         title: "Hexenwasser Söll (witch's water)",
+        driveFromBase: "~25 min",
         tag: "playground",
         attractionId: "hexenwasser",
         description:
@@ -126,9 +129,12 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_STREIF,
     title: "Schnackler trail in the Kaiserbachtal",
     subtitle: "A quiet valley on a busy holiday",
+    dayNote: "Pack a picnic, or lunch at the Griesner Alm.",
     options: [
       {
         title: "Schnackler adventure trail, Kaiserbachtal",
+        driveFromBase: "~15 min",
+        trailShape: "There & back",
         tag: "walk",
         attractionId: "schnackler",
         description:
@@ -182,9 +188,11 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_STREIF,
     title: "Triassic Park on the Steinplatte",
     subtitle: "Dinosaurs on an old coral reef",
+    dayNote: "A full day up on the plateau.",
     options: [
       {
         title: "Triassic Park on the Steinplatte, Waidring",
+        driveFromBase: "~40 min",
         tag: "kids",
         attractionId: "triassic-park",
         description:
@@ -277,6 +285,7 @@ export const ITINERARY: Day[] = [
         },
       ],
     },
+    dayNote: "On the move to the Ötztal — Juppi breaks the drive.",
     options: [
       {
         title: "Juppi Zauberwald on the drive to the Ötztal",
@@ -343,9 +352,11 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_FALKNER,
     title: "WIDI day at Hochoetz",
     subtitle: "Play world plus one themed trail",
+    dayNote: "A full day at the play world.",
     options: [
       {
         title: "WIDIVERSUM Hochoetz play world",
+        driveFromBase: "~20 min",
         tag: "kids",
         attractionId: "widiversum",
         description:
@@ -421,9 +432,12 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_FALKNER,
     title: "Treasure trails or thermal pools",
     subtitle: "A day on the doorstep",
+    dayNote: "Easy day close to base — cook in tonight.",
     options: [
       {
         title: "9 Schätze Habicher See from Oetz (morning)",
+        driveFromBase: "~5 min",
+        trailShape: "Loop",
         tag: "walk",
         attractionId: "habicher-see",
         description:
@@ -512,9 +526,12 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_FALKNER,
     title: "Treasure hunt or an easy river walk",
     subtitle: "Last full day in the Ötztal",
+    dayNote: "A quiet half-day; relax at the apartment after.",
     options: [
       {
         title: "Treasure hunt village round, Ochsengarten",
+        driveFromBase: "~15 min",
+        trailShape: "Loop",
         tag: "walk",
         attractionId: "ochsengarten-schatzsuche",
         description:
@@ -599,6 +616,7 @@ export const ITINERARY: Day[] = [
         },
       ],
     },
+    dayNote: "Break the transfer at Sterzing, then check in.",
     options: [
       {
         title: "Rosskopf alpine coaster, Sterzing",
@@ -643,9 +661,12 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_ENTDECKER,
     title: "Easy nature & orchard day",
     subtitle: "A soft first full day",
+    dayNote: "Everything's at the hotel — pools and dinner back at the Entdecker.",
     options: [
       {
         title: "Apple Trail through the Natz-Schabs orchards",
+        driveFromBase: "~15 min",
+        trailShape: "Loop",
         tag: "walk",
         attractionId: "apfelweg",
         description:
@@ -687,9 +708,11 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_ENTDECKER,
     title: "Plose & the WoodyWalk",
     subtitle: "The must-do mountain day",
+    dayNote: "Back to the Entdecker pools for the afternoon.",
     options: [
       {
         title: "Plose cable car & the WoodyWalk",
+        driveFromBase: "~30 min",
         tag: "cablecar",
         attractionId: "woodywalk-plose",
         description:
@@ -721,9 +744,11 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_ENTDECKER,
     title: "Family bike adventure",
     subtitle: "Olang to Welsberg, train back",
+    dayNote: "Hotel pools and dinner in tonight.",
     options: [
       {
         title: "Cycle Olang to Welsberg, train back",
+        driveFromBase: "~20 min",
         tag: "sights",
         attractionId: "olang-welsberg-bike",
         description:
@@ -765,9 +790,12 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_ENTDECKER,
     title: "Fane Alm",
     subtitle: "The prettiest alpine village",
+    dayNote: "Hike the morning, then the hotel pools.",
     options: [
       {
         title: "Fane Alm alpine village, Vals",
+        driveFromBase: "~30 min",
+        trailShape: "There & back",
         tag: "hike",
         attractionId: "fane-alm",
         description:
@@ -799,9 +827,12 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_ENTDECKER,
     title: "Rodenecker-Lüsner Alm",
     subtitle: "Easy meadows, quiet & beautiful",
+    dayNote: "Hike the morning, then the hotel pools.",
     options: [
       {
         title: "Rodenecker-Lüsner Alm high meadows",
+        driveFromBase: "~30 min",
+        trailShape: "Gentle loops",
         tag: "hike",
         attractionId: "rodenecker-luesner-alm",
         description:
@@ -862,9 +893,11 @@ export const ITINERARY: Day[] = [
         },
       ],
     },
+    dayNote: "Roughly halfway home — the last stop before Munich.",
     options: [
       {
         title: "Kundler Klamm gorge near Wörgl",
+        trailShape: "There & back — or the shuttle train",
         tag: "walk",
         attractionId: "kundlerklamm",
         description:
