@@ -10,7 +10,7 @@ const SLIDES = [
   { img: "img/seiser-alm.jpg", loc: "Seiser Alm · South Tyrol" },
   { img: "img/pragser-wildsee.jpg", loc: "Lago di Braies · Dolomites" },
   { img: "img/rodenecker-alm.jpg", loc: "Rodenecker Alm · South Tyrol" },
-  { img: "img/gaudeamushuette.jpg", loc: "Wilder Kaiser · Tirol" },
+  { img: "img/stuibenfall.jpg", loc: "Stuibenfall · Ötztal" },
 ];
 
 function Unit({ value, label }: { value: number; label: string }) {
