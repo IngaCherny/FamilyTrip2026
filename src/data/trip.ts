@@ -25,7 +25,7 @@ export const TRIP = {
  */
 export const PARTY: Party = {
   adults: 2,
-  childAges: [3, 6, 8],
+  childAges: [2, 6, 8],
   // Under-3s go free virtually everywhere, so this is the safe assumption for
   // any place whose own rule we have not confirmed.
   defaultFreeUnder: 3,
