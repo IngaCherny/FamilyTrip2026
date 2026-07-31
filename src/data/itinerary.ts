@@ -54,7 +54,7 @@ export const ITINERARY: Day[] = [
       },
       {
         title: "Arrive at Apartment Streif",
-        driveFromBase: "~1h 30m from the lake",
+        driveFromBase: "~1h 30m",
         image: "img/streif.jpg",
         wiki: "Wilder Kaiser",
         tag: "spa",
@@ -283,39 +283,30 @@ export const ITINERARY: Day[] = [
       ],
     },
     dayNote: "Drive ~40 min to Juppi, play, then ~1h 05m on to the apartment in Oetz.",
+    sequence: true,
     options: [
       {
-        title: "Juppi Zauberwald on the drive to the Ötztal",
+        title: "Juppi Zauberwald, Reith im Alpbachtal",
         driveFromBase: "~40 min",
+        image: "img/juppi.jpg",
         tag: "kids",
         attractionId: "juppi-zauberwald",
         description:
-          "The highlight of the moving day: an enchanted forest on the Reitherkogel, right off the Inn-valley motorway. A 2.5 km buggy-friendly loop from the gondola winds past a magic village with a witch's kitchen, a ghost moor with a wooden wizard, a wobbly bridge, a viewing tower, a bird's-nest swing and water games.",
+          "The highlight of the moving day: an enchanted forest on the Reitherkogel, right off the Inn-valley motorway. A 2.5 km buggy-friendly loop from the gondola winds past a magic village, a ghost moor, a wobbly bridge, a viewing tower and water games. Optional detours on the way: Swarovski Kristallwelten or Alpenzoo Innsbruck.",
         kidNote:
-          "Buggy-friendly the whole loop, a proper leg-stretch mid-drive. The Reitherkogelbahn is closed on Wednesdays, but this is a Monday. The Alpbachtaler Kinderpark by the gondola has lunch and a playground.",
+          "Buggy-friendly the whole loop — a proper leg-stretch mid-drive. The Reitherkogelbahn is closed Wednesdays, but this is a Monday.",
         coords: [47.4247, 11.8792],
         mapQuery: "Reitherkogelbahn, Reith im Alpbachtal, Austria",
       },
       {
-        title: "Check in and Piburger See sunset loop",
-        tag: "lake",
-        attractionId: "piburger-see",
+        title: "Arrive at Falkners Five, Oetz",
+        driveFromBase: "~1h 05m",
+        image: "img/falkners-2.jpg",
+        tag: "spa",
         description:
-          "Drop bags, then drive up to Piburg and the warm little nature-reserve lake above Oetz for a gentle shore circuit and a paddle.",
-        kidNote:
-          "Drive up rather than walking from Oetz. The shore circuit is about an hour but is rooty and rocky in places, so carrier rather than buggy for the 2 year old. Warm, shallow swimming and rowing boats.",
-        coords: [47.1986, 10.8806],
-        mapQuery: "Piburger See, Oetz, Austria",
-      },
-      {
-        title: "Easy evening in Oetz village",
-        wiki: "Oetz",
-        tag: "town",
-        description:
-          "If the drive was enough, restock groceries and stroll Oetz's pretty painted old town for dinner.",
-        kidNote: "Flat village streets, buggy-friendly.",
-        coords: [47.2017, 10.8975],
-        mapQuery: "Oetz, Austria",
+          "On south into the mouth of the Ötztal for four nights. Unpack and settle in. If there is evening energy, the Piburger See sunset loop is close by, or just wander Oetz village for gelato.",
+        kidNote: "No more driving once you are in.",
+        mapQuery: BASE_FALKNER,
       },
     ],
     food: [
@@ -615,36 +606,29 @@ export const ITINERARY: Day[] = [
       ],
     },
     dayNote: "Ride Rosskopf at Sterzing, then ~30 min on to the hotel in Kiens.",
+    sequence: true,
     options: [
       {
         title: "Rosskopf alpine coaster, Sterzing",
         driveFromBase: "~1h 45m",
+        image: "img/rosskopf.jpg",
         tag: "kids",
         attractionId: "rosskopf-coaster",
         description:
-          "Break the transfer where it matters: pull off just past the Brenner at Sterzing, ride the gondola up to Rosskopf and let the kids loose on the 1.2 km alpine coaster and the summit playground. An hour or two of fun, lunch at a hut with the view, then the last half-hour down to the hotel to check in and swim.",
-        kidNote: "Coaster from about age 3 tucked in with an adult; playground and easy meadow strolls at the top. Carrier for the 2 year old.",
+          "Break the transfer just past the Brenner: ride the gondola up from Sterzing and let off steam on the alpine coaster and the summit playground. Optional: a wander round Sterzing's pretty old town, or the Franzensfeste fortress right by the motorway.",
+        kidNote: "Coaster from about age 3 tucked in with an adult; playground and easy meadow strolls up top.",
         coords: [46.9036, 11.4494],
         mapQuery: "Rosskopf Sterzing cable car, Italy",
       },
       {
-        title: "Straight to the hotel pool instead",
-        wiki: "Puster Valley",
+        title: "Arrive at Entdecker Hotel, Kiens",
+        driveFromBase: "~30 min",
+        image: "img/entdecker.jpg",
         tag: "spa",
         description:
-          "If the drive has worn everyone out, skip Sterzing, arrive around noon, check into the Entdecker for the six-night stay and let the kids loose in the pool. Dinner in, no pressure to do anything else.",
-        kidNote: "No detour, no plan. Pool, unpack, early dinner.",
+          "East into the Val Pusteria to the Entdecker for six nights — the heart of the trip. Check in, then straight to the pools. If everyone is still fresh, the flat Toblacher See loop is an easy first taste of the Dolomites.",
+        kidNote: "Pool, unpack, early dinner — no pressure after the transfer.",
         mapQuery: BASE_ENTDECKER,
-      },
-      {
-        title: "Toblacher See loop if you have energy",
-        tag: "lake",
-        attractionId: "toblacher-see",
-        description:
-          "If everyone is still fresh, the flat, easy shore loop around Lake Toblach with mountain views and a kiosk is a gentle first taste of the Dolomites.",
-        kidNote: "Flat, buggy-friendly shore loop (~3.5 km). Snack kiosk on site.",
-        coords: [46.715, 12.223],
-        mapQuery: "Toblacher See, Toblach, Italy",
       },
     ],
     tips: [
@@ -893,36 +877,29 @@ export const ITINERARY: Day[] = [
       ],
     },
     dayNote: "Last gorge on the way home, then ~1h 15m on to the airport hotel.",
+    sequence: true,
     options: [
       {
-        title: "Kundler Klamm gorge near Wörgl",
+        title: "Kundler Klamm gorge, near Wörgl",
         driveFromBase: "~1h 30m",
+        image: "img/kundlerklamm-1.jpg",
         trailShape: "There & back — or the shuttle train",
         tag: "walk",
         attractionId: "kundlerklamm",
         description:
-          "Break the drive home with an easy, free gorge right by the A12 near Wörgl, roughly halfway. A wide, stroller-friendly path runs about 3.5 km along the water under 200 m rock walls, more a leisurely stream walk than a hike, with places to splash, skip stones and paddle. A little shuttle train saves the legs to the entrance.",
+          "Break the drive home with an easy, free gorge right by the A12, roughly halfway. A wide, stroller-friendly path runs about 3.5 km along the water under 200 m rock walls, with places to splash and skip stones; a little shuttle train saves the legs to the entrance. Prefer the white-marble Gilfenklamm instead? It is 2 km off the Sterzing exit at the start of the drive.",
         kidNote: "The easiest gorge of the trip: flat and buggy-friendly, and the kids can play in the stream. Free.",
         coords: [47.4585, 12.0836],
         mapQuery: "Kundler Klamm, Kundl, Austria",
       },
       {
-        title: "Gilfenklamm marble gorge, near Sterzing",
-        tag: "hike",
-        attractionId: "gilfenklamm",
+        title: "Arrive at Hilton Munich Airport",
+        driveFromBase: "~1h 15m",
+        image: "img/hilton-muc.jpg",
+        tag: "spa",
         description:
-          "The alternative gorge, taken early instead: the only gorge in the world carved through pure white marble, 2 km off the Sterzing motorway exit at the start of the drive. Wooden walkways climb past a 15 m waterfall and glowing white rock. Swap to this if you would rather do the gorge first thing and drive straight through afterwards.",
-        kidNote: "Bridges and 175 m of climb, so a carrier for the 2 year old and best for ages 4+.",
-        coords: [46.875, 11.3583],
-        mapQuery: "Gilfenklamm, Stange, Racines, Italy",
-      },
-      {
-        title: "Straight to the airport hotel",
-        wiki: "Munich Airport",
-        tag: "free",
-        description:
-          "If everyone would rather just travel, skip the gorge, drive through with a playground stop, drop the rental car and repack so the flight morning is calm.",
-        kidNote: "No extra outing; the drive stops break up the journey.",
+          "The last leg to the airport hotel — drop the rental car, repack, and a last Bavarian dinner. Walk or shuttle to the terminal in the morning.",
+        kidNote: "One last sleep close to the terminal for the early flight.",
         mapQuery: BASE_MUC,
       },
     ],

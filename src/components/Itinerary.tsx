@@ -427,8 +427,9 @@ function DayCard({
             className="overflow-hidden"
           >
             <div className="detail flex flex-col gap-5 p-4">
-              {/* Travel leg, with route map and stops along the way */}
-              {day.drive && (
+              {/* Travel leg, with route map and stops along the way (only on
+                  non-sequence days; sequence days show the stops as cards). */}
+              {!day.sequence && day.drive && (
                 <div className="order-2 rounded-xl bg-white/[0.06] p-3 ring-1 ring-white/10">
                   <div className="text-sm">
                     <p className="font-semibold text-[#F6F1E6]">
@@ -517,7 +518,7 @@ function DayCard({
               {/* Sequence days (arrival/transfer): stacked stop cards in order. */}
               {day.sequence && (
                 <div className="order-1 space-y-2">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#D9A441]">The drive in</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#D9A441]">The route</p>
                   {day.options.map((o) => (
                     <PlaceCard
                       key={o.title}
@@ -526,7 +527,6 @@ function DayCard({
                       tag={o.tag}
                       kidNote={o.kidNote}
                       destination={placeQuery(o)}
-                      origin={day.baseQuery}
                       coords={o.coords}
                       link={o.link}
                       linkLabel={o.linkLabel}
