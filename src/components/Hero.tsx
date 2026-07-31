@@ -65,11 +65,11 @@ export default function Hero() {
       ))}
       <div className="absolute inset-0 bg-gradient-to-b from-stone-900/55 via-stone-900/20 to-stone-900/75" />
 
-      {/* Top bar */}
-      <div className="relative z-10 flex items-center gap-3.5 px-6 pt-7">
+      {/* Top bar — brand + current photo location, left-aligned so the pinned
+          language toggle (top-right) never covers it. */}
+      <div className="relative z-10 px-6 pt-7">
         <span className="text-xs font-semibold tracking-[0.34em]">CHERNYCATION</span>
-        <span className="h-px flex-1 bg-[#F6F4EE]/30" />
-        <span className="text-[11px] uppercase tracking-[0.14em] text-[#F6F4EE]/80">{SLIDES[i].loc}</span>
+        <span className="mt-1 block text-[11px] uppercase tracking-[0.14em] text-[#F6F4EE]/75">{SLIDES[i].loc}</span>
       </div>
 
       {/* Centrepiece */}
