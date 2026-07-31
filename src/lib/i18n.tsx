@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { HE_CONTENT } from "../data/i18n/he";
 
 export type Lang = "en" | "he";
 
@@ -8,6 +9,8 @@ interface Ctx {
   lang: Lang;
   setLang: (l: Lang) => void;
   t: (key: keyof typeof UI) => string;
+  /** Translate a content string (falls back to the English source). */
+  tc: (s?: string) => string;
 }
 
 const LangContext = createContext<Ctx | null>(null);
@@ -87,8 +90,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   const t = (key: keyof typeof UI) => UI[key][lang] ?? UI[key].en;
+  const tc = (s?: string) => {
+    if (!s) return s ?? "";
+    return lang === "he" ? HE_CONTENT[s] ?? s : s;
+  };
 
-  return <LangContext.Provider value={{ lang, setLang, t }}>{children}</LangContext.Provider>;
+  return <LangContext.Provider value={{ lang, setLang, t, tc }}>{children}</LangContext.Provider>;
 }
 
 export function useLang(): Ctx {

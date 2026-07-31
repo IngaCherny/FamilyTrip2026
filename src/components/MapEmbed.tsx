@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Map as MapIcon, Navigation } from "lucide-react";
 import { directionsUrl, mapLinks } from "../lib/format";
+import { useLang } from "../lib/i18n";
 import type { Mappable } from "../lib/types";
 
 /** Build the query string Google Maps understands for a place. */
@@ -48,6 +49,7 @@ export function MapWithDirections({
   /** Style controls for the dark detail panel. */
   onDark?: boolean;
 }) {
+  const { tc } = useLang();
   // The embed is a Google Maps iframe that scrolls itself into view as it
   // loads, which yanks the page when a card opens with it already mounted.
   // So load it only when the user taps for it.
@@ -74,7 +76,7 @@ export function MapWithDirections({
           }`}
           style={{ minHeight: 44 }}
         >
-          <MapIcon size={15} strokeWidth={1.8} /> Show map
+          <MapIcon size={15} strokeWidth={1.8} /> {tc("Show map")}
         </button>
       )}
       <div className="flex flex-wrap gap-2">
@@ -87,7 +89,7 @@ export function MapWithDirections({
           }`}
         >
           <Navigation size={14} strokeWidth={2} />
-          {origin ? "Drive here" : "Open in Maps"}
+          {origin ? tc("Drive here") : tc("Open in Maps")}
         </a>
         <a
           href={waze}
@@ -99,7 +101,7 @@ export function MapWithDirections({
               : "bg-white text-glacier-700 ring-1 ring-stone-200 hover:bg-stone-50"
           }`}
         >
-          Waze
+          {tc("Waze")}
         </a>
         <a
           href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`}
@@ -111,7 +113,7 @@ export function MapWithDirections({
               : "bg-white text-stone-600 ring-1 ring-stone-200 hover:bg-stone-50"
           }`}
         >
-          Place
+          {tc("Place")}
         </a>
       </div>
     </div>
