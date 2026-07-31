@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { TRIP } from "../data/trip";
 import { useCountdown } from "../lib/useCountdown";
 import { formatDate, imageUrl } from "../lib/format";
 import Weather from "./Weather";
+import type { View } from "../App";
 
 /** The rotating hero shots — our best photos from across the trip. */
 const SLIDES = [
@@ -29,7 +31,7 @@ function Colon() {
   return <span className="self-start pt-2 font-serif text-3xl text-[#F6F4EE]/40 sm:pt-3 sm:text-5xl">:</span>;
 }
 
-export default function Hero() {
+export default function Hero({ onNav }: { onNav?: (v: View) => void }) {
   const cd = useCountdown(TRIP.startDate, TRIP.endDate);
   const [i, setI] = useState(0);
 
@@ -106,8 +108,15 @@ export default function Hero() {
         </p>
       </motion.div>
 
-      {/* Bottom: weather glass strip over the photo + slide dots */}
+      {/* Bottom: "full plan" scroll cue, weather glass strip, slide dots */}
       <div className="relative z-10 px-6 pb-7">
+        <button
+          onClick={() => onNav?.("itinerary")}
+          className="tap mx-auto mb-4 flex flex-col items-center gap-1 text-[#F6F4EE]/85 hover:text-[#F6F4EE]"
+        >
+          <span className="text-[11px] font-semibold uppercase tracking-[0.2em]">Full plan</span>
+          <ChevronDown size={22} className="motion-safe:animate-bounce" />
+        </button>
         <div className="mx-auto flex max-w-md items-end gap-3">
           <div className="min-w-0 flex-1">
             <Weather hero />

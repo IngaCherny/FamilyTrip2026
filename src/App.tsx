@@ -65,7 +65,7 @@ export default function App() {
       <div className="glass fixed end-3 top-3 z-[60] rounded-full p-0.5 md:hidden">
         <LanguageSwitcher />
       </div>
-      {isHome && <Hero />}
+      {isHome && <Hero onNav={setView} />}
       <Nav view={view} onNav={setView} />
       <main className={isHome ? "" : "pt-2"}>
         {isHome ? (

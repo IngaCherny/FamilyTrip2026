@@ -215,7 +215,7 @@ function PlaceCard({
           {link ? linkLabel ?? "Official route" : "Official site"}
         </a>
       )}
-      <MapWithDirections destination={destination} origin={origin} coords={coords} height={180} />
+      <MapWithDirections destination={destination} origin={origin} coords={coords} height={180} onDark={onDark} />
     </div>
   );
 
@@ -441,7 +441,7 @@ function DayCard({
                   </div>
                   {day.drive.toQuery && (
                     <div className="mt-3">
-                      <MapWithDirections destination={day.drive.toQuery} origin={day.drive.fromQuery} height={180} />
+                      <MapWithDirections destination={day.drive.toQuery} origin={day.drive.fromQuery} height={180} onDark />
                     </div>
                   )}
                   {day.drive.stops && day.drive.stops.length > 0 && (

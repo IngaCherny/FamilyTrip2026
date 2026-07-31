@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Map as MapIcon, Navigation } from "lucide-react";
 import { directionsUrl, mapLinks } from "../lib/format";
 import type { Mappable } from "../lib/types";
 
@@ -38,11 +39,14 @@ export function MapWithDirections({
   origin,
   coords,
   height = 200,
+  onDark = false,
 }: {
   destination: string;
   origin?: string;
   coords?: [number, number];
   height?: number;
+  /** Style controls for the dark detail panel. */
+  onDark?: boolean;
 }) {
   // The embed is a Google Maps iframe that scrolls itself into view as it
   // loads, which yanks the page when a card opens with it already mounted.
@@ -63,10 +67,14 @@ export function MapWithDirections({
       ) : (
         <button
           onClick={() => setShowMap(true)}
-          className="tap flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-stone-300 bg-stone-50 py-3 text-sm font-medium text-stone-600 hover:bg-stone-100"
+          className={`tap flex w-full items-center justify-center gap-2 rounded-xl border border-dashed py-3 text-sm font-medium ${
+            onDark
+              ? "border-white/20 bg-white/[0.05] text-[#EDE8DC]/85 hover:bg-white/10"
+              : "border-stone-300 bg-stone-50 text-stone-600 hover:bg-stone-100"
+          }`}
           style={{ minHeight: 44 }}
         >
-          <span aria-hidden>🗺️</span> Show map
+          <MapIcon size={15} strokeWidth={1.8} /> Show map
         </button>
       )}
       <div className="flex flex-wrap gap-2">
@@ -74,15 +82,22 @@ export function MapWithDirections({
           href={gDir}
           target="_blank"
           rel="noreferrer"
-          className="tap flex-1 rounded-xl bg-glacier-600 px-3 text-sm font-semibold text-white hover:bg-glacier-700"
+          className={`tap flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl px-3 text-sm font-semibold ${
+            onDark ? "bg-[#D9A441] text-[#231F16] hover:bg-[#e3b45a]" : "bg-glacier-600 text-white hover:bg-glacier-700"
+          }`}
         >
+          <Navigation size={14} strokeWidth={2} />
           {origin ? "Drive here" : "Open in Maps"}
         </a>
         <a
           href={waze}
           target="_blank"
           rel="noreferrer"
-          className="tap rounded-xl bg-white px-3 text-sm font-medium text-glacier-700 ring-1 ring-stone-200 hover:bg-stone-50"
+          className={`tap rounded-xl px-3 text-sm font-medium ${
+            onDark
+              ? "bg-white/[0.06] text-[#EDE8DC] ring-1 ring-white/15 hover:bg-white/10"
+              : "bg-white text-glacier-700 ring-1 ring-stone-200 hover:bg-stone-50"
+          }`}
         >
           Waze
         </a>
@@ -90,7 +105,11 @@ export function MapWithDirections({
           href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`}
           target="_blank"
           rel="noreferrer"
-          className="tap rounded-xl bg-white px-3 text-sm font-medium text-stone-600 ring-1 ring-stone-200 hover:bg-stone-50"
+          className={`tap rounded-xl px-3 text-sm font-medium ${
+            onDark
+              ? "bg-white/[0.06] text-[#EDE8DC]/80 ring-1 ring-white/15 hover:bg-white/10"
+              : "bg-white text-stone-600 ring-1 ring-stone-200 hover:bg-stone-50"
+          }`}
         >
           Place
         </a>
