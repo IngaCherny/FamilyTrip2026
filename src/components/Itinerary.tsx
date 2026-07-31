@@ -514,8 +514,36 @@ function DayCard({
                 </div>
               )}
 
+              {/* Sequence days (arrival/transfer): stacked stop cards in order. */}
+              {day.sequence && (
+                <div className="order-1 space-y-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#D9A441]">The drive in</p>
+                  {day.options.map((o) => (
+                    <PlaceCard
+                      key={o.title}
+                      title={o.title}
+                      description={o.description}
+                      tag={o.tag}
+                      kidNote={o.kidNote}
+                      destination={placeQuery(o)}
+                      origin={day.baseQuery}
+                      coords={o.coords}
+                      link={o.link}
+                      linkLabel={o.linkLabel}
+                      imageWiki={o.wiki ?? regionWiki}
+                      imageSrc={o.image ? imageUrl(o.image, 200) : undefined}
+                      accent="stop"
+                      onDark
+                      driveFromBase={o.driveFromBase}
+                      attraction={o.attractionId ? attractionById(o.attractionId) : undefined}
+                      date={day.date}
+                    />
+                  ))}
+                </div>
+              )}
+
               {/* The day's plan details — the photo and title are on the tile above. */}
-              {chosen && (
+              {!day.sequence && chosen && (
                 <div className="order-1 space-y-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#D9A441]">Your plan · {chosen.title}</p>
                   <PlaceCard

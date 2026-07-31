@@ -28,42 +28,39 @@ export const ITINERARY: Day[] = [
       note: "Pick up the rental car at MUC, then head for Kufstein and St. Johann in Tirol. Austria needs a motorway vignette, so buy the digital Vignette online before you drive.",
       stops: [
         {
-          name: "Heimstettener See (first stop, swim)",
-          image: "img/heimstettener.jpg",
-          description:
-            "A calm bathing lake at Heimstetten, just east of Munich and barely 20 minutes from the airport. Grassy banks, gentle shallows and shade — the perfect first leg-stretch and swim to shake off the flight before the drive south.",
-          tag: "swim",
-          coords: [48.1646, 11.748],
-          mapQuery: "Heimstettener See, Kirchheim bei München, Germany",
-        },
-        {
           name: "SPAR, St. Johann in Tirol (food shop)",
           description:
-            "Second stop: the big grocery run about 5 km before the apartment, at Speckbacherstraße 10. Open 07:15 to 19:30 on the Thursday you arrive. Stock up here — tomorrow is fine, but the 15th is a holiday, so buy a few days' worth.",
+            "The big grocery run about 5 km before the apartment, at Speckbacherstraße 10. Open 07:15 to 19:30 on the Thursday you arrive. Stock up — the 15th is a holiday, so buy a few days' worth.",
           tag: "food",
           coords: [47.5222, 12.4244],
           mapQuery: "SPAR, Speckbacherstraße 10, 6380 St. Johann in Tirol, Austria",
         },
       ],
     },
+    sequence: true,
     dayNote: "Arrival day — settle in and take it easy.",
     options: [
       {
-        title: "Settle in and meadow stroll",
+        title: "First stop — Heimstettener See, swim",
+        driveFromBase: "~20 min",
+        image: "img/heimstettener.jpg",
         wiki: "Wilder Kaiser",
-        tag: "walk",
+        tag: "swim",
         description:
-          "Unpack, do a first grocery run, then wander the flat field paths around Gasteig with the Wilder Kaiser straight ahead.",
-        kidNote: "Flat, buggy-friendly, 20 to 40 minutes at toddler pace.",
-        mapQuery: BASE_STREIF,
+          "A calm bathing lake just east of Munich, barely 20 minutes from the airport. Grassy banks, gentle shallows and shade — the perfect first leg-stretch and swim to shake off the flight before the drive south.",
+        kidNote: "Easy shallows for a first splash. Bring towels in the hand luggage.",
+        coords: [48.1646, 11.748],
+        mapQuery: "Heimstettener See, Kirchheim bei München, Germany",
       },
       {
-        title: "Quiet swim at the apartment wellness area",
+        title: "Arrive at Apartment Streif",
+        driveFromBase: "~1h 30m from the lake",
+        image: "img/streif.jpg",
         wiki: "Wilder Kaiser",
         tag: "spa",
         description:
-          "If everyone is wiped out from travel, the in-house sauna and whirlpool plus an early dinner is a gentle way to start.",
-        kidNote: "Zero driving, good for an early bedtime.",
+          "On south past Kufstein to Gasteig — grab groceries at the SPAR in St. Johann on the way. Unpack, then a flat meadow stroll with the Wilder Kaiser ahead, or the in-house sauna and whirlpool if everyone's wiped out. Early dinner, early night.",
+        kidNote: "Zero more driving once you're in. Good for an early bedtime.",
         mapQuery: BASE_STREIF,
       },
     ],

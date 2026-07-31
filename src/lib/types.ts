@@ -89,6 +89,8 @@ export interface DayOption extends Mappable {
   driveFromBase?: string;
   /** Trail shape, e.g. "Loop", "There & back", "Linear — bus back to the car". */
   trailShape?: string;
+  /** Pinned thumbnail for this option (bundled "img/…" path). */
+  image?: string;
 }
 
 /** A worthwhile stop or sight to break up a long drive. */
@@ -139,6 +141,9 @@ export interface Day {
   drive?: Drive;
   /** The day's choices (we always offer a few). */
   options: DayOption[];
+  /** Render the options as an ordered sequence of stop cards (arrival/transfer
+   *  days) rather than one chosen plan with alternatives. */
+  sequence?: boolean;
   /** Family restaurants / snack stops, ideally with a playground. */
   food?: FoodStop[];
   /** A one-line footer for the day, e.g. "A full day here — cook dinner in." */
