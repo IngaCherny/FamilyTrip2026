@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
 import Today from "./components/Today";
@@ -16,36 +17,70 @@ import Emergency from "./components/Emergency";
 import InstallPrompt from "./components/InstallPrompt";
 import { TRIP } from "./data/trip";
 
+export type View =
+  | "today"
+  | "itinerary"
+  | "map"
+  | "places"
+  | "stays"
+  | "services"
+  | "cards"
+  | "food"
+  | "phrasebook"
+  | "quiz"
+  | "tips"
+  | "packing"
+  | "emergency";
+
+const SECTIONS: Record<Exclude<View, "today">, () => JSX.Element> = {
+  itinerary: Itinerary,
+  map: TripMap,
+  places: Places,
+  stays: Stays,
+  services: Services,
+  cards: Cards,
+  food: Food,
+  phrasebook: Phrasebook,
+  quiz: Quiz,
+  tips: Tips,
+  packing: Packing,
+  emergency: Emergency,
+};
+
 export default function App() {
+  const [view, setView] = useState<View>("today");
+
+  // Each section is its own page, so jump to the top when switching.
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [view]);
+
+  const isHome = view === "today";
+  const Section = isHome ? null : SECTIONS[view];
+
   return (
     <div className="min-h-screen pb-28 md:pb-0">
-      <Hero />
-      <Nav />
-      <main>
-        <Today />
-        <Itinerary />
-        <TripMap />
-        <Places />
-        <Stays />
-        <Services />
-        <Cards />
-        <Food />
-        <Phrasebook />
-        <Quiz />
-        <Tips />
-        <Packing />
-        <Emergency />
+      {isHome && <Hero />}
+      <Nav view={view} onNav={setView} />
+      <main className={isHome ? "" : "pt-2"}>
+        {isHome ? (
+          <Today onNav={setView} />
+        ) : (
+          Section && <Section />
+        )}
       </main>
-      <footer className="border-t border-stone-200 bg-white px-4 py-8 text-center text-sm text-stone-500">
-        <p className="font-serif text-lg font-bold text-glacier-700">
-          {TRIP.title} {TRIP.year}
-        </p>
-        <p className="mt-1">{TRIP.subtitle}</p>
-        <p className="mt-3 text-xs text-stone-400">
-          Made with love for the family. Safe travels and guten Appetit!
-        </p>
-        <p className="mt-1 text-xs text-stone-400">Photos via Wikipedia / Wikimedia Commons.</p>
-      </footer>
+      {isHome && (
+        <footer className="border-t border-stone-200 bg-white px-4 py-8 text-center text-sm text-stone-500">
+          <p className="font-serif text-lg font-bold text-glacier-700">
+            {TRIP.title} {TRIP.year}
+          </p>
+          <p className="mt-1">{TRIP.subtitle}</p>
+          <p className="mt-3 text-xs text-stone-400">
+            Made with love for the family. Safe travels and guten Appetit!
+          </p>
+          <p className="mt-1 text-xs text-stone-400">Photos via Wikipedia / Wikimedia Commons.</p>
+        </footer>
+      )}
       <InstallPrompt />
     </div>
   );

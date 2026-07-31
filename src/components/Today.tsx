@@ -19,17 +19,14 @@ import {
   mapLinks,
 } from "../lib/format";
 
+import type { View } from "../App";
+
 function todayIso(): string {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
-function scrollToDay(date: string) {
-  const el = document.getElementById(`day-${date}`);
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
-export default function Today() {
+export default function Today({ onNav }: { onNav?: (v: View) => void }) {
   const today = todayIso();
   const [picks, setPicks] = useState(loadPicks);
   useEffect(() => onPicksChanged(() => setPicks(loadPicks())), []);
@@ -147,10 +144,10 @@ export default function Today() {
               </a>
             )}
             <button
-              onClick={() => scrollToDay(day.date)}
+              onClick={() => onNav?.("itinerary")}
               className="tap rounded-xl bg-white px-4 py-2.5 text-sm font-medium text-stone-600 ring-1 ring-stone-200 hover:bg-stone-50"
             >
-              Full day ↓
+              Full plan →
             </button>
           </div>
         </div>
