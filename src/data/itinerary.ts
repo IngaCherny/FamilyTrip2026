@@ -285,10 +285,11 @@ export const ITINERARY: Day[] = [
         },
       ],
     },
-    dayNote: "On the move to the Ötztal — Juppi breaks the drive.",
+    dayNote: "Drive ~40 min to Juppi, play, then ~1h 05m on to the apartment in Oetz.",
     options: [
       {
         title: "Juppi Zauberwald on the drive to the Ötztal",
+        driveFromBase: "~40 min",
         tag: "kids",
         attractionId: "juppi-zauberwald",
         description:
@@ -616,10 +617,11 @@ export const ITINERARY: Day[] = [
         },
       ],
     },
-    dayNote: "Break the transfer at Sterzing, then check in.",
+    dayNote: "Ride Rosskopf at Sterzing, then ~30 min on to the hotel in Kiens.",
     options: [
       {
         title: "Rosskopf alpine coaster, Sterzing",
+        driveFromBase: "~1h 45m",
         tag: "kids",
         attractionId: "rosskopf-coaster",
         description:
@@ -893,10 +895,11 @@ export const ITINERARY: Day[] = [
         },
       ],
     },
-    dayNote: "Roughly halfway home — the last stop before Munich.",
+    dayNote: "Last gorge on the way home, then ~1h 15m on to the airport hotel.",
     options: [
       {
         title: "Kundler Klamm gorge near Wörgl",
+        driveFromBase: "~1h 30m",
         trailShape: "There & back — or the shuttle train",
         tag: "walk",
         attractionId: "kundlerklamm",

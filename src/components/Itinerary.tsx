@@ -426,10 +426,10 @@ function DayCard({
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <div className="detail space-y-5 p-4">
+            <div className="detail flex flex-col gap-5 p-4">
               {/* Travel leg, with route map and stops along the way */}
               {day.drive && (
-                <div className="rounded-xl bg-white/[0.06] p-3 ring-1 ring-white/10">
+                <div className="order-2 rounded-xl bg-white/[0.06] p-3 ring-1 ring-white/10">
                   <div className="text-sm">
                     <p className="font-semibold text-[#F6F1E6]">
                       {day.drive.from} to {day.drive.to}
@@ -516,7 +516,7 @@ function DayCard({
 
               {/* The day's plan details — the photo and title are on the tile above. */}
               {chosen && (
-                <div className="space-y-2">
+                <div className="order-1 space-y-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#D9A441]">Your plan · {chosen.title}</p>
                   <PlaceCard
                     key={chosen.title}
@@ -616,7 +616,7 @@ function DayCard({
 
               {/* Family food stops */}
               {day.food && day.food.length > 0 && (
-                <div className="space-y-2">
+                <div className="order-3 space-y-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#D9A441]">Family food stops</p>
                   {day.food.map((f) => (
                     <a
@@ -642,7 +642,7 @@ function DayCard({
 
               {/* Tips */}
               {day.tips && day.tips.length > 0 && (
-                <div className="rounded-xl border-s-4 border-[#D9A441] bg-white/[0.06] p-3">
+                <div className="order-4 rounded-xl border-s-4 border-[#D9A441] bg-white/[0.06] p-3">
                   {day.tips.map((t) => (
                     <p key={t} className="text-sm text-[#EDE8DC]/85">
                       <span className="font-semibold text-[#F6F1E6]">Tip: </span>
@@ -652,7 +652,7 @@ function DayCard({
                 </div>
               )}
 
-              {day.dayNote && <p className="text-center text-xs italic text-[#EDE8DC]/50">{day.dayNote}</p>}
+              {day.dayNote && <p className="order-5 text-center text-xs italic text-[#EDE8DC]/50">{day.dayNote}</p>}
             </div>
           </motion.div>
         )}
