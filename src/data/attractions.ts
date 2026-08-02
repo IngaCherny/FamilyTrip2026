@@ -322,7 +322,7 @@ export const ATTRACTIONS: Attraction[] = [
       child: 25,
       covers: "Water AREA day ticket",
       freeUnder: 5,
-      note: "Child rate is ages 5–15, so the 2 year old is free. Included outright if the Ötztal Inside Summer Card applies.",
+      note: "One free Water Area entry is included in the Ötztal Inside Summer Card your hotel provides — remember to use it. Child rate is otherwise ages 5–15, so the 2 year old is free.",
     },
     wiki: "Ötztal",
     name: "Area 47",
@@ -405,7 +405,7 @@ export const ATTRACTIONS: Attraction[] = [
   {
     id: "soelden-007",
     image: "img/soelden-007.jpg",
-    price: { adult: 42, child: 25, freeUnder: 6, covers: "Gaislachkogl cable car", note: "007 Elements ~€23 extra. Children's lift age rules vary — confirm on soelden.com." },
+    price: { adult: 42, child: 25, freeUnder: 6, covers: "Gaislachkogl cable car", note: "The Gaislachkogl cable car is covered by the Ötztal Inside Summer Card (one free ride/day) — so this is really just the ~€23 007 Elements add-on. Remember to use the card. Children's lift age rules vary — confirm on soelden.com." },
     indoor: true,
     wiki: "Gaislachkogl",
     name: "Gaislachkogl & 007 Elements (Sölden)",
@@ -795,6 +795,54 @@ export const ATTRACTIONS: Attraction[] = [
     description:
       "A playful family adventure trail on the Plose above Brixen, the furthest of these trails, out west beyond the mouth of the valley. From the gondola top station a wide, stroller-friendly path runs to the Rossalm past wooden play stations, a Kneipp water walk, giant loungers and a viking ship, all under the Peitlerkofel and Geisler spires. About 5 km, ~100 m of climb.",
     good_for: ["Wooden play stations", "Cable car", "Stroller-friendly"],
+  },
+  // ---------- Rainy-day indoor pools ----------
+  {
+    id: "panorama-badewelt",
+    price: {
+      note: "Reduced entry with the free St. Johann Card your Wilder Kaiser hotel provides; some guests report a free 3-hour visit — confirm at check-in.",
+    },
+    indoor: true,
+    buggy: true,
+    wiki: "St. Johann in Tirol",
+    name: "Panorama Badewelt, St. Johann in Tirol",
+    region: "wilderkaiser",
+    category: "spa",
+    coords: [47.5236, 12.4331],
+    link: "https://www.badewelt.at/en/",
+    description:
+      "The big indoor water world 10 minutes from the base, and the go-to rainy-day plan for the Wilder Kaiser. Indoor 25 m sports pool, a family area with a children's pool and water toys, a wide slide, a 100 m tube slide and a 35 m turbo slide, plus a sauna world. Your free St. Johann Card gets reduced (sometimes free) entry — worth asking at check-in.",
+    good_for: ["Indoor pool & slides", "Kids' water area", "St. Johann Card discount"],
+  },
+  {
+    id: "kaiserbad-ellmau",
+    price: { note: "See kaiserbad.com for family tickets and opening hours." },
+    indoor: true,
+    buggy: true,
+    wiki: "Ellmau",
+    name: "Kaiserbad Ellmau",
+    region: "wilderkaiser",
+    category: "spa",
+    coords: [47.5064, 12.2947],
+    link: "https://www.kaiserbad.com/en/",
+    description:
+      "A family leisure pool in the SkiWelt, about 25 minutes from the base, with a big indoor pool, a jet-stream channel and underwater massage, and four slides including the 91 m 'Black Hole' tunnel and a 55 m turbo slide. The indoor children's adventure area has water cannons, a witch's house and a jungle bridge. A solid wet-weather fallback near Söll.",
+    good_for: ["Indoor pool", "Four water slides", "Kids' adventure area"],
+  },
+  {
+    id: "freizeit-arena-soelden",
+    price: { free: true, note: "Included in the Ötztal Inside Summer Card — remember to use it, no charge at the door." },
+    indoor: true,
+    buggy: true,
+    wiki: "Sölden",
+    name: "Freizeit Arena adventure pool, Sölden",
+    region: "oetz",
+    category: "spa",
+    coords: [46.9686, 11.0056],
+    link: "https://www.soelden.com/en/region-villages/soelden-a-z/adventure-pool-freizeit-arena",
+    description:
+      "Sölden's indoor adventure pool, and free with the Ötztal Inside Summer Card your Ötztal hotel includes — the best rainy-day plan in the valley. A warm 30° main pool, a 32° children's pool, a big water chute, a white-water channel, bubble loungers and a stone grotto, plus a sauna world with a log-cabin sauna, herbal sanarium and steam bath. Just show the card at the door.",
+    good_for: ["Free with the summer card", "Indoor adventure pool", "Water chute & grotto"],
   },
 ];
 

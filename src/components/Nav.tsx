@@ -14,6 +14,7 @@ const MOBILE_TABS = [
 // Everything else lives behind "More" on mobile; the desktop bar shows it all.
 const SECONDARY = [
   { id: "map", key: "nav.map" },
+  { id: "rainy", key: "nav.rainy" },
   { id: "services", key: "nav.services" },
   { id: "cards", key: "nav.cards" },
   { id: "food", key: "nav.food" },

@@ -5,6 +5,7 @@ import Today from "./components/Today";
 import Itinerary from "./components/Itinerary";
 import TripMap from "./components/TripMap";
 import Places from "./components/Places";
+import RainyDays from "./components/RainyDays";
 import Stays from "./components/Stays";
 import Cards from "./components/Cards";
 import Food from "./components/Food";
@@ -16,6 +17,7 @@ import Packing from "./components/Packing";
 import Emergency from "./components/Emergency";
 import InstallPrompt from "./components/InstallPrompt";
 import LanguageSwitcher from "./components/LanguageSwitcher";
+import { useLang } from "./lib/i18n";
 import { TRIP } from "./data/trip";
 
 export type View =
@@ -24,6 +26,7 @@ export type View =
   | "map"
   | "places"
   | "stays"
+  | "rainy"
   | "services"
   | "cards"
   | "food"
@@ -38,6 +41,7 @@ const SECTIONS: Record<Exclude<View, "today">, () => JSX.Element> = {
   map: TripMap,
   places: Places,
   stays: Stays,
+  rainy: RainyDays,
   services: Services,
   cards: Cards,
   food: Food,
@@ -49,6 +53,7 @@ const SECTIONS: Record<Exclude<View, "today">, () => JSX.Element> = {
 };
 
 export default function App() {
+  const { tc } = useLang();
   const [view, setView] = useState<View>("today");
 
   // Each section is its own page, so jump to the top when switching.
@@ -79,11 +84,11 @@ export default function App() {
           <p className="font-serif text-lg font-bold text-glacier-700">
             {TRIP.title} {TRIP.year}
           </p>
-          <p className="mt-1">{TRIP.subtitle}</p>
+          <p className="mt-1">{tc(TRIP.subtitle)}</p>
           <p className="mt-3 text-xs text-stone-400">
-            Made with love for the family. Safe travels and guten Appetit!
+            {tc("Made with love for the family. Safe travels and guten Appetit!")}
           </p>
-          <p className="mt-1 text-xs text-stone-400">Photos via Wikipedia / Wikimedia Commons.</p>
+          <p className="mt-1 text-xs text-stone-400">{tc("Photos via Wikipedia / Wikimedia Commons.")}</p>
         </footer>
       )}
       <InstallPrompt />

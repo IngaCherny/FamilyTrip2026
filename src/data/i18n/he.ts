@@ -1215,4 +1215,51 @@ export const HE_CONTENT: Record<string, string> = {
   "Parking nearby": "חניה בקרבת מקום",
   "Under 6 free, older children reduced. Confirm on plose.org.":
     "עד גיל 6 חינם, ילדים גדולים יותר בהנחה. לאימות ב-plose.org.",
+
+  // ===================================================================
+  //  RAINY DAYS + indoor pools
+  // ===================================================================
+  Indoor: "מקורה",
+  "Indoor pools and dry-weather options around the first two bases — with what your guest cards already cover, so a grey morning doesn't cost extra.":
+    "בריכות מקורות ואפשרויות למזג אוויר יבש סביב שני הבסיסים הראשונים — עם מה שכרטיסי האורח שלכם כבר מכסים, כך שבוקר אפור לא יעלה יותר.",
+  "Your Ötztal hotel includes the Ötztal Inside Summer Card and your Wilder Kaiser hotel gives you the free St. Johann Card — both cover pools and lifts. Carry them and show them at the door.":
+    "מלון האצטל שלכם כולל את כרטיס הקיץ Ötztal Inside ומלון הווילדר קייזר נותן לכם את כרטיס סנקט יוהאן החינמי — שניהם מכסים בריכות ורכבלים. שאו אותם והציגו בכניסה.",
+
+  "Panorama Badewelt, St. Johann in Tirol": "פנורמה באדוולט, סנקט יוהאן אין טירול",
+  "Kaiserbad Ellmau": "קייזרבאד אלמאו",
+  "Freizeit Arena adventure pool, Sölden": "בריכת ההרפתקאות פרייצייט ארנה, זלדן",
+
+  "The big indoor water world 10 minutes from the base, and the go-to rainy-day plan for the Wilder Kaiser. Indoor 25 m sports pool, a family area with a children's pool and water toys, a wide slide, a 100 m tube slide and a 35 m turbo slide, plus a sauna world. Your free St. Johann Card gets reduced (sometimes free) entry — worth asking at check-in.":
+    "עולם המים המקורה הגדול 10 דקות מהבסיס, ותוכנית היום הגשום המובילה לווילדר קייזר. בריכת ספורט מקורה באורך 25 מ׳, אזור משפחתי עם בריכת ילדים וצעצועי מים, מגלשה רחבה, מגלשת צינור באורך 100 מ׳ ומגלשת טורבו של 35 מ׳, ובנוסף עולם סאונות. כרטיס סנקט יוהאן החינמי מזכה בכניסה מוזלת (לפעמים חינם) — שווה לשאול בצ׳ק-אין.",
+  "A family leisure pool in the SkiWelt, about 25 minutes from the base, with a big indoor pool, a jet-stream channel and underwater massage, and four slides including the 91 m 'Black Hole' tunnel and a 55 m turbo slide. The indoor children's adventure area has water cannons, a witch's house and a jungle bridge. A solid wet-weather fallback near Söll.":
+    "בריכת פנאי משפחתית בסקיוולט, כ-25 דקות מהבסיס, עם בריכה מקורה גדולה, תעלת זרם ועיסוי תת-מימי, וארבע מגלשות כולל מנהרת ה׳חור השחור׳ באורך 91 מ׳ ומגלשת טורבו של 55 מ׳. אזור ההרפתקאות המקורה לילדים כולל תותחי מים, בית מכשפה וגשר ג׳ונגל. חלופה טובה למזג אוויר גשום ליד זל.",
+  "Sölden's indoor adventure pool, and free with the Ötztal Inside Summer Card your Ötztal hotel includes — the best rainy-day plan in the valley. A warm 30° main pool, a 32° children's pool, a big water chute, a white-water channel, bubble loungers and a stone grotto, plus a sauna world with a log-cabin sauna, herbal sanarium and steam bath. Just show the card at the door.":
+    "בריכת ההרפתקאות המקורה של זלדן, וחינם עם כרטיס הקיץ Ötztal Inside שמלון האצטל שלכם כולל — תוכנית היום הגשום הטובה ביותר בעמק. בריכה ראשית חמה של 30°, בריכת ילדים של 32°, מגלשת מים גדולה, תעלת מים גועשים, מיטות בועות ומערת אבן, ובנוסף עולם סאונות עם סאונת בקתת עץ, סנריום צמחים ובית אדים. פשוט מציגים את הכרטיס בכניסה.",
+
+  "Indoor pool & slides": "בריכה מקורה ומגלשות",
+  "Kids' water area": "אזור מים לילדים",
+  "St. Johann Card discount": "הנחת כרטיס סנקט יוהאן",
+  "Indoor pool": "בריכה מקורה",
+  "Four water slides": "ארבע מגלשות מים",
+  "Kids' adventure area": "אזור הרפתקאות לילדים",
+  "Free with the summer card": "חינם עם כרטיס הקיץ",
+  "Indoor adventure pool": "בריכת הרפתקאות מקורה",
+  "Water chute & grotto": "מגלשת מים ומערה",
+
+  "Reduced entry with the free St. Johann Card your Wilder Kaiser hotel provides; some guests report a free 3-hour visit — confirm at check-in.":
+    "כניסה מוזלת עם כרטיס סנקט יוהאן החינמי שמלון הווילדר קייזר מספק; יש אורחים שמדווחים על ביקור חינם של 3 שעות — לאמת בצ׳ק-אין.",
+  "See kaiserbad.com for family tickets and opening hours.":
+    "ראו kaiserbad.com לכרטיסים משפחתיים ולשעות פתיחה.",
+  "Included in the Ötztal Inside Summer Card — remember to use it, no charge at the door.":
+    "כלול בכרטיס הקיץ Ötztal Inside — זכרו להשתמש בו, בלי תשלום בכניסה.",
+  "The Gaislachkogl cable car is covered by the Ötztal Inside Summer Card (one free ride/day) — so this is really just the ~€23 007 Elements add-on. Remember to use the card. Children's lift age rules vary — confirm on soelden.com.":
+    "רכבל גייזלכקוגל מכוסה בכרטיס הקיץ Ötztal Inside (נסיעה חינם אחת ליום) — אז זו בעצם רק תוספת ה-007 Elements של כ-€23. זכרו להשתמש בכרטיס. כללי הגיל לרכבל לילדים משתנים — לאימות ב-soelden.com.",
+  "One free Water Area entry is included in the Ötztal Inside Summer Card your hotel provides — remember to use it. Child rate is otherwise ages 5–15, so the 2 year old is free.":
+    "כניסה חינם אחת לאזור המים כלולה בכרטיס הקיץ Ötztal Inside שמלונכם מספק — זכרו להשתמש בו. אחרת מחיר הילד לגילאי 5–15, אז הקטנה חינם.",
+
+  // ---- home footer ----
+  "Wilder Kaiser · Ötztal · South Tyrol": "וילדר קייזר · אצטל · דרום טירול",
+  "Made with love for the family. Safe travels and guten Appetit!":
+    "נעשה באהבה למשפחה. נסיעה טובה ובתיאבון!",
+  "Photos via Wikipedia / Wikimedia Commons.": "תמונות מוויקיפדיה / ויקישיתוף.",
 };
