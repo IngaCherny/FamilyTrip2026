@@ -295,18 +295,30 @@ export const ITINERARY: Day[] = [
         },
       ],
     },
-    dayNote: "Rain forecast, so Swarovski (mostly indoor) is the mid-drive stop; keep Juppi for a dry day. One stop, then on to Oetz.",
+    dayNote: "Rain forecast: a dry lunch break at the CYTA mall in Völs, then on to Oetz. Save Swarovski and Juppi for a dry day.",
     sequence: true,
     options: [
       {
-        title: "Rainy-day stop: Swarovski Kristallwelten, Wattens",
+        title: "Rainy-day stop: CYTA Shoppingwelt, Völs",
+        driveFromBase: "~1h 20m",
+        wiki: "Völs, Tyrol",
+        tag: "sights",
+        description:
+          "The dry-weather-proof break for a wet transfer: a big indoor shopping world right on the A12 just west of Innsbruck, with over 100 shops and around 17 cafés and restaurants under one roof. No detour and 2,000 parking spaces, so it is an easy lunch, toilets and leg-stretch stop before the last hour to Oetz.",
+        kidNote:
+          "Fully indoor and dry, with plenty of food choices — more a practical lunch stop than a playground. Buggy-friendly.",
+        coords: [47.2528, 11.3339],
+        mapQuery: "CYTA Shoppingwelt, Cytastraße 1, 6176 Völs, Austria",
+      },
+      {
+        title: "Dry-day stop: Swarovski Kristallwelten, Wattens",
         driveFromBase: "~1h",
         wiki: "Swarovski Kristallwelten",
         tag: "sights",
         description:
-          "The wet-weather plan for the transfer: the crystal world's indoor Chambers of Wonder stay dry whatever the sky is doing, a maze of mirrored, jewelled rooms the kids love. The giant outdoor play tower, play cloud and Giant garden are there too if the rain lifts. Right on the motorway near Innsbruck, an easy mid-drive break.",
+          "For a dry spell: the crystal world's giant outdoor play tower, play cloud and Giant garden are the real kid magnet, with the indoor Chambers of Wonder — a maze of mirrored, jewelled rooms — for shelter if a shower blows through. Right on the motorway near Innsbruck.",
         kidNote:
-          "The indoor wonder chambers keep everyone dry; the big outdoor playground is a bonus if it clears. Buggy-friendly.",
+          "The big outdoor playground is the draw, so best on a dry day; the indoor chambers are a shorter wander. Buggy-friendly.",
         coords: [47.2966, 11.6011],
         mapQuery: "Swarovski Kristallwelten, Wattens, Austria",
       },
@@ -329,8 +341,8 @@ export const ITINERARY: Day[] = [
         image: "img/falkners-2.jpg",
         tag: "spa",
         description:
-          "On south into the mouth of the Ötztal for four nights. Unpack and settle in. If there is evening energy, the Piburger See sunset loop is close by, or just wander Oetz village for gelato.",
-        kidNote: "No more driving once you are in.",
+          "On south into the mouth of the Ötztal for four nights. Unpack and settle in. On a wet afternoon the valley's indoor plans are up the road: the Freizeit Arena pool in Sölden is free with your Ötztal Summer Card, and the Aqua Dome at Längenfeld is the nearest (~30 min). If it dries up, the Piburger See sunset loop is close by, or wander Oetz village for gelato.",
+        kidNote: "No more driving once you are in — the pools are an easy hop up the valley if the rain sets in.",
         mapQuery: BASE_FALKNER,
       },
     ],
@@ -353,9 +365,9 @@ export const ITINERARY: Day[] = [
       },
     ],
     tips: [
-      "The forecast is wet, so Swarovski is the call: its Chambers of Wonder are indoors and stay dry, with the big outdoor playground a bonus if it clears.",
-      "One mid-drive stop is plenty on a moving day — Swarovski if it's raining, Juppi if it turns fine — then straight on to Oetz.",
-      "Prefer to just get there? Drive through and swim indoors near the new base: the Freizeit Arena in Sölden is free with your Ötztal Summer Card, or the Aqua Dome at Längenfeld.",
+      "The forecast's wet, so break the drive indoors at the CYTA shopping world in Völs — over 100 shops and cafés right on the A12 just west of Innsbruck, an easy lunch-and-toilets stop with no detour.",
+      "If it turns fine, swap in Swarovski's outdoor play tower (Wattens) or the Juppi enchanted forest (Reith) instead — both proper kids' stops, but open-air.",
+      "At the Ötztal end the wet-weather plans are up the valley: the Freizeit Arena pool in Sölden is free with your Ötztal Summer Card, and the Aqua Dome at Längenfeld is nearest (~30 min). Falkners Five has no pool of its own.",
     ],
   },
   {

@@ -137,6 +137,8 @@ export const HE_CONTENT: Record<string, string> = {
     "נסיעה של כ-40 דק׳ ליופי, לשחק, ואז עוד כ-1:05 שעה לדירה באץ.",
   "Rain forecast, so Swarovski (mostly indoor) is the mid-drive stop; keep Juppi for a dry day. One stop, then on to Oetz.":
     "תחזית גשומה, אז סברובסקי (רובו מקורה) הוא העצירה באמצע הדרך; שומרים את יופי ליום יבש. עצירה אחת, ואז ממשיכים לאץ.",
+  "Rain forecast: a dry lunch break at the CYTA mall in Völs, then on to Oetz. Save Swarovski and Juppi for a dry day.":
+    "תחזית גשומה: הפסקת צהריים יבשה בקניון CYTA בפלס, ואז ממשיכים לאץ. שומרים את סברובסקי ויופי ליום יבש.",
   "A full day at the play world.": "יום שלם בעולם המשחקים.",
   "Easy day close to base — cook in tonight.":
     "יום קליל קרוב לבסיס — לבשל בבית הערב.",
@@ -171,6 +173,10 @@ export const HE_CONTENT: Record<string, string> = {
   "Juppi Zauberwald, Reith im Alpbachtal": "יופי צאוברוואלד, רייט אים אלפבכטל",
   "Rainy-day stop: Swarovski Kristallwelten, Wattens":
     "עצירה ליום גשום: סברובסקי קריסטלוולטן, ואטנס",
+  "Rainy-day stop: CYTA Shoppingwelt, Völs":
+    "עצירה ליום גשום: CYTA שופינגוולט, פלס",
+  "Dry-day stop: Swarovski Kristallwelten, Wattens":
+    "עצירה ליום יבש: סברובסקי קריסטלוולטן, ואטנס",
   "Dry-day stop: Juppi Zauberwald, Reith im Alpbachtal":
     "עצירה ליום יבש: יופי צאוברוואלד, רייט אים אלפבכטל",
   "Arrive at Falkners Five, Oetz": "הגעה לפלקנרס פייב, אץ",
@@ -215,6 +221,12 @@ export const HE_CONTENT: Record<string, string> = {
   // ---- option descriptions ----
   "The wet-weather plan for the transfer: the crystal world's indoor Chambers of Wonder stay dry whatever the sky is doing, a maze of mirrored, jewelled rooms the kids love. The giant outdoor play tower, play cloud and Giant garden are there too if the rain lifts. Right on the motorway near Innsbruck, an easy mid-drive break.":
     "התוכנית ליום המעבר הגשום: חדרי הפלא המקורים של עולם הקריסטל נשארים יבשים לא משנה מה קורה בשמיים — מבוך של חדרים ממוראים ומשובצי אבנים שהילדים אוהבים. מגדל המשחקים הענק, ענן המשחק וגן הענק שבחוץ מחכים גם הם אם הגשם ייפסק. ממש ליד האוטוסטרדה סמוך לאינסברוק, עצירה נוחה באמצע הדרך.",
+  "The dry-weather-proof break for a wet transfer: a big indoor shopping world right on the A12 just west of Innsbruck, with over 100 shops and around 17 cafés and restaurants under one roof. No detour and 2,000 parking spaces, so it is an easy lunch, toilets and leg-stretch stop before the last hour to Oetz.":
+    "ההפסקה חסינת-הגשם ליום מעבר רטוב: מרכז קניות ענק ומקורה ממש על ה-A12 מעט ממערב לאינסברוק, עם יותר מ-100 חנויות וכ-17 בתי קפה ומסעדות תחת קורת גג אחת. בלי עיקוף ועם 2,000 מקומות חניה, אז זו עצירה נוחה לארוחת צהריים, שירותים ומתיחת רגליים לפני השעה האחרונה לאץ.",
+  "For a dry spell: the crystal world's giant outdoor play tower, play cloud and Giant garden are the real kid magnet, with the indoor Chambers of Wonder — a maze of mirrored, jewelled rooms — for shelter if a shower blows through. Right on the motorway near Innsbruck.":
+    "ליום יבש: מגדל המשחקים הענק בחוץ, ענן המשחק וגן הענק של עולם הקריסטל הם המגנט האמיתי לילדים, עם חדרי הפלא המקורים — מבוך של חדרים ממוראים ומשובצי אבנים — למחסה אם עובר ממטר. ממש ליד האוטוסטרדה סמוך לאינסברוק.",
+  "On south into the mouth of the Ötztal for four nights. Unpack and settle in. On a wet afternoon the valley's indoor plans are up the road: the Freizeit Arena pool in Sölden is free with your Ötztal Summer Card, and the Aqua Dome at Längenfeld is the nearest (~30 min). If it dries up, the Piburger See sunset loop is close by, or wander Oetz village for gelato.":
+    "דרומה אל פתח האצטל לארבעה לילות. לפרוק ולהתמקם. באחר צהריים גשום התוכניות המקורות של העמק נמצאות במעלה הדרך: בריכת פרייצייט ארנה בזלדן חינם עם כרטיס הקיץ של אצטל, והאקווה דום בלנגנפלד הכי קרוב (כ-30 דק׳). אם מתבהר, מסלול השקיעה של פיבורגר זה קרוב, או טיול בכפר אץ לגלידה.",
   "Down the Inn valley to Wörgl and up the Zillertal to Zell am Ziller, then the Rosenalmbahn gondola up to the Fichtenschloss — a giant wooden spruce castle with towers, rope bridges, slides and water play, plus easy summit strolls and huts for lunch.":
     "במורד עמק האין לוורגל ובמעלה הצילרטל אל צל אם צילר, ואז רכבל הרוזנאלם אל הפיכטנשלוס — טירת עץ ענקית עם מגדלים, גשרי חבלים, מגלשות ומשחקי מים, ועוד טיולי פסגה קלים וצריפים לארוחת צהריים.",
   "A calm bathing lake just east of Munich, barely 20 minutes from the airport. Grassy banks, gentle shallows and shade — the perfect first leg-stretch and swim to shake off the flight before the drive south.":
@@ -325,6 +337,12 @@ export const HE_CONTENT: Record<string, string> = {
   // ---- kid notes ----
   "The indoor wonder chambers keep everyone dry; the big outdoor playground is a bonus if it clears. Buggy-friendly.":
     "חדרי הפלא המקורים שומרים על כולם יבשים; גן השעשועים הגדול שבחוץ הוא בונוס אם מתבהר. ידידותי לעגלה.",
+  "Fully indoor and dry, with plenty of food choices — more a practical lunch stop than a playground. Buggy-friendly.":
+    "מקורה ויבש לגמרי, עם המון אפשרויות אוכל — יותר עצירת צהריים מעשית מאשר גן שעשועים. ידידותי לעגלה.",
+  "The big outdoor playground is the draw, so best on a dry day; the indoor chambers are a shorter wander. Buggy-friendly.":
+    "גן השעשועים הגדול שבחוץ הוא האטרקציה, אז עדיף ביום יבש; חדרי הפלא המקורים הם סיור קצר יותר. ידידותי לעגלה.",
+  "No more driving once you are in — the pools are an easy hop up the valley if the rain sets in.":
+    "אין יותר נסיעה ברגע שמגיעים — הבריכות הן קפיצה קלה במעלה העמק אם הגשם נתפס.",
   "Gondola up, then a whole afternoon in the castle playground. Buggy-friendly at the top; about an hour each way, so a there-and-back day out.":
     "רכבל למעלה, ואז אחר צהריים שלם בגן המשחקים של הטירה. ידידותי לעגלה למעלה; כשעה לכל כיוון, אז יציאה הלוך ושוב ליום שלם.",
   "Easy shallows for a first splash. Bring towels in the hand luggage.":
@@ -462,6 +480,12 @@ export const HE_CONTENT: Record<string, string> = {
     "עצירה אחת באמצע הדרך מספיקה ביום מעבר — סברובסקי אם יורד גשם, יופי אם מתבהר — ואז ישר לאץ.",
   "Prefer to just get there? Drive through and swim indoors near the new base: the Freizeit Arena in Sölden is free with your Ötztal Summer Card, or the Aqua Dome at Längenfeld.":
     "מעדיפים פשוט להגיע? לנסוע ישר ולשחות במקום מקורה ליד הבסיס החדש: פרייצייט ארנה בזלדן חינם עם כרטיס הקיץ של אצטל, או אקווה דום בלנגנפלד.",
+  "The forecast's wet, so break the drive indoors at the CYTA shopping world in Völs — over 100 shops and cafés right on the A12 just west of Innsbruck, an easy lunch-and-toilets stop with no detour.":
+    "התחזית גשומה, אז עוצרים להפסקה מקורה בקניון CYTA בפלס — יותר מ-100 חנויות ובתי קפה ממש על ה-A12 מעט ממערב לאינסברוק, עצירת צהריים ושירותים נוחה בלי עיקוף.",
+  "If it turns fine, swap in Swarovski's outdoor play tower (Wattens) or the Juppi enchanted forest (Reith) instead — both proper kids' stops, but open-air.":
+    "אם מתבהר, אפשר להחליף למגדל המשחקים של סברובסקי (ואטנס) או ליער הקסום יופי (רייט) במקום — שניהם עצירות ילדים אמיתיות, אבל בחוץ.",
+  "At the Ötztal end the wet-weather plans are up the valley: the Freizeit Arena pool in Sölden is free with your Ötztal Summer Card, and the Aqua Dome at Längenfeld is nearest (~30 min). Falkners Five has no pool of its own.":
+    "בקצה האצטל התוכניות ליום גשום נמצאות במעלה העמק: בריכת פרייצייט ארנה בזלדן חינם עם כרטיס הקיץ של אצטל, והאקווה דום בלנגנפלד הכי קרוב (כ-30 דק׳). לפלקנרס פייב אין בריכה משלו.",
   "For Area 47 bring swimwear, towels, water shoes and sunscreen; lockers are on site.":
     "ל-Area 47 להביא בגדי ים, מגבות, נעלי מים וקרם הגנה; יש לוקרים במקום.",
   "Habicher See is a two-minute hop from the apartment, perfect if a big day is too much.":
