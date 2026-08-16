@@ -77,10 +77,22 @@ export const ITINERARY: Day[] = [
     region: "wilderkaiser",
     base: "Apartment Streif LXL",
     baseQuery: BASE_STREIF,
-    title: "Hexenwasser Söll",
-    subtitle: "The big witch's water day",
+    title: "Rosenalm & the spruce castle",
+    subtitle: "Down the Inn valley to Zell am Ziller",
     dayNote: "A full day out — cook dinner back at the apartment.",
     options: [
+      {
+        title: "Rosenalm & the Fichtenschloss spruce castle, Zillertal",
+        driveFromBase: "~1h",
+        tag: "kids",
+        attractionId: "rosenalm-fichtenschloss",
+        description:
+          "Down the Inn valley to Wörgl and up the Zillertal to Zell am Ziller, then the Rosenalmbahn gondola up to the Fichtenschloss — a giant wooden spruce castle with towers, rope bridges, slides and water play, plus easy summit strolls and huts for lunch.",
+        kidNote:
+          "Gondola up, then a whole afternoon in the castle playground. Buggy-friendly at the top; about an hour each way, so a there-and-back day out.",
+        coords: [47.2136, 11.8616],
+        mapQuery: "Rosenalmbahn, Zell am Ziller, Austria",
+      },
       {
         title: "Hexenwasser Söll (witch's water)",
         driveFromBase: "~25 min",
@@ -124,8 +136,77 @@ export const ITINERARY: Day[] = [
     region: "wilderkaiser",
     base: "Apartment Streif LXL",
     baseQuery: BASE_STREIF,
+    title: "Ellmi's Zauberwelt at the Hartkaiser",
+    subtitle: "Funicular up to Ellmau's magic world",
+    dayNote: "Play up top, then back to the apartment for dinner.",
+    options: [
+      {
+        title: "Ellmi's Zauberwelt at Hartkaiser, Ellmau",
+        driveFromBase: "~20 min",
+        tag: "cablecar",
+        attractionId: "hartkaiser-ellmi",
+        description:
+          "Funicular from Ellmau to a mountain playground and a gentle themed walking trail with the Wilder Kaiser as the backdrop.",
+        kidNote: "Funicular up, big playground, short flat trail. Buggy-friendly at the top.",
+        coords: [47.5045, 12.3085],
+        mapQuery: "Hartkaiser Funicular, Ellmau, Austria",
+      },
+      {
+        title: "KaiserWelt Scheffau on the Brandstadl",
+        tag: "playground",
+        attractionId: "kaiserwelt",
+        description:
+          "Ride the Brandstadlbahn up to a play realm at 1,650 m: through a castle gate into the KaiserWald, with castle walls, treehouses, a climbing wall, a sporting course and the Little People's forest.",
+        kidNote: "The gondola takes pushchairs, and the park is free once you have a lift ticket. Easy trails between stations suit all three ages.",
+        coords: [47.5028, 12.2547],
+        mapQuery: "Brandstadlbahn, Scheffau am Wilden Kaiser, Austria",
+      },
+      {
+        title: "Triassic Park on the Steinplatte, Waidring",
+        driveFromBase: "~40 min",
+        tag: "kids",
+        attractionId: "triassic-park",
+        description:
+          "A dinosaur adventure world on a mountaintop that was a coral reef 200 million years ago. Gondola up to life-size dinosaurs, a fossil-digging beach, water rafts, a low ropes course and a stalactite cave. The park is free, you only pay the lift.",
+        kidNote: "Gondola up, then wide easy paths; a big hit for the 6 and 8 year olds. Cave and indoor Triassic Centre make it work in poor weather too.",
+        coords: [47.588, 12.582],
+        mapQuery: "Bergbahn Steinplatte, Alpegg 10, 6384 Waidring, Austria",
+      },
+      {
+        title: "Kitzbühel old town and Schwarzsee",
+        tag: "town",
+        attractionId: "kitzbuehel",
+        description:
+          "Wander the painted medieval town, then cool off at the warm, shallow Schwarzsee lake with a lido and playground just outside town.",
+        kidNote: "Easy town stroll plus a warm swimming lake. Buggy-friendly.",
+        coords: [47.4467, 12.3917],
+        mapQuery: "Schwarzsee, Kitzbühel, Austria",
+      },
+    ],
+    food: [
+      {
+        name: "Stanglwirt, Going",
+        description:
+          "A famous Tyrolean estate with a petting area, ponies and a play barn. A fun (if pricier) lunch stop on the way back.",
+        playground: true,
+        coords: [47.5145, 12.2607],
+        mapQuery: "Bio-Hotel Stanglwirt, Going am Wilden Kaiser, Austria",
+      },
+    ],
+    tips: [
+      "Today is Mariä Himmelfahrt, a public holiday across Austria and Ferragosto in Italy. Shops are shut and the gondola-served parks are at their busiest all summer, so go early and expect queues.",
+      "Ellmi's Zauberwelt is reached by the Hartkaiser funicular from Ellmau; check the first-up and last-down times before you set off.",
+      "Triassic Park entry is free and you pay only the Steinplatte gondola, which the Kitzbühel Alps Summer Card also covers.",
+    ],
+  },
+  {
+    date: "2026-08-16",
+    weekday: "Sunday",
+    region: "wilderkaiser",
+    base: "Apartment Streif LXL",
+    baseQuery: BASE_STREIF,
     title: "Schnackler trail in the Kaiserbachtal",
-    subtitle: "A quiet valley on a busy holiday",
+    subtitle: "A quiet valley walk",
     dayNote: "Pack a picnic, or lunch at the Griesner Alm.",
     options: [
       {
@@ -172,77 +253,9 @@ export const ITINERARY: Day[] = [
       },
     ],
     tips: [
-      "Today is Mariä Himmelfahrt, a public holiday across Austria and Ferragosto in Italy. Shops are shut and the gondola-served parks will be at their busiest all summer, which is exactly why the quiet valley is the better call.",
+      "Shops are shut again today, the second of the two closed days, so everything should already be in the fridge.",
       "Drive Kirchdorf to Gasteig to Griesenau, then left into the Kaiserbachtal. Pay at the toll station after 650 m and keep driving to the Fischbachalm car park, where the trail starts.",
       "The Schnackler trail is out and back rather than a loop, so there is nothing to arrange for the return: just walk back to the car.",
-    ],
-  },
-  {
-    date: "2026-08-16",
-    weekday: "Sunday",
-    region: "wilderkaiser",
-    base: "Apartment Streif LXL",
-    baseQuery: BASE_STREIF,
-    title: "Triassic Park on the Steinplatte",
-    subtitle: "Dinosaurs on an old coral reef",
-    dayNote: "A full day up on the plateau.",
-    options: [
-      {
-        title: "Triassic Park on the Steinplatte, Waidring",
-        driveFromBase: "~40 min",
-        tag: "kids",
-        attractionId: "triassic-park",
-        description:
-          "A dinosaur adventure world on a mountaintop that was a coral reef 200 million years ago. Gondola up to life-size dinosaurs, a fossil-digging beach, water rafts, a low ropes course and a stalactite cave. The park is free, you only pay the lift.",
-        kidNote: "Gondola up, then wide easy paths; a big hit for the 6 and 8 year olds. Cave and indoor Triassic Centre make it work in poor weather too.",
-        coords: [47.588, 12.582],
-        mapQuery: "Bergbahn Steinplatte, Alpegg 10, 6384 Waidring, Austria",
-      },
-      {
-        title: "KaiserWelt Scheffau on the Brandstadl",
-        tag: "playground",
-        attractionId: "kaiserwelt",
-        description:
-          "Ride the Brandstadlbahn up to a play realm at 1,650 m: through a castle gate into the KaiserWald, with castle walls, treehouses, a climbing wall, a sporting course and the Little People's forest.",
-        kidNote: "The gondola takes pushchairs, and the park is free once you have a lift ticket. Easy trails between stations suit all three ages.",
-        coords: [47.5028, 12.2547],
-        mapQuery: "Brandstadlbahn, Scheffau am Wilden Kaiser, Austria",
-      },
-      {
-        title: "Ellmi's Zauberwelt at Hartkaiser, Ellmau",
-        tag: "cablecar",
-        attractionId: "hartkaiser-ellmi",
-        description:
-          "Funicular from Ellmau to a mountain playground and a gentle themed walking trail with the Wilder Kaiser as the backdrop.",
-        kidNote: "Funicular up, big playground, short flat trail. Buggy-friendly at the top.",
-        coords: [47.5045, 12.3085],
-        mapQuery: "Hartkaiser Funicular, Ellmau, Austria",
-      },
-      {
-        title: "Kitzbühel old town and Schwarzsee",
-        tag: "town",
-        attractionId: "kitzbuehel",
-        description:
-          "Wander the painted medieval town, then cool off at the warm, shallow Schwarzsee lake with a lido and playground just outside town.",
-        kidNote: "Easy town stroll plus a warm swimming lake. Buggy-friendly.",
-        coords: [47.4467, 12.3917],
-        mapQuery: "Schwarzsee, Kitzbühel, Austria",
-      },
-    ],
-    food: [
-      {
-        name: "Stanglwirt, Going",
-        description:
-          "A famous Tyrolean estate with a petting area, ponies and a play barn. A fun (if pricier) lunch stop on the way back.",
-        playground: true,
-        coords: [47.5145, 12.2607],
-        mapQuery: "Bio-Hotel Stanglwirt, Going am Wilden Kaiser, Austria",
-      },
-    ],
-    tips: [
-      "Shops are shut again today, the second of the two closed days, so everything should already be in the fridge.",
-      "Triassic Park entry is free and you pay only the Steinplatte gondola, which the Kitzbühel Alps Summer Card also covers.",
-      "Check the cable-car operating hours and last descent before heading up.",
     ],
   },
   {

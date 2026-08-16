@@ -84,6 +84,8 @@ export const HE_CONTENT: Record<string, string> = {
   // ---- day titles ----
   "Land in Munich, drive to the Wilder Kaiser": "נחיתה במינכן, נסיעה לווילדר קייזר",
   "Hexenwasser Söll": "הקסוואסר, זל",
+  "Rosenalm & the spruce castle": "רוזנאלם וטירת האשוח",
+  "Ellmi's Zauberwelt at the Hartkaiser": "עולם הקסמים של אלמי בהרטקייזר",
   "Schnackler trail in the Kaiserbachtal": "שביל שנאקלר בקייזרבכטל",
   "Triassic Park on the Steinplatte": "טריאסיק פארק בשטיינפלאטה",
   "Travel to the Ötztal": "נסיעה לאצטל",
@@ -102,6 +104,9 @@ export const HE_CONTENT: Record<string, string> = {
   // ---- day subtitles ----
   "Arrival day": "יום הגעה",
   "The big witch's water day": "היום הגדול של מי המכשפה",
+  "Down the Inn valley to Zell am Ziller": "במורד עמק האין אל צל אם צילר",
+  "Funicular up to Ellmau's magic world": "רכבל אל עולם הקסמים של אלמאו",
+  "A quiet valley walk": "טיול בעמק שקט",
   "A quiet valley on a busy holiday": "עמק שקט בחג עמוס",
   "Dinosaurs on an old coral reef": "דינוזאורים על שונית אלמוגים עתיקה",
   "Moving day, via Juppi Zauberwald": "יום מעבר, דרך יופי צאוברוואלד",
@@ -123,6 +128,8 @@ export const HE_CONTENT: Record<string, string> = {
     "יום שלם בחוץ — לבשל ארוחת ערב בחזרה בדירה.",
   "Pack a picnic, or lunch at the Griesner Alm.":
     "לארוז פיקניק, או ארוחת צהריים בגריזנר אלם.",
+  "Play up top, then back to the apartment for dinner.":
+    "לשחק למעלה, ואז חזרה לדירה לארוחת ערב.",
   "A full day up on the plateau.": "יום שלם למעלה על המישור.",
   "Drive ~40 min to Juppi, play, then ~1h 05m on to the apartment in Oetz.":
     "נסיעה של כ-40 דק׳ ליופי, לשחק, ואז עוד כ-1:05 שעה לדירה באץ.",
@@ -145,6 +152,8 @@ export const HE_CONTENT: Record<string, string> = {
   // ---- option / stop titles ----
   "First stop — Heimstettener See, swim": "עצירה ראשונה — היימשטטנר זה, שחייה",
   "Arrive at Apartment Streif": "הגעה לדירת שטרייף",
+  "Rosenalm & the Fichtenschloss spruce castle, Zillertal":
+    "רוזנאלם וטירת האשוח פיכטנשלוס, צילרטל",
   "Hexenwasser Söll (witch's water)": "הקסוואסר זל (מי המכשפה)",
   "Hintersteiner See lake walk and swim": "טיול ושחייה באגם הינטרשטיינר זה",
   "Schnackler adventure trail, Kaiserbachtal": "שביל ההרפתקאות שנאקלר, קייזרבכטל",
@@ -196,6 +205,8 @@ export const HE_CONTENT: Record<string, string> = {
   "Check out and fly home from Munich (MUC)": "צ׳ק-אאוט וטיסה הביתה ממינכן (MUC)",
 
   // ---- option descriptions ----
+  "Down the Inn valley to Wörgl and up the Zillertal to Zell am Ziller, then the Rosenalmbahn gondola up to the Fichtenschloss — a giant wooden spruce castle with towers, rope bridges, slides and water play, plus easy summit strolls and huts for lunch.":
+    "במורד עמק האין לוורגל ובמעלה הצילרטל אל צל אם צילר, ואז רכבל הרוזנאלם אל הפיכטנשלוס — טירת עץ ענקית עם מגדלים, גשרי חבלים, מגלשות ומשחקי מים, ועוד טיולי פסגה קלים וצריפים לארוחת צהריים.",
   "A calm bathing lake just east of Munich, barely 20 minutes from the airport. Grassy banks, gentle shallows and shade — the perfect first leg-stretch and swim to shake off the flight before the drive south.":
     "אגם רחצה שקט ממש ממזרח למינכן, פחות מ-20 דקות משדה התעופה. גדות דשא, מים רדודים ונעימים וצל — עצירה ראשונה מושלמת למתוח את הרגליים ולשחות ולנער את הטיסה לפני הנסיעה דרומה.",
   "On south past Kufstein to Gasteig — grab groceries at the SPAR in St. Johann on the way. Unpack, then a flat meadow stroll with the Wilder Kaiser ahead, or the in-house sauna and whirlpool if everyone's wiped out. Early dinner, early night.":
@@ -302,6 +313,8 @@ export const HE_CONTENT: Record<string, string> = {
     "הסעה קצרה או הליכה לטרמינל היוצא, ואז הביתה. להקצות זמן נוסף עם ילדים ולטיסה בינלאומית.",
 
   // ---- kid notes ----
+  "Gondola up, then a whole afternoon in the castle playground. Buggy-friendly at the top; about an hour each way, so a there-and-back day out.":
+    "רכבל למעלה, ואז אחר צהריים שלם בגן המשחקים של הטירה. ידידותי לעגלה למעלה; כשעה לכל כיוון, אז יציאה הלוך ושוב ליום שלם.",
   "Easy shallows for a first splash. Bring towels in the hand luggage.":
     "מים רדודים וקלים לשכשוך ראשון. להביא מגבות בכבודה היד.",
   "Zero more driving once you're in. Good for an early bedtime.":
@@ -411,6 +424,10 @@ export const HE_CONTENT: Record<string, string> = {
     "לעשות את קניית המצרכים הגדולה היום. מחר חג ויום ראשון אחריו, אז החנויות סגורות יומיים ברצף.",
   "Check the cable-car operating hours and last descent before heading up.":
     "לבדוק את שעות הפעילות של הרכבל ואת שעת הירידה האחרונה לפני שעולים.",
+  "Today is Mariä Himmelfahrt, a public holiday across Austria and Ferragosto in Italy. Shops are shut and the gondola-served parks are at their busiest all summer, so go early and expect queues.":
+    "היום הוא חג העלייה של מריה, חג בכל אוסטריה ופרגוסטו באיטליה. החנויות סגורות והפארקים עם הרכבלים הכי עמוסים בכל הקיץ, אז להגיע מוקדם ולצפות לתורים.",
+  "Ellmi's Zauberwelt is reached by the Hartkaiser funicular from Ellmau; check the first-up and last-down times before you set off.":
+    "אל עולם הקסמים של אלמי מגיעים ברכבל ההרטקייזר מאלמאו; לבדוק את שעות העלייה הראשונה והירידה האחרונה לפני שיוצאים.",
   "Today is Mariä Himmelfahrt, a public holiday across Austria and Ferragosto in Italy. Shops are shut and the gondola-served parks will be at their busiest all summer, which is exactly why the quiet valley is the better call.":
     "היום הוא חג העלייה של מריה, חג בכל אוסטריה ופרגוסטו באיטליה. החנויות סגורות והפארקים עם הרכבלים יהיו העמוסים ביותר בכל הקיץ, ובדיוק בגלל זה העמק השקט הוא הבחירה הטובה יותר.",
   "Drive Kirchdorf to Gasteig to Griesenau, then left into the Kaiserbachtal. Pay at the toll station after 650 m and keep driving to the Fischbachalm car park, where the trail starts.":
