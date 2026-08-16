@@ -110,6 +110,8 @@ export const HE_CONTENT: Record<string, string> = {
   "A quiet valley on a busy holiday": "עמק שקט בחג עמוס",
   "Dinosaurs on an old coral reef": "דינוזאורים על שונית אלמוגים עתיקה",
   "Moving day, via Juppi Zauberwald": "יום מעבר, דרך יופי צאוברוואלד",
+  "Moving day — Swarovski if it's wet, Juppi if it's fine":
+    "יום מעבר — סברובסקי אם רטוב, יופי אם יפה",
   "Play world plus one themed trail": "עולם משחקים ועוד שביל נושאי אחד",
   "A day on the doorstep": "יום ממש ליד הבית",
   "Last full day in the Ötztal": "היום המלא האחרון באצטל",
@@ -133,6 +135,8 @@ export const HE_CONTENT: Record<string, string> = {
   "A full day up on the plateau.": "יום שלם למעלה על המישור.",
   "Drive ~40 min to Juppi, play, then ~1h 05m on to the apartment in Oetz.":
     "נסיעה של כ-40 דק׳ ליופי, לשחק, ואז עוד כ-1:05 שעה לדירה באץ.",
+  "Rain forecast, so Swarovski (mostly indoor) is the mid-drive stop; keep Juppi for a dry day. One stop, then on to Oetz.":
+    "תחזית גשומה, אז סברובסקי (רובו מקורה) הוא העצירה באמצע הדרך; שומרים את יופי ליום יבש. עצירה אחת, ואז ממשיכים לאץ.",
   "A full day at the play world.": "יום שלם בעולם המשחקים.",
   "Easy day close to base — cook in tonight.":
     "יום קליל קרוב לבסיס — לבשל בבית הערב.",
@@ -165,6 +169,10 @@ export const HE_CONTENT: Record<string, string> = {
   "Ellmi's Zauberwelt at Hartkaiser, Ellmau": "עולם הקסמים של אלמי בהרטקייזר, אלמאו",
   "Kitzbühel old town and Schwarzsee": "העיר העתיקה של קיצביהל ושוורצזה",
   "Juppi Zauberwald, Reith im Alpbachtal": "יופי צאוברוואלד, רייט אים אלפבכטל",
+  "Rainy-day stop: Swarovski Kristallwelten, Wattens":
+    "עצירה ליום גשום: סברובסקי קריסטלוולטן, ואטנס",
+  "Dry-day stop: Juppi Zauberwald, Reith im Alpbachtal":
+    "עצירה ליום יבש: יופי צאוברוואלד, רייט אים אלפבכטל",
   "Arrive at Falkners Five, Oetz": "הגעה לפלקנרס פייב, אץ",
   "WIDIVERSUM Hochoetz play world": "עולם המשחקים WIDIVERSUM הוכאץ",
   "WIDI trail A: Glück auf! World of the miners":
@@ -205,6 +213,8 @@ export const HE_CONTENT: Record<string, string> = {
   "Check out and fly home from Munich (MUC)": "צ׳ק-אאוט וטיסה הביתה ממינכן (MUC)",
 
   // ---- option descriptions ----
+  "The wet-weather plan for the transfer: the crystal world's indoor Chambers of Wonder stay dry whatever the sky is doing, a maze of mirrored, jewelled rooms the kids love. The giant outdoor play tower, play cloud and Giant garden are there too if the rain lifts. Right on the motorway near Innsbruck, an easy mid-drive break.":
+    "התוכנית ליום המעבר הגשום: חדרי הפלא המקורים של עולם הקריסטל נשארים יבשים לא משנה מה קורה בשמיים — מבוך של חדרים ממוראים ומשובצי אבנים שהילדים אוהבים. מגדל המשחקים הענק, ענן המשחק וגן הענק שבחוץ מחכים גם הם אם הגשם ייפסק. ממש ליד האוטוסטרדה סמוך לאינסברוק, עצירה נוחה באמצע הדרך.",
   "Down the Inn valley to Wörgl and up the Zillertal to Zell am Ziller, then the Rosenalmbahn gondola up to the Fichtenschloss — a giant wooden spruce castle with towers, rope bridges, slides and water play, plus easy summit strolls and huts for lunch.":
     "במורד עמק האין לוורגל ובמעלה הצילרטל אל צל אם צילר, ואז רכבל הרוזנאלם אל הפיכטנשלוס — טירת עץ ענקית עם מגדלים, גשרי חבלים, מגלשות ומשחקי מים, ועוד טיולי פסגה קלים וצריפים לארוחת צהריים.",
   "A calm bathing lake just east of Munich, barely 20 minutes from the airport. Grassy banks, gentle shallows and shade — the perfect first leg-stretch and swim to shake off the flight before the drive south.":
@@ -313,6 +323,8 @@ export const HE_CONTENT: Record<string, string> = {
     "הסעה קצרה או הליכה לטרמינל היוצא, ואז הביתה. להקצות זמן נוסף עם ילדים ולטיסה בינלאומית.",
 
   // ---- kid notes ----
+  "The indoor wonder chambers keep everyone dry; the big outdoor playground is a bonus if it clears. Buggy-friendly.":
+    "חדרי הפלא המקורים שומרים על כולם יבשים; גן השעשועים הגדול שבחוץ הוא בונוס אם מתבהר. ידידותי לעגלה.",
   "Gondola up, then a whole afternoon in the castle playground. Buggy-friendly at the top; about an hour each way, so a there-and-back day out.":
     "רכבל למעלה, ואז אחר צהריים שלם בגן המשחקים של הטירה. ידידותי לעגלה למעלה; כשעה לכל כיוון, אז יציאה הלוך ושוב ליום שלם.",
   "Easy shallows for a first splash. Bring towels in the hand luggage.":
@@ -444,6 +456,12 @@ export const HE_CONTENT: Record<string, string> = {
     "יופי צאוברוואלד מגיע ראשון בנסיעה והמסלול שלו ידידותי לעגלה לכל אורכו. רכבל הרייטרקוגל סגור בימי רביעי, אבל היום זה יום שני.",
   "Three good stops on one transfer is too many; pick one and keep the drive short.":
     "שלוש עצירות טובות בנסיעה אחת זה יותר מדי; לבחור אחת ולשמור על נסיעה קצרה.",
+  "The forecast is wet, so Swarovski is the call: its Chambers of Wonder are indoors and stay dry, with the big outdoor playground a bonus if it clears.":
+    "התחזית גשומה, אז סברובסקי הוא הבחירה: חדרי הפלא שלו מקורים ונשארים יבשים, וגן השעשועים הגדול שבחוץ הוא בונוס אם מתבהר.",
+  "One mid-drive stop is plenty on a moving day — Swarovski if it's raining, Juppi if it turns fine — then straight on to Oetz.":
+    "עצירה אחת באמצע הדרך מספיקה ביום מעבר — סברובסקי אם יורד גשם, יופי אם מתבהר — ואז ישר לאץ.",
+  "Prefer to just get there? Drive through and swim indoors near the new base: the Freizeit Arena in Sölden is free with your Ötztal Summer Card, or the Aqua Dome at Längenfeld.":
+    "מעדיפים פשוט להגיע? לנסוע ישר ולשחות במקום מקורה ליד הבסיס החדש: פרייצייט ארנה בזלדן חינם עם כרטיס הקיץ של אצטל, או אקווה דום בלנגנפלד.",
   "For Area 47 bring swimwear, towels, water shoes and sunscreen; lockers are on site.":
     "ל-Area 47 להביא בגדי ים, מגבות, נעלי מים וקרם הגנה; יש לוקרים במקום.",
   "Habicher See is a two-minute hop from the apartment, perfect if a big day is too much.":

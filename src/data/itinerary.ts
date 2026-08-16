@@ -265,7 +265,7 @@ export const ITINERARY: Day[] = [
     base: "Falkners Five",
     baseQuery: BASE_FALKNER,
     title: "Travel to the Ötztal",
-    subtitle: "Moving day, via Juppi Zauberwald",
+    subtitle: "Moving day — Swarovski if it's wet, Juppi if it's fine",
     drive: {
       from: "Wilder Kaiser",
       to: "Falkners Five, Oetz",
@@ -295,11 +295,23 @@ export const ITINERARY: Day[] = [
         },
       ],
     },
-    dayNote: "Drive ~40 min to Juppi, play, then ~1h 05m on to the apartment in Oetz.",
+    dayNote: "Rain forecast, so Swarovski (mostly indoor) is the mid-drive stop; keep Juppi for a dry day. One stop, then on to Oetz.",
     sequence: true,
     options: [
       {
-        title: "Juppi Zauberwald, Reith im Alpbachtal",
+        title: "Rainy-day stop: Swarovski Kristallwelten, Wattens",
+        driveFromBase: "~1h",
+        wiki: "Swarovski Kristallwelten",
+        tag: "sights",
+        description:
+          "The wet-weather plan for the transfer: the crystal world's indoor Chambers of Wonder stay dry whatever the sky is doing, a maze of mirrored, jewelled rooms the kids love. The giant outdoor play tower, play cloud and Giant garden are there too if the rain lifts. Right on the motorway near Innsbruck, an easy mid-drive break.",
+        kidNote:
+          "The indoor wonder chambers keep everyone dry; the big outdoor playground is a bonus if it clears. Buggy-friendly.",
+        coords: [47.2966, 11.6011],
+        mapQuery: "Swarovski Kristallwelten, Wattens, Austria",
+      },
+      {
+        title: "Dry-day stop: Juppi Zauberwald, Reith im Alpbachtal",
         driveFromBase: "~40 min",
         image: "img/juppi.jpg",
         tag: "kids",
@@ -341,9 +353,9 @@ export const ITINERARY: Day[] = [
       },
     ],
     tips: [
-      "Swarovski Kristallwelten is right on the route and makes the drive fly by for kids.",
-      "Juppi Zauberwald comes first on the drive and its loop is buggy-friendly throughout. The Reitherkogelbahn is closed on Wednesdays, but today is a Monday.",
-      "Three good stops on one transfer is too many; pick one and keep the drive short.",
+      "The forecast is wet, so Swarovski is the call: its Chambers of Wonder are indoors and stay dry, with the big outdoor playground a bonus if it clears.",
+      "One mid-drive stop is plenty on a moving day — Swarovski if it's raining, Juppi if it turns fine — then straight on to Oetz.",
+      "Prefer to just get there? Drive through and swim indoors near the new base: the Freizeit Arena in Sölden is free with your Ötztal Summer Card, or the Aqua Dome at Längenfeld.",
     ],
   },
   {
