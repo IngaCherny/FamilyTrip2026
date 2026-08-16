@@ -482,6 +482,8 @@ export const HE_CONTENT: Record<string, string> = {
     "מעדיפים פשוט להגיע? לנסוע ישר ולשחות במקום מקורה ליד הבסיס החדש: פרייצייט ארנה בזלדן חינם עם כרטיס הקיץ של אצטל, או אקווה דום בלנגנפלד.",
   "The forecast's wet, so break the drive indoors at the CYTA shopping world in Völs — over 100 shops and cafés right on the A12 just west of Innsbruck, an easy lunch-and-toilets stop with no detour.":
     "התחזית גשומה, אז עוצרים להפסקה מקורה בקניון CYTA בפלס — יותר מ-100 חנויות ובתי קפה ממש על ה-A12 מעט ממערב לאינסברוק, עצירת צהריים ושירותים נוחה בלי עיקוף.",
+  "Need rain ponchos? Pick them up here at CYTA — dm has cheap disposable ones, Intersport sturdier kids' ones.":
+    "צריכים פונצ׳ו לגשם? אפשר לקנות כאן ב-CYTA — ל-dm יש חד-פעמיים וזולים, ולאינטרספורט חסונים יותר לילדים.",
   "If it turns fine, swap in Swarovski's outdoor play tower (Wattens) or the Juppi enchanted forest (Reith) instead — both proper kids' stops, but open-air.":
     "אם מתבהר, אפשר להחליף למגדל המשחקים של סברובסקי (ואטנס) או ליער הקסום יופי (רייט) במקום — שניהם עצירות ילדים אמיתיות, אבל בחוץ.",
   "At the Ötztal end the wet-weather plans are up the valley: the Freizeit Arena pool in Sölden is free with your Ötztal Summer Card, and the Aqua Dome at Längenfeld is nearest (~30 min). Falkners Five has no pool of its own.":

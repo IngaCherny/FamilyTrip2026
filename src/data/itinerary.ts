@@ -366,6 +366,7 @@ export const ITINERARY: Day[] = [
     ],
     tips: [
       "The forecast's wet, so break the drive indoors at the CYTA shopping world in Völs — over 100 shops and cafés right on the A12 just west of Innsbruck, an easy lunch-and-toilets stop with no detour.",
+      "Need rain ponchos? Pick them up here at CYTA — dm has cheap disposable ones, Intersport sturdier kids' ones.",
       "If it turns fine, swap in Swarovski's outdoor play tower (Wattens) or the Juppi enchanted forest (Reith) instead — both proper kids' stops, but open-air.",
       "At the Ötztal end the wet-weather plans are up the valley: the Freizeit Arena pool in Sölden is free with your Ötztal Summer Card, and the Aqua Dome at Längenfeld is nearest (~30 min). Falkners Five has no pool of its own.",
     ],
