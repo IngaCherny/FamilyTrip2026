@@ -266,6 +266,7 @@ export const ITINERARY: Day[] = [
     baseQuery: BASE_FALKNER,
     title: "Travel to the Ötztal",
     subtitle: "Moving day — Swarovski if it's wet, Juppi if it's fine",
+    image: "img/juppi.jpg",
     drive: {
       from: "Wilder Kaiser",
       to: "Falkners Five, Oetz",
