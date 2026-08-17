@@ -139,6 +139,8 @@ export const HE_CONTENT: Record<string, string> = {
     "תחזית גשומה, אז סברובסקי (רובו מקורה) הוא העצירה באמצע הדרך; שומרים את יופי ליום יבש. עצירה אחת, ואז ממשיכים לאץ.",
   "Rain forecast: a dry lunch break at the CYTA mall in Völs, then on to Oetz. Save Swarovski and Juppi for a dry day.":
     "תחזית גשומה: הפסקת צהריים יבשה בקניון CYTA בפלס, ואז ממשיכים לאץ. שומרים את סברובסקי ויופי ליום יבש.",
+  "Juppi enchanted forest on the way to the new hotel — or, if it's raining, swap it for the CYTA mall in Völs. Decide by the morning's weather, then on to Oetz.":
+    "יער הקסמים יופי בדרך למלון החדש — או, אם יורד גשם, מחליפים אותו בקניון CYTA בפלס. מחליטים לפי מזג האוויר בבוקר, ואז ממשיכים לאץ.",
   "A full day at the play world.": "יום שלם בעולם המשחקים.",
   "Easy day close to base — cook in tonight.":
     "יום קליל קרוב לבסיס — לבשל בבית הערב.",
@@ -175,6 +177,8 @@ export const HE_CONTENT: Record<string, string> = {
     "עצירה ליום גשום: סברובסקי קריסטלוולטן, ואטנס",
   "Rainy-day stop: CYTA Shoppingwelt, Völs":
     "עצירה ליום גשום: CYTA שופינגוולט, פלס",
+  "Rainy-day alternative: CYTA Shoppingwelt, Völs":
+    "חלופה ליום גשום: CYTA שופינגוולט, פלס",
   "Dry-day stop: Swarovski Kristallwelten, Wattens":
     "עצירה ליום יבש: סברובסקי קריסטלוולטן, ואטנס",
   "Dry-day stop: Juppi Zauberwald, Reith im Alpbachtal":
@@ -482,6 +486,8 @@ export const HE_CONTENT: Record<string, string> = {
     "מעדיפים פשוט להגיע? לנסוע ישר ולשחות במקום מקורה ליד הבסיס החדש: פרייצייט ארנה בזלדן חינם עם כרטיס הקיץ של אצטל, או אקווה דום בלנגנפלד.",
   "The forecast's wet, so break the drive indoors at the CYTA shopping world in Völs — over 100 shops and cafés right on the A12 just west of Innsbruck, an easy lunch-and-toilets stop with no detour.":
     "התחזית גשומה, אז עוצרים להפסקה מקורה בקניון CYTA בפלס — יותר מ-100 חנויות ובתי קפה ממש על ה-A12 מעט ממערב לאינסברוק, עצירת צהריים ושירותים נוחה בלי עיקוף.",
+  "The plan is the Juppi enchanted forest on the way in — buggy-friendly and right off the motorway. If it's raining, swap it for the indoor CYTA mall in Völs; decide by the morning's weather.":
+    "התוכנית היא יער הקסמים יופי בדרך — ידידותי לעגלה וממש ליד האוטוסטרדה. אם יורד גשם, מחליפים אותו בקניון המקורה CYTA בפלס; מחליטים לפי מזג האוויר בבוקר.",
   "Need rain ponchos? Pick them up here at CYTA — dm has cheap disposable ones, Intersport sturdier kids' ones.":
     "צריכים פונצ׳ו לגשם? אפשר לקנות כאן ב-CYTA — ל-dm יש חד-פעמיים וזולים, ולאינטרספורט חסונים יותר לילדים.",
   "If it turns fine, swap in Swarovski's outdoor play tower (Wattens) or the Juppi enchanted forest (Reith) instead — both proper kids' stops, but open-air.":
