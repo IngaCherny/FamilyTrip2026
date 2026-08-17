@@ -522,7 +522,7 @@ function DayCard({
               )}
 
               {/* Sequence days (arrival/transfer): stacked stop cards in order. */}
-              {day.sequence && (
+              {day.sequence && !day.pickStop && (
                 <div className="order-1 space-y-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#D9A441]">{tc("The route")}</p>
                   {day.options.map((o) => (
@@ -547,6 +547,71 @@ function DayCard({
                   ))}
                 </div>
               )}
+
+              {/* Transfer day with a pick-one stop (e.g. a weather call): choose
+                  one of the leading options (default the first), then the fixed
+                  final leg. */}
+              {day.sequence && day.pickStop && (() => {
+                const choices = day.options.slice(0, -1);
+                const arrival = day.options[day.options.length - 1];
+                const chosenStop = choices.find((o) => o.title === pick) ?? choices[0];
+                const otherStops = choices.filter((o) => o.title !== chosenStop.title);
+                const stopCard = (o: DayOption, accent: "option" | "stop", defaultOpen?: boolean) => (
+                  <PlaceCard
+                    title={o.title}
+                    description={o.description}
+                    tag={o.tag}
+                    kidNote={o.kidNote}
+                    destination={placeQuery(o)}
+                    origin={accent === "option" ? day.baseQuery : undefined}
+                    coords={o.coords}
+                    link={o.link}
+                    linkLabel={o.linkLabel}
+                    imageWiki={o.wiki ?? (o.attractionId ? attractionById(o.attractionId)?.wiki : undefined) ?? regionWiki}
+                    imageSrc={o.image ? imageUrl(o.image, 200) : undefined}
+                    accent={accent}
+                    onDark
+                    defaultOpen={defaultOpen}
+                    driveFromBase={o.driveFromBase}
+                    trailShape={o.trailShape}
+                    attraction={o.attractionId ? attractionById(o.attractionId) : undefined}
+                    date={day.date}
+                  />
+                );
+                return (
+                  <div className="order-1 space-y-2">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#D9A441]">
+                      {tc("Your stop")} · {tc(chosenStop.title)}
+                    </p>
+                    {stopCard(chosenStop, "option", true)}
+                    {otherStops.length > 0 && (
+                      <div className="pt-1">
+                        <button onClick={() => setShowChange((v) => !v)} className="tap text-sm font-medium text-[#D9A441]">
+                          {showChange ? tc("Hide alternatives") : `${tc("Change plan")} (${otherStops.length})`}
+                        </button>
+                        {showChange && (
+                          <div className="mt-2 space-y-1.5">
+                            {otherStops.map((o) => (
+                              <button
+                                key={o.title}
+                                onClick={() => {
+                                  onPick(o.title);
+                                  setShowChange(false);
+                                }}
+                                className="tap block w-full rounded-lg bg-white/[0.06] px-3 py-2 text-left text-sm text-[#EDE8DC] ring-1 ring-white/10 hover:bg-white/10"
+                              >
+                                {tc(o.title)}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    <p className="pt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#D9A441]">{tc("Then")}</p>
+                    {stopCard(arrival, "stop")}
+                  </div>
+                );
+              })()}
 
               {/* The day's plan details — the photo and title are on the tile above. */}
               {!day.sequence && chosen && (

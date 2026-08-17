@@ -144,6 +144,10 @@ export interface Day {
   /** Render the options as an ordered sequence of stop cards (arrival/transfer
    *  days) rather than one chosen plan with alternatives. */
   sequence?: boolean;
+  /** On a sequence day, treat every option except the last as a pick-one
+   *  choice (e.g. a weather call), defaulting to the first, and render the
+   *  last option as the fixed final leg after it. */
+  pickStop?: boolean;
   /** Family restaurants / snack stops, ideally with a playground. */
   food?: FoodStop[];
   /** A one-line footer for the day, e.g. "A full day here — cook dinner in." */

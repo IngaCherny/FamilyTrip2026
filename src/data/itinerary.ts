@@ -298,6 +298,7 @@ export const ITINERARY: Day[] = [
     },
     dayNote: "Juppi enchanted forest on the way to the new hotel — or, if it's raining, swap it for the CYTA mall in Völs. Decide by the morning's weather, then on to Oetz.",
     sequence: true,
+    pickStop: true,
     options: [
       {
         title: "Juppi Zauberwald, Reith im Alpbachtal",

@@ -18,6 +18,8 @@ export const HE_CONTENT: Record<string, string> = {
   Today: "היום",
   "The route": "המסלול",
   "Your plan": "התוכנית",
+  "Your stop": "העצירה שלכם",
+  Then: "אחר כך",
   "Nearby — add to the day": "בסביבה — להוסיף ליום",
   "Restaurants near the trail": "מסעדות ליד המסלול",
   "Find a hut or café": "בקתה או בית קפה",
