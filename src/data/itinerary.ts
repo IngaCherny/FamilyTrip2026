@@ -729,8 +729,8 @@ export const ITINERARY: Day[] = [
         tag: "cablecar",
         attractionId: "concordia-360",
         description:
-          "The mountain cable-car day, now kept close: gondola up from Reischach just above Bruneck, then the level Concordia 360° circuit around the flat Kronplatz summit at 2,275 m — the Peace Bell, the Messner and LUMEN museums and staged Dolomite viewpoints, with the Zillertal Alps on the far side. Lunch at the top, let the kids run, and add more only if everyone has energy.",
-        kidNote: "The best buggy walk of the trip: gondola up, then a flat loop at 2,275 m. Replaces the Plose day, which was too far west.",
+          "The mountain cable-car day, now kept close: gondola up from Reischach just above Bruneck, then the level Concordia 360° circuit around the flat Kronplatz summit at 2,275 m — the Peace Bell, the Messner and LUMEN museums and staged Dolomite viewpoints, with the Zillertal Alps on the far side. Right by the bell is Little Kronplatz, a free summit adventure park with a summer tubing track, a climbable lift mast and a mini Peace Bell the kids can ring. Lunch at the top, let them loose, and add more only if everyone has energy.",
+        kidNote: "The best buggy walk of the trip, plus the free Little Kronplatz playground at the top (tubing track, climbing mast). Replaces the Plose WoodyWalk day, which was too far west.",
         coords: [46.7378, 11.954],
         mapQuery: "Kronplatz / Plan de Corones, Italy",
       },
