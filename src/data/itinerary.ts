@@ -765,8 +765,8 @@ export const ITINERARY: Day[] = [
         driveFromBase: "~10 min",
         tag: "sights",
         description:
-          "Start right in Bruneck: hire bikes and roll the flat, fully paved Ahrntal cycle path ~10 km up the valley beside the Ahr river, off the road the whole way, through Gais, Uttenheim and Kematen to Sand in Taufers. Quieter en route than the main valley, but a bigger finish: the Reinbach Waterfalls walk, Burg Taufers castle above the village and the Cascade water park. To keep it to 2-3 hours, bus back from Sand in Taufers rather than riding both ways, or turn around at Uttenheim for a gentle ~5 km out-and-back.",
-        kidNote: "Flat and easy; bike seat or trailer for the 2 year old, booked when you hire. Waterfalls, a castle and a pool as the reward. Bus back to stay inside a couple of hours.",
+          "Start right in Bruneck: hire bikes and roll the flat, fully paved Ahrntal cycle path up the valley beside the Ahr river, off the road the whole way, through Gais, Uttenheim and Kematen to Sand in Taufers. It is ~17 km each way — about 35 km and ~2½ hours' riding there and back — so full round-trip is a big day. Quieter en route than the main valley, but a bigger finish: the Reinbach Waterfalls walk, Burg Taufers castle above the village and the Cascade water park. To keep it to 2-3 hours, ride up (~1½ h) and bus back from Sand in Taufers, or make it a short out-and-back — Gais is a gentle ~6 km each way, Uttenheim ~10 km.",
+        kidNote: "Flat and easy, but a longer route: ~17 km each way. Bus back, or turn at Gais/Uttenheim, to stay inside a couple of hours. Bike seat or trailer for the 2 year old. Waterfalls, a castle and a pool as the reward.",
         link: "https://www.kronplatz.net/sport/sommeraktivurlaub/mountainbiken-radfahren/radwege/familientour-bruneck-sand/",
         linkLabel: "Official route on kronplatz.net",
         coords: [46.7959, 11.9369],
