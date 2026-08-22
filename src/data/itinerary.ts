@@ -767,6 +767,8 @@ export const ITINERARY: Day[] = [
         description:
           "Start right in Bruneck: hire bikes and roll the flat, fully paved Ahrntal cycle path ~10 km up the valley beside the Ahr river, off the road the whole way, to Sand in Taufers. Waiting at the end are the Reinbach Waterfalls walk, Burg Taufers castle above the village and the Cascade water park. Roll back down-valley to Bruneck afterwards, or hop the Ahrntal bus back with the bikes.",
         kidNote: "Flat and easy, and shorter than a valley epic; bike seat or trailer for the 2 year old, booked when you hire. Waterfalls, a castle and a pool as the reward.",
+        link: "https://www.kronplatz.net/sport/sommeraktivurlaub/mountainbiken-radfahren/radwege/familientour-bruneck-sand/",
+        linkLabel: "Official route on kronplatz.net",
         coords: [46.7959, 11.9369],
         mapQuery: "Bruneck bus station, Italy",
       },
@@ -778,6 +780,8 @@ export const ITINERARY: Day[] = [
         description:
           "The main-valley alternative: drive to Olang, hire bikes, and roll the flat Pustertal cycle path past Lake Olang to Welsberg and Prenninger Park, then take the Pustertal train back to Olang with the bikes. The one route here with a train back.",
         kidNote: "Flat the whole way; the train back is a hit. Bike seat or trailer for the 2 year old, booked when you hire.",
+        link: "https://www.olang.com/en/activity/by-bike-with-the-whole-family-to-the-playground-in-welsberg_116437",
+        linkLabel: "Official route on olang.com",
         coords: [46.7447, 12.0206],
         mapQuery: "Olang Valdaora, Italy",
       },
