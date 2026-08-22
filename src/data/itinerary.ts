@@ -765,8 +765,8 @@ export const ITINERARY: Day[] = [
         driveFromBase: "~10 min",
         tag: "sights",
         description:
-          "Start right in Bruneck: hire bikes and roll the flat, fully paved Ahrntal cycle path ~10 km up the valley beside the Ahr river, off the road the whole way, to Sand in Taufers. Waiting at the end are the Reinbach Waterfalls walk, Burg Taufers castle above the village and the Cascade water park. Roll back down-valley to Bruneck afterwards, or hop the Ahrntal bus back with the bikes.",
-        kidNote: "Flat and easy, and shorter than a valley epic; bike seat or trailer for the 2 year old, booked when you hire. Waterfalls, a castle and a pool as the reward.",
+          "Start right in Bruneck: hire bikes and roll the flat, fully paved Ahrntal cycle path ~10 km up the valley beside the Ahr river, off the road the whole way, through Gais, Uttenheim and Kematen to Sand in Taufers. Quieter en route than the main valley, but a bigger finish: the Reinbach Waterfalls walk, Burg Taufers castle above the village and the Cascade water park. To keep it to 2-3 hours, bus back from Sand in Taufers rather than riding both ways, or turn around at Uttenheim for a gentle ~5 km out-and-back.",
+        kidNote: "Flat and easy; bike seat or trailer for the 2 year old, booked when you hire. Waterfalls, a castle and a pool as the reward. Bus back to stay inside a couple of hours.",
         link: "https://www.kronplatz.net/sport/sommeraktivurlaub/mountainbiken-radfahren/radwege/familientour-bruneck-sand/",
         linkLabel: "Official route on kronplatz.net",
         coords: [46.7959, 11.9369],
@@ -778,8 +778,8 @@ export const ITINERARY: Day[] = [
         tag: "sights",
         attractionId: "olang-welsberg-bike",
         description:
-          "The main-valley alternative: drive to Olang, hire bikes, and roll the flat Pustertal cycle path past Lake Olang to Welsberg and Prenninger Park, then take the Pustertal train back to Olang with the bikes. The one route here with a train back.",
-        kidNote: "Flat the whole way; the train back is a hit. Bike seat or trailer for the 2 year old, booked when you hire.",
+          "The main-valley alternative, and the one with the most to stop for along the way: drive to Olang, hire bikes, and roll the flat Pustertal cycle path past Lake Olang, through the villages of Rasen and Niederdorf (parks, playgrounds and gelato) to Welsberg and Prenninger Park. Ride the ~11 km one way, then take the Pustertal train back to Olang with the bikes — the whole outing stays inside 2-3 hours, and a station every few km lets you cut it short whenever the kids fade.",
+        kidNote: "Flat the whole way, plenty of stops, and the train back is a hit. Bike seat or trailer for the 2 year old, booked when you hire.",
         link: "https://www.olang.com/en/activity/by-bike-with-the-whole-family-to-the-playground-in-welsberg_116437",
         linkLabel: "Official route on olang.com",
         coords: [46.7447, 12.0206],
