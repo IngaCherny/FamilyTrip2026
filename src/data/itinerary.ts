@@ -669,10 +669,32 @@ export const ITINERARY: Day[] = [
     region: "southtyrol",
     base: "Entdecker Hotel Panorama",
     baseQuery: BASE_ENTDECKER,
-    title: "Easy nature & orchard day",
-    subtitle: "A soft first full day",
-    dayNote: "Everything's at the hotel — pools and dinner back at the Entdecker.",
+    title: "Alpaka hike & Bruneck",
+    subtitle: "Animals in the morning, old town after",
+    dayNote: "Close to home all day — back to the Entdecker pools before dinner.",
     options: [
+      {
+        title: "Alpaka hike near Olang",
+        driveFromBase: "~20 min",
+        trailShape: "Guided walk",
+        tag: "kids",
+        description:
+          "A gentle guided walk leading your own alpaca on a lead, at a family farm on the Olang side below Kronplatz — a short hop from the hotel. The animals set an easy pace, so it is all about the walking-with-alpacas rather than distance. Book the time slot ahead.",
+        kidNote: "The animal highlight of the stay: each child gets an alpaca to lead. Gentle and short; carrier for the 2 year old.",
+        coords: [46.7447, 12.0206],
+        mapQuery: "Alpaka trekking Olang Valdaora, Italy",
+      },
+      {
+        title: "Bruneck / Brunico old town",
+        driveFromBase: "~10 min",
+        tag: "town",
+        attractionId: "bruneck",
+        description:
+          "The nearest town to the hotel: a pretty pedestrian Stadtgasse under the castle, gelato, and easy lunch. Pair it with the flat, shady Rienz Gorge riverside walk on the edge of town if it is hot.",
+        kidNote: "Flat cobbles and gelato; the Rienz walk is buggy-friendly and cool on a hot afternoon.",
+        coords: [46.7959, 11.9366],
+        mapQuery: "Bruneck Brunico old town, Italy",
+      },
       {
         title: "Apple Trail through the Natz-Schabs orchards",
         driveFromBase: "~15 min",
@@ -680,34 +702,15 @@ export const ITINERARY: Day[] = [
         tag: "walk",
         attractionId: "apfelweg",
         description:
-          "A gentle, mostly flat themed loop through the apple orchards of the sunny Natz-Schabs plateau, ~30 minutes west. Information panels on South Tyrol's apples, ponds and biotopes along the way, and a viewpoint with sun loungers. Walk as much of the 7.7 km as little legs want and turn back.",
-        kidNote: "Flat and buggy-friendly. Pair it with the Apfelgarten playground and the Raiermoos boardwalk for an easy morning, and be back for the pool by mid-afternoon.",
+          "A gentle, mostly flat themed loop through the apple orchards of the sunny Natz-Schabs plateau, with information panels, ponds and a viewpoint with sun loungers. Kept here as an easy backup if the alpaca slot doesn't work out.",
+        kidNote: "Flat and buggy-friendly. Pair it with the Apfelgarten playground and the Raiermoos boardwalk.",
         coords: [46.7925, 11.6642],
         mapQuery: "Apfelweg Natz-Schabs, Italy",
       },
-      {
-        title: "Apfelgarten playground, Natz-Schabs",
-        tag: "playground",
-        attractionId: "apfelgarten-playground",
-        description:
-          "A family playground on the apple plateau, the easy morning start before the orchard walk.",
-        kidNote: "Flat, buggy-friendly, pure play.",
-        coords: [46.793, 11.665],
-        mapQuery: "Natz-Schabs playground, Italy",
-      },
-      {
-        title: "Raiermoos biotope boardwalk, Raas",
-        tag: "walk",
-        attractionId: "raier-moos",
-        description:
-          "A flat boardwalk over a protected wetland of reeds and ponds near Raas, rich in birdlife and shaded on a hot day. A short leg on its own or part of the Apple Trail.",
-        kidNote: "Flat boardwalk, buggy-friendly, short.",
-        coords: [46.8017, 11.6742],
-        mapQuery: "Raiermoos, Raas, Natz-Schabs, Italy",
-      },
     ],
     tips: [
-      "An easy first full day on purpose: orchard walk in the morning, hotel pool from 3 to 4 pm.",
+      "Book the alpaca slot ahead — they go in small timed groups.",
+      "An easy day close to the hotel: animals and town in the morning, pool in the afternoon.",
     ],
   },
   {
@@ -716,34 +719,35 @@ export const ITINERARY: Day[] = [
     region: "southtyrol",
     base: "Entdecker Hotel Panorama",
     baseQuery: BASE_ENTDECKER,
-    title: "Plose & the WoodyWalk",
-    subtitle: "The must-do mountain day",
+    title: "Kronplatz summit day",
+    subtitle: "The cable car right above the hotel",
     dayNote: "Back to the Entdecker pools for the afternoon.",
     options: [
       {
-        title: "Plose cable car & the WoodyWalk",
-        driveFromBase: "~30 min",
-        tag: "cablecar",
-        attractionId: "woodywalk-plose",
-        description:
-          "Ride the Plose gondola above Brixen, then the wide, stroller-friendly WoodyWalk to the Rossalm past wooden play stations, a Kneipp water walk, giant loungers and a viking ship, under the Peitlerkofel and Geisler spires. Lunch at a mountain hut, let the kids play, and add more walking only if everyone still has energy.",
-        kidNote: "Gondola up, then easy walking with play stops all along. Buggy-friendly. One of the highlights of the whole trip.",
-        coords: [46.6975, 11.7405],
-        mapQuery: "Plose cable car mountain station, Brixen, Italy",
-      },
-      {
         title: "Kronplatz summit & Concordia 360° loop",
+        driveFromBase: "~15 min",
         tag: "cablecar",
         attractionId: "concordia-360",
         description:
-          "A nearer cable-car alternative right above the hotel: the level Concordia 360° circuit around the flat Kronplatz summit, with the Peace Bell, mountain museums and staged Dolomite viewpoints.",
-        kidNote: "The best buggy walk of the trip: gondola up, then a flat loop at 2,275 m.",
+          "The mountain cable-car day, now kept close: gondola up from Reischach just above Bruneck, then the level Concordia 360° circuit around the flat Kronplatz summit at 2,275 m — the Peace Bell, the Messner and LUMEN museums and staged Dolomite viewpoints, with the Zillertal Alps on the far side. Lunch at the top, let the kids run, and add more only if everyone has energy.",
+        kidNote: "The best buggy walk of the trip: gondola up, then a flat loop at 2,275 m. Replaces the Plose day, which was too far west.",
         coords: [46.7378, 11.954],
         mapQuery: "Kronplatz / Plan de Corones, Italy",
       },
+      {
+        title: "Antholzer See, if you'd rather stay low",
+        tag: "lake",
+        attractionId: "antholzer-see",
+        description:
+          "A gentler ground-level alternative up the Antholz valley: a deep green mountain lake ringed by forest, with a flat near shore, a lakeside playground and a restaurant. Walk out and back with the buggy.",
+        kidNote: "Flat near shore and a playground; no cable car needed.",
+        coords: [46.8697, 12.1719],
+        mapQuery: "Antholzer See, Italy",
+      },
     ],
     tips: [
-      "Check the Plose gondola's first-up and last-down times, and carry a layer; it is cool at 2,000 m even in August.",
+      "Check the Kronplatz gondola's first-up and last-down times, and carry a layer; it is cool at 2,275 m even in August.",
+      "Plose (above Brixen) dropped from the plan — too far west for this stay.",
     ],
   },
   {
