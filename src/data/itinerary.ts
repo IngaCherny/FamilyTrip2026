@@ -757,17 +757,27 @@ export const ITINERARY: Day[] = [
     base: "Entdecker Hotel Panorama",
     baseQuery: BASE_ENTDECKER,
     title: "Family bike adventure",
-    subtitle: "Olang to Welsberg, train back",
+    subtitle: "Bruneck up to Sand in Taufers",
     dayNote: "Hotel pools and dinner in tonight.",
     options: [
+      {
+        title: "Cycle Bruneck to Sand in Taufers",
+        driveFromBase: "~10 min",
+        tag: "sights",
+        description:
+          "Start right in Bruneck: hire bikes and roll the flat, fully paved Ahrntal cycle path ~10 km up the valley beside the Ahr river, off the road the whole way, to Sand in Taufers. Waiting at the end are the Reinbach Waterfalls walk, Burg Taufers castle above the village and the Cascade water park. Roll back down-valley to Bruneck afterwards, or hop the Ahrntal bus back with the bikes.",
+        kidNote: "Flat and easy, and shorter than a valley epic; bike seat or trailer for the 2 year old, booked when you hire. Waterfalls, a castle and a pool as the reward.",
+        coords: [46.7959, 11.9369],
+        mapQuery: "Bruneck bus station, Italy",
+      },
       {
         title: "Cycle Olang to Welsberg, train back",
         driveFromBase: "~20 min",
         tag: "sights",
         attractionId: "olang-welsberg-bike",
         description:
-          "Drive to Olang, hire bikes, and roll the flat, easy Pustertal cycle path past Lake Olang to Welsberg. Play at Prenninger Park, coffee and ice cream in the village, then take the Pustertal train back to Olang with the bikes. Level, paved and away from traffic.",
-        kidNote: "The most fun day for the kids. Flat the whole way; bike seat or trailer for the 2 year old, booked when you hire.",
+          "The main-valley alternative: drive to Olang, hire bikes, and roll the flat Pustertal cycle path past Lake Olang to Welsberg and Prenninger Park, then take the Pustertal train back to Olang with the bikes. The one route here with a train back.",
+        kidNote: "Flat the whole way; the train back is a hit. Bike seat or trailer for the 2 year old, booked when you hire.",
         coords: [46.7447, 12.0206],
         mapQuery: "Olang Valdaora, Italy",
       },
@@ -793,7 +803,8 @@ export const ITINERARY: Day[] = [
       },
     ],
     tips: [
-      "Book bikes with a child seat or trailer ahead in Olang. The Südtirol Guest Pass covers the train back.",
+      "Book bikes with a child seat or trailer ahead — in Bruneck for the Sand in Taufers ride, or in Olang for the Welsberg one.",
+      "Sand in Taufers has no train; roll back down-valley or check the Ahrntal bus for bike space. The Olang route's train back is covered by the Südtirol Guest Pass.",
     ],
   },
   {
