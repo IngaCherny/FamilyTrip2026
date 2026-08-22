@@ -808,7 +808,8 @@ export const ITINERARY: Day[] = [
     ],
     tips: [
       "Book bikes with a child seat or trailer ahead — in Bruneck for the Sand in Taufers ride, or in Olang for the Welsberg one.",
-      "Sand in Taufers has no train; roll back down-valley or check the Ahrntal bus for bike space. The Olang route's train back is covered by the Südtirol Guest Pass.",
+      "For the Olang route's train back: your own ride is free with the Südtirol Guest Pass, but bikes are not — buy a bike day ticket (€7, or €3.50 with a full Südtirol Pass) on the südtirolmobil app or at the station, one per bike, a trailer or child seat counting as one. Board the coach marked with the bike symbol; space isn't reservable, so take an earlier train. Welsberg (Monguelfo-Tesido) back to Olang (Valdaora-Anterselva) is a couple of stops.",
+      "Sand in Taufers has no train; roll back down-valley or check the Ahrntal bus for bike space.",
     ],
   },
   {

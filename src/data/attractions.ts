@@ -665,7 +665,7 @@ export const ATTRACTIONS: Attraction[] = [
     image: "img/olang-bike.jpg",
     price: {
       free: true,
-      note: "Path free; bike hire in Olang extra, and the Pustertal train back is covered by the Südtirol Guest Pass.",
+      note: "Path free; bike hire in Olang extra. Your own train ride back is free with the Südtirol Guest Pass, but bikes need a separate bike day ticket (€7, or €3.50 with a full Südtirol Pass).",
     },
     wiki: "Olang",
     name: "Family bike: Olang to Welsberg",
